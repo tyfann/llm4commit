@@ -1,0 +1,20 @@
+[
+    {
+        "msg": "Merge pull request from mikemonteith / master",
+        "diff": "diff --git a/MPChartLib/src/com/github/mikephil/charting/renderer/PieChartRenderer.java  b/MPChartLib/src/com/github/mikephil/charting/renderer/PieChartRenderer.java \npublic void drawValues(Canvas c){ \npublic void drawExtras(Canvas c){// drawCircles(c); \ndrawHole(c);-c.drawBitmap(mDrawBitmap,0,0,mRenderPaint);+c.drawBitmap(mDrawBitmap,0,0,null); \ndrawCenterText(c); \n} \n",
+        "nngen": "Seems that System . gc ( ) call is not necessary\n",
+        "nmt": "Merge pull request from <unk> / master\n",
+        "codebert": "Merge pull request from danielgindi / master\n",
+        "language": "java",
+        "chatgpt": "Fix drawExtras method in PieChartRenderer to correctly draw bitmap without mRenderPaint."
+    },
+    {
+        "msg": "Refactor orchestration yaml configuration .",
+        "diff": "diff --git a/sharding-jdbc-orchestration/src/main/java/io/shardingjdbc/orchestration/yaml/YamlOrchestrationConfiguration.java  b/sharding-jdbc-orchestration/src/main/java/io/shardingjdbc/orchestration/yaml/YamlOrchestrationConfiguration.java*@ return orchestration master-slave rule configuration from yaml*/ \npublic OrchestrationConfiguration getOrchestrationConfiguration(){+ if(null!= etcd&& null!= zookeeper){+throw new RuntimeException(\" Can't config both zookeeper and etcd as registry center!\");+} \nreturn new OrchestrationConfiguration(getName(),null!= etcd?etcd:zookeeper,overwrite);}} \n",
+        "nngen": "delete type\n",
+        "nmt": "orchestration orchestration master slave support\n",
+        "codebert": "For checkstyle .\n",
+        "language": "java",
+        "chatgpt": "Fix: Can't config both zookeeper and etcd as registry center in YamlOrchestrationConfiguration."
+    }
+]
