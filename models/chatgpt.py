@@ -3,7 +3,8 @@ import json
 
 client = OpenAI(
     # defaults to os.environ.get("OPENAI_API_KEY")
-    api_key="sk-0rLvuRkMiD4Mw25QYygh6rUlZVjpQWNGNF4yez7z3PZ7yCOm",
+    # api_key="sk-0rLvuRkMiD4Mw25QYygh6rUlZVjpQWNGNF4yez7z3PZ7yCOm",
+    api_key="sk-tMbkq3K1iO5vf0FRMlrmzslGXJZwE0us3mve4QXuvpnZcumG",
     base_url="https://api.chatanywhere.tech/v1"
     # base_url="https://api.chatanywhere.cn/v1"
 )
