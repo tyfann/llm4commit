@@ -1,1 +1,8 @@
 .idea
+/models/models--meta-llama--Llama-2-7b-chat-hf/
+/models/models--TheBloke--Llama-2-7B-GPTQ/
+/rag/chroma_db/
+/data/rag_data.json
+/data/model_CodeBERT/
+/data/model_NMT/
+/data/model_NNGen/
