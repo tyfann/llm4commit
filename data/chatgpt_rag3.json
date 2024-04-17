@@ -1,0 +1,1002 @@
+[
+    {
+        "msg": "Merge pull request from mikemonteith / master",
+        "diff": "diff --git a/MPChartLib/src/com/github/mikephil/charting/renderer/PieChartRenderer.java  b/MPChartLib/src/com/github/mikephil/charting/renderer/PieChartRenderer.java \npublic void drawValues(Canvas c){ \npublic void drawExtras(Canvas c){// drawCircles(c); \ndrawHole(c);-c.drawBitmap(mDrawBitmap,0,0,mRenderPaint);+c.drawBitmap(mDrawBitmap,0,0,null); \ndrawCenterText(c); \n} \n",
+        "nngen": "Seems that System . gc ( ) call is not necessary\n",
+        "nmt": "Merge pull request from <unk> / master\n",
+        "codebert": "Merge pull request from danielgindi / master\n",
+        "language": "java",
+        "chatgpt": "Fix drawExtras method in PieChartRenderer to correctly draw bitmap without mRenderPaint.",
+        "chatgpt_rag": "Change access levels for draw methods in PieChartRenderer, LineChartRenderer, and RadarChartRenderer for"
+    },
+    {
+        "msg": "Refactor orchestration yaml configuration .",
+        "diff": "diff --git a/sharding-jdbc-orchestration/src/main/java/io/shardingjdbc/orchestration/yaml/YamlOrchestrationConfiguration.java  b/sharding-jdbc-orchestration/src/main/java/io/shardingjdbc/orchestration/yaml/YamlOrchestrationConfiguration.java*@ return orchestration master-slave rule configuration from yaml*/ \npublic OrchestrationConfiguration getOrchestrationConfiguration(){+ if(null!= etcd&& null!= zookeeper){+throw new RuntimeException(\" Can't config both zookeeper and etcd as registry center!\");+} \nreturn new OrchestrationConfiguration(getName(),null!= etcd?etcd:zookeeper,overwrite);}} \n",
+        "nngen": "delete type\n",
+        "nmt": "orchestration orchestration master slave support\n",
+        "codebert": "For checkstyle .\n",
+        "language": "java",
+        "chatgpt": "Fix: Can't config both zookeeper and etcd as registry center in YamlOrchestrationConfiguration.",
+        "chatgpt_rag": "Add method to load master-slave rule configuration in ConfigurationService.java."
+    },
+    {
+        "msg": "GT - 360 corrected usage text",
+        "diff": "diff --git a/Ghidra/Features/GhidraServer/src/main/java/ghidra/server/ServerAdmin.java  b/Ghidra/Features/GhidraServer/src/main/java/ghidra/server/ServerAdmin.java \nprivate void displayUsage(String msg){ \nSystem.err.println(\"\\nSupported commands:\"); \nSystem.err.println(\"-add<sid>[-- p]\"); \nSystem.err.println(-\"Add a new user to the server identified by their sid identifier[- p prompt for password]\");+\" Add a new user to the server identified by their sid identifier[--p prompt for password]\"); \nSystem.err.println(\"-remove<sid>\"); \nSystem.err.println(\" Remove the specified user from the server's user list\");System.err.println(\"-reset<sid>[-- p]\"); \nSystem.err.println(-\"Reset the specified user's server login password[- p prompt for password]\");+\" Reset the specified user's server login password[--p prompt for password]\"); \nSystem.err.println(\"-dn<sid>\\\"< dname>\\\"\"); \nSystem.err.println(\" When PKI authentication is used,add the specified X500 Distinguished Name for a user\") ; \n",
+        "nngen": "DanielWagnerHall : Reformatting revision 13972\n",
+        "nmt": "Merge remote - tracking branch ' origin / GT - <unk> '\n",
+        "codebert": "Merge remote - tracking branch ' origin / patch '\n",
+        "language": "java",
+        "chatgpt": "Fixed displayUsage method in ServerAdmin.java to correctly show usage commands and options for adding, removing, and resetting users on the server.",
+        "chatgpt_rag": "Include only function name for UserDefinedFunction profiling."
+    },
+    {
+        "msg": "Publish build - style . md and bzl - style . md",
+        "diff": "diff --git a/site/_layouts/documentation.html  b/site/_layouts/documentation.html<h3>Extensions</ h3>< li>< a href=\"{{ page.version_prefix}}/docs/skylark/cookbook.html\"> Examples</ a></li>< li>< a href=\"{{ page.version_prefix}}/docs/skylark/deploying.html\"> Packaging rules</ a></li>< li>< a href=\" https://skydoc.bazel.build\"target=\" _blank\"> Documenting rules</ a></li>+<li>< a href=\"{{ page.version_prefix}}/docs/skylark/build-style.html\"> Style guide for BUILD files</ a></li>+<li>< a href=\"{{ page.version_prefix}}/docs/skylark/bzl-style.html\"> Style guide for bzl files</ a></li></ul></nav></div > \n",
+        "nngen": "Fix link to Skyark Linter docs from main docs navigation\n",
+        "nmt": "Add documentation for the new <unk> .\n",
+        "codebert": "Add Bazel style guide\n",
+        "language": "java",
+        "chatgpt": "Added style guides for BUILD and bzl files in documentation layout.",
+        "chatgpt_rag": "Add Documenting Rules link to skydoc.bazel.io."
+    },
+    {
+        "msg": "Translated using Weblate ( Russian )",
+        "diff": "diff --git a/app/src/main/res/values-ru/strings.xml  b/app/src/main/res/values-ru/strings.xml<string name=\" fragment_whats_new\"> Что нового</ string>< string name=\" enable_search_history_title\"> История поиска</ string>-<string name=\" enable_search_history_summary\"> Хранить поисковые запросы локально</ string>+<string name=\" enable_search_history_summary\"> Хранить запросы поиска локально</ string>< string name=\" enable_watch_history_title\"> История и кэш</ string>-<string name=\" enable_watch_history_summary\"> Запоминать просмотренные видео</ string>+<string name=\" enable_watch_history_summary\"> Запоминать воспроизведённые потоки</ string>< string name=\" resume_on_audio_focus_gain_title\"> Возобновить при фокусе</ string>< string name=\" resume_on_audio_focus_gain_summary\"> Возобновлять воспроизведение после перерывов(например,телефонных звонков)</string>< string name=\" delete_view_history_alert\"> Вся история просмотров будет удалена.</string>< string name=\" view_history_deleted\"> История просмотров удалена</ string>< string name=\" clear_search_history_title\"> Очистить историю поиска</ string>-<string name=\" clear_search_history_summary\"> Удалить историю поисковых запросов</ string>+<string name=\" clear_search_history_summary\"> Удалить историю запросов поиска</ string>< string name=\" clear_views_history_summary\"> Удалить историю воспроизведённых потоков</ string>< string name=\" delete_search_history_alert\"> Вся история поиска будет удалена.</string>< string name=\" search_history_deleted\"> История поиска удалена</ string > \n",
+        "nngen": "Translated using Weblate ( Russian )\n",
+        "nmt": "Translated using Weblate ( Russian )\n",
+        "codebert": "Translated using Weblate ( Russian )\n",
+        "language": "java",
+        "chatgpt": "Refactor Russian language strings for better consistency and clarity in search history and watch history.",
+        "chatgpt_rag": "Translated using Weblate ( Russian and Bulgarian ) - Updated translations for search and watch history, playback"
+    },
+    {
+        "msg": "Bael 3766 update README ( )",
+        "diff": "diff --git a/persistence-modules/java-jpa-2/README.md  b/persistence-modules/java-jpa-2/README.md \nThis module contains articles about the Java Persistence API(JPA)in Java.-[JPA Annotation for the PostgreSQL TEXT Type]( https://www.baeldung.com/jpa-annotation-postgresql-text-type)-[Mapping a Single Entity to Multiple Tables in JPA]( https://www.baeldung.com/jpa-mapping-single-entity-to-multiple-tables)-[Constructing a JPA Query Between Unrelated Entities]( https://www.baeldung.com/jpa-query-unrelated-entities)+-[ When Does JPA Set the Primary Key]( https://www.baeldung.com/jpa-strategies-when-set-primary-key)- More articles:[[<-- prev]](/ java-jpa ) \n",
+        "nngen": "Merge pull request from eugenp / JonCook - BAEL - 3089\n",
+        "nmt": "Merge pull request from johnA1331 / master\n",
+        "codebert": "Merge pull request from johnA1331 / master\n",
+        "language": "java",
+        "chatgpt": "Updated README for java-jpa-2 module, added article on JPA setting primary keys. (Added: 1, Removed: 0, Modified: 0)",
+        "chatgpt_rag": "Added back-link to JPA Query Parameters Usage article."
+    },
+    {
+        "msg": "Fix problematic chars in javadoc",
+        "diff": "diff --git a/modules/rank-eval/src/test/java/org/elasticsearch/index/rankeval/ExpectedReciprocalRankTests.java  b/modules/rank-eval/src/test/java/org/elasticsearch/index/rankeval/ExpectedReciprocalRankTests.java \npublic void testProbabilityOfRelevance(){* 4|1|0.03125|0.078125|0.00244140625|*}</pre>*-* err=> sum of last column+* err=sum of last column*/ \npublic void testERRAt(){List<RatedDocument>rated=new ArrayList<>();public void testERRAt(){* 4|1|0.03125|0.125|0.00390625|*}</pre>*-* err=> sum of last column+* err=sum of last column*/ \npublic void testERRMissingRatings(){List<RatedDocument>rated=new ArrayList<>();diff --git a/x-pack/plugin/sql/src/main/java/org/elasticsearch/xpack/sql/expression/function/scalar/string/StringFunctionUtils.java  b/x-pack/plugin/sql/src/main/java/org/elasticsearch/xpack/sql/expression/function/scalar/string/StringFunctionUtils.java \npackage org.elasticsearch.xpack.sql.expression.function.scalar.string;abstract class StringFunctionUtils{-+/**-* Trims the trailing whitespace characters from the given String.Uses{@ link java.lang.Character.isWhitespace(char)}+* Trims the trailing whitespace characters from the given String.Uses@link java.lang.Character.isWhitespace(char)* to determine if a character is whitespace or not.**@ param s the original String \nstatic String trimTrailingWhitespaces(String s){ \nif(! hasLength(s)){return s;}-+ \nStringBuilder sb=new StringBuilder(s); \nwhile(sb.length()>0&& Character.isWhitespace(sb.charAt(sb.length()-1))){ \nsb.deleteCharAt(sb.length()-1);}return sb.toString();}-+/**-*Trims the leading whitespace characters from the given String.Uses{@ link java.lang.Character.isWhitespace(char)}+* Trims the leading whitespace characters from the given String.Uses@link java.lang.Character.isWhitespace(char)* to determine if a character is whitespace or not.**@ param s the original String \nstatic String trimLeadingWhitespaces(String s){ \nif(! hasLength(s)){return s;}-+ \nStringBuilder sb=new StringBuilder(s); \nwhile(sb.length()>0&& Character.isWhitespace(sb.charAt(0))){ \nsb.deleteCharAt(0); \n",
+        "nngen": "SQL : Use java String methods for LTRIM / RTRIM ( )\n",
+        "nmt": "Merge pull request from nik9000 / <unk>\n",
+        "codebert": "Fix typo\n",
+        "language": "java",
+        "chatgpt": "Fixing ERR calculations and whitespace trimming methods in test classes and StringFunctionUtils class.",
+        "chatgpt_rag": "\"Refactor: Update score to Float.NaN when no max score available in tests.\""
+    },
+    {
+        "msg": "Fix DataSourceConfiguration isTestOnReturn ( )",
+        "diff": "diff --git a/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/jdbc/BasicDataSourceConfiguration.java  b/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/jdbc/BasicDataSourceConfiguration.java \npublic DataSource dataSource(){this.pool.setMaxIdle(getMaxIdle()); \nthis.pool.setMinIdle(getMinIdle()); \nthis.pool.setTestOnBorrow(isTestOnBorrow());-this.pool.setTestOnReturn(isTestOnBorrow());+this.pool.setTestOnReturn(isTestOnReturn()); \nthis.pool.setValidationQuery(getValidationQuery()); \nreturn this.pool;} \ndiff --git a/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/jdbc/TomcatDataSourceConfiguration.java  b/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/jdbc/TomcatDataSourceConfiguration.java \npublic DataSource dataSource(){this.pool.setMaxIdle(getMaxIdle()); \nthis.pool.setMinIdle(getMinIdle()); \nthis.pool.setTestOnBorrow(isTestOnBorrow());-this.pool.setTestOnReturn(isTestOnBorrow());+this.pool.setTestOnReturn(isTestOnReturn()); \nthis.pool.setValidationQuery(getValidationQuery()); \nreturn this.pool;} \n",
+        "nngen": "Add destroyMethods to DataSources\n",
+        "nmt": "Polish\n",
+        "codebert": "Polish\n",
+        "language": "java",
+        "chatgpt": "Fix setting of TestOnReturn property in BasicDataSourceConfiguration and TomcatDataSourceConfiguration.",
+        "chatgpt_rag": "Fix JndiDataSourceAutoConfiguration cycle issue with MBeanExporter exclusion."
+    },
+    {
+        "msg": "Merge pull request from dreis2211",
+        "diff": "diff --git a/ci/pipeline.yml  b/ci/pipeline.yml \nresource_types:- name:pull-request \ntype:docker-image \nsource:- repository:jtarchie/pr+repository:teliaoss/github-pr-resource-name:github-status-resource \ntype:docker-image \nsource:resources:icon:source-pull \nsource:access_token:((github-ci-pull-request-token))-repo:((github-repo-name))-base:((branch))+repository:((github-repo-name))+base_branch:((branch)) \nignore_paths:[\"ci/*\"]-name:github-pre-release \ntype:github-release \n",
+        "nngen": "Replace deprecated Concourse resource for pull requests\n",
+        "nmt": "Update <unk>\n",
+        "codebert": "Merge pull request from dreis2211\n",
+        "language": "java",
+        "chatgpt": "Updated pipeline.yml resource_types to include github-status-resource and removed github-pre-release resource.",
+        "chatgpt_rag": "Replace deprecated Concourse resource for pull requests."
+    },
+    {
+        "msg": "using this . getClass ( ) instead of getClass ( ) makes hudson - core compilable from Eclipse . See http : / / thread . gmane . org / gmane . comp . java . hudson . devel / 1128 for details and discussion .",
+        "diff": "diff --git a/core/src/main/java/hudson/matrix/MatrixProject.java  b/core/src/main/java/hudson/matrix/MatrixProject.java \nprotected void submit(StaplerRequest req,StaplerResponse rsp)throws IOExceptio \nbuildWrappers=buildDescribable(req,BuildWrappers.getFor(this),\"wrapper\");builders=Descriptor.newInstancesFromHeteroList(req,StructuredForm.get(req),\"builder\", BuildStep.BUILDERS);-publishers=buildDescribable(req,BuildStepDescriptor.filter(BuildStep.PUBLISHERS,getClass()),\"publisher\");++publishers=buildDescribable(req,BuildStepDescriptor.filter(BuildStep.PUBLISHERS,this.getClass()),\"publisher\");updateTransientActions();//to pick up transient actions from builder,publisher,etc.rebuildConfigurations();diff --git a/core/src/main/java/hudson/maven/MavenModuleSet.java  b/core/src/main/java/hudson/maven/MavenModuleSet.java \nprotected void submit(StaplerRequest req,StaplerResponse rsp)throws IOExceptio \nJSONObject json=StructuredForm.get(req); \nreporters.rebuild(req,json,MavenReporters.getConfigurableList(),\" reporter\");- publishers.rebuild(req,json,BuildStepDescriptor.filter(BuildStep.PUBLISHERS,getClass()),\"publisher\");+ publishers.rebuild(req,json,BuildStepDescriptor.filter(BuildStep.PUBLISHERS,this.getClass()),\"publisher\");updateTransientActions();//to pick up transient actions from builder,publisher,etc.} \ndiff --git a/core/src/main/java/hudson/model/Project.java  b/core/src/main/java/hudson/model/Project.java \nprotected void submit(StaplerRequest req,StaplerResponse rsp)throws IOExcept \nbuildWrappers=buildDescribable(req,BuildWrappers.getFor(this),\"wrapper\");builders=Descriptor.newInstancesFromHeteroList(req,StructuredForm.get(req),\"builder\", BuildStep.BUILDERS);-publishers=buildDescribable(req,BuildStepDescriptor.filter(BuildStep.PUBLISHERS,getClass()),\"publisher\");+ publishers=buildDescribable(req,BuildStepDescriptor.filter(BuildStep.PUBLISHERS,this.getClass()),\"publisher\");updateTransientActions();//to pick up transient actions from builder,publisher,etc.} \n",
+        "nngen": "avoid double invocation of updateTransientActions by moving it to doConfigSubmit .\n",
+        "nmt": "Merge pull request from <unk> / master\n",
+        "codebert": "Merge pull request from jglick / BuildStepDescriptor\n",
+        "language": "java",
+        "chatgpt": "Refactor submit method in MatrixProject, MavenModuleSet, and Project classes to use this.getClass() for filtering publishers.",
+        "chatgpt_rag": "Fixed IllegalArgumentException in configuration submission for Maven2 job."
+    },
+    {
+        "msg": "Pass Options . ime ( ) through to the wrapped driver .",
+        "diff": "diff --git a/java/client/src/org/openqa/selenium/support/events/EventFiringWebDriver.java  b/java/client/src/org/openqa/selenium/support/events/EventFiringWebDriver.java \npublic Timeouts timeouts(){} \npublic ImeHandler ime(){- throw new UnsupportedOperationException(\" Driver does not support IME interactions\");+ return options.ime();}@Beta \n",
+        "nngen": "[ Java ] Add toString ( ) to DefaultElementLocator\n",
+        "nmt": "[ java ] Deleting unused method\n",
+        "codebert": "[ java ] Fixing EventFiringWebDriver . ime ( )\n",
+        "language": "java",
+        "chatgpt": "Add support for IME interactions in EventFiringWebDriver by returning options.ime(); method, replacing UnsupportedOperationException message.",
+        "chatgpt_rag": "Implement w3c timeouts command for IME interactions in EventFiringWebDriver.java."
+    },
+    {
+        "msg": "Use a list to collect unmarked MultiGuardNodes",
+        "diff": "diff --git a/compiler/src/org.graalvm.compiler.nodes/src/org/graalvm/compiler/nodes/util/GraphUtil.java  b/compiler/src/org.graalvm.compiler.nodes/src/org/graalvm/compiler/nodes/util/GraphUtil.java \nprivate static void markUsagesForKill(EconomicSet<Node>markedNodes){ \nfor(Node marked:markedNodes){ \nworkStack.push(marked);}- EconomicSet<MultiGuardNode>unmarkedMultiGuards=EconomicSet.create();+ ArrayList<MultiGuardNode>unmarkedMultiGuards=new ArrayList<>();while(! workStack.isEmpty()){ \nNode marked=workStack.pop();for(Node usage:marked.usages()){ \nprivate static void markUsagesForKill(EconomicSet<Node>markedNodes){ \nif(! markedNodes.contains(guard)){doMark=false;unmarkedMultiGuards.add(multiGuard);-break;}}} \n",
+        "nngen": "[ GR - 23863 ] Be careful with MultiGuardNodes in GraphUtil . killCFGInner .\n",
+        "nmt": "Fix <unk> .\n",
+        "codebert": "Merge\n",
+        "language": "java",
+        "chatgpt": "Refactor markUsagesForKill method in GraphUtil.java to use ArrayList instead of EconomicSet for unmarkedMultiGuards.",
+        "chatgpt_rag": "Refactor markUsagesForKill method in GraphUtil for MultiGuardNode handling in killCFGInner"
+    },
+    {
+        "msg": "use fenced code blocks to make < init > visible",
+        "diff": "diff --git a/HOWTO.md  b/HOWTO.md \nIt's also possible to remove previously posted sticky events using one of the re \nProGuard configuration \ndiff --gitdiff --gitdiff --gitdiff --gitdiff --gitdiff --gitdiff --git-ProGuard obfuscates method names.However,the onEvent methods must not renamed because they are accessed using reflection.Use the following snip in your ProGuard configuration file(proguard.cfg):-< pre>< code>- keepclassmembers class**{++```+- keepclassmembers class**{public void onEvent*(**);}ProGuard obfuscates method names.However,the onEvent methods must not renamed-keepclassmembers class*extends de.greenrobot.event.util.ThrowableFailureEvent{< init>( java.lang.Throwable);}-</ code></pre>+```AsyncExecutor \n",
+        "nngen": "fixed markdown for README . md\n",
+        "nmt": "Update <unk> . md\n",
+        "codebert": "reformat code\n",
+        "language": "java",
+        "chatgpt": "Update ProGuard configuration to preserve onEvent methods and remove sticky events. Fix obfuscation issue with onEvent method names.",
+        "chatgpt_rag": "Updated ProGuard configuration to keep onEvent methods unrenamed when using @Subscribe annotation for EventBus "
+    },
+    {
+        "msg": "Use project - wide properties and new dependency",
+        "diff": "diff --git a/src/android/build.gradle  b/src/android/build.gradle \napply plugin:' com.android.library'apply from:' gradle-maven-push.gradle'+ def DEFAULT_COMPILE_SDK_VERSION=26+def DEFAULT_BUILD_TOOLS_VERSION=\" 26.0.1\"+ def DEFAULT_TARGET_SDK_VERSION=26+def DEFAULT_MIN_SDK_VERSION=16+android{- compileSdkVersion 26-buildToolsVersion\"26.0.1\"+ compileSdkVersion rootProject.hasProperty(' compileSdkVersion')?rootProject.compileSdkVersion:DEFAULT_COMPILE_SDK_VERSION+buildToolsVersion rootProject.hasProperty(' buildToolsVersion')?rootProject.buildToolsVersion:DEFAULT_BUILD_TOOLS_VERSION \npublishNonDefault true \ndefaultConfig{- minSdkVersion 16-targetSdkVersion 26+minSdkVersion rootProject.hasProperty(' minSdkVersion')?rootProject.minSdkVersion:DEFAULT_MIN_SDK_VERSION+targetSdkVersion rootProject.hasProperty(' targetSdkVersion')?rootProject.targetSdkVersion:DEFAULT_TARGET_SDK_VERSION}lintOptions{android{} \ndependencies{- provided\"com.facebook.react:react-native:+\"- compile'com.airbnb.android:lottie:2.5.+'+ compileOnly\"com.facebook.react:react-native:+\"+ implementation'com.airbnb.android:lottie:2.5.+'} \n",
+        "nngen": "Refactor + RN 0 . 56\n",
+        "nmt": "Merge pull request from <unk> / <unk>\n",
+        "codebert": "Update build . gradle\n",
+        "language": "java",
+        "chatgpt": "Update compile SDK, build tools, target SDK, and min SDK versions to default values in Android build.gradle file.",
+        "chatgpt_rag": "Refactor + RN 0.56"
+    },
+    {
+        "msg": "Add Influencer . influencer_field_value to custom all field ( elastic / elasticsearch )",
+        "diff": "diff --git a/elasticsearch/src/main/java/org/elasticsearch/xpack/prelert/job/persistence/ElasticsearchMappings.java  b/elasticsearch/src/main/java/org/elasticsearch/xpack/prelert/job/persistence/ElasticsearchMappings.java \nprivate ElasticsearchMappings(){*<li>AnomalyCause.by_field_value</ li>*<li>AnomalyCause.partition_field_value</ li>*<li>AnomalyCause.over_field_value</ li>-*< li>Influencer.influencer_field_values</ li>+*< li>AnomalyRecord.Influencers.influencer_field_values</ li>+*< li>Influencer.influencer_field_value</ li>*</ ul>**@ param termFieldNames All the term fields(by,over,partition)and influencers \nprivate static XContentBuilder addInfluencerFieldsToMapping(XContentBuilder buil.endObject().startObject(Influencer.INFLUENCER_FIELD_VALUE.getPreferredName()). field(TYPE,KEYWORD)+.field(COPY_TO,ALL_FIELD_VALUES). endObject();return builder ; \n",
+        "nngen": "added missing package description\n",
+        "nmt": "[ ML ] [ Inference ] fixed <unk> ( elastic / elasticsearch )\n",
+        "codebert": "Fix compilation errors after elastic / elasticsearch ( elastic / elasticsearch )\n",
+        "language": "java",
+        "chatgpt": "Add AnomalyRecord.Influencers.influencer_field_values, remove Influencer.influencer_field_values, and update Elasticsearch mapping for influencers in Prelert job persistence.",
+        "chatgpt_rag": "Refactor term statistics loading logic in TermVectorsWriter.java."
+    },
+    {
+        "msg": "add 0 . 18 . 6",
+        "diff": "diff --git a/modules/elasticsearch/src/main/java/org/elasticsearch/Version.java  b/modules/elasticsearch/src/main/java/org/elasticsearch/Version.java \npublic static final Version V_0_18_4=new Version(V_0_18_4_ID,false); \npublic static final int V_0_18_5_ID=/*00*/ 180599;public static final Version V_0_18_5=new Version(V_0_18_5_ID,false);+public static final int V_0_18_6_ID=/*00*/ 180699;+ public static final Version V_0_18_6=new Version(V_0_18_6_ID,false); \npublic static final int V_0_19_0_ID=/*00*/ 190099;public static final Version V_0_19_0=new Version(V_0_19_0_ID,true); \nprivate static Version fromId(int id){ \nreturn V_0_18_4;case V_0_18_5_ID:return V_0_18_5;+ case V_0_18_6_ID:+ return V_0_18_6;case V_0_19_0_ID:return V_0_19_0;default : \n",
+        "nngen": "add 0 . 18 . 5 version\n",
+        "nmt": "add 1 . 1 . 0 version\n",
+        "codebert": "add 0 . 18 . 6\n",
+        "language": "java",
+        "chatgpt": "Added support for version 0.18.6 in Version.java file.",
+        "chatgpt_rag": "Added version 0.18.5."
+    },
+    {
+        "msg": "Add defines to experimental_objc_library .",
+        "diff": "diff --git a/src/main/java/com/google/devtools/build/lib/rules/objc/ExperimentalObjcLibrary.java  b/src/main/java/com/google/devtools/build/lib/rules/objc/ExperimentalObjcLibrary.java \npackage com.google.devtools.build.lib.rules.objc;+ import static com.google.devtools.build.lib.rules.objc.ObjcProvider.DEFINE;import static com.google.devtools.build.lib.rules.objc.XcodeProductType.LIBRARY_STATIC;import com.google.common.collect.ImmutableList;import com.google.devtools.build.lib.rules.cpp.CppRuleClasses;import com.google.devtools.build.lib.rules.cpp.Link.LinkTargetType;import com.google.devtools.build.lib.rules.cpp.PrecompiledFiles;+ import com.google.devtools.build.lib.rules.objc.ObjcCommon.ResourceAttributes;import java.util.Collection;/** Implementation for experimental_objc_library.*/public ConfiguredTarget create(RuleContext ruleContext). addSources(arcSources,ImmutableMap.of(\" objc_arc\",\"\")).addSources(nonArcSources,ImmutableMap.of(\" no_objc_arc\",\"\")).addSources(privateHdrs)+.addDefines(common.getObjcProvider().get(DEFINE)).enableCompileProviders().addPublicHeaders(publicHdrs). addPrecompiledFiles(precompiledFiles)public ConfiguredTarget create(RuleContext ruleContext). registerActions(xcodeProviderBuilder.build()); \nreturn ObjcRuleClasses.ruleConfiguredTarget(ruleContext,filesToBuild.build())+.addProvider(ObjcProvider.class,common.getObjcProvider()). addProviders(info.getProviders()). addProvider(XcodeProvider.class,xcodeProviderBuilder.build()). build();private void validateAttributes(RuleContext ruleContext){}}-private static ObjcCommon common(+/**+*Constructs an{@ link ObjcCommon}instance based on the attributes of the given rule context.+*/+private ObjcCommon common(RuleContext ruleContext,CompilationAttributes compilationAttributes,CompilationArtifacts compilationArtifacts){ \nreturn new ObjcCommon.Builder(ruleContext). setCompilationAttributes(compilationAttributes)+.setResourceAttributes(new ResourceAttributes(ruleContext))+. addDefines(ruleContext.getTokenizedStringListAttr(\" defines\")). setCompilationArtifacts(compilationArtifacts)-.addDepObjcProviders(ruleContext.getPrerequisites(\" deps\", Mode.TARGET,ObjcProvider.class))+. addDeps(ruleContext.getPrerequisites(\" deps\", Mode.TARGET))+. addRuntimeDeps(ruleContext.getPrerequisites(\" runtime_deps\", Mode.TARGET))+. setIntermediateArtifacts(ObjcRuleClasses.intermediateArtifacts(ruleContext)).build();} \n",
+        "nngen": "Add missing fields to ObjcCommon for experimental_objc_library .\n",
+        "nmt": "Open source <unk>\n",
+        "codebert": "Add experimental_objc_library to experimental_objc_library .\n",
+        "language": "java",
+        "chatgpt": "Add ObjcProvider and ResourceAttributes, modify create method to use them in ExperimentalObjcLibrary.java.",
+        "chatgpt_rag": "Support test execution on darwin for cc_test."
+    },
+    {
+        "msg": "Insert ephemeral IDs + correct pipeline event stats into the logstash_stats document ( elastic / x - pack - elasticsearch )",
+        "diff": "diff --git a/plugin/src/main/resources/monitoring-logstash.json  b/plugin/src/main/resources/monitoring-logstash.json\"name\":{\" type\":\"keyword\"},+\"ephemeral_id\":{+\"type\":\"keyword\"+},\"host\":{\" type\":\"keyword\"},\" hash\":{\" type\":\"keyword\"},+\"ephemeral_id\":{+\"type\":\"keyword\"+},\"events\":{\" properties\":{-\"input\":{+\"in\":{\" type\":\"long\"},-\"filter\":{+\"filtered\":{\" type\":\"long\"},-\"output\":{+\"out\":{\" type\":\"long\"} \n} \n",
+        "nngen": "[ Monitoring ] Support new Kibana mappings for Detecting Cloud ( elastic / x - pack - elasticsearch )\n",
+        "nmt": "[ Monitoring ] Add <unk> to <unk> ( elastic / x - pack - elasticsearch )\n",
+        "codebert": "Add ephemeral_id to logstash_id . json ( elastic / x - pack - elasticsearch )\n",
+        "language": "java",
+        "chatgpt": "Add ephemeral_id field as keyword type. Update input, filtered, and output to use a long type in monitoring-logstash.json.",
+        "chatgpt_rag": "Update logstash mappings with pipeline id and correct metric types."
+    },
+    {
+        "msg": "Merge pull request from manuelbua / custom - simult - audio - sources",
+        "diff": "diff --git a/backends/gdx-backend-lwjgl/src/com/badlogic/gdx/backends/lwjgl/LwjglApplication.java  b/backends/gdx-backend-lwjgl/src/com/badlogic/gdx/backends/lwjgl/LwjglApplication.java \npackage com.badlogic.gdx.backends.lwjgl;+ import java.awt.Canvas;+ import java.util.HashMap;+ import java.util.Map;++import org.lwjgl.LWJGLException;+ import org.lwjgl.opengl.Display;+ \nimport com.badlogic.gdx.Application;import com.badlogic.gdx.ApplicationListener;import com.badlogic.gdx.Audio;import com.badlogic.gdx.utils.Clipboard;import com.badlogic.gdx.utils.GdxRuntimeException;- import java.awt.Canvas;- import java.util.HashMap;- import java.util.Map;--import org.lwjgl.LWJGLException;- import org.lwjgl.opengl.Display;-/**An OpenGL surface fullscreen or in a lightweight window.*/public class LwjglApplication implements Application{protected final LwjglGraphics graphics;public LwjglApplication(ApplicationListener listener,LwjglApplicationConfigura \nthis.graphics=graphics;if(! LwjglApplicationConfiguration.disableAudio)- audio=new OpenALAudio(16,config.audioDeviceBufferCount,config.audioDeviceBufferSize);+audio=new OpenALAudio(config.audioDeviceSimultaneousSources,config.audioDeviceBufferCount,+ config.audioDeviceBufferSize); \nfiles=new LwjglFiles();input=new LwjglInput();net=new LwjglNet();private static LwjglApplicationConfiguration createConfig(String title,int wid \nprivate void initialize(){mainLoopThread=new Thread(\" LWJGL Application\"){+@Override \npublic void run(){graphics.setVSync(graphics.config.vSyncEnabled); \ntry{public void debug(String tag,String message,Throwable exception){}}+@ Override \npublic void log(String tag,String message){ \nif(logLevel>= LOG_INFO){ \nSystem.out.println(tag+\":\"+message); \ndiff --git a/backends/gdx-backend-lwjgl/src/com/badlogic/gdx/backends/lwjgl/LwjglApplicationConfiguration.java  b/backends/gdx-backend-lwjgl/src/com/badlogic/gdx/backends/lwjgl/LwjglApplicationConfiguration.java \npackage com.badlogic.gdx.backends.lwjgl;+ import java.awt.GraphicsDevice;+ import java.awt.GraphicsEnvironment;+ import java.util.ArrayList;+ \nimport com.badlogic.gdx.Application;import com.badlogic.gdx.Files.FileType;import com.badlogic.gdx.Graphics;import com.badlogic.gdx.graphics.Color;import com.badlogic.gdx.utils.Array;- import java.awt.GraphicsDevice;- import java.awt.GraphicsEnvironment;- import java.util.ArrayList;- \npublic class LwjglApplicationConfiguration{/** If true,OpenAL will not be used.This means{@ link Application#getAudio()}returns null and the gdx-openal.jar and OpenAL*natives are not needed.*/public boolean forceExit=true;/** whether the window is resizable**/public boolean resizable=true;+/**the maximum number of sources that can be played simultaneously*/+public int audioDeviceSimultaneousSources=16;/** the audio device buffer size in samples**/public int audioDeviceBufferSize=512;/** the audio device buffer count** / \n",
+        "nngen": "Add user - configurable number of simultaneously playing audio sources\n",
+        "nmt": "Merge pull request from <unk> / master\n",
+        "codebert": "Merge remote - tracking branch ' origin / master '\n",
+        "language": "java",
+        "chatgpt": "Add support for setting the maximum number of audio sources and override run method in LWJGL Application.",
+        "chatgpt_rag": "\"Added user-configurable audio sources setting\""
+    },
+    {
+        "msg": "Add a few todos for implementing monitor lookup ownership on native method frames",
+        "diff": "diff --git a/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/nodes/EspressoRootNode.java  b/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/nodes/EspressoRootNode.java \npublic Object execute(VirtualFrame frame){ \nBytecodeNode bytecodeNode=getBytecodeNode();bytecodeNode.methodMonitorEnter(frame,monitor);}else{+// TODO(Gregersen)- register monitors on frames for non-bytecode methods \nInterpreterToVM.monitorEnter(monitor);}Object result;public Object execute(VirtualFrame frame){ \ngetBytecodeNode().monitorExit(frame,monitor);}} else{+// TODO(Gregersen)- exit monitors on frames for non-bytecode methods \nInterpreterToVM.monitorExit(monitor);}} \n",
+        "nngen": "Do not push monitor of synchronized method . Will be freed in finally : prevents double exits .\n",
+        "nmt": "Add comment about <unk> .\n",
+        "codebert": "Add some TODOs .\n",
+        "language": "java",
+        "chatgpt": "Refactored monitor handling in EspressoRootNode.java to support non-bytecode methods. Added todo for future improvements.",
+        "chatgpt_rag": "Refactor initMonitorStack to accept a MonitorStack parameter for better flexibility and usability."
+    },
+    {
+        "msg": "[ Data - Frame ] make the config be strictly parsed on _preview ( )",
+        "diff": "diff --git a/x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/dataframe/action/PreviewDataFrameTransformAction.java  b/x-pack/plugin/core/src/main/java/org/elasticsearch/xpack/core/dataframe/action/PreviewDataFrameTransformAction.java \npublic static Request fromXContent(final XContentParser parser)throws IOExcepti.createParser(parser.getXContentRegistry(),LoggingDeprecationHandler.INSTANCE,BytesReference.bytes(xContentBuilder). streamInput())){- return new Request(DataFrameTransformConfig.fromXContent(newParser,\" transform-preview\", true));+ return new Request(DataFrameTransformConfig.fromXContent(newParser,\" transform-preview\", false));}}diff --git a/x-pack/plugin/src/test/resources/rest-api-spec/test/data_frame/preview_transforms.yml  b/x-pack/plugin/src/test/resources/rest-api-spec/test/data_frame/preview_transforms.yml \nsetup:- match:{ preview.2.airline:foo}- match:{ preview.2.by-hour:\" 2017-02-49 01\"}-match:{ preview.2.avg_response:42.0}++diff --git+\" Test preview transform with invalid config\":+- do:+ catch:/\\[ data_frame_terms_group\\] unknown field\\[ not_a_terms_param\\]/+ data_frame.preview_data_frame_transform:+ body:>+{+\" source\":\"airline-data\",+\" pivot\":{+\"group_by\":{\" airline\":{\" terms\":{\" not_a_terms_param\":\"airline\"}}},+\"aggs\":{\" avg_response\":{\" avg\":{\" field\":\"responsetime\"}}}+}+} \n",
+        "nngen": "[ ML ] [ Data Frame ] adding dest . index and id validations ( )\n",
+        "nmt": "[ ML ] Fix <unk> ( )\n",
+        "codebert": "[ ML ] [ Data Frame ] [ Data Frame ] ( )\n",
+        "language": "java",
+        "chatgpt": "Update preview transform action to use correct flag and add test for invalid config.",
+        "chatgpt_rag": "Refactor XContentGenerator and JsonXContentGenerator from BytesReference in x-pack-elasticsearch."
+    },
+    {
+        "msg": "Revert \" Added version 2 . 4 . 0 to Version \"",
+        "diff": "diff --git a/core/src/main/java/org/elasticsearch/Version.java  b/core/src/main/java/org/elasticsearch/Version.java \npublic static final Version V_2_2_1=new Version(V_2_2_1_ID,org.apache.lucene.util.Version.LUCENE_5_4_1); \npublic static final int V_2_3_0_ID=2030099;public static final Version V_2_3_0=new Version(V_2_3_0_ID,org.apache.lucene.util.Version.LUCENE_5_5_0);-public static final int V_2_4_0_ID=2040099;- public static final Version V_2_4_0=new Version(V_2_4_0_ID,org.apache.lucene.util.Version.LUCENE_5_5_0); \npublic static final int V_5_0_0_ID=5000099;public static final Version V_5_0_0=new Version(V_5_0_0_ID,org.apache.lucene.util.Version.LUCENE_6_0_0); \npublic static final Version CURRENT=V_5_0_0;public static Version fromId(int id){ \nswitch(id){ \ncase V_5_0_0_ID:return V_5_0_0;- case V_2_4_0_ID:- return V_2_4_0;case V_2_3_0_ID:return V_2_3_0;case V_2_2_1_ID : \n",
+        "nngen": "Added version 2 . 4 . 0 to Version\n",
+        "nmt": "Add version 5 . 4 . 1\n",
+        "codebert": "Bump version to 2 . 4 . 0\n",
+        "language": "java",
+        "chatgpt": "Remove Version 2.4.0 from Version.java, update to Lucene 6.0.0 for Version 5.0.0.",
+        "chatgpt_rag": "Added version 2.4.0 to Version"
+    },
+    {
+        "msg": "procedure / function with arguments names changed",
+        "diff": "diff --git a/plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/ext/postgresql/edit/PostgreCommandGrantPrivilege.java  b/plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/ext/postgresql/edit/PostgreCommandGrantPrivilege.java \npublic void updateModel() \nif(object instanceof PostgreRole){ \nroleName=DBUtils.getQuotedIdentifier(object); \nif(privilegeOwner instanceof PostgreProcedure){-objectName=((PostgreProcedure)privilegeOwner). getFullyQualifiedName(DBPEvaluationContext.DDL);+objectName=((PostgreProcedure)privilegeOwner). getFullQualifiedSignature();} else{objectName=((PostgreRolePrivilege)permission). getFullObjectName();} \n",
+        "nngen": "PG\n",
+        "nmt": "Merge pull request from dbeaver / <unk>\n",
+        "codebert": "Merge remote - tracking branch ' origin / devel ' into devel\n",
+        "language": "java",
+        "chatgpt": "Update PostgreCommandGrantPrivilege to use getFullQualifiedSignature for PostgreProcedure objectName and getFullObjectName for other objects.",
+        "chatgpt_rag": "Update PostgreSQL permission management for roles and privileges. Fix object name retrieval and permission setting. Add and remove"
+    },
+    {
+        "msg": "Make Truffle NFI a tool .",
+        "diff": "diff --git a/sulong/mx.sulong/native-image.properties  b/sulong/mx.sulong/native-image.properties \nImageName=lli-Requires=tool:truffle+Requires=tool:nfi \nJavaArgs=- Xmx3G \ndiff --git a/truffle/mx.truffle/mx_truffle.py  b/truffle/mx.truffle/mx_truffle.py \ndef clean(self,forBuild=False): \nmx_sdk.register_graalvm_component(mx_sdk.GraalVmTool(suite=_suite,- name=' Truffle NFI',+name=' Truffle', \nshort_name=' tfl', \ndir_name=' truffle', \nlicense_files=[], \ndef clean(self,forBuild=False): \nsupport_distributions=['truffle:TRUFFLE_GRAALVM_SUPPORT']))++ mx_sdk.register_graalvm_component(mx_sdk.GraalVmTool(+ suite=_suite,+ name=' Truffle NFI',+short_name=' nfi',+dir_name=' nfi',+license_files=[],+third_party_license_files=[],+truffle_jars=[],+support_distributions=['truffle:TRUFFLE_NFI_GRAALVM_SUPPORT']+))++mx.update_commands(_suite,{'check-filename-length':[check_filename_length,\"\"],' create-dsl-parser':[create_dsl_parser,\" create the DSL expression parser using antlr\"],diff --git a/truffle/mx.truffle/suite.py  b/truffle/mx.truffle/suite.py\"native-image.properties\":\"file:mx.truffle/tools-truffle.properties\",},},++\"TRUFFLE_NFI_GRAALVM_SUPPORT\":{+\"native\": True,+\"description\":\"Truffle NFI support distribution for the GraalVM\",+\" layout\":{+\"native-image.properties\":\"file:mx.truffle/tools-nfi.properties\",+},+},},}new file mode 100644 \nindex 000000000000.. fd109752eadb \ndiff --git/dev/null  b/truffle/mx.truffle/tools-nfi.properties@@-0,0+1@@+Requires=tool:truffle \n",
+        "nngen": "Remove the GraalVM component .\n",
+        "nmt": "sulong : add <unk>\n",
+        "codebert": "Rename NFI tool to NFI .\n",
+        "language": "java",
+        "chatgpt": "Add Truffle NFI support distribution for GraalVM, update tools-nfi.properties, and clean up mx_truffle.py.",
+        "chatgpt_rag": "\"Create LLVM Runtime Core and LLVM Runtime Native components for Sulong\""
+    },
+    {
+        "msg": "Merge pull request in G / graal - core from ~ JOSEF . E . EISL_ORACLE . COM / graal - core : mx_vmprefix to master",
+        "diff": "diff --git a/mx.graal-core/mx_graal_core.py  b/mx.graal-core/mx_graal_core.py \n_suite=mx.suite(' graal-core')+\"\"\" Prefix for running the VM.\"\"\"+_vm_prefix=None++ def get_vm_prefix(asList=True):+\"\"\"+Get the prefix for running the VM(e.g.\" gdb-- args\").+\"\"\"+ if asList:+ return _vm_prefix.split() if _vm_prefix is not None else[]+return _vm_prefix+#:The JDK used to build and run Graal.jdk=mx.get_jdk(tag=' default') \ndef _check_bootstrap_config(args): \ndef run_java(args,nonZeroIsFatal=True,out=None,err=None,cwd=None,timeout=None,env=None,addDefaultArgs=True): \nargs=['- XX:+ UnlockExperimentalVMOptions','- XX:+ EnableJVMCI']+_parseVmArgs(args,addDefaultArgs=addDefaultArgs)_check_bootstrap_config(args)- cmd=[ jdk.java]+['-server']+args+cmd=get_vm_prefix()+[ jdk.java]+['-server']+args \nreturn mx.run(cmd,nonZeroIsFatal=nonZeroIsFatal,out=out,err=err,cwd=cwd)_JVMCI_JDK_TAG=' jvmci'def __addsrc__(self,arcname,contents): \ndef __closing__(self): \npass+mx.add_argument('-- vmprefix', action=' store', dest=' vm_prefix', help=' prefix for running the VM(e.g.\" gdb-- args\")', metavar='<prefix>')+ mx.add_argument('-- gdb', action=' store_const', const=' gdb-- args', dest=' vm_prefix', help=' alias for-- vmprefix\"gdb-- args\"')+ mx.add_argument('-- lldb', action=' store_const', const=' lldb--', dest=' vm_prefix', help=' alias for-- vmprefix\"lldb--\"')+ \nmx.update_commands(_suite,{'vm':[run_vm,'[- options]class[args...]'],' ctw':[ctw,'[- vmoptions|noinline|nocomplex|full]'], \ndef mx_post_parse_cmd_line(opts): \nfor dist in _suite.dists:dist.set_archiveparticipant(GraalArchiveParticipant(dist,isTest=dist.name.endswith(' _TEST'))) \nadd_bootclasspath_append(mx.distribution(' truffle:TRUFFLE_API'))+ global _vm_prefix+_vm_prefix=opts.vm_prefix \n",
+        "nngen": "mx : readd - - vmprefix ( and - - gdb , - - lldb ) argument previously provided by mx . jvmci\n",
+        "nmt": "Merge pull request in G / graal - core from ~ DOUG . SIMON_ORACLE . COM / graal - core : topic / add - <unk> to master\n",
+        "codebert": "Merge pull request in G / graal - core from topic / update - graal - core to master\n",
+        "language": "java",
+        "chatgpt": "Add support for custom VM prefix in mx.graal-core package. Fixes #1234.",
+        "chatgpt_rag": "Readded vmprefix, gdb, and lldb arguments previously provided by mx.jvmci in"
+    },
+    {
+        "msg": "Tests : Using UTC time zone in RangeQueryBuilderTest to make forbidden apis checker happy",
+        "diff": "diff --git a/core/src/test/java/org/elasticsearch/index/query/RangeQueryBuilderTest.java  b/core/src/test/java/org/elasticsearch/index/query/RangeQueryBuilderTest.java \nprotected RangeQueryBuilder createTestQueryBuilder(){} else{//use mapped date field,using date string representation \nquery=new RangeQueryBuilder(DATE_FIELD_NAME);-query.from(new DateTime(System.currentTimeMillis()-randomIntBetween(0,1000000)).toString());-query.to(new DateTime(System.currentTimeMillis()+randomIntBetween(0,1000000)).toString());+query.from(new DateTime(System.currentTimeMillis()-randomIntBetween(0,1000000), DateTimeZone.UTC). toString());+query.to(new DateTime(System.currentTimeMillis()+randomIntBetween(0,1000000), DateTimeZone.UTC). toString());// Create timestamp option only then we have a date mapper,otherwise we could trigger exception.if(createContext().mapperService().smartNameFieldType(DATE_FIELD_NAME)!=null){ \nif(randomBoolean()){ \n",
+        "nngen": "[ TEST ] added missing @ Override annotations to query builder tests\n",
+        "nmt": "[ TEST ] Fix <unk>\n",
+        "codebert": "Merge pull request from jpountz / fix / date_query\n",
+        "language": "java",
+        "chatgpt": "Refactored RangeQueryBuilderTest to use UTC timezone for date fields.",
+        "chatgpt_rag": "Fix lucene query comparison in RangeQueryBuilderTest. [TEST]"
+    },
+    {
+        "msg": "Make Debian package maintainer scripts executable .",
+        "diff": "diff --git a/tools/build_defs/pkg/make_deb.py  b/tools/build_defs/pkg/make_deb.py \ndef CreateDebControl(extrafiles=None,**kwargs): \nfor name in extrafiles:tarinfo=tarfile.TarInfo(name)tarinfo.size=len(extrafiles[name])+tarinfo.mode=0755 \nf.addfile(tarinfo,fileobj=StringIO(extrafiles[name]))control=tar.getvalue() \ntar.close() \n",
+        "nngen": "Make control . tar . gz in pkg_deb repeatable\n",
+        "nmt": "Fix <unk>\n",
+        "codebert": "Make make_deb . py happy\n",
+        "language": "java",
+        "chatgpt": "Add CreateDebControl to make_deb.py with extrafiles parameter, adding files to tar archive with appropriate permissions.",
+        "chatgpt_rag": "Update pkg_tar documentation for the use of 'deps' instead of 'tars' for specifying tar"
+    },
+    {
+        "msg": "Merge pull request from aleph - zero / issues / 9706",
+        "diff": "diff --git a/src/main/java/org/elasticsearch/node/internal/InternalSettingsPreparer.java  b/src/main/java/org/elasticsearch/node/internal/InternalSettingsPreparer.java \npackage org.elasticsearch.node.internal;+ import com.google.common.collect.ImmutableList;import org.elasticsearch.cluster.ClusterName;import org.elasticsearch.common.Names;import org.elasticsearch.common.Strings;import org.elasticsearch.env.Environment;import org.elasticsearch.env.FailedToResolveConfigException;+ import java.util.List;import java.util.Map;import static org.elasticsearch.common.Strings.cleanPath;*/public class InternalSettingsPreparer{+ static final List<String>ALLOWED_SUFFIXES=ImmutableList.of(\".yml\",\". yaml\",\". json\",\". properties\");+ \npublic static Tuple<Settings,Environment>prepareSettings(Settings pSettings,boolean loadConfigSettings){// ignore this prefixes when getting properties from es.and elasticsearch.String[] ignorePrefixes=new String[]{\" es.default.\",\" elasticsearch.default.\"};}} \nif(loadFromEnv){-try{- settingsBuilder.loadFromUrl(environment.resolveConfig(\" elasticsearch.yml\"));-} catch(FailedToResolveConfigException e){-//ignore-} catch(NoClassDefFoundError e){-//ignore,no yaml-}-try{- settingsBuilder.loadFromUrl(environment.resolveConfig(\" elasticsearch.json\"));-} catch(FailedToResolveConfigException e){-//ignore-}-try{- settingsBuilder.loadFromUrl(environment.resolveConfig(\" elasticsearch.properties\"));-} catch(FailedToResolveConfigException e){-//ignore+for(String allowedSuffix:ALLOWED_SUFFIXES){+try{+ settingsBuilder.loadFromUrl(environment.resolveConfig(\" elasticsearch\"+ allowedSuffix));+}catch(FailedToResolveConfigException e){+//ignore+}}}}diff --git a/src/test/java/org/elasticsearch/node/internal/InternalSettingsPreparerTests.java  b/src/test/java/org/elasticsearch/node/internal/InternalSettingsPreparerTests.java \npublic void testIgnoreSystemProperties(){//Should use setting from the system property \nassertThat(tuple.v1().get(\" node.zone\"),equalTo(\" bar\"));}++@ Test+public void testAlternateConfigFileSuffixes(){+// test that we can read config files with.yaml,. json,and.properties suffixes+Tuple<Settings,Environment>tuple=InternalSettingsPreparer.prepareSettings(settingsBuilder()+. put(\" config.ignore_system_properties\", true)+.build(),true);++ assertThat(tuple.v1().get(\" yaml.config.exists\"),equalTo(\" true\"));+assertThat(tuple.v1().get(\" json.config.exists\"),equalTo(\" true\"));+assertThat(tuple.v1().get(\" properties.config.exists\"),equalTo(\" true\"));+}}new file mode 100644 \nindex 0000000000000.. 16433a2c88d2c \ndiff --git/dev/null  b/src/test/resources/config/elasticsearch.json+{+\" json.config.exists\":\"true\"+}new file mode 100644 \nindex 0000000000000.. d3f822cafb555 \ndiff --git/dev/null  b/src/test/resources/config/elasticsearch.properties++ properties.config.exists:true \nnew file mode 100644 \nindex 0000000000000.. b6ebc6bd10576 \ndiff --git/dev/null  b/src/test/resources/config/elasticsearch.yaml++ yaml.config.exists:true \n+ \n",
+        "nngen": "Read configuration file with . yaml suffix\n",
+        "nmt": "[ TEST ] Add support for <unk> .\n",
+        "codebert": "Allow to specify allowed suffixes\n",
+        "language": "java",
+        "chatgpt": "Add support for reading config files with .yaml, .json, and .properties suffixes. Update InternalSettingsPrepare to load settings with allowed suffixes.",
+        "chatgpt_rag": "Add support for reading configuration files with .yaml suffix in InternalSettingsPreparer class."
+    },
+    {
+        "msg": "Credit The Public Suffix List for their awesome data .",
+        "diff": "new file mode 100644 \nindex 0000000000.. 94973fde8a \ndiff --git/dev/null  b/okhttp/src/main/resources/okhttp3/internal/publicsuffix/NOTICE+Note that publicsuffixes.gz is compiled from The Public Suffix List:+ https://publicsuffix.org/list/public_suffix_list.dat++ It is subject to the terms of the Mozilla Public License,v.2.0:+ https://mozilla.org/MPL/2.0 / \n",
+        "nngen": "Merge pull request from square / jwilson . 0224 . credit_The_Public_Suffix_List\n",
+        "nmt": "Merge pull request from square / jwilson . <unk> . <unk>\n",
+        "codebert": "Merge pull request from yschimke / public_suffix\n",
+        "language": "java",
+        "chatgpt": "Addition of publicsuffixes.gz compiled from The Public Suffix List under Mozilla Public License v.2.0.",
+        "chatgpt_rag": "Add cs locale information for Chrome notification bar messages and buttons."
+    },
+    {
+        "msg": "Merge pull request from s1monw / fix_jackson_line_feed",
+        "diff": "diff --git a/core/src/main/java/org/elasticsearch/common/xcontent/json/JsonXContentGenerator.java  b/core/src/main/java/org/elasticsearch/common/xcontent/json/JsonXContentGenerator.java \npackage org.elasticsearch.common.xcontent.json;import com.fasterxml.jackson.core.io.SerializedString;+ import com.fasterxml.jackson.core.util.DefaultIndenter;+ import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;import org.elasticsearch.common.bytes.BytesReference;import org.elasticsearch.common.xcontent.*;protected final BaseJsonGenerator generator;private boolean writeLineFeedAtEnd;+ private static final SerializedString LF=new SerializedString(\"\\n\");+ private static final DefaultPrettyPrinter.Indenter INDENTER=new DefaultIndenter(\"\", LF.getValue()); \npublic JsonXContentGenerator(BaseJsonGenerator generator){ \nthis.generator=generator;public XContentType contentType(){}@Override-public void usePrettyPrint(){- generator.useDefaultPrettyPrinter();+ public final void usePrettyPrint(){+ generator.setPrettyPrinter(new DefaultPrettyPrinter().withObjectIndenter(INDENTER));}@Override \npublic void close() throws IOException{} \ngenerator.close();}-- private static final SerializedString LF=new SerializedString(\"\\n\");} \ndiff --git a/core/src/test/java/org/elasticsearch/common/xcontent/builder/XContentBuilderTests.java  b/core/src/test/java/org/elasticsearch/common/xcontent/builder/XContentBuilderTests.java \npublic void testHandlingOfCollectionOfPaths() throws IOException{assertThat(pathBuilder.string(),equalTo(stringBuilder.string()));}+public void testIndentIsPlatformIndependent() throws IOException{+ XContentBuilder builder=XContentFactory.contentBuilder(XContentType.JSON). prettyPrint();+ builder.startObject().field(\" test\",\"foo\").startObject(\" foo\").field(\" foobar\",\"boom\").endObject().endObject();+ String string=builder.string();+ assertEquals(\"{\\ n\"++\"\\\" test\\\":\\\"foo\\\",\\ n\"++\"\\\" foo\\\":{\\n\"++\"\\\" foobar\\\":\\\"boom\\\"\\n\"++\"}\\ n\"++\"}\",string);++ builder=XContentFactory.contentBuilder(XContentType.YAML). prettyPrint();+ builder.startObject().field(\" test\",\"foo\").startObject(\" foo\").field(\" foobar\",\"boom\").endObject().endObject();+ string=builder.string();+ assertEquals(\" diff --git\\n\"++\" test:\\\"foo\\\"\\n\"++\" foo:\\ n\"++\" foobar:\\\"boom\\\"\\n\", string);+}+} \ndiff --git a/core/src/test/java/org/elasticsearch/index/query/HasChildQueryBuilderTests.java  b/core/src/test/java/org/elasticsearch/index/query/HasChildQueryBuilderTests.java \npublic void testParseFromJSON() throws IOException{//now assert that we actually generate the same JSON \nXContentBuilder builder=XContentFactory.jsonBuilder().prettyPrint();queryBuilder.toXContent(builder,ToXContent.EMPTY_PARAMS);-assertEquals(query,builder.string().replaceAll(\"\\\\ r\\\\ n\",\"\\ n\"));// jackson uses system linefeed-will fail on windows otherwise+assertEquals(query,builder.string());}} \n",
+        "nngen": "Ensure XContent is consistent across platforms\n",
+        "nmt": "Merge pull request from s1monw / <unk>\n",
+        "codebert": "Make JsonXContentGenerator more flexible\n",
+        "language": "java",
+        "chatgpt": "Refactored code to use DefaultPrettyPrinter for indentation and added unit tests for platform-independent indenting in XContentBuilder.",
+        "chatgpt_rag": "Fixing issue with XContentParserTests testSubParserArray by muting it."
+    },
+    {
+        "msg": "Update the remote java tools archive to include the right permissions .",
+        "diff": "diff --git a/third_party/BUILD  b/third_party/BUILD \njava_import(\" android_common/com.android.tools_sdk-common_25.0.0.jar\",\"android_common/com.android.tools_sdklib_25.0.0.jar\",],-deps=[-\"// third_party/jaxb\",-],runtime_deps=[\": asm\",\": asm-analysis\",\": asm-tree\",],+deps=[+\"// third_party/jaxb\",+],) \njava_import(filegroup(],)-pkg_tar(- name=\" java_tools_pkg\",-srcs=[-\"// third_party/java/java_tools:java_tools\",-\"// third_party/java/jdk/langtools:javac_jar\",-\"// third_party/java/jdk/langtools:jdk_compiler_jar\",-\"// third_party/java/jdk/langtools:java_compiler_jar\"-],-)-pkg_tar(name=\" java_tools_pkg-gz\", \nsrcs=[-\"// third_party/java/java_tools:java_tools\",+\"// third_party/java/java_tools\",+\"// third_party/java/jdk/langtools:java_compiler_jar\",\"//third_party/java/jdk/langtools:javac_jar\",\"//third_party/java/jdk/langtools:jdk_compiler_jar\",-\"// third_party/java/jdk/langtools:java_compiler_jar\"],- extension=\" tar.gz\"+ extension=\" tar.gz\",+# Permissions-rwxr-xr-x+mode=\" 755\",)- \nload(\":compiler_config_setting.bzl\",\"create_compiler_config_setting\") \ncreate_compiler_config_setting ( \n",
+        "nngen": "Remove pkg_tar targets for build Java tools tar gz\n",
+        "nmt": "Remove third_party / <unk> .\n",
+        "codebert": "Description redacted .\n",
+        "language": "java",
+        "chatgpt": "Updated third_party dependencies, added new java tools, and adjusted file permissions.",
+        "chatgpt_rag": "Add value type for encapsulating dependency info."
+    },
+    {
+        "msg": "Merge pull request from darxriggs / resolve - todo - isExtensionsAvailable",
+        "diff": "diff --git a/core/src/main/java/hudson/model/listeners/RunListener.java  b/core/src/main/java/hudson/model/listeners/RunListener.java \nimport hudson.Extension;import hudson.ExtensionList;import hudson.FilePath;+ import hudson.Functions;import hudson.Launcher;import hudson.model.AbstractBuild;import hudson.model.BuildListener;import hudson.model.Run;import hudson.model.Run.RunnerAbortedException;import hudson.model.TaskListener;- import jenkins.model.Jenkins;import hudson.scm.SCM;import hudson.tasks.BuildWrapper;import hudson.util.CopyOnWriteList;public static void fireStarted(Run r,TaskListener listener){*Fires the{@ link#onFinalized(Run)} event.*/public static void fireFinalized(Run r){-if(Jenkins.getInstanceOrNull()== null){// TODO use!Functions.isExtensionsAvailable() once JENKINS-33377+if(! Functions.isExtensionsAvailable()){ \nreturn;} \nfor(RunListener l:all()){ \n",
+        "nngen": "Resolve RunListener TODO using Functions # isExtensionsAvailable\n",
+        "nmt": "Merge pull request from jglick / <unk>\n",
+        "codebert": "Merge pull request from jglick / RunListener\n",
+        "language": "java",
+        "chatgpt": "Updated RunListener to use Functions.isExtensionsAvailable for Jenkins compatibility.",
+        "chatgpt_rag": "Add support for automatic registration in RunListener with ExtensionList for all registered RunListener descriptors."
+    },
+    {
+        "msg": "added a debug option to show the full path of the current directory .",
+        "diff": "diff --git a/core/src/main/java/hudson/Launcher.java  b/core/src/main/java/hudson/Launcher.java \nprotected final void printCommandLine(String[] cmd,FilePath workDir){ \nStringBuffer buf=new StringBuffer();if(workDir!= null){ \nbuf.append('[');-buf.append(workDir.getRemote().replaceFirst(\"^.+[/\\\\\\\\]\",\"\"));+ if(showFullPath)+ buf.append(workDir.getRemote());+else+buf.append(workDir.getRemote().replaceFirst(\"^.+[/\\\\\\\\]\",\"\"));buf.append(\"]\");}buf.append('$'); \npublic Proc launch(String[] cmd,String[] env,InputStream in,OutputStream out,Fi \nreturn m;}}++/**+* Debug option to display full current path instead of just the last token.+*/+public static boolean showFullPath=false;} \n",
+        "nngen": "properly quote tokens when it needs to be quoted .\n",
+        "nmt": "Merge pull request from <unk> / JENKINS - <unk>\n",
+        "codebert": "bug fix .\n",
+        "language": "java",
+        "chatgpt": "Add debug option to display full current path in printCommandLine method.",
+        "chatgpt_rag": "Optimized string concatenation over StringBuilder for efficiency."
+    },
+    {
+        "msg": "Fix deprecation warnings in javadoc comments",
+        "diff": "diff --git a/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/cassandra/CassandraDriverReactiveHealthIndicator.java  b/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/cassandra/CassandraDriverReactiveHealthIndicator.java \nprivate final CqlSession session;/**-* Create a new{@ link CassandraHealthIndicator}instance.+*Create a new{@ link CassandraDriverReactiveHealthIndicator}instance.*@param session the{@ link CqlSession}.*/ \npublic CassandraDriverReactiveHealthIndicator(CqlSession session){ \ndiff --git a/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/web/ConditionalOnEnabledResourceChain.java  b/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/web/ConditionalOnEnabledResourceChain.java/***{@ link Conditional@Conditional}that checks whether or not the Spring resource-* handling chain is enabled.Matches if{@ link ResourceProperties.Chain#getEnabled()}is-*{@ code true}or if{@ code webjars-locator-core}is on the classpath.+*handling chain is enabled.Matches if+*{@ link WebProperties.Resources.Chain#getEnabled()}is{@ code true}or if+*{@ code webjars-locator-core}is on the classpath.**@ author Stephane Nicoll*@ since 1.3.0 \n",
+        "nngen": "Polish\n",
+        "nmt": "Polish\n",
+        "codebert": "Polish\n",
+        "language": "java",
+        "chatgpt": "Update class names and properties references for consistency and clarity. Fixes #1234.",
+        "chatgpt_rag": "Fix bean name for reactive Cassandra health indicator."
+    },
+    {
+        "msg": "Exclude null requestURI in MHSR . getRequestURL ( )",
+        "diff": "diff --git a/spring-test/src/main/java/org/springframework/mock/web/MockHttpServletRequest.java  b/spring-test/src/main/java/org/springframework/mock/web/MockHttpServletRequest.java \nimport org.springframework.util.Assert;import org.springframework.util.LinkedCaseInsensitiveMap;+ import org.springframework.util.StringUtils;/***Mock implementation of the{@ link javax.servlet.http.HttpServletRequest}interface.public MockHttpServletRequest(ServletContext servletContext){*/ \npublic MockHttpServletRequest(ServletContext servletContext,String method,String requestURI){ \nthis.servletContext=( servletContext!= null?servletContext:new MockServletContext());-this.method=( method== null?\"\": method);-this.requestURI=( requestURI== null?\"\": requestURI);+this.method=method;+ this.requestURI=requestURI;this.locales.add(Locale.ENGLISH);}else if(value!= null){}public void setMethod(String method){-this.method=( method== null?\"\": method);+this.method=method;}@Override \npublic String getRequestedSessionId(){} \npublic void setRequestURI(String requestURI){-this.requestURI=( requestURI== null?\"\": requestURI);+this.requestURI=requestURI;}@Override \npublic StringBuffer getRequestURL(){url.append(':'). append(this.serverPort);}- url.append(getRequestURI());+if(StringUtils.hasText(getRequestURI())){+ url.append(getRequestURI());+}+return url;} \ndiff --git a/spring-test/src/test/java/org/springframework/mock/web/MockHttpServletRequestTests.java  b/spring-test/src/test/java/org/springframework/mock/web/MockHttpServletRequestTests.java \npublic void getRequestURLWithDefaults(){assertEquals(\" http://localhost\", requestURL.toString());}+@Test+public void getRequestURLWithNullRequestUri(){+ request.setRequestURI(null);+StringBuffer requestURL=request.getRequestURL();+ assertEquals(\" http://localhost\", requestURL.toString());+}+@ Test \npublic void getRequestURLWithDefaultsAndHttps(){request.setScheme(\" https\") ; \n",
+        "nngen": "Ensure method & requestURI are non - null in MHSR\n",
+        "nmt": "Polish <unk>\n",
+        "codebert": "Polishing\n",
+        "language": "java",
+        "chatgpt": "Refactor MockHttpServletRequest class and add test case for getRequestURL method with null requestURI.",
+        "chatgpt_rag": "Add @since tags to MockServerHttpRequest and MockServerHttpResponse classes in spring-test."
+    },
+    {
+        "msg": "Allow compilation with the java 10 javac",
+        "diff": "diff --git a/java/client/src/org/openqa/selenium/firefox/internal/FileExtension.java  b/java/client/src/org/openqa/selenium/firefox/internal/FileExtension.java \npublic String getPrefix(String uri){ \nthrow new UnsupportedOperationException(\" getPrefix\");}-public Iterator<?>getPrefixes(String uri){+public Iterator<String>getPrefixes(String uri){ \nthrow new UnsupportedOperationException(\" getPrefixes\");}}) ; \n",
+        "nngen": "Add requireWindowFocus to InternetExplorerDriver\n",
+        "nmt": "DanielWagnerHall : Fixing typo\n",
+        "codebert": "DanielWagnerHall : Removing generics\n",
+        "language": "java",
+        "chatgpt": "Fixing the return type of getPrefixes method in FileExtension.java to return Iterator of type String.",
+        "chatgpt_rag": "Fix XXE vulnerability in FileExtension.java."
+    },
+    {
+        "msg": "Suppress symlink to to graalvm distr on Windows",
+        "diff": "diff --git a/vm/mx.vm/mx_vm.py  b/vm/mx.vm/mx_vm.py \ndef __init__(self,args,dist,root_link_name,home_link_name): \nsuper(GraalVmLayoutDistributionTask,self). __init__(args,dist)def _add_link(self):+if mx.get_os()=='windows':+mx.log(' Skip adding symlink'+ self._root_link_path+'(Windows)')+ return \nself._rm_link() \nos.symlink(self._root_link_target(),self._root_link_path)os.symlink(self._home_link_target(),self._home_link_path)def _home_link_target(self): \nreturn relpath(join(self.subject.output,self.subject.jdk_base), _suite.dir)def _rm_link(self):+if mx.get_os()=='windows':+return \nfor l in[self._root_link_path,self._home_link_path]: \nif os.path.lexists(l): \nos.unlink(l ) \n",
+        "nngen": "Re - add suite - dependent bootstrap suppression\n",
+        "nmt": "[ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ] [ GR - <unk> ]\n",
+        "codebert": "Skip GraalVM layout on Windows\n",
+        "language": "java",
+        "chatgpt": "Fix issue with creating symlinks on Windows by adding a check to skip symlink creation for Windows OS in mx_vm.py.",
+        "chatgpt_rag": "Fixes for 'force-bash-launchers' and 'needsBuild'."
+    },
+    {
+        "msg": "[ GR - 21956 ] Truffle : introduce the ShowInternalStackFrames option to include internal sources in stack traces .",
+        "diff": "diff --git a/truffle/CHANGELOG.md  b/truffle/CHANGELOG.md \nThis changelog summarizes major changes between Truffle versions relevant to languages implementors building upon the Truffle framework.The main focus is on APIs exported by Truffle.##Version 20.2.0+* Added new internal engine option`ShowInternalStackFrames`to show internal frames specific to the language implementation in stack traces.* Added new identity APIs to`InteropLibrary`:*` hasIdentity(Object receiver)` to find out whether an object specifies identity*` isIdentical(Object receiver,Object other,InteropLibrary otherLib)` to compare the identity of two object \ndiff --git a/truffle/src/com.oracle.truffle.polyglot/src/com/oracle/truffle/polyglot/PolyglotEngineOptions.java  b/truffle/src/com.oracle.truffle.polyglot/src/com/oracle/truffle/polyglot/PolyglotEngineOptions.java@Option(name=INSTRUMENT_EXCEPTIONS_ARE_THROWN_NAME,category=OptionCategory.INTERNAL,help=\" Propagates exceptions thrown by instruments.\")//static final OptionKey<Boolean>InstrumentExceptionsAreThrown=new OptionKey<>(false);+@ Option(category=OptionCategory.INTERNAL,stability=OptionStability.EXPERIMENTAL,help=\" Show internal frames specific to the language implementation in stack traces.\")//+ static final OptionKey<Boolean>ShowInternalStackFrames=new OptionKey<>(false);+@ Option(category=OptionCategory.INTERNAL,stability=OptionStability.EXPERIMENTAL,help=\" Enables conservative context references.\"+\" This allows invalid sharing between contexts.\"+\" For testing purposes only.\")//diff --git a/truffle/src/com.oracle.truffle.polyglot/src/com/oracle/truffle/polyglot/PolyglotExceptionFrame.java  b/truffle/src/com.oracle.truffle.polyglot/src/com/oracle/truffle/polyglot/PolyglotExceptionFrame.java \nstatic PolyglotExceptionFrame createGuest(PolyglotExceptionImpl exception,Truff \nreturn null;} \nRootNode targetRoot=frame.getTarget().getRootNode();- if(targetRoot.isInternal()){+if(targetRoot.isInternal()&&!exception.showInternalStackFrames){ \nreturn null;} \ndiff --git a/truffle/src/com.oracle.truffle.polyglot/src/com/oracle/truffle/polyglot/PolyglotExceptionImpl.java  b/truffle/src/com.oracle.truffle.polyglot/src/com/oracle/truffle/polyglot/PolyglotExceptionImpl.java \nfinal PolyglotEngineImpl engine;final PolyglotContextImpl context;final Throwable exception;+ final boolean showInternalStackFrames;private final List<TruffleStackTraceElement>guestFrames;private StackTraceElement[] javaStackTrace;private PolyglotExceptionImpl(PolyglotImpl polyglot,PolyglotEngineImpl engine,this.context=( languageContext!= null)? languageContext.context:null;this.exception=original;this.guestFrames=TruffleStackTrace.getStackTrace(original);+this.showInternalStackFrames=engine== null?false:engine.engineOptionValues.get(PolyglotEngineOptions.ShowInternalStackFrames); \nif(exception instanceof TruffleException){ \nTruffleException truffleException=( TruffleException)exception ; \n",
+        "nngen": "truffle : introduce the ShowInternalStackFrames option\n",
+        "nmt": "[ GR - <unk> ] Fix <unk> .\n",
+        "codebert": "Add ShowInternalStackFrames option .\n",
+        "language": "java",
+        "chatgpt": "Add experimental option `ShowInternalStackFrames` to enable showing internal frames in stack traces.",
+        "chatgpt_rag": "\"Introduce ShowInternalStackFrames option for Truffle framework.\""
+    },
+    {
+        "msg": "Remove commentary on Neo4j ' s licence",
+        "diff": "diff --git a/spring-boot-docs/src/main/asciidoc/spring-boot-features.adoc  b/spring-boot-docs/src/main/asciidoc/spring-boot-features.adoc \nproperties:[[boot-features-connecting-to-neo4j-embedded]]==== Using the embedded mode-NOTE:Neo4j's embedded mode is subject to a different licensing,make sure to review it-before integrating the dependency in your application.- \nIf you add`org.neo4j:neo4j-ogm-embedded-driver`to the dependencies of your application,Spring Boot will automatically configure an in-process embedded instance of Neo4j that \nwill not persist any data when your application shuts down.You can explicitly disable \n",
+        "nngen": "Polish doc formatting\n",
+        "nmt": "Polish\n",
+        "codebert": "Polish\n",
+        "language": "java",
+        "chatgpt": "Add note about Neo4j embedded mode licensing and configuring in-process embedded instance in Spring Boot features documentation.",
+        "chatgpt_rag": "Fix duplicate section ID in the Spring Boot features documentation."
+    },
+    {
+        "msg": "Upgrade to Spring Integration 5 . 1 . 12",
+        "diff": "diff --git a/spring-boot-project/spring-boot-dependencies/pom.xml  b/spring-boot-project/spring-boot-dependencies/pom.xml<spring-data-releasetrain.version>Lovelace-SR19</ spring-data-releasetrain.version>< spring-framework.version>${spring.version}</spring-framework.version>< spring-hateoas.version>0.25.2.RELEASE</ spring-hateoas.version>-<spring-integration.version>5.1.11.RELEASE</ spring-integration.version>+<spring-integration.version>5.1.12.RELEASE</ spring-integration.version>< spring-kafka.version>2.2.14.RELEASE</ spring-kafka.version>< spring-ldap.version>2.3.3.RELEASE</ spring-ldap.version>< spring-plugin.version>1.2.0.RELEASE</ spring-plugin.version > \n",
+        "nngen": "Upgrade to Spring Integration 5 . 1 . 13\n",
+        "nmt": "Upgrade to Spring Integration 5 . 1 . 12 . RELEASE\n",
+        "codebert": "Upgrade to Spring Integration 5 . 1 . 12\n",
+        "language": "java",
+        "chatgpt": "Update spring-integration.version from 5.1.11.RELEASE to 5.1.12.RELEASE in spring-boot-dependencies pom.xml file.",
+        "chatgpt_rag": "Upgrade Spring Integration to version 5.1.12 and Spring Kafka to version 2.2"
+    },
+    {
+        "msg": "Merge pull request from happygiraffe / master",
+        "diff": "diff --git a/core/src/main/java/hudson/tasks/Maven.java  b/core/src/main/java/hudson/tasks/Maven.java \npublic MavenInstallation(String name,String home){@DataBoundConstructor \npublic MavenInstallation(String name,String home,List<? extends ToolProperty<?>> properties){-super(name,home,properties);+super(Util.fixEmptyAndTrim(name), Util.fixEmptyAndTrim(home), properties);}/** \n",
+        "nngen": "Strip whitespace on maven installation .\n",
+        "nmt": "[ FIXED HUDSON - <unk> ]\n",
+        "codebert": "Merge pull request from jglick / MavenInstallation\n",
+        "language": "java",
+        "chatgpt": "Refactor MavenInstallation constructor to fix empty and trim input values.",
+        "chatgpt_rag": "Adding legacy constructor for Maven with additional parameters."
+    },
+    {
+        "msg": "Also use value comparison for maps .",
+        "diff": "diff --git a/truffle/src/com.oracle.truffle.tck.tests/src/com/oracle/truffle/tck/tests/ValueAssert.java  b/truffle/src/com.oracle.truffle.tck.tests/src/com/oracle/truffle/tck/tests/ValueAssert.java \nprivate static void assertValueArrayElements(Value value,int depth,boolean has \nassertFails(()->value.as(FLOAT_OBJECT_MAP), ClassCastException.class); \nassertFails(()->value.as(DOUBLE_OBJECT_MAP), ClassCastException.class);-try{- assertEquals(receivedObjectsLongMap,objectMap2);-} catch(AssertionError e){-throw e;-}- assertEquals(receivedObjectsIntMap,objectMap3);-assertEquals(receivedObjectsLongMap,objectMap4);+assertCollectionEqualValues(receivedObjectsLongMap.values(),objectMap2.values());+assertCollectionEqualValues(receivedObjectsIntMap.values(),objectMap3.values());+assertCollectionEqualValues(receivedObjectsLongMap.values(),objectMap4.values());}private static void assertCollectionEqualValues(Collection<? extends Object>expected,Collection<? extends Object>actual){ \n",
+        "nngen": "Fix value assertions cannot assume writ ability ; Reduce recursion depth to one to speed up assertions .\n",
+        "nmt": "[ GR - <unk> ] [ GR - <unk> ] Fix <unk> .\n",
+        "codebert": "Fix tests .\n",
+        "language": "java",
+        "chatgpt": "Refactor assertValueArrayElements method in ValueAssert.java to compare values in collections.",
+        "chatgpt_rag": "Fix incorrect assertions in test ValueAssert.java."
+    },
+    {
+        "msg": "Proguard nested classes in KotlinExtensions",
+        "diff": "diff --git a/retrofit/src/main/resources/META-INF/proguard/retrofit2.pro  b/retrofit/src/main/resources/META-INF/proguard/retrofit2.pro#Top-level functions that can only be used by Kotlin.- dontwarn retrofit2.KotlinExtensions+- dontwarn retrofit2.KotlinExtensions$*#With R8 full mode,it sees no subtypes of Retrofit interfaces since they are created with a Proxy#and replaces all potential values with null.Explicitly keeping the interfaces prevents this . \n",
+        "nngen": "Proguard nested classes in KotlinExtensions\n",
+        "nmt": "Merge pull request from <unk> / patch - 1\n",
+        "codebert": "Merge pull request from NightlyNexus / patch - 1\n",
+        "language": "java",
+        "chatgpt": "Ignore Retrofit2 KotlinExtensions, keep Retrofit interfaces to prevent R8 from replacing values with null.",
+        "chatgpt_rag": "Update proguard rules to explicitly keep Retrofit interfaces for R8 full mode compatibility. Fix potential null value"
+    },
+    {
+        "msg": "[ GR - 13125 ] Restore ( limited ) lazy loading in verifier .",
+        "diff": "diff --git a/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/verifier/Operand.java  b/src/com.oracle.truffle.espresso/src/com/oracle/truffle/espresso/verifier/Operand.java \nboolean compliesWith(Operand other){ \nif(other.getType()== null){ \nreturn false;}+if(other.getType()== type){+/*+*If the two operand have the same type,we can shortcut a few cases:+*+*- Both are not loaded-> would load using same CL.+*+*- Only one of the two is loaded and in same CL as thisKlass.+*/+Klass otherKlass=((ReferenceOperand)other). klass;+ if(otherKlass== null|| klass== null){+Klass k=klass== null?otherKlass:klass;+ if(k== null|| k.getDefiningClassLoader()== thisKlass.getDefiningClassLoader()){+return true;+}+}++} \nKlass otherKlass=other.getKlass();if(otherKlass.isInterface()){-/**+/** 4.10.1.2.For assignments,interfaces are treated like Object.*/return true;boolean compliesWith(Operand other){ \nreturn otherKlass.isAssignableFrom(getKlass());}return other== Invalid;+}@ Override \n",
+        "nngen": "Adds another shortcut to verifier class loading .\n",
+        "nmt": "Implement <unk> .\n",
+        "codebert": "Formatter pass .\n",
+        "language": "java",
+        "chatgpt": "Refactor Operand.java to improve type checking efficiency and handle interface assignments.",
+        "chatgpt_rag": "Fix serialization issue for lambdas, handle anonymous classes naming convention, and improve class names internment for"
+    },
+    {
+        "msg": "[ FIXED JENKINS - 20606 ] Wrong spelling in Russian localization",
+        "diff": "diff --git a/core/src/main/resources/hudson/model/Messages_ru.properties  b/core/src/main/resources/hudson/model/Messages_ru.properties \nBallColor.Failed=\\ u041f\\u0440\\u043e\\u0432\\u0430\\u043b\\u0438\\u043b\\u043e\\u0441\\u0 \nBallColor.InProgress=\\ u0412\\u043f\\u0440\\u043e\\u0446\\u0435\\u0441\\u0441\\u0435 \nBallColor.Pending=\\ u041e\\u0436\\u0438\\u0434\\u0430\\u0435\\u0442 \nBallColor.Success=\\ u0423\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e-BallColor.Unstable=\\ u041d\\u0435\\u0441\\u0442\\u0430\\u0431\\u0438\\u043b\\u044c\\u043d\\u043e+BallColor.Unstable=\\ u041D\\u0435\\u0441\\u0442\\u0430\\u0431\\u0438\\u043B\\u044C\\u043D\\u044B\\u0439 \nComputer.Caption=\\ u041f\\u043e\\u0434\\u0447\\u0438\\u043d\\u0435\\u043d\\u043d\\u044b\\u0439\\u0443\\u0437\\u0435\\u043b{0 } \n",
+        "nngen": "Merge pull request from petermarcoen / JENKINS - 20606\n",
+        "nmt": "Merge pull request from <unk> / patch - 1\n",
+        "codebert": "Update Messages_ru . properties\n",
+        "language": "java",
+        "chatgpt": "Updated Russian translations for ball colors and computer caption in Messages_ru.properties file.",
+        "chatgpt_rag": "Update error handling logic for Win32 errors in Util.java. Fix incorrect parsing of error messages from exceptions"
+    },
+    {
+        "msg": "SPDY : allow subclassing of SpdyFrameCodec",
+        "diff": "diff --git a/codec-http/src/main/java/io/netty/handler/codec/spdy/SpdyFrameCodec.java  b/codec-http/src/main/java/io/netty/handler/codec/spdy/SpdyFrameCodec.java/*** A{@ link ChannelHandler}that encodes and decodes SPDY Frames.*/- public final class SpdyFrameCodec extends ByteToMessageDecoder+public class SpdyFrameCodec extends ByteToMessageDecoder \nimplements SpdyFrameDecoderDelegate,ChannelOutboundHandler{private static final SpdyProtocolException INVALID_FRAME = \n",
+        "nngen": "Fix compiler warning\n",
+        "nmt": "Rename <unk> to <unk>\n",
+        "codebert": "Remove final\n",
+        "language": "java",
+        "chatgpt": "Refactor SpdyFrameCodec to implement SpdyFrameDecoderDelegate and ChannelOutboundHandler.",
+        "chatgpt_rag": "Updated submodules for ILSpy.Decompiler and dnlib."
+    },
+    {
+        "msg": "[ REST - TEST ] Remove check for snapshot .",
+        "diff": "diff --git a/rest-api-spec/test/watch_info/10_basic.yaml  b/rest-api-spec/test/watch_info/10_basic.yaml-do:{ watcher.info:{}}-is_true:version.build_hash-is_true:version.build_timestamp-- is_true:version.build_snapshot \n",
+        "nngen": "Explain returns a 1 , not 1 . 0\n",
+        "nmt": "Merge pull request from <unk> / master\n",
+        "codebert": "[ TEST ] removed watch_info from REST test\n",
+        "language": "java",
+        "chatgpt": "Update basic watch_info test to check for version build snapshot instead of build hash and build timestamp.",
+        "chatgpt_rag": "Add changelog entry for version 14.3.3."
+    },
+    {
+        "msg": "move DebugCore to org . jkiss . dbeaver . debug . core",
+        "diff": "diff --git a/plugins/org.jkiss.dbeaver.debug.core/META-INF/MANIFEST.MF  b/plugins/org.jkiss.dbeaver.debug.core/META-INF/MANIFEST.MF \nBundle-SymbolicName:org.jkiss.dbeaver.debug.core \nBundle-Version:1.0.0 \nBundle-Vendor:% Bundle-Vendor \nBundle-RequiredExecutionEnvironment:JavaSE-1.8+Require-Bundle:org.eclipse.core.runtime,+ org.eclipse.debug.core,+ org.jkiss.dbeaver.model+Export-Package:org.jkiss.dbeaver.debug.core \nsimilarity index 100%rename from plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/debug/core/DebugCore.java \nrename to plugins/org.jkiss.dbeaver.debug.core/src/org/jkiss/dbeaver/debug/core/DebugCore.java \nsimilarity index 100%rename from plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/debug/internal/core/DebugCoreMessages.java \nrename to plugins/org.jkiss.dbeaver.debug.core/src/org/jkiss/dbeaver/debug/internal/core/DebugCoreMessages.java \nsimilarity index 100%rename from plugins/org.jkiss.dbeaver.ext.postgresql/src/org/jkiss/dbeaver/debug/internal/core/DebugCoreMessages.properties \nrename to plugins/org.jkiss.dbeaver.debug.core/src/org/jkiss/dbeaver/debug/internal/core/DebugCoreMessages.properties \ndiff --git a/plugins/org.jkiss.dbeaver.ext.postgresql/META-INF/MANIFEST.MF  b/plugins/org.jkiss.dbeaver.ext.postgresql/META-INF/MANIFEST.MF \nRequire-Bundle:org.eclipse.ui,org.eclipse.ui.editors,org.eclipse.debug.core,org.eclipse.debug.ui,+ org.jkiss.dbeaver.debug.core,org.jkiss.dbeaver.ext.generic,org.jkiss.dbeaver.ext.ui.locks,net.sf.opencsv , \n",
+        "nngen": "move DebugUi to org . jkiss . dbeaver . debug . ui\n",
+        "nmt": "i18n\n",
+        "codebert": "move debug core to debug . core\n",
+        "language": "java",
+        "chatgpt": "Refactor debug core classes and messages, update required bundles for PostgreSQL plugin.",
+        "chatgpt_rag": "Move common code to org.jkiss.dbeaver.debug.ui."
+    },
+    {
+        "msg": "Updates backwards compatibility 5 . 0 tests to pull",
+        "diff": "diff --git a/qa/backwards-5.0/build.gradle  b/qa/backwards-5.0/build.gradle \nintegTest{cluster{numNodes=4 \nnumBwcNodes=2-bwcVersion=\" 5.2.0-SNAPSHOT\"+ bwcVersion=\" 5.3g.0-SNAPSHOT\"setting'logger.org.elasticsearch','DEBUG'} \n} \n",
+        "nngen": "Fixes 5 . 3 . 0 - SNAPSHOT typo\n",
+        "nmt": "remove duplicate plugin version\n",
+        "codebert": "test : bump bwc version to 5 . 3 . 0 - SNAPSHOT\n",
+        "language": "java",
+        "chatgpt": "Update bwcVersion in integTest cluster from 5.2.0-SNAPSHOT to 5.3g.0-SNAPSHOT with DEBUG logging level for Elasticsearch in backwards-5.0 build.gradle.",
+        "chatgpt_rag": "Fix typo in bwcVersion from 5.3g.0-SNAPSHOT to 5"
+    },
+    {
+        "msg": "minor documentation improvements ( )",
+        "diff": "diff --git a/docs/java-api/client.asciidoc  b/docs/java-api/client.asciidoc \nTransportClient client=new PreBuiltTransportClient(settings); \nThe Transport client comes with a cluster sniffing feature which \nallows it to dynamically add new hosts and remove old ones.- When sniffing is enabled the the transport client will connect to the nodes in its-internal node list,which is built via calls to addTransportAddress.+ When sniffing is enabled,the transport client will connect to the nodes in its+internal node list,which is built via calls to`addTransportAddress`. \nAfter this,the client will call the internal cluster state API on those nodes \nto discover available data nodes.The internal node list of the client will \nbe replaced with those data nodes only.This list is refreshed every five seconds by default.Note that the IP addresses the sniffer connects to are the ones declared as the'publish'address in those node's elasticsearch config.- Keep in mind that list might possibly not include the original node it connected to+Keep in mind that the list might possibly not include the original node it connected to \nif that node is not a data node.If,for instance,you initially connect to a-master node,after sniffing no further requests will go to that master node,- but rather to any data nodes instead.The reason the transport excludes non-data+master node,after sniffing,no further requests will go to that master node,+ but rather to any data nodes instead.The reason the transport client excludes non-data \nnodes is to avoid sending search traffic to master only nodes.In order to enable sniffing,set`client.transport.sniff`to`true`: \n",
+        "nngen": "Improved transport sniffing docs\n",
+        "nmt": "Merge pull request from <unk> / patch - 1\n",
+        "codebert": "Update client . asciidoc\n",
+        "language": "java",
+        "chatgpt": "Update TransportClient to include cluster sniffing feature for dynamic host management. Set client.transport.sniff to true to enable.",
+        "chatgpt_rag": "Update client.asciidoc to clarify that transport sniffing only adds data nodes, not master nodes."
+    },
+    {
+        "msg": "Don ' t serialize nulls in JsonElementWriter if setSerializeNulls ( false )",
+        "diff": "diff --git a/gson/src/main/java/com/google/gson/internal/bind/JsonElementWriter.java  b/gson/src/main/java/com/google/gson/internal/bind/JsonElementWriter.java \nprivate JsonElement peek(){private void put(JsonElement value){ \nif(pendingName!= null){-JsonObject object=( JsonObject)peek();- object.add(pendingName,value);+if(! value.isJsonNull()|| getSerializeNulls()){+JsonObject object=( JsonObject)peek();+ object.add(pendingName,value);+} \npendingName=null;} else if(stack.isEmpty()){ \nproduct=value;diff --git a/gson/src/test/java/com/google/gson/internal/bind/JsonElementWriterTest.java  b/gson/src/test/java/com/google/gson/internal/bind/JsonElementWriterTest.java// TODO:more tests// TODO:figure out what should be returned by an empty writer-//TODO:test when serialize nulls is false \npublic void testArray() throws IOException{JsonElementWriter writer=new JsonElementWriter();public void testPrematureClose() throws Exception{} catch(IOException expected){}}++ public void testSerializeNullsFalse() throws IOException{+ JsonElementWriter writer=new JsonElementWriter();+ writer.setSerializeNulls(false);+writer.beginObject();+ writer.name(\" A\");+ writer.nullValue();+ writer.endObject();+ assertEquals(\"{}\", writer.get().toString());+}++ public void testSerializeNullsTrue() throws IOException{+ JsonElementWriter writer=new JsonElementWriter();+ writer.setSerializeNulls(true);+writer.beginObject();+ writer.name(\" A\");+ writer.nullValue();+ writer.endObject();+ assertEquals(\"{\\\"A\\\":null}\",writer.get().toString());+} \n} \n",
+        "nngen": "Implement JsonElementWriter . close ( )\n",
+        "nmt": "Merge pull request from google / <unk>\n",
+        "codebert": "Fix serialization of JsonElementWriter . put ( )\n",
+        "language": "java",
+        "chatgpt": "Refactor JsonElementWriter to handle null values differently based on serialization settings, added tests for serializeNulls true and false.",
+        "chatgpt_rag": "Handle empty whitespace input by returning a \"JsonNull\" object in the JsonParser."
+    },
+    {
+        "msg": "restore subjects package object for scaladoc",
+        "diff": "new file mode 100644 \nindex 0000000000.. 7566d5fad8 \ndiff --git/dev/null  b/language-adaptors/rxjava-scala/src/main/scala/rx/lang/scala/subjects/package.scala+/**+* Copyright 2013 Netflix,Inc.+*+*Licensed under the Apache License,Version 2.0(the\"License\");+*you may not use this file except in compliance with the License.+*You may obtain a copy of the License at+*+* http://www.apache.org/licenses/LICENSE-2.0+*+* Unless required by applicable law or agreed to in writing,software+* distributed under the License is distributed on an\"AS IS\"BASIS,+*WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,either express or implied.+*See the License for the specific language governing permissions and+* limitations under the License.+*/+package rx.lang.scala++/**+*Subjects are Observers and Observables at the same time.+*/+package object subjects{} \n",
+        "nngen": "Removed spurious package\n",
+        "nmt": "add <unk>\n",
+        "codebert": "add package . scala\n",
+        "language": "java",
+        "chatgpt": "Add rx.lang.scala package with Subjects which act as both Observer and Observable. License under Apache 2.0.",
+        "chatgpt_rag": "Remove package rx.lang.scala.util due to deletion of all contents."
+    },
+    {
+        "msg": "ci : fix TraceRA builder",
+        "diff": "diff --git a/ci_common/x52-tracera.hocon  b/ci_common/x52-tracera.hocon \nx52.tracera:${x52.default}{}builds+=[-${ x52.default}${bench-dacapo}{ name:\" bench-dacapo-linux-x52-tracera\"}-${x52.default}${bench-dacapo-timing}{ name:\" bench-dacapo-timing-linux-x52-tracera\"}-${x52.default}${bench-scala-dacapo}{ name:\" bench-scala-dacapo-linux-x52-tracera\"}-${x52.default}${bench-scala-dacapo-timing}{ name:\" bench-scala-dacapo-timing-linux-x52-tracera\"}-${x52.default}${bench-specjvm2008}{ name:\" bench-specjvm2008-linux-x52-tracera\"}-${x52.default}${bench-specjbb2015}{ name:\" bench-specjbb2015-linux-x52-tracera\"}-${x52.default}${bench-micros-graal}{ name:\" bench-jmh-micros-graal-linux-x52-tracera\"}+${x52.tracera}${bench-dacapo}{ name:\" bench-dacapo-linux-x52-tracera\"}+${x52.tracera}${bench-dacapo-timing}{ name:\" bench-dacapo-timing-linux-x52-tracera\"}+${x52.tracera}${bench-scala-dacapo}{ name:\" bench-scala-dacapo-linux-x52-tracera\"}+${x52.tracera}${bench-scala-dacapo-timing}{ name:\" bench-scala-dacapo-timing-linux-x52-tracera\"}+${x52.tracera}${bench-specjvm2008}{ name:\" bench-specjvm2008-linux-x52-tracera\"}+${x52.tracera}${bench-specjbb2015}{ name:\" bench-specjbb2015-linux-x52-tracera\"}+${x52.tracera}${bench-micros-graal}{ name:\" bench-jmh-micros-graal-linux-x52-tracera\"} \n] \n",
+        "nngen": "Merge pull request in G / graal - core from ~ JOSEF . E . EISL_ORACLE . COM / graal - core : ci - fix - tracera to master\n",
+        "nmt": "[ ci ] TraceRA benchmarks\n",
+        "codebert": "ci : update tracera . hocon\n",
+        "language": "java",
+        "chatgpt": "Update x52-tracera.hocon to add benchmarks for x52.tracera builds.",
+        "chatgpt_rag": "Merge ci-fix-tracera to master."
+    },
+    {
+        "msg": "Maybe this test is flaky because it doesn ' t wait for",
+        "diff": "diff --git a/test/src/test/java/hudson/UDPBroadcastThreadTest.java  b/test/src/test/java/hudson/UDPBroadcastThreadTest.java \npublic void testLegacy() throws Exception{* Multicast based clients should be able to receive multiple replies.*/public void testMulticast() throws Exception{- UDPBroadcastThread second=new UDPBroadcastThread(hudson);+UDPBroadcastThread second=new UDPBroadcastThread(jenkins); \nsecond.start();++UDPBroadcastThread third=new UDPBroadcastThread(jenkins);+third.start();+ \nsecond.ready.block();+ third.ready.block();try{DatagramSocket s=new DatagramSocket();public void testMulticast() throws Exception{receiveAndVerify(s); \nreceiveAndVerify(s);}finally{+ third.interrupt();second.interrupt();} \n} \n",
+        "nngen": "UDPBroadcastThreadTest was often failing on ci . jenkins - ci . org ; making more lenient .\n",
+        "nmt": "Merge pull request from jglick / <unk>\n",
+        "codebert": "Merge pull request from jglick / UDPBroadcastThreadTest\n",
+        "language": "java",
+        "chatgpt": "Refactor UDPBroadcastThreadTest to use 'jenkins' instead of 'hudson' and test multicast replies.",
+        "chatgpt_rag": "Exclude failing multicast test, block release."
+    },
+    {
+        "msg": "make gem standalone build work on Windows",
+        "diff": "diff --git a/clients/ruby/ChangeLog  b/clients/ruby/ChangeLog======-Include examples in RubyGem+- Added visible?method \n1.2.10=======diff --git a/clients/ruby/Rakefile  b/clients/ruby/Rakefile \ntask:' ci:integration'=>[:clean,:'test:unit'] do \nend \nfile\"target/iedoc.xml\"do-sh\"unzip-uj'#{SELENIUM_RC_JAR}' core/iedoc.xml-d target\"+ has_unzip=system\"unzipx-v\"+ if has_unzip+sh\"unzip-uj'#{SELENIUM_RC_JAR}' core/iedoc.xml-d target\"+ else#Windows support assumes Java is installed+sh\"jar xvf\\\"#{ SELENIUM_RC_JAR}\\\"core/iedoc.xml\"+ FileUtils.mkdir_p\"target\"+ FileUtils.mv\"core/iedoc.xml\",\"target/iedoc.xml\"+ FileUtils.rmdir\"core\"+ end \nend \ndesc\"Generate driver from iedoc.xml \" \n",
+        "nngen": "Fixing the iedoc . xml extraction logic . Avoid anoying warnings in dust gem .\n",
+        "nmt": "SRC - <unk> , fixing the build\n",
+        "codebert": "Ruby Client : Added visible ? method\n",
+        "language": "java",
+        "chatgpt": "Added visible? method and updated Rakefile tasks for integration testing in RubyGem clients.",
+        "chatgpt_rag": "Added visible? method and removed code generation in RubyGem."
+    },
+    {
+        "msg": "normalize url for prefix path ( )",
+        "diff": "diff --git a/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/controller/PrefixPathController.java  b/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/controller/PrefixPathController.java@Value(\"${ prefixPath:}\") \nprivate String prefixPath;-@GetMapping(\"/prefixPath\")+@ GetMapping(\"/prefix-path\") \npublic String getPrefixPath(){return prefixPath;} \ndiff --git a/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/spi/configuration/AuthConfiguration.java  b/apollo-portal/src/main/java/com/ctrip/framework/apollo/portal/spi/configuration/AuthConfiguration.java \nprotected void configure(HttpSecurity http)throws Exception{http.csrf().disable();http.headers().frameOptions().sameOrigin();http.authorizeRequests()-. antMatchers(\"/prometheus/**\",\"/metrics/**\",\"/openapi/**\",\"/vendor/**\",\"/styles/**\",\"/scripts/**\",\"/views/**\",\"/img/**\",\"/i18n/**\",\"/prefixPath\").permitAll()+. antMatchers(\"/prometheus/**\",\"/metrics/**\",\"/openapi/**\",\"/vendor/**\",\"/styles/**\",\"/scripts/**\",\"/views/**\",\"/img/**\",\"/i18n/**\",\"/prefix-path\").permitAll().antMatchers(\"/**\"). hasAnyRole(USER_ROLE); \nhttp.formLogin().loginPage(\"/signin\").defaultSuccessUrl(\"/\",true). permitAll().failureUrl(\"/signin?#/error\").and().httpBasic();protected void configure(HttpSecurity http)throws Exception{http.csrf().disable();http.headers().frameOptions().sameOrigin();http.authorizeRequests()-. antMatchers(\"/prometheus/**\",\"/metrics/**\",\"/openapi/**\",\"/vendor/**\",\"/styles/**\",\"/scripts/**\",\"/views/**\",\"/img/**\",\"/i18n/**\",\"/prefixPath\").permitAll()+. antMatchers(\"/prometheus/**\",\"/metrics/**\",\"/openapi/**\",\"/vendor/**\",\"/styles/**\",\"/scripts/**\",\"/views/**\",\"/img/**\",\"/i18n/**\",\"/prefix-path\").permitAll().antMatchers(\"/**\"). authenticated();http.formLogin().loginPage(\"/signin\").defaultSuccessUrl(\"/\",true). permitAll().failureUrl(\"/signin?#/error\").and().httpBasic();diff --git a/apollo-portal/src/main/resources/static/login.html  b/apollo-portal/src/main/resources/static/login.html \ne.preventDefault();});-$.get(\" prefixPath\", function(result){+$.get(\" prefix-path\", function(result){ \nwindow.localStorage.setItem(\" prefixPath\", result);}) ; \n",
+        "nngen": "fix the issue that an immediate login after logout will be redirected to signin page ( )\n",
+        "nmt": "Merge pull request from lepdou / <unk>\n",
+        "codebert": "fix\n",
+        "language": "java",
+        "chatgpt": "Fix prefix path typos and update authentication configuration. Fix frontend login request to match backend endpoint.",
+        "chatgpt_rag": "Update login configuration in AuthConfiguration.java to fix immediate redirection issue after logout (fix: AuthConfiguration login"
+    },
+    {
+        "msg": "remove flush check IW # commit always adds a commit point now even if nothing has changed ie . docs are added , updated or deleted .",
+        "diff": "diff --git a/src/main/java/org/elasticsearch/index/engine/robin/RobinEngine.java  b/src/main/java/org/elasticsearch/index/engine/robin/RobinEngine.java \npublic void flush(Flush flush)throws EngineException{translog.newTransientTranslog(translogId); \nindexWriter.setCommitData(MapBuilder.< String,String>newMapBuilder().put(Translog.TRANSLOG_ID_KEY,Long.toString(translogId)).map()); \nindexWriter.commit();- if(flush.force()){-//if we force,we might not have committed,we need to check that its the same id-Map<String,String>commitUserData=Lucene.readSegmentInfos(store.directory()). getUserData();- long committedTranslogId=Long.parseLong(commitUserData.get(Translog.TRANSLOG_ID_KEY));- if(committedTranslogId!= translogId){-//we did not commit anything,revert to the old translog-translog.revertTransient();-}else{- makeTransientCurrent=true;-}-}else{- makeTransientCurrent=true;-}- if(makeTransientCurrent){-refreshVersioningTable(threadPool.estimatedTimeInMillis());-//we need to move transient to current only after we refresh-//so items added to current will still be around for realtime get-//when tans overrides it-translog.makeTransientCurrent();-}+ refreshVersioningTable(threadPool.estimatedTimeInMillis());+//we need to move transient to current only after we refresh+//so items added to current will still be around for realtime get+//when tans overrides it+translog.makeTransientCurrent();} catch(OutOfMemoryError e){ \ntranslog.revertTransient();failEngine(e); \n",
+        "nngen": "move refreshing version table to be done right after the commit within the respective lock , for full flush ( rarely used ) its needed . . .\n",
+        "nmt": "[ CORE ] Remove <unk> . <unk>\n",
+        "codebert": "Don ' t force flush on flush\n",
+        "language": "java",
+        "chatgpt": "Refactor flush method in RobinEngine for better efficiency and error handling. Fix potential issue with commit data verification.",
+        "chatgpt_rag": "Add current translog ID to commit metadata before closing the writer."
+    },
+    {
+        "msg": "[ JAVA - 1669 ] Added missing byte - buddy dependency",
+        "diff": "diff --git a/persistence-modules/spring-jpa-2/pom.xml  b/persistence-modules/spring-jpa-2/pom.xml<artifactId>guava</ artifactId>< version>${guava.version}</version></dependency>+<dependency>+<groupId>net.bytebuddy</ groupId>+<artifactId>byte-buddy</ artifactId>+<version>${byte-buddy.version}</version>+</ dependency><!--test scoped-->< dependency>< properties><!--Spring-->< org.springframework.version>5.1.5.RELEASE</ org.springframework.version>+<spring-boot.version>2.2.6.RELEASE</ spring-boot.version><!--persistence-->< tomcat-dbcp.version>9.0.0.M26</ tomcat-dbcp.version><!--utilities-->< guava.version>21.0</ guava.version>-<spring-boot.version>2.2.6.RELEASE</ spring-boot.version>+<byte-buddy.version>1.10.16</ byte-buddy.version></properties></project>\\ No newline at end of file \n",
+        "nngen": "Merge pull request from dupirefr / team / JAVA - 1669 - missing_dependency\n",
+        "nmt": "Merge pull request from amit2103 / BAEL - <unk>\n",
+        "codebert": "Merge pull request from kwoyke / JAVA - 3570\n",
+        "language": "java",
+        "chatgpt": "Added Byte Buddy dependency with version 1.10.16 and updated Spring Boot version to 2.2.6.RELEASE in pom.xml file.",
+        "chatgpt_rag": "Update dependencies in pom.xml: Replace guava with byte-buddy, update versions for Spring Boot and"
+    },
+    {
+        "msg": "Wrap ResponseException in AssertionError in ILM / CCR tests ( )",
+        "diff": "diff --git a/x-pack/plugin/ilm/qa/multi-cluster/src/test/java/org/elasticsearch/xpack/ilm/CCRIndexLifecycleIT.java  b/x-pack/plugin/ilm/qa/multi-cluster/src/test/java/org/elasticsearch/xpack/ilm/CCRIndexLifecycleIT.java \nimport org.apache.http.entity.ContentType;import org.apache.http.entity.StringEntity;+ import org.apache.http.util.EntityUtils;import org.apache.logging.log4j.LogManager;import org.apache.logging.log4j.Logger;- import org.apache.lucene.util.LuceneTestCase;import org.elasticsearch.client.Request;import org.elasticsearch.client.Response;+ import org.elasticsearch.client.ResponseException;import org.elasticsearch.client.RestClient;import org.elasticsearch.common.Strings;import org.elasticsearch.common.settings.Settings;public void testBasicCCRAndILMIntegration() throws Exception{}}-@LuceneTestCase.AwaitsFix(bugUrl=\" https://github.com/elastic/elasticsearch/issues/48461\") \npublic void testCCRUnfollowDuringSnapshot() throws Exception{String indexName=\" unfollow-test-index\"; \nif(\" leader\". equals(targetCluster)){private static Object getIndexSetting(RestClient client,String index,String se \nreturn settings.get(setting);}- private static void assertDocumentExists(RestClient client,String index,String id)throws IOException{- Request request=new Request(\" HEAD\",\"/\"+ index+\"/_doc/\"+id);-Response response=client.performRequest(request);-assertThat(response.getStatusLine().getStatusCode(),equalTo(200));+ private void assertDocumentExists(RestClient client,String index,String id)throws IOException{+ Request request=new Request(\" GET\",\"/\"+ index+\"/_doc/\"+id);+Response response;+ try{+ response=client.performRequest(request);+if(response.getStatusLine().getStatusCode()!= 200){+if(response.getEntity()!= null){+logger.error(EntityUtils.toString(response.getEntity()));+}else{+ logger.error(\" response body was null\");+}+ fail(\" HTTP response code expected to be[200]but was[\"+response.getStatusLine().getStatusCode()+\"]\");+}+} catch(ResponseException ex){+if(ex.getResponse().getEntity()!= null){+logger.error(EntityUtils.toString(ex.getResponse().getEntity()), ex);+} else{+ logger.error(\" response body was null\");+}+ fail(\" HTTP response code expected to be[200]but was[\"+ex.getResponse().getStatusLine().getStatusCode()+\"]\");+}}private void createNewSingletonPolicy(String policyName,String phaseName,LifecycleAction action,TimeValue after)throws IOException { \n",
+        "nngen": "Unmute and increase logging on flaky SLM tests ( )\n",
+        "nmt": "Fix <unk> ( )\n",
+        "codebert": "Mute CCRIndexLifecycleIT ( )\n",
+        "language": "java",
+        "chatgpt": "Refactored CCRIndexLifecycleIT to handle ResponseException and improved error handling.",
+        "chatgpt_rag": "Mute TimeSeriesLifecycleActionsIT for LuceneTestCase bug fix. Fix HTTP response code handling in"
+    },
+    {
+        "msg": "fix compilation issue because of new method in Alert",
+        "diff": "diff --git a/java/client/src/org/openqa/selenium/htmlunit/HtmlUnitAlert.java  b/java/client/src/org/openqa/selenium/htmlunit/HtmlUnitAlert.java \npublic void sendKeys(String keysToSend){ \npublic void authenticateUsing(Credentials credentials){}+@Override+public void setCredentials(Credentials credentials){+}++@Override \npublic void handleAlert(Page page,String message){ \nQueue<String>queue=queues.get(page); \n",
+        "nngen": "getText ( ) on a closed alert should throw an exception ( Ruby binding should be changed too )\n",
+        "nmt": "JasonLeyba : Adding a getter method to the HtmlUnitDriver\n",
+        "codebert": "Add HtmlUnitAlert . setCredentials ( )\n",
+        "language": "java",
+        "chatgpt": "Add setCredentials method to HtmlUnitAlert class. Fix authentication functionality. Fix handleAlert method.",
+        "chatgpt_rag": "Implementing testSendingKeyboardEventsShouldAppendTextinTextAreas for HtmlUnitDriver"
+    },
+    {
+        "msg": "Remove a superfluous \" return null \" from JvmConfigurationLoader .",
+        "diff": "diff --git a/src/main/java/com/google/devtools/build/lib/rules/java/JvmConfigurationLoader.java  b/src/main/java/com/google/devtools/build/lib/rules/java/JvmConfigurationLoader.java \nprivate static Jvm createDefault(ConfigurationEnvironment lookup,String javaHom \nreturn null;} \nTarget javaHomeTarget=lookup.getTarget(label);-if(javaHomeTarget== null){-return null;-}if(( javaHomeTarget instanceof Rule)&&\" filegroup\". equals(((Rule)javaHomeTarget). getRuleClass())){RawAttributeMapper javaHomeAttributes=RawAttributeMapper.of(( Rule)javaHomeTarget); \n",
+        "nngen": "Fix an instance of [ ]\n",
+        "nmt": "Automated rollback of commit <unk> .\n",
+        "codebert": "Remove unnecessary null check .\n",
+        "language": "java",
+        "chatgpt": "Update JvmConfigurationLoader.java - Removed unnecessary check for null javaHomeTarget.",
+        "chatgpt_rag": "Refactored JvmConfigurationLoader.java to handle java_runtime_suite rules properly. Fixed invalid configuration exception"
+    },
+    {
+        "msg": "Delete the TODO to \" try creating an abstract superclass that NetworkBuilder and GraphBuilder could derive from . \"",
+        "diff": "diff --git a/guava/src/com/google/common/graph/NetworkBuilder.java  b/guava/src/com/google/common/graph/NetworkBuilder.java*@ author Joshua O'Madadhain*@ since 20.0*/-//TODO(user): try creating an abstract superclass that this and GraphBuilder could derive from.@ Beta \npublic final class NetworkBuilder<N,E>{ \nfinal boolean directed ; \n",
+        "nngen": "Release @ Immutable annotations in common . graph .\n",
+        "nmt": "Remove <unk> .\n",
+        "codebert": "Remove TODO .\n",
+        "language": "java",
+        "chatgpt": "Add author and since tags to NetworkBuilder.java. Remove TODO for creating abstract superclass. Add Beta annotation.",
+        "chatgpt_rag": "Fix typo in GraphBuilder.nodeOrder() javadoc."
+    },
+    {
+        "msg": "Carry through @ Nullable annotations from Target interface .",
+        "diff": "diff --git a/library/src/main/java/com/bumptech/glide/request/target/BaseTarget.java  b/library/src/main/java/com/bumptech/glide/request/target/BaseTarget.java \npackage com.bumptech.glide.request.target;import android.graphics.drawable.Drawable;+ import android.support.annotation.Nullable;import com.bumptech.glide.request.Request;/** \nprivate Request request;@ Override-public void setRequest(Request request){+public void setRequest(@ Nullable Request request){ \nthis.request=request;}@Override+@ Nullable \npublic Request getRequest(){return request;}@Override-public void onLoadCleared(Drawable placeholder){+public void onLoadCleared(@ Nullable Drawable placeholder){// Do nothing.}@Override-public void onLoadStarted(Drawable placeholder){+public void onLoadStarted(@ Nullable Drawable placeholder){// Do nothing.}@Override-public void onLoadFailed(Drawable errorDrawable){+public void onLoadFailed(@ Nullable Drawable errorDrawable){// Do nothing.} \n",
+        "nngen": "Remove some usages of deprecated ViewTarget .\n",
+        "nmt": "Add @ NonNull annotation to <unk> .\n",
+        "codebert": "Add nullable annotations to BaseTarget .\n",
+        "language": "java",
+        "chatgpt": "Add @Nullable annotation to setRequest and getRequest methods in BaseTarget.java to handle null values. Make onLoad methods accept @Nullable Drawable parameter.",
+        "chatgpt_rag": "Update animatable when updating resource in ImageViewTarget."
+    },
+    {
+        "msg": "Merge pull request from s1monw / request_header_setting",
+        "diff": "diff --git a/core/src/main/java/org/elasticsearch/common/settings/ClusterSettings.java  b/core/src/main/java/org/elasticsearch/common/settings/ClusterSettings.java \nimport org.elasticsearch.common.network.NetworkModule;import org.elasticsearch.common.network.NetworkService;import org.elasticsearch.common.util.concurrent.EsExecutors;+ import org.elasticsearch.common.util.concurrent.ThreadContext;import org.elasticsearch.discovery.DiscoveryModule;import org.elasticsearch.discovery.DiscoveryService;import org.elasticsearch.discovery.DiscoverySettings;public boolean isLoggerSetting(String key){ \nClient.CLIENT_TYPE_SETTING_S,InternalSettingsPreparer.IGNORE_SYSTEM_PROPERTIES_SETTING,ClusterModule.SHARDS_ALLOCATOR_TYPE_SETTING,- EsExecutors.PROCESSORS_SETTING)));+EsExecutors.PROCESSORS_SETTING,+ ThreadContext.DEFAULT_HEADERS_SETTING)));}diff --git a/core/src/main/java/org/elasticsearch/common/util/concurrent/ThreadContext.java  b/core/src/main/java/org/elasticsearch/common/util/concurrent/ThreadContext.java \nimport org.elasticsearch.common.io.stream.StreamInput;import org.elasticsearch.common.io.stream.StreamOutput;import org.elasticsearch.common.io.stream.Writeable;+ import org.elasticsearch.common.settings.Setting;import org.elasticsearch.common.settings.Settings;import java.io.Closeable;public final class ThreadContext implements Closeable,Writeable<ThreadContext.ThreadContextStruct>{ \npublic static final String PREFIX=\" request.headers\";+public static final Setting<Settings>DEFAULT_HEADERS_SETTING=Setting.groupSetting(PREFIX+\".\",false,Setting.Scope.CLUSTER); \nprivate final Map<String,String>defaultHeader;private static final ThreadContextStruct DEFAULT_CONTEXT=new ThreadContextStruct(Collections.emptyMap()); \nprivate final ContextThreadLocal threadLocal;*@param settings the settings to read the default request headers from*/ \npublic ThreadContext(Settings settings){-Settings headers=settings.getAsSettings(PREFIX);+Settings headers=DEFAULT_HEADERS_SETTING.get(settings); \nif(headers== null){ \nthis.defaultHeader=Collections.emptyMap();} else { \n",
+        "nngen": "Remove ParseFieldMatcher usages from IndexSettings\n",
+        "nmt": "Merge pull request from s1monw / <unk>\n",
+        "codebert": "Merge pull request from jasontedor / thread - pool - settings\n",
+        "language": "java",
+        "chatgpt": "Add DEFAULT_HEADERS_SETTING to ThreadContext and update isLoggerSetting method in ClusterSettings.",
+        "chatgpt_rag": "Prevent unannotated dynamic settings injection in ClusterDynamicSettingsModule to avoid Guice errors."
+    },
+    {
+        "msg": "KAFKA - 9586 : Fix errored json filename in ops documentation",
+        "diff": "diff --git a/docs/ops.html  b/docs/ops.html<h5>< a id=\" basic_ops_partitionassignment\"href=\"#basic_ops_partitionassignment\">}</pre>< p>- The-- verify option can be used with the tool to check the status of the partition reassignment.Note that the same expand-cluster-reassignment.json(used with the-- execute option)should be used with the-- verify option:+ The-- verify option can be used with the tool to check the status of the partition reassignment.Note that the same custom-reassignment.json(used with the-- execute option)should be used with the-- verify option:< pre class=\" brush:bash;\">> bin/kafka-reassign-partitions.sh-- zookeeper localhost:2181-- reassignment-json-file custom-reassignment.json-- verify \nStatus of partition reassignment : \n",
+        "nngen": "[ hotfix ] [ cli ] Update the help message of the Generic CLI\n",
+        "nmt": "KAFKA - <unk> : Document <unk> in <unk>\n",
+        "codebert": "MINOR : Fix typo in documentation\n",
+        "language": "java",
+        "chatgpt": "Update tool options and file names in ops.html for partition reassignment verification.",
+        "chatgpt_rag": "Prefer --bootstrap-server for reassign_partitions command in ducktape tests. Fixed in KAFKA"
+    },
+    {
+        "msg": "PiperOrigin - RevId : 218886300",
+        "diff": "diff --git a/src/test/java/com/google/devtools/build/lib/packages/util/MockProtoSupport.java  b/src/test/java/com/google/devtools/build/lib/packages/util/MockProtoSupport.java*/ \npublic static void setup(MockToolsConfig config)throws IOException{createNetProto2(config);-createJavascriptClosureProto2(config);+createJavascriptJspb(config);}/** \nprivate static void createNetProto2(MockToolsConfig config)throws IOException{\" srcs=['metadata.go'])\");}-/**-*Create a dummy\"javascript/closure/proto2\"package.-*/-private static void createJavascriptClosureProto2(MockToolsConfig config)throws IOException{+/**Create a dummy jspb support package.*/+ private static void createJavascriptJspb(MockToolsConfig config)throws IOException{+ config.create(+\"net/proto2/compiler/js/internal/BUILD\",+\" package(default_visibility=['//visibility:public'])\",+\"cc_binary(name=' protoc-gen-js',\",+\" srcs=['plugin.cc'])\"); \nconfig.create(-\"javascript/closure/proto2/BUILD\",+\" javascript/apps/jspb/BUILD\",\"package(default_visibility=['//visibility:public'])\",\" js_library(name=' message',\",-\" srcs=['message.js'],\",-\"deps_mgmt=' legacy')\");+\"srcs=['message.js'],\",+\"deps_mgmt=' legacy')\");+ config.create(+\"javascript/closure/array/BUILD\",+\" package(default_visibility=['//visibility:public'])\",+\"js_library(name=' array',\",+\" srcs=['array.js'],\",+\"deps_mgmt=' legacy')\");+ config.create(+\"javascript/apps/xid/BUILD\",+\" package(default_visibility=['//visibility:public'])\",+\"js_library(name=' xid',\",+\" srcs=['xid.js'],\",+\"deps_mgmt=' legacy')\");} \n} \n",
+        "nngen": "Migrate MockProtoSupport from js_library to js_lib .\n",
+        "nmt": "Automatic code cleanup .\n",
+        "codebert": "Rename js - closure - proto to js - closure - proto2 .\n",
+        "language": "java",
+        "chatgpt": "Refactor MockProtoSupport to use JSPB instead of Closure Proto2 in createJavascriptJspb method.",
+        "chatgpt_rag": "Refactor MockProtoSupport to create Javascript jspb support package instead of closure proto2."
+    },
+    {
+        "msg": "Fixing non - deterministic unit test",
+        "diff": "diff --git a/hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommand.java  b/hystrix-core/src/main/java/com/netflix/hystrix/HystrixCommand.java \nprivate TestCommandWithTimeout(long timeout,int fallbackBehavior){ \nprotected Boolean run(){System.out.println(\"*****running\");try{- Thread.sleep(timeout*2);+Thread.sleep(timeout*10);}catch(InterruptedException e){ \ne.printStackTrace();} \n",
+        "nngen": "Merge pull request from benjchristensen / increase - timeout - for - unit - tests\n",
+        "nmt": "Merge pull request from <unk> / master\n",
+        "codebert": "Merge pull request from mattrjacobs / increase - timeout\n",
+        "language": "java",
+        "chatgpt": "Increased timeout in TestCommandWithTimeout method by multiplying by 10 instead of 2.",
+        "chatgpt_rag": "Increased timeout in TestCommandWithTimeout for unit tests."
+    },
+    {
+        "msg": "SmtpRequestEncoderTest ByteBuf leak ( )",
+        "diff": "diff --git a/codec-smtp/src/test/java/io/netty/handler/codec/smtp/SmtpRequestEncoderTest.java  b/codec-smtp/src/test/java/io/netty/handler/codec/smtp/SmtpRequestEncoderTest.java \nimport io.netty.util.CharsetUtil;import org.junit.Test;- import static org.junit.Assert.*;+ import static org.junit.Assert.assertEquals;+ import static org.junit.Assert.assertNull;+ import static org.junit.Assert.assertTrue;public class SmtpRequestEncoderTest{public void testEncodeDataAndContent(){@ Test(expected=EncoderException.class)public void testThrowsIfContentExpected(){EmbeddedChannel channel=new EmbeddedChannel(new SmtpRequestEncoder());-assertTrue(channel.writeOutbound(SmtpRequests.data()));- channel.writeOutbound(SmtpRequests.noop());+try{+ assertTrue(channel.writeOutbound(SmtpRequests.data()));+ channel.writeOutbound(SmtpRequests.noop());+} finally{+ channel.finishAndReleaseAll();+}}@Test \n",
+        "nngen": "Add test to verify that its possible to add another ChannelInitializer in the initChannel ( . . . ) method .\n",
+        "nmt": "Fix buffer leaks in <unk>\n",
+        "codebert": "Fix regression in SmtpRequestEncoderTest\n",
+        "language": "java",
+        "chatgpt": "Refactor SmtpRequestEncoderTest to use specific assertion methods and ensure proper channel cleanup.",
+        "chatgpt_rag": "Add unit test for SmtpRequestEncoder with EncoderException assertion and channel finishAndReleaseAll() in"
+    },
+    {
+        "msg": "Plug a bunch of unit testing holes in common . net .",
+        "diff": "diff --git a/guava-tests/test/com/google/common/net/HostSpecifierTest.java  b/guava-tests/test/com/google/common/net/HostSpecifierTest.java \npackage com.google.common.net;import com.google.common.collect.ImmutableList;+ import com.google.common.testing.EqualsTester;import com.google.common.testing.NullPointerTester;import junit.framework.TestCase;public void testBadDomains(){}}+ public void testEquality(){+ new EqualsTester()+. addEqualityGroup(spec(\" 1.2.3.4\"),spec(\" 1.2.3.4\"))+.addEqualityGroup(+ spec(\" 2001:db8:: 1\"),spec(\" 2001:db8:: 1\"),spec(\"[2001:db8:: 1]\"))+. addEqualityGroup(spec(\" 2001:db8:: 2\"))+.addEqualityGroup(spec(\" google.com\"),spec(\" google.com\"))+.addEqualityGroup(spec(\" www.google.com\"))+.testEquals();+}++private static HostSpecifier spec(String specifier){+return HostSpecifier.fromValid(specifier);+}+public void testNulls() throws Exception{final NullPointerTester tester=new NullPointerTester();diff --git a/guava-tests/test/com/google/common/net/InternetDomainNameTest.java  b/guava-tests/test/com/google/common/net/InternetDomainNameTest.java \nimport com.google.common.base.Strings;import com.google.common.collect.ImmutableList;import com.google.common.collect.Iterables;+ import com.google.common.testing.EqualsTester;import com.google.common.testing.NullPointerTester;import junit.framework.TestCase;*/@ GwtCompatible(emulated=true)public final class InternetDomainNameTest extends TestCase{+ private static final InternetDomainName UNICODE_EXAMPLE=+ InternetDomainName.from(\" j\\u00f8rpeland.no\");+ private static final InternetDomainName PUNYCODE_EXAMPLE=+ InternetDomainName.from(\" xn-- jrpeland-54a.no\");/***The Greek letter delta,used in unicode testing.public void testExclusion(){assertFalse(domain.publicSuffix().isPublicSuffix());}+ public void testEquality(){+ new EqualsTester()+. addEqualityGroup(+ idn(\" google.com\"),idn(\" google.com\"),idn(\" GOOGLE.COM\"))+.addEqualityGroup(idn(\" www.google.com\"))+.addEqualityGroup(UNICODE_EXAMPLE)+.addEqualityGroup(PUNYCODE_EXAMPLE)+.testEquals();+}++private static InternetDomainName idn(String domain){+return InternetDomainName.from(domain);+}+@ GwtIncompatible(\" NullPointerTester\") \npublic void testNulls() throws Exception{final NullPointerTester tester=new NullPointerTester();diff --git a/guava/src/com/google/common/net/HostSpecifier.java  b/guava/src/com/google/common/net/HostSpecifier.java \nprivate HostSpecifier(String canonicalForm){*< li>A IPv4 address string,like{@ code 127.0.0.1}*<li>An IPv6 address string with or without brackets,like*{@code[2001:db8:: 1]} or{@ code 2001:db8:: 1}-*< li>An IPv6 address string enclosed in square brackets,like-*{[ 2001:db8:: 1]}*</ul>**@ throws IllegalArgumentException if the specifier is not valid . \n",
+        "nngen": "Applied package sanity tests to common / base\n",
+        "nmt": "Add <unk> .\n",
+        "codebert": "Add equals and hashCode to HostSpecifier .\n",
+        "language": "java",
+        "chatgpt": "Add equals and null tests for HostSpecifier and InternetDomainName classes.",
+        "chatgpt_rag": "Fix self-equality check identified by Error Prone in testHashCodeAndEquals method of HostAndPort"
+    },
+    {
+        "msg": "Added Germany to the list of Google Product Search locales .",
+        "diff": "diff --git a/android/src/com/google/zxing/client/android/LocaleManager.java  b/android/src/com/google/zxing/client/android/LocaleManager.java \nprivate static final String DEFAULT_TLD=\" com\"; \nprivate static final Map<Locale,String>GOOGLE_COUNTRY_TLD;static{- GOOGLE_COUNTRY_TLD=new HashMap<Locale,String>( 13);+GOOGLE_COUNTRY_TLD=new HashMap<Locale,String>(); \nGOOGLE_COUNTRY_TLD.put(Locale.CANADA,\" ca\");GOOGLE_COUNTRY_TLD.put(Locale.CHINA,\" cn\");GOOGLE_COUNTRY_TLD.put(Locale.FRANCE,\" fr\");//Google Product Search for mobile is available in fewer countries than web search.private static final Map<Locale,String>GOOGLE_PRODUCT_SEARCH_COUNTRY_TLD;static{- GOOGLE_PRODUCT_SEARCH_COUNTRY_TLD=new HashMap<Locale,String>( 3);+GOOGLE_PRODUCT_SEARCH_COUNTRY_TLD=new HashMap<Locale,String>(); \nGOOGLE_PRODUCT_SEARCH_COUNTRY_TLD.put(Locale.UK,\" co.uk\");+ GOOGLE_PRODUCT_SEARCH_COUNTRY_TLD.put(Locale.GERMANY,\" de\");} \nprivate static final Map<Locale,String>GOOGLE_BOOK_SEARCH_COUNTRY_TLD;static{- GOOGLE_BOOK_SEARCH_COUNTRY_TLD=new HashMap<Locale,String>( 13);+GOOGLE_BOOK_SEARCH_COUNTRY_TLD=new HashMap<Locale,String>(); \nGOOGLE_BOOK_SEARCH_COUNTRY_TLD.putAll(GOOGLE_COUNTRY_TLD); \nGOOGLE_BOOK_SEARCH_COUNTRY_TLD.remove(Locale.CHINA); \n} \n",
+        "nngen": "Japanese language strings better as \" values - ja \" , and other small translator tweaks\n",
+        "nmt": "Merge pull request from <unk> / patch - 1\n",
+        "codebert": "Update GOOGLE_COUNTRY_TLDOUNTRY_TLD\n",
+        "language": "java",
+        "chatgpt": "Refactor LocaleManager.java to remove unnecessary initial capacity in HashMaps and add support for additional countries in Google product search.",
+        "chatgpt_rag": "Refactor Google product search country TLD mapping in LocaleManager.java."
+    },
+    {
+        "msg": "Add MultiValueMap . addIfAbsent method",
+        "diff": "diff --git a/spring-core/src/main/java/org/springframework/util/MultiValueMap.java  b/spring-core/src/main/java/org/springframework/util/MultiValueMap.java/*-* Copyright 2002-2018 the original author or authors.+*Copyright 2002-2019 the original author or authors.**Licensed under the Apache License,Version 2.0(the\"License\");* you may not use this file except in compliance with the License.*/void addAll(MultiValueMap<K,V>values);+/**+*{@ link#add(Object,Object)Add}the given value,only when the map does not+*{@ link#containsKey(Object)contain}the given key.+*@ param key the key+*@param value the value to be added+*@since 5.2+*/+ default void addIfAbsent(K key,@ Nullable V value){+if(! containsKey(key)){+ add(key,value);+}+}+/***Set the given single value under the given key.*@param key the key \ndiff --git a/spring-core/src/test/java/org/springframework/util/LinkedMultiValueMapTests.java  b/spring-core/src/test/java/org/springframework/util/LinkedMultiValueMapTests.java \npublic void add(){assertThat(map.get(\" key\")). isEqualTo(expected);}+@Test+public void addIfAbsentWhenAbsent(){+ map.addIfAbsent(\" key\",\"value1\");+ assertThat(map.get(\" key\")). containsExactly(\" value1\");+}++@ Test+public void addIfAbsentWhenPresent(){+ map.add(\" key\",\"value1\");+ map.addIfAbsent(\" key\",\"value2\");+ assertThat(map.get(\" key\")). containsExactly(\" value1\");+}+@Test \npublic void set(){map.set(\" key\",\"value1\") ; \n",
+        "nngen": "LinkedCaseInsensitiveMap provides reliable getOrDefault implementation\n",
+        "nmt": "Polishing\n",
+        "codebert": "Add addAll method to MultiValueMap\n",
+        "language": "java",
+        "chatgpt": "Updated MultiValueMap interface to add new method addIfAbsent for adding value only if key is absent. Added corresponding tests in LinkedMultiValueMapTests.",
+        "chatgpt_rag": "Make MultiValueMapAdapter public as a base class for LinkedMultiValueMap in spring-core."
+    },
+    {
+        "msg": "[ FLINK - 20455 ] [ oss ] [ legal ] Move license to META - INF directory",
+        "diff": "similarity index 100%rename from flink-filesystems/flink-oss-fs-hadoop/src/main/resources/licenses/LICENSE.jdom \nrename to flink-filesystems/flink-oss-fs-hadoop/src/main/resources/META-INF/licenses/LICENSE.jdom \n",
+        "nngen": "[ FLINK - 10529 ] [ build ] Add flink - s3 - fs - base to travis stage file .\n",
+        "nmt": "[ FLINK - <unk> ] [ build ] Move quickstart files to flink - core\n",
+        "codebert": "[ hotfix ] Rename LICENSE . jdir to META - INF\n",
+        "language": "java",
+        "chatgpt": "Move LICENSE.jdom to META-INF/licenses/LICENSE.jdom within flink-oss-fs-hadoop resources in flink-filesystems.",
+        "chatgpt_rag": "[hotfix][tests] Rename HadoopS3RecoverableWriterTest to HadoopS"
+    },
+    {
+        "msg": "Merge pull request from hannanabdul55 / master",
+        "diff": "diff --git a/docs/api.md  b/docs/api.md|diff --git|diff --git|diff --git||**`source`**|** Mandatory**-The source of animation.Can be referenced as a local asset by a string,or remotely with an object with a`uri`property,or it can be an actual JS object of an animation,obtained(for example)with something like`require('../path/to/animation.json')`|*None*||**` progress`**| A number between 0 and 1,or an`Animated`number between 0 and 1.This number represents the normalized progress of the animation.If you update this prop,the animation will correspondingly update to the frame at that progress value.This prop is not required if you are using the imperative API.|`0`|-|**`speed`**| The speed the animation will progress.This only affects the imperative API.|`1`|+|**`speed`**| The speed the animation will progress.This only affects the imperative API.Sending a negative value will reverse the animation|` 1`||**` loop`**| A boolean flag indicating whether or not the animation should loop.|`false`||**` style`**| Style attributes for the view,as expected in a standard[` View`](http://facebook.github.io/react-native/releases/0.46/docs/layout-props.html), aside from border styling|* None*||**` imageAssetsFolder`**| Needed for** Android** to work properly with assets,iOS will ignore it.|*None*| \ndiff --git a/lib/android/src/main/java/com/airbnb/android/react/lottie/LottieAnimationViewManager.java  b/lib/android/src/main/java/com/airbnb/android/react/lottie/LottieAnimationViewManager.java \npublic void setProgress(LottieAnimationView view,float progress){@ReactProp(name=\" speed\") \npublic void setSpeed(LottieAnimationView view,double speed){-//TODO?+ view.setSpeed(( float)speed);}@ ReactProp(name=\" loop\") \n",
+        "nngen": "Updated the API doc .\n",
+        "nmt": "Merge pull request from <unk> / master\n",
+        "codebert": "Update API . md\n",
+        "language": "java",
+        "chatgpt": "Update speed prop in LottieAnimationViewManager.java to accept negative values for reversing animation. Update API.md to reflect speed prop changes.",
+        "chatgpt_rag": "Update animation props in api.md for source, progress, speed, loop, style, and imageAssets"
+    },
+    {
+        "msg": "sulong : resolveRenamedSymbols should print ExternalLibrary on failure",
+        "diff": "diff --git a/sulong/projects/com.oracle.truffle.llvm/src/com/oracle/truffle/llvm/Runner.java  b/sulong/projects/com.oracle.truffle.llvm/src/com/oracle/truffle/llvm/Runner.java \nprivate static void resolveRenamedSymbols(LLVMParserResult parserResult,ParseCo \nlibToRes.put(res.getRuntime().getLibrary(),res);}EconomicMap<String,LLVMScope>scopes=EconomicMap.create();+ EconomicMap<String,ExternalLibrary>libs=EconomicMap.create();//TODO(je)we should probably do this in symbol resolution order-let's fix that when we// fix symbol resolution[GR-21400]for(ExternalLibrary dep:parserResult.getDependencies()){ \nLLVMParserResult depResult=libToRes.get(dep); \nif(depResult!= null){ \nscopes.put(getSimpleLibraryName(dep.getName()), depResult.getRuntime().getFileScope());+libs.put(getSimpleLibraryName(dep.getName()), dep);}} \nListIterator<FunctionSymbol>it=parserResult.getExternalFunctions().listIterator();private static void resolveRenamedSymbols(LLVMParserResult parserResult,ParseCo \nString originalName=name.substring(idx+1); \nLLVMFunction originalSymbol=scope.getFunction(originalName); \nif(originalSymbol== null){-throw new LLVMLinkerException(String.format(\" The%s could not be imported because the symbol%s was not found in library%s\", external.getName(),originalName,lib));+ throw new LLVMLinkerException(+ String.format(\" The%s could not be imported because the symbol%s was not found in library%s\", external.getName(),originalName,libs.get(lib)));}LLVMAlias alias=new LLVMAlias(parserResult.getRuntime().getLibrary(),name,originalSymbol); \nparserResult.getRuntime().getFileScope().register(alias); \nit.remove();} else{- throw new LLVMLinkerException(String.format(\" The%s could not be imported because library%s was not found\", external.getName(),lib));+ throw new LLVMLinkerException(String.format(\" The%s could not be imported because library%s was not found\", external.getName(),libs.get(lib)));}} \n} \n",
+        "nngen": "sulong : improve error message in resolveRenamedSymbols\n",
+        "nmt": "sulong : add <unk>\n",
+        "codebert": "sulong : resolveRenamedSymbols\n",
+        "language": "java",
+        "chatgpt": "Resolve renamed symbols and dependencies, improve symbol resolution order. Fix error handling in Runner.java.",
+        "chatgpt_rag": "\"Update resolveRenamedSymbols to consider transitive dependencies in Sulong project\""
+    },
+    {
+        "msg": "Adapt CHANGELOG to reflect new signature of CallTarget # call .",
+        "diff": "diff --git a/CHANGELOG.md  b/CHANGELOG.md*Explicit types for inputs(InputType enum).*Added graal.version system property to Graal enabled VM builds.* Transitioned to JDK 8 as minimum JDK level for Graal.-*Added support for stack introspection+* Added support for stack introspection.*...### Truffle-* Support for collecting stack traces and for accessing the current frame in slow paths+* The method CallTarget#call takes now a variable number of Object arguments.+*Support for collecting stack traces and for accessing the current frame in slow paths.* Renamed CallNode to DirectCallNode.* Renamed TruffleRuntime#createCallNode to TruffleRuntime#createDirectCallNode.* Added IndirectCallNode for calls with a changing CallTarget . \n",
+        "nngen": "Adapt CHANGELOG to reflect new signature of CallTarget # call .\n",
+        "nmt": "Update CHANGELOG . md\n",
+        "codebert": "Merge .\n",
+        "language": "java",
+        "chatgpt": "Added support for stack introspection and updated CallTarget#call method to take variable arguments.",
+        "chatgpt_rag": "Updated CallTarget#call signature in CHANGELOG."
+    },
+    {
+        "msg": "fix typo in method ' s signature",
+        "diff": "diff --git a/core/src/main/java/hudson/tools/DownloadFromUrlInstaller.java  b/core/src/main/java/hudson/tools/DownloadFromUrlInstaller.java \npublic Downloadable createDownloadable(){final DownloadFromUrlInstaller.DescriptorImpl delegate=( DownloadFromUrlInstaller.DescriptorImpl)this;return new Downloadable(getId()){ \npublic JSONObject reduce(List<JSONObject>jsonList){-if(isDefualtSchema(jsonList)){+ if(isDefaultSchema(jsonList)){return delegate.reduce(jsonList);}else{//if it's not default schema fall back to the super class implementation \npublic JSONObject reduce(List<JSONObject>jsonList){*@ param jsonList the list of Update centers json files*@ return true if the schema is the default one(id,name,url), false otherwise*/-private boolean isDefualtSchema(List<JSONObject>jsonList){+private boolean isDefaultSchema(List<JSONObject>jsonList){ \nJSONObject jsonToolInstallerList=jsonList.get(0); \nToolInstallerList toolInstallerList=( ToolInstallerList)JSONObject.toBean(jsonToolInstallerList,ToolInstallerList.class); \n",
+        "nngen": "[ FIXED JENKINS - 28093 ] Reverting getDownloadableId from . Not compatible .\n",
+        "nmt": "Merge pull request from <unk> / JENKINS - <unk>\n",
+        "codebert": "Fix typo\n",
+        "language": "java",
+        "chatgpt": "Fix typo in method name isDefualtSchema to isDefaultSchema.",
+        "chatgpt_rag": "[FIXED JENKINS-28093] Corrected typo in isDefaultSchema function to"
+    },
+    {
+        "msg": "Add @ Nullable annotations to PackageFunction # progressReceiver .",
+        "diff": "diff --git a/src/main/java/com/google/devtools/build/lib/skyframe/PackageFunction.java  b/src/main/java/com/google/devtools/build/lib/skyframe/PackageFunction.java \nprivate final Cache<PackageIdentifier,CacheEntryWithGlobDeps<AstAfterPreprocessing>> astCache;private final AtomicBoolean showLoadingProgress;private final AtomicInteger numPackagesLoaded;- private final PackageProgressReceiver packageProgress;+@Nullable private final PackageProgressReceiver packageProgress;private final Profiler profiler=Profiler.instance();private final Label preludeLabel ; \n",
+        "nngen": "Get rid of unused field .\n",
+        "nmt": "Make <unk> final\n",
+        "codebert": "Add missing @ Nullable\n",
+        "language": "java",
+        "chatgpt": "Make packageProgress nullable in PackageFunction.java. Fixes #123.",
+        "chatgpt_rag": "Refactor MemoizingEvaluator to handle EvaluationProgressReceiver properly."
+    },
+    {
+        "msg": "Site : Use kramdown for processing markdown",
+        "diff": "diff --git a/site/_config.yml  b/site/_config.yml \ndestination:production-markdown:redcarpet-redcarpet:- extensions:[\"tables\"]+markdown:kramdown+kramdown:+ syntax_highlighter:rouge+highlighter:rouge+paginate:10-highlighter:pygments \nsass:sass_dir:_sass \ngems:[ jekyll-paginate ] \n",
+        "nngen": "Site : Use ` kramdown ` for processing markdown\n",
+        "nmt": "Add <unk> to Bazel .\n",
+        "codebert": "Fix markdown syntax\n",
+        "language": "java",
+        "chatgpt": "Change markdown engine from Redcarpet to Kramdown with Rouge syntax highlighter in Jekyll.",
+        "chatgpt_rag": "Revert markdown engine to redcarpet for Bazel."
+    },
+    {
+        "msg": "Bump to 5 . 6 . 1",
+        "diff": "diff --git a/flink-contrib/flink-statebackend-rocksdb/pom.xml  b/flink-contrib/flink-statebackend-rocksdb/pom.xml \nunder the License.< dependency>< groupId>org.rocksdb</ groupId>< artifactId>rocksdbjni</ artifactId>-<version>5.5.5</ version>+<version>5.6.1</ version></dependency><!--test dependencies-- > \n",
+        "nngen": "[ hotfix ] Update RocksDB version to 5 . 7 . 5\n",
+        "nmt": "[ FLINK - <unk> ] [ build ] Upgrade <unk> to 5 . 6 . 1\n",
+        "codebert": "[ hotfix ] Upgrade rocksdbj jni to 5 . 6 . 1\n",
+        "language": "java",
+        "chatgpt": "Update rocksdbjni version from 5.5.5 to 5.6.1 in flink-statebackend-rocksdb pom.xml file.",
+        "chatgpt_rag": "[hotfix] Update RocksDB version to 5.7.5"
+    },
+    {
+        "msg": "mute - button implementation in main player",
+        "diff": "diff --git a/app/src/main/java/org/schabi/newpipe/player/BasePlayer.java  b/app/src/main/java/org/schabi/newpipe/player/BasePlayer.java \npublic void onShuffleClicked(){if(simpleExoPlayer== null)return;simpleExoPlayer.setShuffleModeEnabled(! simpleExoPlayer.getShuffleModeEnabled());}+/*//////////////////////////////////////////////////////////////////////////+//Mute/Unmute+//////////////////////////////////////////////////////////////////////////*/++public void onMuteUnmuteButtonClicled(){+ if(DEBUG)Log.d(TAG,\" onMuteUnmuteButtonClicled() called\");++if(simpleExoPlayer.getVolume()!= 0){+simpleExoPlayer.setVolume(0);+}+else{+ simpleExoPlayer.setVolume(1);+}+}/*//////////////////////////////////////////////////////////////////////////// Progress Updates \ndiff --git a/app/src/main/java/org/schabi/newpipe/player/MainVideoPlayer.java  b/app/src/main/java/org/schabi/newpipe/player/MainVideoPlayer.java \nimport androidx.core.app.ActivityCompat;import androidx.appcompat.app.AppCompatActivity;import androidx.appcompat.content.res.AppCompatResources;+ import androidx.core.content.ContextCompat;import androidx.recyclerview.widget.RecyclerView;import androidx.recyclerview.widget.ItemTouchHelper;import android.util.DisplayMetrics;public void onPlaybackParameterChanged(float playbackTempo,float playbackPitch,private ImageButton toggleOrientationButton;private ImageButton switchPopupButton;private ImageButton switchBackgroundButton;+ private ImageButton muteButton;private RelativeLayout windowRootLayout;private View secondaryControls;public void initViews(View rootView){ \nthis.shareButton=rootView.findViewById(R.id.share); \nthis.toggleOrientationButton=rootView.findViewById(R.id.toggleOrientation); \nthis.switchBackgroundButton=rootView.findViewById(R.id.switchBackground);+this.muteButton=rootView.findViewById(R.id.switchMute); \nthis.switchPopupButton=rootView.findViewById(R.id.switchPopup); \nthis.queueLayout=findViewById(R.id.playQueuePanel); \npublic void initListeners(){shareButton.setOnClickListener(this); \ntoggleOrientationButton.setOnClickListener(this); \nswitchBackgroundButton.setOnClickListener(this);+muteButton.setOnClickListener(this); \nswitchPopupButton.setOnClickListener(this); \ngetRootView().addOnLayoutChangeListener(( view,l,t,r,b,ol,ot,or,ob)->{ \npublic void onPlayBackgroundButtonClicked(){destroy();finish();}+@ Override+public void onMuteUnmuteButtonClicled(){+ super.onMuteUnmuteButtonClicled();+ setMuteIcon();+}++public void setMuteIcon(){+ if(simpleExoPlayer.getVolume()== 0){+muteButton.setColorFilter(ContextCompat.getColor(context,R.color.white));+}++else{+ muteButton.setColorFilter(ContextCompat.getColor(context,R.color.gray));+}+}@ Override \npublic void onClick(View v){}else if(v.getId()== switchBackgroundButton.getId()){ \nonPlayBackgroundButtonClicked();+}else if(v.getId()== muteButton.getId()){+onMuteUnmuteButtonClicled();+}else if(v.getId()== closeButton.getId()){ \nonPlaybackShutdown();return ; \n",
+        "nngen": "Implemented share button in MainVideoPlayer\n",
+        "nmt": "- Added player . <unk> ( )\n",
+        "codebert": "Merge remote - tracking branch ' origin / dev ' into dev\n",
+        "language": "java",
+        "chatgpt": "Add functionality to mute/unmute player in BasePlayer class, and add mute button in MainVideoPlayer class with corresponding click listener and mute icon handling.",
+        "chatgpt_rag": "[ fix ] Close player in onPlaybackShutdown due to regression."
+    },
+    {
+        "msg": "make call to Thread . getStackTrace substitutable",
+        "diff": "diff --git a/compiler/src/org.graalvm.compiler.debug/src/org/graalvm/compiler/debug/DebugContext.java  b/compiler/src/org.graalvm.compiler.debug/src/org/graalvm/compiler/debug/DebugContext.java \npublic String getCurrentScopeName(){private final Invariants invariants=Assertions.ENABLED?new Invariants():null;+ static StackTraceElement[] getStackTrace(Thread thread){+return thread.getStackTrace();+}+/*** Utility for enforcing{@ link DebugContext}invariants via assertions.*/public String getCurrentScopeName(){Invariants(){thread=Thread.currentThread();- origin=thread.getStackTrace();+ origin=getStackTrace(thread);}boolean checkNoConcurrentAccess() { \n",
+        "nngen": "allow Graph . debug to be reset with some sanity checks\n",
+        "nmt": "<unk> <unk>\n",
+        "codebert": "make getStackTrace method static\n",
+        "language": "java",
+        "chatgpt": "Add utility method getStackTrace() to DebugContext.java for obtaining thread stack trace.",
+        "chatgpt_rag": "Made verification of @Fold methods configurable."
+    },
+    {
+        "msg": "Fix NPE when importing markdown files",
+        "diff": "diff --git a/src/main/java/run/halo/app/service/TagService.java  b/src/main/java/run/halo/app/service/TagService.java*@ param name name*@ return Tag*/+@ Nullable \nTag getByName(@ NonNull String name);/**diff --git a/src/main/java/run/halo/app/service/impl/CategoryServiceImpl.java  b/src/main/java/run/halo/app/service/impl/CategoryServiceImpl.java \nimport run.halo.app.service.CategoryService;import run.halo.app.service.PostCategoryService;import run.halo.app.service.base.AbstractCrudService;+ import run.halo.app.utils.ServiceUtils;import java.util.Collections;import java.util.LinkedList;public Category create(Category category){}//Check parent id-if(category.getParentId()>0){+if(! ServiceUtils.isEmptyId(category.getParentId())){count=categoryRepository.countById(category.getParentId()); \nif(count== 0){ \n",
+        "nngen": "Fix option list bug\n",
+        "nmt": "Create <unk> . java\n",
+        "codebert": "Refactor TagService\n",
+        "language": "java",
+        "chatgpt": "Add @Nullable annotation to getByName method in TagService and import ServiceUtils in CategoryServiceImpl. Fix parent id check in create method.",
+        "chatgpt_rag": "Refactor listTags API for better functionality."
+    },
+    {
+        "msg": "Remove usage of - - android_aapt flag . AAPT2 is now the only option .",
+        "diff": "diff --git a/src/test/shell/bazel/android/aapt_integration_test.sh  b/src/test/shell/bazel/android/aapt_integration_test.sh \nfunction test_build_with_aapt2(){setup_android_sdk_support \ncreate_android_binary-assert_build// java/bazel:bin-- android_aapt=aapt2+assert_build// java/bazel:bin}run_suite\"aapt2 integration test \" \n",
+        "nngen": "Rename bazel_ { experimental_ , } ui_test . sh\n",
+        "nmt": "Fix <unk> .\n",
+        "codebert": "Automatic code cleanup .\n",
+        "language": "java",
+        "chatgpt": "Update aapt_integration_test.sh to use aapt2 for android_build in Bazel.",
+        "chatgpt_rag": "Add aapt2 integration test for android_binary with aar_import."
+    },
+    {
+        "msg": "Allow use of WebFilters in RouterFunction",
+        "diff": "diff --git a/spring-web-reactive/src/main/java/org/springframework/web/reactive/function/RouterFunctions.java  b/spring-web-reactive/src/main/java/org/springframework/web/reactive/function/RouterFunctions.java \nimport org.springframework.util.Assert;import org.springframework.web.reactive.HandlerMapping;import org.springframework.web.server.ServerWebExchange;+ import org.springframework.web.server.WebHandler;import org.springframework.web.server.adapter.HttpWebHandlerAdapter;+ import org.springframework.web.server.adapter.WebHttpHandlerBuilder;/***< strong>Central entry point to Spring's functional web framework.</strong>/***Convert the given{@ linkplain RouterFunction router function}into a{@ link HttpHandler}.*This conversion uses{@ linkplain HandlerStrategies#builder() default strategies}.-*<p>The returned{@ code HttpHandler}can be adapted to run in+*<p>The returned handler can be adapted to run in*< ul>*<li>Servlet 3.1+using the*{@link org.springframework.http.server.reactive.ServletHttpHandlerAdapter},</ li>*<li>Undertow using the*{@link org.springframework.http.server.reactive.UndertowHttpHandlerAdapter}.</ li>*</ ul>+*< p>Note that{@ code HttpWebHandlerAdapter}also implements{@ link WebHandler}, allowing+* for additional filter and exception handler registration through+*{@ link WebHttpHandlerBuilder}.*@ param routerFunction the router function to convert*@ return an http handler that handles HTTP request using the given router function*/-public static HttpHandler toHttpHandler(RouterFunction<?>routerFunction){+public static HttpWebHandlerAdapter toHttpHandler(RouterFunction<?>routerFunction){ \nreturn toHttpHandler(routerFunction,HandlerStrategies.withDefaults());}public static HttpHandler toHttpHandler(RouterFunction<?>routerFunction){*< li>Undertow using the*{@link org.springframework.http.server.reactive.UndertowHttpHandlerAdapter}.</ li>*</ ul>+*< p>Note that{@ code HttpWebHandlerAdapter}also implements{@ link WebHandler}, allowing+* for additional filter and exception handler registration through*@ param routerFunction the router function to convert*@ param strategies the strategies to use*@ return an http handler that handles HTTP request using the given router function*/-public static HttpHandler toHttpHandler(RouterFunction<?>routerFunction,HandlerStrategies strategies){+public static HttpWebHandlerAdapter toHttpHandler(RouterFunction<?>routerFunction,HandlerStrategies strategies){ \nAssert.notNull(routerFunction,\" RouterFunction must not be null\");Assert.notNull(strategies,\" HandlerStrategies must not be null\") ; \n",
+        "nngen": "Remove DispatcherHandler static factory methods\n",
+        "nmt": "Add <unk>\n",
+        "codebert": "Polish\n",
+        "language": "java",
+        "chatgpt": "Update RouterFunctions.java to return HttpWebHandlerAdapter for additional functionality and use WebHttpHandlerBuilder for filter and exception handler registration.",
+        "chatgpt_rag": "Fix andRoute method in RouterFunction to handle handler functions with specified types."
+    },
+    {
+        "msg": "Add a flag to use minimim_master_nodes on the integ test cluster ( )",
+        "diff": "diff --git a/buildSrc/src/main/groovy/org/elasticsearch/gradle/test/ClusterConfiguration.groovy  b/buildSrc/src/main/groovy/org/elasticsearch/gradle/test/ClusterConfiguration.groovy \nclass ClusterConfiguration{@ Input \nboolean debug=false+/**+* if<code>true</ code>each node will be configured with<tt>discovery.zen.minimum_master_nodes</ tt>set+* to the total number of nodes in the cluster.This will also cause that each node has`0s`state recovery+* timeout which can lead to issues if for instance an existing clusterstate is expected to be recovered+* before any tests start+*/+@Input+boolean useMinimumMasterNodes=true+@ Input \nString jvmArgs=\"-Xms\"+ System.getProperty(' tests.heap.size','512m')+\"\"+\"- Xmx\"+ System.getProperty(' tests.heap.size','512m')+class ClusterConfiguration{@ Input \nClosure waitCondition={ NodeInfo node,AntBuilder ant-> \nFile tmpFile=new File(node.cwd,' wait.success')-ant.echo(\"==>[${ new Date()}] checking health:http://${node.httpUri()}/ _cluster/health?wait_for_nodes=>=${numNodes}\")+ ant.echo(\"==>[${ new Date()}] checking health:http://${node.httpUri()}/ _cluster/health?wait_for_nodes=>=${numNodes}& wait_for_status=yellow\")// checking here for wait_for_nodes to be>= the number of nodes because its possible// this cluster is attempting to connect to nodes created by another task(same cluster name),// so there will be more nodes in that case in the cluster state-ant.get(src:\" http://${node.httpUri()}/ _cluster/health?wait_for_nodes=>=${numNodes}\",+ ant.get(src:\" http://${node.httpUri()}/ _cluster/health?wait_for_nodes=>=${numNodes}& wait_for_status=yellow\", \ndest:tmpFile.toString(),ignoreerrors:true,//do not fail on error,so logging buffers can be flushed by the wait task \nretries:10)diff --git a/buildSrc/src/main/groovy/org/elasticsearch/gradle/test/ClusterFormationTasks.groovy  b/buildSrc/src/main/groovy/org/elasticsearch/gradle/test/ClusterFormationTasks.groovy \nclass ClusterFormationTasks{//basically skip initial state recovery to allow the cluster to form using a realistic master election// this means all nodes must be up,join the seed node and do a master election.This will also allow new and// old nodes in the BWC case to become the master-if(node.config.numNodes>1){+if(node.config.useMinimumMasterNodes&& node.config.numNodes>1){ \nesConfig[' discovery.zen.minimum_master_nodes']=node.config.numNodes \nesConfig[' discovery.initial_state_timeout']=' 0s'//don't wait for state.. just start up quickly \n} \n",
+        "nngen": "In the rolling upgrades tests , we do not want to stop nodes\n",
+        "nmt": "Merge pull request from rjernst / <unk>\n",
+        "codebert": "Merge pull request from rjernst / min_master_nodes\n",
+        "language": "java",
+        "chatgpt": "Fix: Set `discovery.zen.minimum_master_nodes` to total nodes in cluster, add `useMinimumMasterNodes` flag to control behavior.",
+        "chatgpt_rag": "Set external nodes to default to 512m of heap size in ClusterConfiguration.groovy."
+    },
+    {
+        "msg": "Add test showing that nested set deduplicates singletons .",
+        "diff": "diff --git a/src/test/java/com/google/devtools/build/lib/collect/nestedset/NestedSetImplTest.java  b/src/test/java/com/google/devtools/build/lib/collect/nestedset/NestedSetImplTest.java \npublic void correctOrder(){return builder.build();}+@ Test+public void hoistingKeepsSetSmall(){+ NestedSet<String>first=NestedSetBuilder.< String>stableOrder().add(\" a\").build();+ NestedSet<String>second=NestedSetBuilder.< String>stableOrder().add(\" a\").build();+ NestedSet<String>singleton=+ NestedSetBuilder.< String>stableOrder().addTransitive(first). addTransitive(second). build();+ assertThat(singleton.toList()). containsExactly(\" a\");+ assertThat(singleton.isSingleton()). isTrue();+}+@Test \npublic void addTransitiveAndBlockIfFuture_propagatesInterrupt() throws Exception{SettableFuture<Object[]>deserializationFuture=SettableFuture.create() ; \n",
+        "nngen": "Create a NestedSet method isReady to determine whether the NestedSet requires blocking .\n",
+        "nmt": "Automatic code cleanup .\n",
+        "codebert": "Add tests for NestedSetImpl\n",
+        "language": "java",
+        "chatgpt": "Add test for hoisting that keeps set small in NestedSetImplTest. Fix formatting issues.",
+        "chatgpt_rag": "Fix JavaToolchain JVM options label expansion for alias javac."
+    },
+    {
+        "msg": "getOrchestrationFacade ( ) . init ( OrchestrationType . MASTER_SLAVE ) ;",
+        "diff": "diff --git a/sharding-jdbc/sharding-jdbc-orchestration/src/main/java/io/shardingsphere/shardingjdbc/orchestration/internal/datasource/OrchestrationMasterSlaveDataSource.java  b/sharding-jdbc/sharding-jdbc-orchestration/src/main/java/io/shardingsphere/shardingjdbc/orchestration/internal/datasource/OrchestrationMasterSlaveDataSource.java \nimport io.shardingsphere.core.constant.properties.ShardingProperties;import io.shardingsphere.core.rule.MasterSlaveRule;import io.shardingsphere.orchestration.config.OrchestrationConfiguration;+ import io.shardingsphere.orchestration.config.OrchestrationType;import io.shardingsphere.orchestration.internal.OrchestrationFacade;import io.shardingsphere.orchestration.internal.config.ConfigurationService;import io.shardingsphere.orchestration.internal.event.config.MasterSlaveConfigurationEventBusEvent;public OrchestrationMasterSlaveDataSource(final OrchestrationConfiguration orche \nPreconditions.checkState(null!= masterSlaveRuleConfig&&!Strings.isNullOrEmpty(masterSlaveRuleConfig.getMasterDataSourceName()),\"No available master slave rule configuration to load.\"); \ndataSource=new MasterSlaveDataSource(configService.loadDataSourceMap(),new OrchestrationMasterSlaveRule(masterSlaveRuleConfig), configService.loadMasterSlaveConfigMap(),new ShardingProperties(configService.loadMasterSlaveProperties()));- initOrchestrationFacade(dataSource);+getOrchestrationFacade().init(OrchestrationType.MASTER_SLAVE);}private void initOrchestrationFacade(final MasterSlaveDataSource masterSlaveDataSource){ \n",
+        "nngen": "getOrchestrationFacade ( ) . init ( OrchestrationType . SHARDING ) ;\n",
+        "nmt": "add <unk> ( )\n",
+        "codebert": "add renew ( )\n",
+        "language": "java",
+        "chatgpt": "Refactor OrchestrationMasterSlaveDataSource to use getOrchestrationFacade().init(OrchestrationType.MASTER_SLAVE) for initialization.",
+        "chatgpt_rag": "Refactor code to use @SneakyThrows annotation for exception handling."
+    },
+    {
+        "msg": "Move short circuit comment in Downsampler closer to the check it references .",
+        "diff": "diff --git a/library/src/main/java/com/bumptech/glide/load/resource/bitmap/Downsampler.java  b/library/src/main/java/com/bumptech/glide/load/resource/bitmap/Downsampler.java \nprivate static IOException newIoExceptionForInBitmapAssertion(IllegalArgumentExc+\",inBitmap:\"+getInBitmapString(options), e);}-// Avoid short circuiting SDK checks.@ SuppressWarnings(\" PMD.CollapsibleIfStatements\")@TargetApi(Build.VERSION_CODES.O)private static void setInBitmap(BitmapFactory.Options options,BitmapPool bitmapPool,int width,int height){-if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O-&&options.inPreferredConfig== Config.HARDWARE){-return;+// Avoid short circuiting,it appears to break on some devices.+ if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){+if(options.inPreferredConfig== Config.HARDWARE){+return;+}}// BitmapFactory will clear out the Bitmap before writing to it,so getDirty is safe.options.inBitmap=bitmapPool.getDirty(width,height,options.inPreferredConfig); \n",
+        "nngen": "Handle invalid sizes in Downsampler .\n",
+        "nmt": "Automated g4 rollback of commit <unk> .\n",
+        "codebert": "Avoid ShortCircuitException in Downsampler .\n",
+        "language": "java",
+        "chatgpt": "Refactor Downsampler.java to avoid short circuiting SDK checks and improve compatibility with some devices.",
+        "chatgpt_rag": "Update paint flags and remove anti alias."
+    },
+    {
+        "msg": "Upgrade to JBoss Transaction SPI 7 . 3 . 4 . Final",
+        "diff": "diff --git a/spring-boot-dependencies/pom.xml  b/spring-boot-dependencies/pom.xml<jaxen.version>1.1.6</ jaxen.version>< jaybird.version>2.2.11</ jaybird.version>< jboss-logging.version>3.3.0.Final</ jboss-logging.version>-<jboss-transaction-spi.version>7.3.2.Final</ jboss-transaction-spi.version>+<jboss-transaction-spi.version>7.3.4.Final</ jboss-transaction-spi.version>< jdom2.version>2.0.6</ jdom2.version>< jedis.version>2.8.1</ jedis.version>< jersey.version>2.23.2</ jersey.version > \n",
+        "nngen": "Upgrade to JBoss Transaction SPI 7 . 3 . 2 . Final\n",
+        "nmt": "Upgrade to Jboss Metrics 7 . 3 . 4 . Final\n",
+        "codebert": "Upgrade to Jboss Transaction Spi 7 . 3 . 4 . Final\n",
+        "language": "java",
+        "chatgpt": "Update jboss-transaction-spi version from 7.3.2.Final to 7.3.4.Final in spring-boot-dependencies pom.xml.",
+        "chatgpt_rag": "Upgrade Jboss Transaction Spi to version 7.6.0.Final."
+    },
+    {
+        "msg": "fix as . bat set JAVACMD error ( )",
+        "diff": "diff --git a/bin/as.bat  b/bin/as.bat \necho NB:JAVA_HOME should point to a JDK not a JRE.goto exit_bat:okJava-set JAVACMD=\"%JAVA_HOME%\"\\bin\\java-% JAVACMD%- Dfile.encoding=UTF-8%BOOT_CLASSPATH%- jar\"% CORE_JAR%\"-pid\"% PID%\"-target-ip 127.0.0.1-telnet-port%TELNET_PORT%- http-port%HTTP_PORT%- core\"% CORE_JAR%\"-agent\"% AGENT_JAR%\" \nif%ERRORLEVEL%NEQ 0 goto exit_bat \nif%exitProcess%==1 goto exit_bat \n",
+        "nngen": "Windows : makes elasticsearch . bat more friendly to automated processes\n",
+        "nmt": "fix\n",
+        "codebert": "update as . bat\n",
+        "language": "java",
+        "chatgpt": "Refactor as.bat script to ensure Java environment variables are correctly set and exit conditions are handled.",
+        "chatgpt_rag": "Update service.bat to detect JRE vs JDK in JAVA_HOME and handle invalid installations. Fix issue with"
+    },
+    {
+        "msg": "updated changelog as a part of the release",
+        "diff": "diff --git a/debian/debian/changelog  b/debian/debian/changelog+hudson(1.392)unstable;urgency=low++*See http://hudson.dev.java.net/changelog.html for more details.++--Kohsuke Kawaguchi<kk@kohsuke.org>Fri,31 Dec 2010 21:41:33-0800+hudson(1.391)unstable;urgency=low*See http://hudson.dev.java.net/changelog.html for more details . \n",
+        "nngen": "updated changelog as a part of the release\n",
+        "nmt": "updated changelog as a part of the release\n",
+        "codebert": "updated changelog as a part of the release\n",
+        "language": "java",
+        "chatgpt": "Updated Hudson version to 1.391 with low urgency, see changelog for details.",
+        "chatgpt_rag": "Updated changelog for Hudson version 1.391 with low urgency."
+    },
+    {
+        "msg": "Put send viewed receipts behind a feature flag .",
+        "diff": "diff --git a/app/src/main/java/org/thoughtcrime/securesms/jobs/SendViewedReceiptJob.java  b/app/src/main/java/org/thoughtcrime/securesms/jobs/SendViewedReceiptJob.java \nimport org.thoughtcrime.securesms.recipients.Recipient;import org.thoughtcrime.securesms.recipients.RecipientId;import org.thoughtcrime.securesms.recipients.RecipientUtil;+ import org.thoughtcrime.securesms.util.FeatureFlags;import org.thoughtcrime.securesms.util.TextSecurePreferences;import org.whispersystems.signalservice.api.SignalServiceMessageSender;import org.whispersystems.signalservice.api.crypto.UntrustedIdentityException;private SendViewedReceiptJob(@ NonNull Parameters parameters,@ Override \npublic void onRun() throws IOException,UntrustedIdentityException{- if(! TextSecurePreferences.isReadReceiptsEnabled(context)||syncTimestamps.isEmpty())return;+ if(! TextSecurePreferences.isReadReceiptsEnabled(context)||syncTimestamps.isEmpty()||!FeatureFlags.sendViewedReceipts())return;if(! RecipientUtil.isMessageRequestAccepted(context,threadId)){Log.w(TAG,\" Refusing to send receipts to untrusted recipient\");diff --git a/app/src/main/java/org/thoughtcrime/securesms/util/FeatureFlags.java  b/app/src/main/java/org/thoughtcrime/securesms/util/FeatureFlags.java \nprivate static final String GV1_AUTO_MIGRATE=\" android.groupsV1Migration.auto.3\"; \nprivate static final String GV1_MANUAL_MIGRATE=\" android.groupsV1Migration.manual\"; \nprivate static final String GV1_FORCED_MIGRATE=\" android.groupsV1Migration.forced\";+private static final String SEND_VIEWED_RECEIPTS=\" android.sendViewedReceipts\";/*** We will only store remote values for flags in this set.If you want a flag to be controllable \nGV1_AUTO_MIGRATE,GV1_MANUAL_MIGRATE,GV1_FORCED_MIGRATE,- GROUP_CALLING+GROUP_CALLING,+ SEND_VIEWED_RECEIPTS);/**public static boolean groupsV1ForcedMigration(){return getBoolean(GV1_FORCED_MIGRATE,false)&&groupsV1ManualMigration()&& groupsV1AutoMigration();}+/** Whether or not to send viewed receipts.*/+ public static boolean sendViewedReceipts(){+ return getBoolean(SEND_VIEWED_RECEIPTS,false);+}+/** Only for rendering debug info.*/public static synchronized@NonNull Map<String,Object>getMemoryValues(){return new TreeMap<>(REMOTE_VALUES); \n",
+        "nngen": "Inline max envelope size feature flag .\n",
+        "nmt": "Fix issue with profile update .\n",
+        "codebert": "Add feature flag to SendViewJob .\n",
+        "language": "java",
+        "chatgpt": "Add feature flag for sending viewed receipts and update SendViewedReceiptJob to check flag before sending receipts.",
+        "chatgpt_rag": "Add developer utils for clipboard management and service utilization."
+    },
+    {
+        "msg": "Noting that there is a > 99 % certainty that these case use getInstance ( )",
+        "diff": "diff --git a/core/src/main/java/hudson/model/Computer.java  b/core/src/main/java/hudson/model/Computer.java \npublic int getNumExecutors(){*/@ CheckForNull \npublic Node getNode(){- Jenkins j=Jenkins.getInstanceOrNull();+ Jenkins j=Jenkins.getInstanceOrNull();//TODO confirm safe to assume non-null and use getInstance() \nif(j== null){ \nreturn null;} \npublic void run(){addNewExecutorIfNecessary();if(! isAlive()){ \nAbstractCIBase ciBase=Jenkins.getInstanceOrNull();- if(ciBase!= null){+if(ciBase!= null){// TODO confirm safe to assume non-null and use getInstance() \nciBase.removeComputer(Computer.this);}} \n",
+        "nngen": "Null safety .\n",
+        "nmt": "Merge pull request from <unk> / JENKINS - <unk>\n",
+        "codebert": "Merge pull request from jglick / Computer . getInstance\n",
+        "language": "java",
+        "chatgpt": "Refactored Computer.java to confirm non-null instance before using getInstance() to prevent potential NPE.",
+        "chatgpt_rag": "Add call to oneOffExecutors.remove in Computer.removeExecutor."
+    },
+    {
+        "msg": "Workaround to support wide color gamut decoding on Android 8 +",
+        "diff": "diff --git a/imagepipeline/src/main/java/com/facebook/imagepipeline/platform/ArtDecoder.java  b/imagepipeline/src/main/java/com/facebook/imagepipeline/platform/ArtDecoder.java \nimport com.facebook.common.references.CloseableReference;import com.facebook.common.streams.LimitedInputStream;import com.facebook.common.streams.TailAppendingInputStream;+ import com.facebook.imagepipeline.bitmaps.SimpleBitmapReleaser;import com.facebook.imagepipeline.image.EncodedImage;import com.facebook.imagepipeline.memory.BitmapPool;import com.facebook.imageutils.BitmapUtil;public ArtDecoder(BitmapPool bitmapPool,int maxNumThreads,SynchronizedPool dec \nif(decodedBitmap== null){ \ndecodedBitmap=BitmapFactory.decodeStream(inputStream,null,options);}+}catch(IllegalArgumentException e){+mBitmapPool.release(bitmapToReuse);+//This is thrown if the Bitmap options are invalid,so let's just try to decode the bitmap+//as-is,which might be inefficient-but it works.+ try{+// We need to reset the stream first+inputStream.reset();++Bitmap naiveDecodedBitmap=BitmapFactory.decodeStream(inputStream);+if(naiveDecodedBitmap== null){+throw e;+}+ return CloseableReference.of(naiveDecodedBitmap,SimpleBitmapReleaser.getInstance());+} catch(IOException re){+//We throw the original exception instead since it's the one causing this workaround in the+//first place.+ throw e;+}} catch(RuntimeException re){ \nmBitmapPool.release(bitmapToReuse); \nthrow re ; \n",
+        "nngen": "Make the simple bitmap releaser its own class\n",
+        "nmt": "Added <unk>\n",
+        "codebert": "Added SimpleBitmapReleaser\n",
+        "language": "java",
+        "chatgpt": "Fix IllegalArgumentException in ArtDecoder by attempting to decode bitmap without options. Handle exceptions and release bitmap properly.",
+        "chatgpt_rag": "Set original encoded image metadata in DecodeProducer"
+    },
+    {
+        "msg": "Fix line length issue in PUBLICATIONS . md",
+        "diff": "diff --git a/docs/PUBLICATIONS.md  b/docs/PUBLICATIONS.md \nand[Graal and Truffle papers]( https://wiki.openjdk.java.net/display/Graal/Publi## Presentations-*[Using LLVM and Sulong for Language C Extensions]( http://chrisseaton.com/rubytruffle/llvm-cauldron-16/llvm-cauldron-sulong.pdf)< br>LLVM Cauldron 2016,September 8,2016,Hebden Bridge,The United Kingdom<br>+*[ Using LLVM and Sulong for Language C Extensions]( http://chrisseaton.com/rubytruffle/llvm-cauldron-16/llvm-cauldron-sulong.pdf)< br>+ LLVM Cauldron 2016,September 8,2016,Hebden Bridge,The United Kingdom<br>[ Download slides]( http://chrisseaton.com/rubytruffle/llvm-cauldron-16/llvm-cauldron-sulong.pdf)< br>[ Watch video]( https://www.youtube.com/watch?v=bJzMfYX6n9A)*[Sulong:Fast LLVM IR Execution on the JVM with Truffle and Graal]( https://fosdem.org/2016/schedule/event/llvm_sulong/)<br > \n",
+        "nngen": "Add LLVM Cauldron presentation to publications list\n",
+        "nmt": "Update publications\n",
+        "codebert": "Fix formatting\n",
+        "language": "java",
+        "chatgpt": "Add presentations on using LLVM and Sulong for C extensions at LLVM Cauldron 2016.",
+        "chatgpt_rag": "Add LLVM Cauldron presentation to publications list."
+    },
+    {
+        "msg": "Added code comments for Multiton .",
+        "diff": "diff --git a/multiton/src/main/java/com/iluwatar/App.java  b/multiton/src/main/java/com/iluwatar/App.java \npackage com.iluwatar;+/**+*+*Whereas Singleton design pattern introduces single globally+* accessible object the Multiton pattern defines many globally+* accessible objects.The client asks for the correct instance+* from the Multiton by passing an enumeration as parameter.+*+*In this example Nazgul is the Multiton and we can ask single+* Nazgul from it using NazgulName.The Nazguls are statically+* initialized and stored in concurrent hash map.+*+*/ \npublic class App{public static void main(String[] args){ \ndiff --git a/multiton/src/main/java/com/iluwatar/Nazgul.java  b/multiton/src/main/java/com/iluwatar/Nazgul.java \nimport java.util.Map;import java.util.concurrent.ConcurrentHashMap;+/**+*+*Nazgul is a Multiton class.Nazgul instances can be queried+* using getInstance() method.+*+*/ \npublic class Nazgul{private static Map<NazgulName,Nazgul>nazguls;diff --git a/multiton/src/main/java/com/iluwatar/NazgulName.java  b/multiton/src/main/java/com/iluwatar/NazgulName.java \npackage com.iluwatar;+/**+*+*Each Nazgul has different NazgulName.+*+*/ \npublic enum NazgulName{KHAMUL,MURAZOR,DWAR,JI_INDUR,AKHORAHIL,HOARMURATH,ADUNAPHEL,REN,UVATHA ; \n",
+        "nngen": "Improvements for Multiton JavaDoc\n",
+        "nmt": "Merge pull request from <unk> / master\n",
+        "codebert": "Added comments .\n",
+        "language": "java",
+        "chatgpt": "Add Multiton design pattern implementation with Nazgul as a Multiton class. Nazgul instances can be queried using getInstance() method.",
+        "chatgpt_rag": "Improvements for Multiton JavaDoc"
+    },
+    {
+        "msg": "[ ci ] Combine ' if ' statement per pmd / sonar",
+        "diff": "diff --git a/src/main/java/org/apache/ibatis/builder/xml/XMLMapperBuilder.java  b/src/main/java/org/apache/ibatis/builder/xml/XMLMapperBuilder.java \nprivate void bindMapperForNamespace(){} catch(ClassNotFoundException e){// ignore,bound type is not required}- if(boundType!= null){-if(! configuration.hasMapper(boundType)){-// Spring may not know the real resource name so we set a flag-//to prevent loading again this resource from the mapper interface-//look at MapperAnnotationBuilder#loadXmlResource-configuration.addLoadedResource(\" namespace:\"+namespace);-configuration.addMapper(boundType);-}+if(boundType!= null&&!configuration.hasMapper(boundType)){+// Spring may not know the real resource name so we set a flag+//to prevent loading again this resource from the mapper interface+//look at MapperAnnotationBuilder#loadXmlResource+configuration.addLoadedResource(\" namespace:\"+namespace);+configuration.addMapper(boundType);}} \n} \n",
+        "nngen": "error resultMap Location\n",
+        "nmt": "Merge pull request from hazendaz / master\n",
+        "codebert": "minor optimization\n",
+        "language": "java",
+        "chatgpt": "Fix bug in XMLMapperBuilder for binding mapper namespace and preventing duplicate loading of resources.",
+        "chatgpt_rag": "Fix XML error location handling in XMLMapperBuilderTest.java."
+    },
+    {
+        "msg": "Translated using Weblate ( Russian )",
+        "diff": "diff --git a/app/src/main/res/values-ru/strings.xml  b/app/src/main/res/values-ru/strings.xml<string name=\" download_path_audio_dialog_title\"> Введите путь к папке для загрузки аудио.</string>< string name=\" main_bg_subtitle\"> Нажмите поиск,чтобы начать</ string>-<string name=\" msg_wait\"> Пожалуйста подождите…</string>+<string name=\" msg_wait\"> Подождите…</string>< string name=\" msg_exists\"> Файл уже существует</ string>< string name=\" msg_threads\"> Потоки</ string>< string name=\" finish\"> Окей</ string > \n",
+        "nngen": "Translated using Weblate ( Russian )\n",
+        "nmt": "Translated using Weblate ( Russian )\n",
+        "codebert": "Translated using Weblate ( Russian )\n",
+        "language": "java",
+        "chatgpt": "Refactor Russian strings.xml file, update message for waiting, and fix spacing issue in background subtitle.",
+        "chatgpt_rag": "Update Russian translation for strings.xml: improved wording for main_bg_subtitle and msg_wait, added download_path"
+    },
+    {
+        "msg": "[ GR - 10508 ] Add Python downstream test .",
+        "diff": "diff --git a/ci.hocon  b/ci.hocon \nruby-downstream-test:{]}+python-downstream-test:{+packages:{+python:\"== 3.4.1\"+ gcc:\"== 4.9.1\"+ llvm:\">= 4.0\"+}+ run:[+[ mx,testdownstream,--repo,\" https://github.com/graalvm/graalpython.git\",+--mx-command,\"-- dynamicimports sulong gate-- tags build,python-cpyext\"]+]+}+svm-downstream-test:${requireGCC}{ \nenvironment:{ \nSVM_REPO:\" https://github.com/graalvm/graal.git\", \nbuilds=[${ gateTest40-darwin}{ name:gate-basic_mac,run:[[mx,gate,--tags,\" build,nwcc,llvm,sulong,interop\"]]}${ gateTest38-linux}${ruby-downstream-test}{ name:gate-ruby-downstream}+${ gateTest38-linux}${python-downstream-test}{ name:gate-python-downstream}${gateTest38-linux}${svm-downstream-test}{ name:gate-substratevm-downstream}${deploy-binaries-linux}{ name:postmerge-deploy-binaries-linux-amd64 } \n",
+        "nngen": "Add Python downstream test .\n",
+        "nmt": "Add <unk> .\n",
+        "codebert": "Add python downstream test .\n",
+        "language": "java",
+        "chatgpt": "Add Python downstream test with specific package versions and run configurations. Fix SVM repository link.",
+        "chatgpt_rag": "Add an initial Ruby downstream test for Ruby version 2.1.0 with specific packages and run"
+    },
+    {
+        "msg": "fixed . User info needs to be reloaded .",
+        "diff": "diff --git a/core/src/main/java/hudson/model/Hudson.java  b/core/src/main/java/hudson/model/Hudson.java \npublic synchronized void doReload(StaplerRequest req,StaplerResponse rsp)thr \nreturn;load();+ User.reload();rsp.sendRedirect2(req.getContextPath()+\"/\");}diff --git a/core/src/main/java/hudson/model/User.java  b/core/src/main/java/hudson/model/User.java \npublic static User get(String id){}}+/**+* Reloads the configuration from disk.+*/+public static void reload(){+// iterate over an array to be concurrency-safe+for(User u:byName.values().toArray(new User[0]))+ u.load();+}+/*** Returns the user name.* / \n",
+        "nngen": "Invalidate UserDetailsCache on user rekey and reload\n",
+        "nmt": "Merge pull request from <unk> / JENKINS - <unk>\n",
+        "codebert": "added a convenience method .\n",
+        "language": "java",
+        "chatgpt": "Reload user configuration from disk in Hudson.java. Add User.reload() to reload all users in User.java for concurrency safety.",
+        "chatgpt_rag": "Fix ' \\ ' in SVN user name issue."
+    }
+]
