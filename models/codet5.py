@@ -1,7 +1,10 @@
 # Use a pipeline as a high-level helper
 from transformers import pipeline
 import json
+import os
+import random
 
+os.environ['HF_HOME'] = './'
 with open('../data/chronicle/chronicle_data.json') as f:
     data = json.load(f)
 
