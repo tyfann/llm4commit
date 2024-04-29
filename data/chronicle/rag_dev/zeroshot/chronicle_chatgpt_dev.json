@@ -1,0 +1,602 @@
+[
+    {
+        "msg": "fkie_node_manager: editor hide log bar on open dialog",
+        "diff": "diff --git a/fkie_node_manager/src/fkie_node_manager/editor/editor.py b/fkie_node_manager/src/fkie_node_manager/editor/editor.py @@ -168,6 +168,7 @@ class Editor(QMainWindow):\nfor f in filenames:\nif f:\nself.on_load_request(f, search_text, only_launch=True)\n+ self.log_dock.setVisible(False)\n# def __del__(self):\n# print \"******** destroy\", self.objectName()\n",
+        "lang": "Python",
+        "chatgpt": "Hide log dock when loading files in Editor class"
+    },
+    {
+        "msg": "Fix update condition for the filter query param",
+        "diff": "diff --git a/src/components/FilterCollapse.js b/src/components/FilterCollapse.js @@ -284,7 +284,7 @@ class FilterCollapse extends Component {\n}\ncomponentDidUpdate(prevProps, prevState) {\n- if (prevProps.filter === this.props.filter) {\n+ if (prevProps.filter !== this.props.filter) {\nQuery.set('f', this.state.filterInput);\n}\n}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Fix logic in componentDidUpdate for updating filter input value"
+    },
+    {
+        "msg": "[#issue-436]Add display node status\nAdd display node status in node list page",
+        "diff": "diff --git a/src/dashboard/src/pages/Operator/Node/index.js b/src/dashboard/src/pages/Operator/Node/index.js @@ -14,7 +14,8 @@ import {\nForm,\nInput,\nSelect,\n- InputNumber\n+ InputNumber,\n+ Badge\n} from 'antd';\nimport { DownOutlined, PlusOutlined } from '@ant-design/icons';\nimport moment from 'moment';\n@@ -546,9 +547,6 @@ class Index extends PureComponent {\ncase 'stopped':\nstatusOfBadge = 'warning';\nbreak;\n- case 'error':\n- statusOfBadge = 'error';\n- break;\ndefault:\nbreak;\n}\n@@ -568,6 +566,8 @@ class Index extends PureComponent {\n</a>\n</Menu.Item>\n)}\n+ {\n+ record.status === 'stopped' &&\n<Menu.Item>\n<a onClick={() => this.operationForNode('start', record)}>\n{intl.formatMessage({\n@@ -576,6 +576,9 @@ class Index extends PureComponent {\n})}\n</a>\n</Menu.Item>\n+ }\n+ {\n+ record.status === 'running' &&\n<Menu.Item>\n<a onClick={() => this.operationForNode('stop', record)}>\n{intl.formatMessage({\n@@ -584,6 +587,9 @@ class Index extends PureComponent {\n})}\n</a>\n</Menu.Item>\n+ }\n+ {\n+ record.status === 'stopped' &&\n<Menu.Item>\n<a onClick={() => this.operationForNode('restart', record)}>\n{intl.formatMessage({\n@@ -592,6 +598,7 @@ class Index extends PureComponent {\n})}\n</a>\n</Menu.Item>\n+ }\n</Menu>\n);\n@@ -630,6 +637,14 @@ class Index extends PureComponent {\ndataIndex: 'created_at',\nrender: text => <span>{moment(text).format('YYYY-MM-DD HH:mm:ss')}</span>,\n},\n+ {\n+ title: intl.formatMessage({\n+ id: 'app.operator.node.table.header.status',\n+ defaultMessage: 'Status',\n+ }),\n+ dataIndex: 'status',\n+ render: text => <Badge status={badgeStatus(text)} text={text} />,\n+ },\n{\ntitle: intl.formatMessage({\nid: 'form.table.header.operation',\n",
+        "lang": "Python",
+        "chatgpt": "Add Badge component for displaying status in Node page."
+    },
+    {
+        "msg": "fkie_node_manager_daemon: remove \"package://\" resolve while set parameter",
+        "diff": "diff --git a/fkie_node_manager_daemon/src/fkie_node_manager_daemon/launcher.py b/fkie_node_manager_daemon/src/fkie_node_manager_daemon/launcher.py @@ -332,7 +332,7 @@ def _load_parameters(masteruri, params, clear_params):\nfor pkey, pval in params.items():\nvalue = pval\n# resolve path elements\n- if isinstance(value, types.StringTypes) and (value.startswith('$') or value.startswith('pkg://') or value.startswith('package://')):\n+ if isinstance(value, types.StringTypes) and (value.startswith('$') or value.startswith('pkg://')):\nvalue = interpret_path(value)\nrospy.logdebug(\"interpret parameter '%s' to '%s'\" % (value, pval))\n# add parameter to the multicall\n",
+        "lang": "Python",
+        "chatgpt": "Remove unnecessary condition in parameter interpretation."
+    },
+    {
+        "msg": "Add body validation.",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -2109,19 +2109,16 @@ router.get(\nrouter.post(\n'/api/saveshowtagcolors',\n+ ensureAuth,\n+ body('show_tag_colors').toBoolean(),\n+ jsonValidationErrors,\nutil.wrapAsyncApi(async (req, res) => {\n- if (req.user) {\nreq.user.hide_tag_colors = !req.body.show_tag_colors;\nawait req.user.save();\nreturn res.status(200).send({\nsuccess: 'true',\n});\n- }\n-\n- return res.status(401).send({\n- success: 'false',\n- });\n}),\n);\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add authentication and validation for saving show tag colors in cube_routes.js"
+    },
+    {
+        "msg": "Disabled images\nThese won't be ready for the next release, but I want the other features in this branch through",
+        "diff": "diff --git a/src/components/Comment.js b/src/components/Comment.js @@ -121,7 +121,7 @@ class Comment extends React.Component {\nreturn (\n<div className='mb-1'>\n<div className={'comment border mt-1 px-2' + (this.state.highlighted ? ' comment-highlighted': '')}>\n- <a href={'/user/view/'+comment.owner}><img className=\"profile-thumbnail mt-2 mr-2\" src={comment.image} title={\"Art by \" + comment.artist}/></a>\n+ {true ? '' : <a href={'/user/view/'+comment.owner}><img className=\"profile-thumbnail mt-2 mr-2\" src={comment.image} title={\"Art by \" + comment.artist}/></a>}\n<div className=\"form-group mb-1\">\n{comment.ownerName ? <a href={'/user/view/'+comment.owner}><small>{comment.ownerName}</small></a> : <a><small>Anonymous</small></a>}\n{comment.timePosted && (comment.updated ? <em><small> - Updated <AgeText date={comment.timePosted}/></small></em> : <a><small> - <AgeText date={comment.timePosted}/></small></a>)}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Fix conditional rendering issue in Comment component"
+    },
+    {
+        "msg": "add getPlaceholderCard to public interface",
+        "diff": "diff --git a/serverjs/cards.js b/serverjs/cards.js @@ -35,7 +35,7 @@ function getPlaceholderCard(_id) {\nparsed_cost: [],\ncolorcategory: 'c',\nerror: true\n- }\n+ };\n}\nfunction cardFromId(id) {\n@@ -58,7 +58,6 @@ function getCardDetails(card) {\nreturn getPlaceholderCard(id);\n};\n}\n-}\nfunction loadJSONFile(filename, attribute) {\nreturn new Promise((resolve, reject) => {\n@@ -111,5 +110,6 @@ data.normalizedName = card => card.name.toLowerCase().normalize(\"NFD\").replace(/\ndata.allIds = card => data.nameToId[data.normalizedName(card)];\ndata.initializeCardDb = initializeCardDb;\ndata.loadJSONFile = loadJSONFile;\n+data.getPlaceholderCard = getPlaceholderCard;\nmodule.exports = data;\n\\ No newline at end of file\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add missing function declaration and export in cards.js"
+    },
+    {
+        "msg": "Make autocarded text in descriptions semi-bold",
+        "diff": "diff --git a/public/css/stylesheet.css b/public/css/stylesheet.css }\n}\n+/* make autocard text more obvious in comments and descriptions */\n+.card-text .autocard {\n+ font-weight: bolder;\n+ opacity: 0.9; /* hack to lighten the color so bold isn't quite so strong */\n+}\n+\n.form-check {\nborder: none;\n}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Style: Enhance autocard text visibility in comments and descriptions"
+    },
+    {
+        "msg": "Add important test for do_actions()",
+        "diff": "diff --git a/test/test_bot.py b/test/test_bot.py @@ -20,7 +20,7 @@ class TestBot(sc2.BotAI):\ndef __init__(self):\n# Tests related\nself.game_time_timeout_limit = 2*60\n- self.tests_target = 7\n+ self.tests_target = 8\nself.tests_done_by_name = set()\n# Variables handled by tests\n@@ -64,6 +64,11 @@ class TestBot(sc2.BotAI):\nawait self.test_botai_actions4()\nawait self.test_botai_actions4_successful()\n+ elif \"test_botai_actions5_successful\" not in self.tests_done_by_name:\n+ if iteration >= 6:\n+ await self.test_botai_actions5()\n+ await self.test_botai_actions5_successful()\n+\n# End when all tests successful\n@@ -123,8 +128,22 @@ class TestBot(sc2.BotAI):\ncombined_actions.append(scv.move(center))\nawait self.do_actions(combined_actions)\n- # Test BotAI action: move all SCVs to mine minerals near townhall\n+ # Test BotAI action: move some scvs to the center, some to minerals\nasync def test_botai_actions3(self):\n+ combined_actions = []\n+ center = self._game_info.map_center\n+ scvs = self.workers\n+ scvs1 = scvs[:6]\n+ scvs2 = scvs[6:]\n+ for scv in scvs1:\n+ combined_actions.append(scv.move(center))\n+ mf = self.state.mineral_field.closest_to(self.townhalls.random)\n+ for scv in scvs2:\n+ combined_actions.append(scv.gather(mf))\n+ await self.do_actions(combined_actions)\n+\n+ # Test BotAI action: move all SCVs to mine minerals near townhall\n+ async def test_botai_actions4(self):\ncombined_actions = []\nmf = self.state.mineral_field.closest_to(self.townhalls.random)\nfor scv in self.units(UnitTypeId.SCV):\n@@ -132,7 +151,7 @@ class TestBot(sc2.BotAI):\nawait self.do_actions(combined_actions)\n# Test BotAI action: self.expand_now()\n- async def test_botai_actions4(self):\n+ async def test_botai_actions5(self):\nif self.can_afford(UnitTypeId.COMMANDCENTER) and not self.already_pending(UnitTypeId.COMMANDCENTER, all_units=True):\nawait self.expand_now()\n@@ -147,13 +166,18 @@ class TestBot(sc2.BotAI):\nself.tests_done_by_name.add(\"test_botai_actions2_successful\")\nasync def test_botai_actions3_successful(self):\n- if self.units.gathering.amount >= 12:\n+ if self.units.filter(lambda x: x.is_moving).amount >= 6:\n+ if self.units.gathering.amount >= 6:\nself.tests_done_by_name.add(\"test_botai_actions3_successful\")\nasync def test_botai_actions4_successful(self):\n- if self.units(UnitTypeId.COMMANDCENTER).amount >= 2:\n+ if self.units.gathering.amount >= 12:\nself.tests_done_by_name.add(\"test_botai_actions4_successful\")\n+ async def test_botai_actions5_successful(self):\n+ if self.units(UnitTypeId.COMMANDCENTER).amount >= 2:\n+ self.tests_done_by_name.add(\"test_botai_actions5_successful\")\n+\n# Test self.state variables\n",
+        "lang": "Python",
+        "chatgpt": "Increase tests_target to 8 and add new test_botai_actions5_successful test."
+    },
+    {
+        "msg": "chore: Replace static Type sort labels",
+        "diff": "diff --git a/src/utils/Sort.js b/src/utils/Sort.js @@ -262,22 +262,7 @@ function getLabelsRaw(cube, sort) {\nreturn ['White', 'Blue', 'Black', 'Red', 'Green', 'Colorless'];\n}\nif (sort === 'Type') {\n- return [\n- 'Creature',\n- 'Planeswalker',\n- 'Instant',\n- 'Sorcery',\n- 'Artifact',\n- 'Enchantment',\n- 'Conspiracy',\n- 'Contraption',\n- 'Phenomenon',\n- 'Plane',\n- 'Scheme',\n- 'Vanguard',\n- 'Land',\n- 'Other',\n- ];\n+ return CARD_TYPES.concat(['Other']);\n}\nif (sort === 'Supertype') {\nreturn ['Snow', 'Legendary', 'Tribal', 'Basic', 'Elite', 'Host', 'Ongoing', 'World'];\n@@ -352,48 +337,11 @@ function getLabelsRaw(cube, sort) {\nreturn [...types];\n}\nif (sort === 'Types-Multicolor') {\n- return [\n- 'Creature',\n- 'Planeswalker',\n- 'Instant',\n- 'Sorcery',\n- 'Artifact',\n- 'Enchantment',\n- 'Conspiracy',\n- 'Contraption',\n- 'Phenomenon',\n- 'Plane',\n- 'Scheme',\n- 'Vanguard',\n- 'Azorius',\n- 'Dimir',\n- 'Rakdos',\n- 'Gruul',\n- 'Selesnya',\n- 'Orzhov',\n- 'Golgari',\n- 'Simic',\n- 'Izzet',\n- 'Boros',\n- 'Bant',\n- 'Esper',\n- 'Grixis',\n- 'Jund',\n- 'Naya',\n- 'Abzan',\n- 'Jeskai',\n- 'Sultai',\n- 'Mardu',\n- 'Temur',\n- 'Non-White',\n- 'Non-Blue',\n- 'Non-Black',\n- 'Non-Red',\n- 'Non-Green',\n- 'Five Color',\n- 'Land',\n- 'Other',\n- ];\n+ return CARD_TYPES.slice(0, -1)\n+ .concat(GUILDS)\n+ .concat(SHARDS_AND_WEDGES)\n+ .concat(FOUR_AND_FIVE_COLOR)\n+ .concat(['Land', 'Other']);\n}\nif (sort === 'Legality') {\nreturn ['Standard', 'Modern', 'Legacy', 'Vintage', 'Pioneer', 'Brawl', 'Historic', 'Pauper', 'Penny', 'Commander'];\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor sort options in Sort.js to include additional card types and color combinations."
+    },
+    {
+        "msg": "Get tests working.",
+        "diff": "diff --git a/serverjs/updatecards.js b/serverjs/updatecards.js @@ -131,7 +131,7 @@ const specialCaseCards = {\n'Westvale Abbey': ['94ed2eca-1579-411d-af6f-c7359c65de30'],\n};\n-function getTokensForCard(card) {\n+function getScryfallTokensForCard(card) {\nconst allParts = card.all_parts || [];\nreturn allParts\n.filter((element) => element.component === 'token' || element.type_line.startsWith('Emblem'))\n@@ -167,10 +167,9 @@ function arraySetEqual(target, candidate) {\nreturn isValid;\n}\n-function addTokens(card) {\n+function getTokens(card, catalogCard) {\nconst mentionedTokens = [];\n- const catalogCard = catalog.dict[card.id];\n- const recordedTokens = getTokensForCard(card);\n+ const recordedTokens = getScryfallTokensForCard(card);\nconst specialTokens = getTokensForSpecialCaseCard(card);\nif (specialTokens.length > 0) {\nmentionedTokens.push(...recordedTokens);\n@@ -233,7 +232,7 @@ function addTokens(card) {\n// populate\ncontinue; // eslint-disable-line no-continue\n- const cardTokens = getTokensForCard(card);\n+ const cardTokens = getScryfallTokensForCard(card);\nif (cardTokens.length > 0) {\nmentionedTokens.push(...cardTokens);\n@@ -359,9 +358,7 @@ function addTokens(card) {\n}\n}\n- if (mentionedTokens.length > 0) {\n- catalogCard.tokens = mentionedTokens.filter((id) => id !== card.id);\n- }\n+ return mentionedTokens;\n}\nfunction convertCmc(card, isExtra) {\n@@ -583,6 +580,11 @@ function convertCard(card, isExtra) {\nnewcard.colorcategory = newcard.color_identity[0].toLowerCase();\n}\n+ const tokens = getTokens(card, newcard);\n+ if (tokens.length > 0) {\n+ newcard.tokens = tokens;\n+ }\n+\nreturn newcard;\n}\n@@ -637,7 +639,6 @@ function saveEnglishCard(card) {\naddCardToCatalog(convertCard(card, true), true);\n}\naddCardToCatalog(convertCard(card));\n- addTokens(card);\n}\nasync function saveAllCards(basePath = 'private', defaultPath = null, allPath = null) {\n@@ -691,4 +692,5 @@ module.exports = {\nconvertColors,\nconvertParsedCost,\nconvertCmc,\n+ getTokens,\n};\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor getTokens function and update usage in addTokens function"
+    },
+    {
+        "msg": "Include packcraft script in correct order.",
+        "diff": "diff --git a/views/cube/cube_playtest.pug b/views/cube/cube_playtest.pug @@ -75,6 +75,6 @@ block cube_content\ninput#customDraftHiddenId(type='hidden', name='id')\ninput.btn.btn-success(type='submit',value='Save')\nbutton.btn.btn-secondary(type='button', data-dismiss='modal') Close\n- script(src='/js/packcraft.js')\ninclude ../react\nscript(src='/js/cube_playtest.bundle.js')\n+ script(src='/js/packcraft.js')\n",
+        "lang": "JavaScript",
+        "chatgpt": "Fix script source in cube_playtest.pug"
+    },
+    {
+        "msg": "Fixed issue with unlisted cubes",
+        "diff": "diff --git a/app.js b/app.js @@ -102,11 +102,11 @@ app.get('/', function(req, res)\nif(req.user) user_id = req.user._id;\nCube.find({\n'card_count':{$gt : 200},\n- $or:[ {'isListed':true}, {'owner':user_id} ]\n+ $or:[ {'isListed':true},{'isListed':null}, {'owner':user_id} ]\n}).sort({'date_updated': -1}).limit(12).exec(function(err, recents)\n{\nCube.find({\n- $or:[ {'isListed':true}, {'owner':user_id} ]\n+ $or:[ {'isListed':true},{'isListed':null}, {'owner':user_id} ]\n}).sort({'numDecks': -1}).limit(12).exec(function(err, drafted)\n{\nBlog.find({dev:'true'}).sort({'date': -1}).exec(function(err, blog)\n",
+        "lang": "JavaScript",
+        "chatgpt": "Update Cube.find query to include documents with 'isListed' set to null."
+    },
+    {
+        "msg": "fkie_node_manager_daemon: fixed delete node's log file if no latest folder exists",
+        "diff": "diff --git a/fkie_node_manager_daemon/src/fkie_node_manager_daemon/screen.py b/fkie_node_manager_daemon/src/fkie_node_manager_daemon/screen.py @@ -197,6 +197,10 @@ def get_ros_logfile(node):\nelse:\n# search in latest subfolder\nlogpath = os.path.join(LOG_PATH, \"latest\")\n+ if not os.path.exists(logpath):\n+ logpath = LOG_PATH\n+ if not os.path.exists(logpath):\n+ return ''\np = re.compile(r\"%s-\\d*.log\" % (node.strip('/').replace('/', '-')))\nfiles = os.listdir(logpath)\nfor fn in files:\n",
+        "lang": "Python",
+        "chatgpt": "Fix issue with finding ROS log file path"
+    },
+    {
+        "msg": "catch exception for daemon configuration\nthis error occurs on requests from Ubuntu 16 to Ubuntu 18",
+        "diff": "diff --git a/fkie_node_manager/src/fkie_node_manager/main_window.py b/fkie_node_manager/src/fkie_node_manager/main_window.py @@ -2090,7 +2090,11 @@ class MainWindow(QMainWindow):\nnm.nmd().settings.get_config_threaded(nmd_uri)\ndef _nmd_yaml_cfg(self, data, nmdurl):\n+ params = {}\n+ try:\nparams = ruamel.yaml.load(data, Loader=ruamel.yaml.Loader)\n+ except Exception as err:\n+ rospy.logwarn(\"Error while parse daemon configuration: %s\" % utf8(err))\ndia = ParameterDialog(params, store_geometry=\"nmd_cfg_dialog\")\ndia.setWindowTitle('Daemon Configuration')\ndia.setFocusField('load_warn_level')\n",
+        "lang": "Python",
+        "chatgpt": "Add error handling for parsing daemon configuration YAML data"
+    },
+    {
+        "msg": "fix uninitialized variable error in getCardDetails",
+        "diff": "diff --git a/serverjs/cards.js b/serverjs/cards.js @@ -54,8 +54,8 @@ function getCardDetails(card) {\ndetails.display_image = util.getCardImageURL(card);\nreturn details;\n} else {\n- console.log(\"Could not find: \" + id);\n- return getPlaceholderCard(id);\n+ console.log(\"Could not find: \" + card.cardID);\n+ return getPlaceholderCard(card.cardID);\n};\n}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor error message in getCardDetails function"
+    },
+    {
+        "msg": "replaced inline legality check with method call",
+        "diff": "diff --git a/serverjs/cubefn.js b/serverjs/cubefn.js @@ -106,7 +106,7 @@ function setCubeType(cube, carddb) {\nlet peasant = false;\nlet type = FORMATS.length - 1;\nfor (const card of cube.cards) {\n- if (pauper && !['legal', 'banned'].includes(carddb.cardFromId(card.cardID).legalities.Pauper)) {\n+ if (pauper && !cardIsLegal(carddb.cardFromId(card.cardID), 'Pauper')) {\npauper = false;\npeasant = true;\n}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor cube card legality check to use cardIsLegal function"
+    },
+    {
+        "msg": "fixed DFC mana cost parsing",
+        "diff": "diff --git a/serverjs/updatecards.js b/serverjs/updatecards.js @@ -466,10 +466,6 @@ function convertParsedCost(card, isExtra = false) {\nreturn [];\n}\n- if (!card.mana_cost) {\n- return [''];\n- }\n-\nlet parsedCost = [];\nif (typeof card.card_faces === 'undefined' || card.layout === 'flip') {\nparsedCost = card.mana_cost\n@@ -484,7 +480,7 @@ function convertParsedCost(card, isExtra = false) {\n.toLowerCase()\n.split('}{')\n.reverse();\n- } else if (card.card_faces[0].colors) {\n+ } else if (Array.isArray(card.card_faces) && card.card_faces[0].colors) {\nparsedCost = card.card_faces[0].mana_cost\n.substr(1, card.card_faces[0].mana_cost.length - 2)\n.toLowerCase()\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor convertParsedCost function to handle card_faces as an array"
+    },
+    {
+        "msg": "Fix ID generation in delete cube route",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -2520,11 +2520,9 @@ router.delete('/remove/:id', ensureAuth, function(req, res) {\nres.redirect('/' + req.params.id);\n}\n- let query = {\n- _id: req.params.id\n- };\n+ let query = build_id_query(req.params.id)\n- Cube.findOne(build_id_query(req.params.id), function(err, cube) {\n+ Cube.findOne(query, function(err, cube) {\nif (err || !cube || (cube.owner != req.user._id)) {\nreq.flash('danger', 'Cube not found');\nres.redirect('/404/');\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor cube deletion route to use build_id_query function"
+    },
+    {
+        "msg": "Fix loading button.",
+        "diff": "diff --git a/src/components/FilterCollapse.js b/src/components/FilterCollapse.js @@ -259,6 +259,7 @@ class FilterCollapse extends Component {\nsuper(props);\nthis.state = {\n+ loading: false,\nadvancedOpen: false,\nfilterInput: this.props.defaultFilterText || '',\n...fromEntries(allFields.map((n) => [n, ''])),\n@@ -277,7 +278,13 @@ class FilterCollapse extends Component {\n}\ncomponentDidMount() {\n- this.updateFilters();\n+ const defaultFilter = Query.get('f', '');\n+ this.setState({ filterInput: defaultFilter });\n+ this.updateFilters(defaultFilter);\n+ }\n+\n+ componentDidUpdate() {\n+ Query.set('f', this.state.filterInput);\n}\ntoggleAdvanced() {\n@@ -286,7 +293,7 @@ class FilterCollapse extends Component {\n});\n}\n- applyAdvanced() {\n+ async applyAdvanced() {\n// Advanced Filter change. Render to filter input.\nconst tokens = [];\nfor (const name of allFields) {\n@@ -316,10 +323,10 @@ class FilterCollapse extends Component {\nadvancedOpen: false,\nfilterInput,\n});\n- this.updateFilters(filterInput);\n+ await this.updateFilters(filterInput);\n}\n- updateFilters(overrideFilter) {\n+ async updateFilters(overrideFilter) {\nconst filterInput = typeof overrideFilter === 'undefined' ? this.state.filterInput : overrideFilter;\nif (filterInput === '') {\nthis.props.setFilter([], '');\n@@ -333,8 +340,9 @@ class FilterCollapse extends Component {\nif (tokens.length > 0) {\nconst filters = [Filter.parseTokens(tokens)];\n// TODO: Copy to advanced filter boxes.\n- this.props.setFilter(filters, filterInput);\n- Query.set('f', filterInput);\n+ this.setState({ loading: true });\n+ await this.props.setFilter(filters, filterInput);\n+ this.setState({ loading: false });\n}\n}\n@@ -348,15 +356,15 @@ class FilterCollapse extends Component {\n});\n}\n- handleApply(event) {\n+ async handleApply(event) {\nevent.preventDefault();\n- this.updateFilters();\n+ await this.updateFilters();\n}\n- handleKeyDown(event) {\n+ async handleKeyDown(event) {\nif (event.keyCode === 13 /* ENTER */) {\nevent.preventDefault();\n- this.updateFilters();\n+ await this.updateFilters();\n}\n}\n@@ -368,7 +376,7 @@ class FilterCollapse extends Component {\nrender() {\nconst { filter, setFilter, numCards, numShown, useQuery, defaultFilterText, ...props } = this.props;\n- const { filterInput, advancedOpen } = this.state;\n+ const { loading, filterInput, advancedOpen } = this.state;\nconst tokens = [];\nconst valid = Filter.tokenizeInput(filterInput, tokens) && Filter.verifyTokens(tokens);\nconst appliedText =\n@@ -398,7 +406,7 @@ class FilterCollapse extends Component {\nonKeyDown={this.handleKeyDown}\n/>\n<InputGroupAddon addonType=\"append\">\n- <LoadingButton color=\"success\" className=\"square-left\" onClick={this.handleApply}>\n+ <LoadingButton color=\"success\" className=\"square-left\" onClick={this.handleApply} loading={loading}>\nApply\n</LoadingButton>\n</InputGroupAddon>\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add loading state and async/await functionality to filter updates"
+    },
+    {
+        "msg": "add types and descriptions to from_... helper methods RasaHQ/roadmap#280",
+        "diff": "diff --git a/rasa_core_sdk/forms.py b/rasa_core_sdk/forms.py @@ -40,14 +40,26 @@ class FormAction(Action):\n@staticmethod\ndef from_entity(entity, intent=None):\n+ # type: (Text, Optional[Text]) -> Dict[Text: Any]\n+ \"\"\"A dictionary to map required slots to\n+ - an extracted entity\n+ \"\"\"\nreturn {\"type\": \"from_entity\", \"intent\": intent, \"entity\": entity}\n@staticmethod\ndef from_intent(intent, value):\n+ # type: (Optional[Text], Any) -> Dict[Text: Any]\n+ \"\"\"A dictionary to map required slots to\n+ - intent: value pair\n+ \"\"\"\nreturn {\"type\": \"from_intent\", \"intent\": intent, \"value\": value}\n@staticmethod\ndef from_text(intent=None):\n+ # type: (Optional[Text]) -> Dict[Text: Any]\n+ \"\"\"A dictionary to map required slots to\n+ - a whole message\n+ \"\"\"\nreturn {\"type\": \"from_text\", \"intent\": intent}\n# noinspection PyMethodMayBeStatic\n",
+        "lang": "Python",
+        "chatgpt": "Refactor form action methods to include type hints and docstrings"
+    },
+    {
+        "msg": "fkie_node_manager: fix crash on unknown diagnostic level",
+        "diff": "diff --git a/fkie_node_manager/src/fkie_node_manager/master_view_proxy.py b/fkie_node_manager/src/fkie_node_manager/master_view_proxy.py @@ -1523,6 +1523,8 @@ class MasterViewProxy(QWidget):\nadded_diags = []\nfor diag_status in reversed(node.diagnostic_array):\nif node.diagnostic_array:\n+ level_str = 'Unknown'\n+ if diag_status.level in self.DIAGNOSTIC_LEVELS:\nlevel_str = self.DIAGNOSTIC_LEVELS[diag_status.level]\ndiag_color = '#FF6600'\nif diag_status.level == 2:\n",
+        "lang": "Python",
+        "chatgpt": "Add handling for unknown diagnostic level in MasterViewProxy"
+    },
+    {
+        "msg": "fix crash while read config parameter from parameter server",
+        "diff": "diff --git a/fkie_node_manager/src/fkie_node_manager/parameter_dialog.py b/fkie_node_manager/src/fkie_node_manager/parameter_dialog.py @@ -1400,7 +1400,7 @@ class MasterParameterDialog(ParameterDialog):\ntype_str = 'float'\nelif isinstance(val, list) or isinstance(val, dict):\n# handle representation of `rosparam`\n- type_str = '[]'\n+ type_str = 'list'\nvalue = ''\nfor v in val:\nif len(value) > 0:\n@@ -1417,14 +1417,14 @@ class MasterParameterDialog(ParameterDialog):\nfor n in names_sep:\ngroup_name = n\nif group_name in group:\n- group = group[group_name][1]\n+ group = group[group_name]\nelse:\ntmp_dict = dict()\n- group[group_name] = {':type': 'list', ':value': tmp_dict}\n+ group[group_name] = tmp_dict\ngroup = tmp_dict\n- group[param_name] = {':type': type_str, ':value': [value]}\n+ group[param_name] = {':type': type_str, ':value': value}\nelse:\n- dia_params[param_name] = {':type': type_str, ':value': [value]}\n+ dia_params[param_name] = {':type': type_str, ':value': value}\ntry:\nself.content.createFieldFromValue(dia_params, clear_origin_value=new_param)\nself.setInfoActive(False)\n",
+        "lang": "Python",
+        "chatgpt": "Refactor representation of `rosparam` to use 'list' instead of '[]' in parameter dialog."
+    },
+    {
+        "msg": "Sort and deduplicate tokens.",
+        "diff": "diff --git a/src/components/TokenAnalysis.js b/src/components/TokenAnalysis.js @@ -7,17 +7,38 @@ import withAutocard from './WithAutocard';\nconst AutocardLink = withAutocard('a');\n+const compareCards = (x, y) => {\n+ if (x.name === y.name) {\n+ return 0;\n+ } else {\n+ return x.name < y.name ? -1 : 1;\n+ }\n+}\n+\n+const compareTokens = (x, y) => compareCards(x[0], y[0]);\n+\n+const sortTokens = tokens => [...tokens].sort(compareTokens);\n+const sortCards = cards => [...cards].sort(compareCards);\n+\n+const dedupeCards = cards => {\n+ const map = new Map();\n+ for (const card of [...cards].reverse()) {\n+ map.set(card.name, card);\n+ }\n+ return [...map.values()];\n+}\n+\nconst TokenAnalysis = ({ tokens }) =>\n<Row>\n- {tokens.map(token =>\n- <Col key={token[0]._id} xs={6} md={4} lg={3}>\n- <Card className=\"mb-2\">\n- <a href={Affiliate.getTCGLink({details:token[0]})}>\n- <img src={token[0].image_normal} className='card-img-top' />\n+ {sortTokens(tokens).map(([token, tokenCards]) =>\n+ <Col key={token._id} xs={6} md={4} lg={3}>\n+ <Card className=\"mb-3\">\n+ <a href={Affiliate.getTCGLink({ details: token })}>\n+ <img src={token.image_normal} className='card-img-top' />\n</a>\n<CardBody>\n<p className=\"card-text\">\n- {token[1].map(card =>\n+ {dedupeCards(sortCards(tokenCards)).map(card =>\n<>\n<AutocardLink\nkey={card.name}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor TokenAnalysis component to include sorting and deduplication of tokens and cards."
+    },
+    {
+        "msg": "Fix work-node setup script\nModify user and usergroup when change the authority of /opt/cello",
+        "diff": "diff --git a/scripts/worker_node/setup_docker_worker_node.sh b/scripts/worker_node/setup_docker_worker_node.sh @@ -24,12 +24,13 @@ bash ./download_images.sh\necho_b \"Copy required fabric 1.0 artifacts\"\nARTIFACTS_DIR=/opt/cello\nUSER=`whoami`\n+USERGROUP=`id -gn`\necho_b \"Checking local artifacts path ${ARTIFACTS_DIR}...\"\n[ ! -d ${ARTIFACTS_DIR} ] \\\n&& echo_r \"Local artifacts path ${ARTIFACTS_DIR} not existed, creating one\" \\\n&& sudo mkdir -p ${ARTIFACTS_DIR} \\\n&& sudo cp -r ../../src/agent/docker/_compose_files/fabric-1.0 ${ARTIFACTS_DIR} \\\n- && sudo chown -R ${USER}:${USER} ${ARTIFACTS_DIR}\n+ && sudo chown -R ${USER}:${USERGROUP} ${ARTIFACTS_DIR}\necho_b \"Setup ip forward rules\"\nsudo sysctl -w net.ipv4.ip_forward=1\n",
+        "lang": "Python",
+        "chatgpt": "Update ownership of artifacts directory in setup script"
+    },
+    {
+        "msg": "Use sharpy's --RealTime argparse argument",
+        "diff": "diff --git a/examples/competitive/__init__.py b/examples/competitive/__init__.py @@ -27,7 +27,7 @@ def run_ladder_game(bot):\nparser.add_argument(\"--ComputerRace\", type=str, nargs=\"?\", help=\"Computer race\")\nparser.add_argument(\"--ComputerDifficulty\", type=str, nargs=\"?\", help=\"Computer difficulty\")\nparser.add_argument(\"--OpponentId\", type=str, nargs=\"?\", help=\"Opponent ID\")\n- parser.add_argument(\"--RealTime\", type=bool, nargs=\"?\", const=True, default=False, help=\"Real Time\")\n+ parser.add_argument(\"--RealTime\", action=\"store_true\", help=\"Real time flag\")\nargs, unknown = parser.parse_known_args()\nif args.LadderServer == None:\n",
+        "lang": "Python",
+        "chatgpt": "Refactor RealTime argument in ladder game to use action=\"store_true\" for better functionality."
+    },
+    {
+        "msg": "Fix recomender styling",
+        "diff": "diff --git a/src/analytics/Suggestions.js b/src/analytics/Suggestions.js @@ -79,8 +79,8 @@ const Suggestions = ({ adds, cuts, loading, cube, filter }) => {\n<Card>\n<CardHeader>\n<ListGroupItemHeading>Recommended Additions</ListGroupItemHeading>\n+ <input className=\"mr-2\" type=\"checkbox\" checked={maybeOnly} onClick={toggleMaybeOnly} />\n<Label for=\"toggleMaybeboard\">Show cards from my Maybeboard only.</Label>\n- <input type=\"checkbox\" checked={maybeOnly} onClick={toggleMaybeOnly} />\n</CardHeader>\n<ListGroup>\n{loading && (\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add checkbox for showing cards from Maybeboard only in Suggestions page."
+    },
+    {
+        "msg": "Fix voidray example",
+        "diff": "diff --git a/examples/threebase_voidray.py b/examples/threebase_voidray.py @@ -26,12 +26,8 @@ class ThreebaseVoidrayBot(sc2.BotAI):\nif not nexus.has_buff(BuffId.CHRONOBOOSTENERGYCOST):\nabilities = await self.get_available_abilities(nexus)\n- if AbilityId.CHRONOBOOSTENERGYCOST in abilities:\n- await self.do(nexus(AbilityId.CHRONOBOOSTENERGYCOST, nexus))\n- else:\n- await self.chat_send(\"Can't cast chrono boost\")\n- else:\n- await self.chat_send(\"Nexus is already boosted\")\n+ if AbilityId.EFFECT_CHRONOBOOSTENERGYCOST in abilities:\n+ await self.do(nexus(AbilityId.EFFECT_CHRONOBOOSTENERGYCOST, nexus))\nfor idle_worker in self.workers.idle:\nmf = self.state.mineral_field.closest_to(idle_worker)\n",
+        "lang": "Python",
+        "chatgpt": "Refactor chrono boost ability check in ThreebaseVoidrayBot"
+    },
+    {
+        "msg": "node_manager_fkie: improved network discovering",
+        "diff": "diff --git a/node_manager_fkie/src/node_manager_fkie/network_discovery_dialog.py b/node_manager_fkie/src/node_manager_fkie/network_discovery_dialog.py @@ -87,6 +87,7 @@ class NetworkDiscoveryDialog(QDialog, threading.Thread):\nself.status_label = QLabel('0 messages', self)\nself.verticalLayout.addWidget(self.status_label)\nself.status_text_signal.connect(self.status_label.setText)\n+ self._msg_counts = dict()\nself._networks_count = networks_count\nself._running = True\n@@ -118,6 +119,9 @@ class NetworkDiscoveryDialog(QDialog, threading.Thread):\nif index not in self._discovered:\nself._discovered[index] = dict()\nself._discovered[index][address] = (hostname, time.time())\n+ if hostname not in self._msg_counts:\n+ self._msg_counts[hostname] = 0\n+ self._msg_counts[hostname] += 1\nself._received_msgs += 1\nforce_update = True\nexcept:\n@@ -130,12 +134,14 @@ class NetworkDiscoveryDialog(QDialog, threading.Thread):\nwhile (not rospy.is_shutdown()) and self._running:\nwith self.mutex:\nfor msock in self.sockets:\n+ received = True\n+ while received:\ntry:\nrecv_item = msock.receive_queue.get(False)\nself._received_msgs += 1\nself.on_heartbeat_received(recv_item.msg, recv_item.sender_addr, (recv_item.via == QueueReceiveItem.MULTICAST))\nexcept Queue.Empty:\n- pass\n+ received = False\nstatus_text = 'received messages: %d' % (self._received_msgs)\nself.status_text_signal.emit(status_text)\n# self.parent().masterlist_service.refresh(self.parent().getMasteruri(), False)\n@@ -160,7 +166,7 @@ class NetworkDiscoveryDialog(QDialog, threading.Thread):\nfor index, addr_dict in self._discovered.items():\ntext = ''.join([text, 'Network <b>', str(index), '</b>: <a href=\"', str(index), '\">join</a><dl>'])\nfor addr, (hostname, ts) in addr_dict.items():\n- text = ''.join([text, '<dt>', self._getTsStr(ts), ' <b><u>', str(hostname), '</u></b> ', str(addr), '</dt>\\n'])\n+ text = ''.join([text, '<dt>', self._getTsStr(ts), ' <b><u>', str(hostname), '</u></b> ', str(addr), ', received messages: ', str(self._msg_counts[hostname]), '</dt>\\n'])\ntext = ''.join([text, '</dl><br>'])\ntext = ''.join([text, '</div>'])\nself.display_append_signal.emit(text)\n",
+        "lang": "Python",
+        "chatgpt": "Add message counts for received messages in NetworkDiscoveryDialog"
+    },
+    {
+        "msg": "Change list to set",
+        "diff": "diff --git a/sc2/unit.py b/sc2/unit.py @@ -282,7 +282,8 @@ class Unit(object):\n\"\"\" Does not include upgrades \"\"\"\nif hasattr(self._type_data._proto, \"weapons\"):\nweapons = self._type_data._proto.weapons\n- weapon = next((weapon for weapon in weapons if weapon.type in {TargetType.Ground.value, TargetType.Any.value}), None) if weapon:\n+ weapon = next((weapon for weapon in weapons if weapon.type in {TargetType.Ground.value, TargetType.Any.value}), None)\n+ if weapon:\nreturn (weapon.damage * weapon.attacks) / weapon.speed\nreturn 0\n@@ -291,7 +292,7 @@ class Unit(object):\n\"\"\" Does not include upgrades \"\"\"\nif hasattr(self._type_data._proto, \"weapons\"):\nweapons = self._type_data._proto.weapons\n- weapon = next((weapon for weapon in weapons if weapon.type in [TargetType.Ground.value, TargetType.Any.value]), None)\n+ weapon = next((weapon for weapon in weapons if weapon.type in {TargetType.Ground.value, TargetType.Any.value}), None)\nif weapon:\nreturn weapon.range\nreturn 0\n@@ -301,7 +302,7 @@ class Unit(object):\n\"\"\" Does not include upgrades \"\"\"\nif hasattr(self._type_data._proto, \"weapons\"):\nweapons = self._type_data._proto.weapons\n- weapon = next((weapon for weapon in weapons if weapon.type in [TargetType.Air.value, TargetType.Any.value]), None)\n+ weapon = next((weapon for weapon in weapons if weapon.type in {TargetType.Air.value, TargetType.Any.value}), None)\nreturn weapon is not None\nreturn False\n@@ -310,7 +311,7 @@ class Unit(object):\n\"\"\" Does not include upgrades \"\"\"\nif hasattr(self._type_data._proto, \"weapons\"):\nweapons = self._type_data._proto.weapons\n- weapon = next((weapon for weapon in weapons if weapon.type in [TargetType.Air.value, TargetType.Any.value]), None)\n+ weapon = next((weapon for weapon in weapons if weapon.type in {TargetType.Air.value, TargetType.Any.value}), None)\nif weapon:\nreturn (weapon.damage * weapon.attacks) / weapon.speed\nreturn 0\n@@ -320,7 +321,7 @@ class Unit(object):\n\"\"\" Does not include upgrades \"\"\"\nif hasattr(self._type_data._proto, \"weapons\"):\nweapons = self._type_data._proto.weapons\n- weapon = next((weapon for weapon in weapons if weapon.type in [TargetType.Air.value, TargetType.Any.value]), None)\n+ weapon = next((weapon for weapon in weapons if weapon.type in {TargetType.Air.value, TargetType.Any.value}), None)\nif weapon:\nreturn weapon.range\nreturn 0\n",
+        "lang": "Python",
+        "chatgpt": "Refactor weapon selection logic in Unit class"
+    },
+    {
+        "msg": "limit size of card list in groupcontextmodalarea and scroll overflow",
+        "diff": "diff --git a/public/css/editcube.css b/public/css/editcube.css .invalid-filter:focus {\ncolor: red;\n}\n+\n+#groupContextModalAreaContainer {\n+ overflow: scroll;\n+ height: 41.6em;\n+}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add scroll functionality to group context modal area container"
+    },
+    {
+        "msg": "fixed syntax highlighter crash",
+        "diff": "diff --git a/src/components/Markdown.js b/src/components/Markdown.js @@ -78,7 +78,7 @@ const renderCode = (node) => {\nreturn (\n<SyntaxHighlighter language={node.language || 'text'} style={style}>\n- {node.value}\n+ {node.value || ''}\n</SyntaxHighlighter>\n);\n};\n",
+        "lang": "JavaScript",
+        "chatgpt": "Fix rendering issue in Markdown component"
+    },
+    {
+        "msg": "Fixed: Bulk upload logged in renders correctly",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -22,7 +22,7 @@ let Draft = require('../models/draft');\nlet CardRating = require('../models/cardrating');\n// Add Submit POST Route\n-router.post('/add',ensureAuth, function(req,res,next)\n+router.post('/add',ensureAuth, function(req,res)\n{\nif(req.body.name.length < 5)\n{\n@@ -592,7 +592,7 @@ router.get('/analysis/:id', function(req, res)\n});\n});\n-router.post('/importcubetutor/:id',ensureAuth, function(req,res,next) {\n+router.post('/importcubetutor/:id',ensureAuth, function(req,res) {\nCube.findById(req.params.id, function(err,cube)\n{\nif(err)\n@@ -733,7 +733,11 @@ router.post('/importcubetutor/:id',ensureAuth, function(req,res,next) {\n{\nmissing:missing,\nadded:JSON.stringify(added),\n- cube:cube\n+ cube:cube,\n+ user:{\n+ id:req.user._id,\n+ username:req.user.username\n+ }\n});\n}\nelse\n@@ -766,8 +770,9 @@ router.post('/importcubetutor/:id',ensureAuth, function(req,res,next) {\n});\n});\n-router.post('/bulkupload/:id',ensureAuth, function(req,res,next)\n+router.post('/bulkupload/:id',ensureAuth, function(req,res)\n{\n+ console.log(res);\nCube.findById(req.params.id, function(err,cube)\n{\nif(err)\n@@ -789,7 +794,7 @@ router.post('/bulkupload/:id',ensureAuth, function(req,res,next)\n});\n});\n-router.post('/bulkuploadfile/:id',ensureAuth, function(req,res,next)\n+router.post('/bulkuploadfile/:id',ensureAuth, function(req,res)\n{\nif(!req.files)\n{\n@@ -912,7 +917,11 @@ function bulkuploadCSV(req, res, cards, cube) {\n{\nmissing:missing,\nadded:JSON.stringify(added),\n- cube:cube\n+ cube:cube,\n+ user:{\n+ id:req.user._id,\n+ username:req.user.username\n+ }\n});\n}\nelse\n@@ -1067,7 +1076,11 @@ function bulkUpload(req, res, list, cube) {\n{\nmissing:missing,\nadded:JSON.stringify(added),\n- cube:cube\n+ cube:cube,\n+ user:{\n+ id:req.user._id,\n+ username:req.user.username\n+ }\n});\n}\nelse\n@@ -1548,7 +1561,7 @@ router.get('/draft/:id', function(req, res)\n});\n// Edit Submit POST Route\n-router.post('/editoverview/:id',ensureAuth, function(req,res,next)\n+router.post('/editoverview/:id',ensureAuth, function(req,res)\n{\nreq.body.html = cubefn.sanitize(req.body.html);\nCube.findById(req.params.id, function(err, cube)\n@@ -1607,7 +1620,7 @@ router.post('/editoverview/:id',ensureAuth, function(req,res,next)\n});\n// Edit Submit POST Route\n-router.post('/edit/:id',ensureAuth, function(req,res,next)\n+router.post('/edit/:id',ensureAuth, function(req,res)\n{\nreq.body.blog = cubefn.sanitize(req.body.blog);\nCube.findById(req.params.id, function(err, cube)\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor POST routes in cube_routes.js to include user information in requests"
+    },
+    {
+        "msg": "Update import format.",
+        "diff": "diff --git a/src/components/CardModal.js b/src/components/CardModal.js @@ -15,15 +15,15 @@ import {\nRow,\n} from 'reactstrap';\n-import Affiliate from '../utils/Affiliate';\n-import { getLabels } from '../utils/Sort';\n+import Affiliate from 'utils/Affiliate';\n+import { getLabels } from 'utils/Sort';\n-import ButtonLink from './ButtonLink';\n-import { ColorChecksAddon } from './ColorCheck';\n-import LoadingButton from './LoadingButton';\n-import FoilCardImage from './FoilCardImage';\n-import TagInput from './TagInput';\n-import TextBadge from './TextBadge';\n+import ButtonLink from 'components/ButtonLink';\n+import { ColorChecksAddon } from 'components/ColorCheck';\n+import LoadingButton from 'components/LoadingButton';\n+import FoilCardImage from 'components/FoilCardImage';\n+import TagInput from 'components/TagInput';\n+import TextBadge from 'components/TextBadge';\nconst CardModal = ({\ncard,\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor component imports in CardModal to use relative paths"
+    },
+    {
+        "msg": "has_profanity -> hasProfanity in cubefn tests",
+        "diff": "diff --git a/__tests__/serverjs/cubefn.test.js b/__tests__/serverjs/cubefn.test.js @@ -141,16 +141,16 @@ test('generateShortId returns a valid short ID with profanity', async () => {\nconst queryMock = jest.fn().mockReturnValue(queryMockPromise);\nconst initialCubeFind = Cube.find;\nCube.find = queryMock;\n- const initialHasProfanity = util.has_profanity;\n+ const initialHasProfanity = util.hasProfanity;\nconst mockHasProfanity = jest\n.fn()\n.mockReturnValue(false)\n.mockReturnValueOnce(true);\n- util.has_profanity = mockHasProfanity;\n+ util.hasProfanity = mockHasProfanity;\nconst result = await cubefn.generateShortId();\nexpect(result).toBe('1z');\nCube.find = initialCubeFind;\n- util.has_profanity = initialHasProfanity;\n+ util.hasProfanity = initialHasProfanity;\n});\ntest('getBasics returns the expected set of basic lands', () => {\n",
+        "lang": "JavaScript",
+        "chatgpt": "Fix typo in function name and update test accordingly"
+    },
+    {
+        "msg": "fkie_node_manager: editor: fix create new file",
+        "diff": "diff --git a/fkie_node_manager/src/fkie_node_manager/editor/text_edit.py b/fkie_node_manager/src/fkie_node_manager/editor/text_edit.py @@ -378,7 +378,8 @@ class TextEdit(QTextEdit):\n# create a new file, if it does not exists\nresult = MessageBox.question(self, \"File not exists\", '\\n\\n'.join([\"Create a new file?\", path]), buttons=MessageBox.Yes | MessageBox.No)\nif result == MessageBox.Yes:\n- nm.nmd().file.save_file(path, '<launch>\\n\\n</launch>', 0)\n+ content = '<launch>\\n\\n</launch>' if path.endswith('.launch') else ''\n+ nm.nmd().file.save_file(path, content.encode(), 0)\nevent.setAccepted(True)\nself.load_request_signal.emit(path)\nexcept Exception as e:\n",
+        "lang": "Python",
+        "chatgpt": "Refactor saving file content based on file extension"
+    },
+    {
+        "msg": "fkie_node_manager: python3 compatibility fix",
+        "diff": "diff --git a/fkie_node_manager/src/fkie_node_manager/logscreen/screen_widget.py b/fkie_node_manager/src/fkie_node_manager/logscreen/screen_widget.py @@ -297,6 +297,8 @@ class ScreenWidget(QWidget):\nchars_count = self._seek_count_lines(lines)\nself._seek_start = self.qfile.pos()\ndata = self.qfile.read(chars_count)\n+ if sys.version_info > (3, 0):\n+ data = data.decode('utf-8')\nself.output.emit(data)\nself._seek_end = self.qfile.pos()\nself._first_fill = False\n@@ -306,6 +308,8 @@ class ScreenWidget(QWidget):\nif (not self._pause_read_end and self.qfile.bytesAvailable()):\nstart = self.qfile.pos()\ndata = self.qfile.readAll().data()\n+ if sys.version_info > (3, 0):\n+ data = data.decode('utf-8')\nself.output.emit(data)\nself._seek_end = self.qfile.pos()\nself._info = \"NEW: %d\" % (self._seek_end - start)\n@@ -322,6 +326,8 @@ class ScreenWidget(QWidget):\nchars_count = self._seek_count_lines(lines)\nself._seek_start = self.qfile.pos()\ndata = self.qfile.read(chars_count)\n+ if sys.version_info > (3, 0):\n+ data = data.decode('utf-8')\nself.output_prefix.emit(data)\ndef _seek_count_lines(self, lines=20):\n",
+        "lang": "Python",
+        "chatgpt": "Fix decoding issue for Python 3 compatibility in ScreenWidget"
+    },
+    {
+        "msg": "beautify tests",
+        "diff": "diff --git a/__tests__/serverjs/draftutil.test.js b/__tests__/serverjs/draftutil.test.js @@ -34,7 +34,11 @@ test(\"it can get bots with the correct properties\", () => {\n});\ntest(\"it returns the index of the first instance of a tag from a list of cards\", () => {\n- const cards = [{}, {}, { tags: [\"test\"] }, { tags: [\"test\"] }];\n+ const cards = [{}, {}, {\n+ tags: [\"test\"]\n+ }, {\n+ tags: [\"test\"]\n+ }];\nconst tag = \"TEST\";\nconst result = methods.indexOfTag(cards, tag);\n@@ -50,7 +54,11 @@ test(\"it returns -1 if a tag is not found in a list of cards\", () => {\n});\ntest(\"getCardRatings returns a mapping of card names to values\", () => {\n- var dummyModel = {\"value\": 1, \"picks\": 1, \"name\": \"Giant Growth\"};\n+ var dummyModel = {\n+ \"value\": 1,\n+ \"picks\": 1,\n+ \"name\": \"Giant Growth\"\n+ };\nvar expected = {};\nexpected[dummyModel.name] = dummyModel.value;\nCardRating.find.yields(null, [dummyModel]);\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor code formatting in draftutil.test.js"
+    },
+    {
+        "msg": "node_manager_daemon_fkie: fix list parameter while start on remote hosts",
+        "diff": "diff --git a/node_manager_daemon_fkie/src/node_manager_daemon_fkie/startcfg.py b/node_manager_daemon_fkie/src/node_manager_daemon_fkie/startcfg.py @@ -111,14 +111,8 @@ class StartConfig():\nif value_type == BOOL:\nreturn value.lower() in (\"yes\", \"true\", \"t\", \"1\")\nif value_type == LIST:\n- lstr = value\ntry:\n- lstr = lstr.strip('[]')\n- lstr = lstr.replace('u\"', '')\n- lstr = lstr.replace('\"', '')\n- lstr = lstr.replace(\"'\", '')\n- lstr = lstr.replace(\",\", ' ')\n- return [utf8(i).strip() for i in lstr.split(' ') if i]\n+ return eval(value)\nexcept Exception:\nreturn []\nreturn value\n",
+        "lang": "Python",
+        "chatgpt": "Refactor list parsing in StartConfig class"
+    },
+    {
+        "msg": "Update the documentation\nMinor change the description and links.",
+        "diff": "diff --git a/README.md b/README.md ![Cello](docs/imgs/logo.png)\n+Blockchain as a Service!\n+\n**Note:** This is a **read-only mirror** of the formal [Gerrit](https://gerrit.hyperledger.org/r/#/admin/projects/cello) repository,\n-where active development is ongoing. Issue tracking is handled in [Jira](https://jira.hyperledger.org/secure/RapidBoard.jspa?rapidView=111)\n+where active development is ongoing. Issue tracking is handled in [Jira](https://jira.hyperledger.org/projects/CE/issues/).\n## Incubation Notice\nThis project is a Hyperledger project in _Incubation_. It was proposed to the community and documented [here](https://docs.google.com/document/d/1E2i5GRqWsIag7KTxjQ_jQdDiWcuikv3KqXeuw7NaceM/edit), and was approved by [Hyperledger TSC at 2017-01-07](https://lists.hyperledger.org/pipermail/hyperledger-tsc/2017-January/000535.html). Information on what _Incubation_ entails can be found in the [Hyperledger Project Lifecycle document](https://goo.gl/4edNRc).\n-Platform to provide Blockchain as a Service!\nUsing Cello, we can\n-* Provision customizable Blockchains instantly, e.g., a 6-node chain using PBFT consensus.\n+* Provision customizable Blockchains instantly, e.g., a 6-node fabric chain using PBFT consensus.\n* Maintain a pool of running blockchains healthy with no manual operations.\n* Check the system status, scale the chain numbers, change resources... through a dashboard.\n@@ -28,13 +29,11 @@ You can also find more [scenarios](docs/scenario.md).\n* Support heterogeneous architecture, e.g., Z, Power and X86, from bare-metal servers to virtual machines.\n* Extend with monitor/log/health features by employing additional components.\n-## Docs\n-\n-### User Docs\n-* [Dashboard](docs/dashboard.md)\n+## Documentation\n-### Operator Docs\n+### Operational Docs\n* [Installation & Deployment](docs/deployment.md)\n+* [Dashboard](docs/dashboard.md)\n* [Scenarios](docs/scenario.md)\n* [Production Configuration](docs/production_config.md)\n",
+        "lang": "Python",
+        "chatgpt": "Update README.md with new features and documentation links"
+    },
+    {
+        "msg": "Fixed hyper geom for large numbers",
+        "diff": "diff --git a/src/analytics/HyperGeom.js b/src/analytics/HyperGeom.js @@ -56,16 +56,35 @@ const HyperGeom = () => {\nconst [lte, setlte] = useState('');\nconst [et, setet] = useState('');\n- const factorial = (n) => {\n- let total = 1;\n+ const combination = (n, r) => {\n+ const topArray = [];\n+ const botArray = [];\n+ const comboArray = [];\n+\nfor (let i = 1; i <= n; i++) {\n- total *= i;\n+ topArray.push(i);\n+ }\n+ for (let i = 1; i <= r; i++) {\n+ botArray.push(i);\n+ }\n+ for (let i = 1; i <= n - r; i++) {\n+ comboArray.push(i);\n}\n- return total;\n- };\n- const combination = (n, r) => {\n- return factorial(n) / (factorial(r) * factorial(n - r));\n+ let sum = 1;\n+\n+ for (let i = 0; i < Math.max(topArray.length, botArray.length, comboArray.length); i++) {\n+ if (topArray[i]) {\n+ sum *= topArray[i];\n+ }\n+ if (botArray[i]) {\n+ sum /= botArray[i];\n+ }\n+ if (comboArray[i]) {\n+ sum /= comboArray[i];\n+ }\n+ }\n+ return sum;\n};\nconst hyp = (N, S, n, s) => {\n@@ -178,8 +197,6 @@ const HyperGeom = () => {\n});\nconst length = possible.length > 0 ? Math.max(...possible.map((x) => parseInt(x, 10))) + 1 : 0;\n- console.log(length);\n-\nconst plotPopSize = (dataset, size) => {\nconst res = [];\nfor (let i = 0; i < size; i++) {\n@@ -192,7 +209,6 @@ const HyperGeom = () => {\nfor (let i = 0; i < size; i++) {\nres.push(calculate(dataset.populationSize, i, dataset.sampleSize, dataset.sampleSuccesses).greaterThanEqual);\n}\n- console.log(res);\nreturn res;\n};\nconst plotSampleSize = (dataset, size) => {\n@@ -234,7 +250,6 @@ const HyperGeom = () => {\ndata: plotData(dataset, length),\n})),\n};\n- console.log(plotdata);\nreturn (\n<>\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor combination function and remove console logs"
+    },
+    {
+        "msg": "correctly populate new field",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -1192,6 +1192,7 @@ router.post('/uploaddecklist/:id', ensureAuth, async (req, res) => {\ndeck.comments = [];\ndeck.cubename = cube.name;\ndeck.cube = cube._id;\n+ deck.cubeOWner = cube.owner;\ndeck.seats = [\n{\nuserid: req.user._id,\n@@ -1663,6 +1664,7 @@ router.post('/startsealed/:id', body('packs').toInt({ min: 1, max: 16 }), body('\nconst deck = new Deck();\ndeck.cube = cube._id;\n+ deck.cubeOWner = cube.owner;\ndeck.date = Date.now();\ndeck.comments = [];\ndeck.cubename = cube.name;\n@@ -2792,6 +2794,7 @@ router.post('/submitdeck/:id', body('skipDeckbuilder').toBoolean(), async (req,\nconst deck = new Deck();\ndeck.cube = draft.cube;\n+ deck.cubeOWner = cube.owner;\ndeck.date = Date.now();\ndeck.comments = [];\ndeck.draft = draft._id;\n@@ -2959,6 +2962,7 @@ router.get('/rebuild/:id/:index', ensureAuth, async (req, res) => {\nconst deck = new Deck();\ndeck.cube = base.cube;\n+ deck.cubeOWner = base.owner;\ndeck.date = Date.now();\ndeck.cubename = cube.name;\ndeck.comments = [];\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add cube owner to deck object in various routes"
+    },
+    {
+        "msg": "fkie_node_manager_daemon: fixed interpret_path for script_runner",
+        "diff": "diff --git a/fkie_node_manager_daemon/src/fkie_node_manager_daemon/common.py b/fkie_node_manager_daemon/src/fkie_node_manager_daemon/common.py @@ -250,6 +250,8 @@ def interpret_path(path, pwd='.'):\nif len(paths) > 0:\n# if more then one launch file is found, take the first one\nreturn paths[0]\n+ else:\n+ return path\nif path_suffix:\nreturn os.path.normpath(os.path.join(pkg, path_suffix))\nelse:\n",
+        "lang": "Python",
+        "chatgpt": "Fix issue with returning path when no launch file is found"
+    },
+    {
+        "msg": "node_manager: editor: select value after add parameter",
+        "diff": "diff --git a/fkie_node_manager/src/fkie_node_manager/editor/editor.py b/fkie_node_manager/src/fkie_node_manager/editor/editor.py @@ -941,7 +941,7 @@ class Editor(QMainWindow):\nname = \"\"\nif len(lines) == 1:\nname = lines[0]\n- self._insert_text('<param name=\"%s\" value=\"value\" />' % name, 13, len(name))\n+ self._insert_text('<param name=\"%s\" value=\"value\" />' % name, 22 + len(name), 5)\ndef _on_add_param_tag(self):\nself._insert_text('<param name=\"name\" value=\"value\" />', 13, 4)\n",
+        "lang": "Python",
+        "chatgpt": "Fix position of cursor when adding parameter tag in editor"
+    },
+    {
+        "msg": "Removed duplicated line",
+        "diff": "diff --git a/__tests__/serverjs/updatecards.test.js b/__tests__/serverjs/updatecards.test.js @@ -5,7 +5,6 @@ const updatecards = require('../../serverjs/updatecards');\nconst carddb = require('../../serverjs/cards');\nconst examplecards = require('../../fixtures/examplecards');\nconst cardutil = require('../../dist/util/Card.js');\n-const fs = require('fs');\nconst cardsFixturePath = 'fixtures/cards_small.json';\n",
+        "lang": "JavaScript",
+        "chatgpt": "Remove unnecessary import of fs in updatecards test file"
+    },
+    {
+        "msg": "Now Prettified.",
+        "diff": "diff --git a/src/components/CubeOverviewModal.js b/src/components/CubeOverviewModal.js @@ -247,7 +247,8 @@ class CubeOverviewModal extends Component {\n<Row>\n<Col>\n<FormGroup tag=\"fieldset\">\n- {['Vintage', 'Legacy+', 'Legacy', 'Modern', 'Pioneer', 'Historic', 'Standard', 'Set'].map((label) => (\n+ {['Vintage', 'Legacy+', 'Legacy', 'Modern', 'Pioneer', 'Historic', 'Standard', 'Set'].map(\n+ (label) => (\n<FormGroup check key={label}>\n<Label check>\n<Input\n@@ -261,7 +262,8 @@ class CubeOverviewModal extends Component {\n{label}\n</Label>\n</FormGroup>\n- ))}\n+ ),\n+ )}\n</FormGroup>\n</Col>\n<Col>\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor mapping function in CubeOverviewModal component"
+    },
+    {
+        "msg": "fix name display",
+        "diff": "diff --git a/src/analytics/Suggestions.js b/src/analytics/Suggestions.js @@ -74,7 +74,7 @@ const Suggestions = ({ cards, cube }) => {\n</CardHeader>\n<CardBody>\n<ListGroup>\n- {loading ? <em>Loading...</em> : adds.map((add) => <ListGroupItem key={add.name}>{add.name}</ListGroupItem>)}\n+ {loading ? <em>Loading...</em> : adds.map((add) => <ListGroupItem key={add.cardID}>{add.details.name}</ListGroupItem>)}\n</ListGroup>\n</CardBody>\n</Card>\n",
+        "lang": "JavaScript",
+        "chatgpt": "Update key and display name for each suggestion in Suggestions component"
+    },
+    {
+        "msg": "Make lands more valuable.",
+        "diff": "diff --git a/src/utils/Draft.js b/src/utils/Draft.js @@ -36,17 +36,17 @@ function botCardRating(botColors, card) {\n// of picking it by a factor of (100 * 10**(x/400)) - 100 percent\nif (isLand) {\nif ((subset || contains) && isFetch) {\n- rating += 191; // Increase value of picking by roughly 200%\n+ rating += 280; // Increase value of picking by roughly 400%\n} else if (subset || contains) {\nswitch (colors.length) {\ncase 1:\n- rating += 176; // Increase value of picking by roughly 175%\n+ rating += 191; // Increase value of picking by roughly 200%\nbreak;\ncase 2:\n- rating += 218; // Increase value of picking by roughly 250%\n+ rating += 262; // Increase value of picking by roughly 350%\nbreak;\ndefault:\n- rating += 265; // Increase value of picking by roughly 360%\n+ rating += 311; // Increase value of picking by roughly 500%\nbreak;\n}\n} else if (overlap && isFetch) {\n",
+        "lang": "JavaScript",
+        "chatgpt": "Increase card rating values for land cards with fetch ability."
+    },
+    {
+        "msg": "Add color to chart groupings.",
+        "diff": "diff --git a/src/analytics/Chart.js b/src/analytics/Chart.js @@ -21,9 +21,10 @@ const Chart = ({ cards, characteristics }) => {\nColorless: '#ADADAD',\nMulticolored: '#DBC467',\n};\n+ const colors = [...Object.values(colorMap), '#000000'];\n- const getColor = (label) => {\n- return colorMap[label] ?? '#000000';\n+ const getColor = (label, index) => {\n+ return colorMap[label] ?? colors[index % colors.length];\n};\nconst options = {\n@@ -60,11 +61,11 @@ const Chart = ({ cards, characteristics }) => {\nconst labels = getLabels(cards, characteristic);\nconst data = {\nlabels,\n- datasets: Object.keys(groups).map((key) => ({\n+ datasets: Object.keys(groups).map((key, index) => ({\nlabel: key,\ndata: labels.map((label) => groups[key].filter((card) => cardIsLabel(card, label, characteristic)).length),\n- backgroundColor: getColor(key),\n- borderColor: getColor(key),\n+ backgroundColor: getColor(key, index),\n+ borderColor: getColor(key, index),\n})),\n};\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor color handling in Chart component"
+    },
+    {
+        "msg": "Correct Content Type for /cube/api/cubejson/:id",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -2801,7 +2801,7 @@ router.get(\nreturn res.status(404).send('Cube not found.');\n}\n- res.contentType('text/json');\n+ res.contentType('application/json');\nres.set('Access-Control-Allow-Origin', '*');\nreturn res.status(200).send(JSON.stringify(cube));\n}),\n",
+        "lang": "JavaScript",
+        "chatgpt": "Update content type to 'application/json' in cube_routes.js"
+    },
+    {
+        "msg": "Improve actions and bot_ai",
+        "diff": "diff --git a/sc2/client.py b/sc2/client.py @@ -150,11 +150,10 @@ class Client(Protocol):\nres = await self._execute(\naction=sc_pb.RequestAction(actions=(sc_pb.Action(action_raw=a) for a in combine_actions(actions)))\n)\n- result = [ActionResult(r) for r in res.action.result]\nif return_successes:\n- return result\n+ return [ActionResult(r) for r in res.action.result]\nelse:\n- return [r for r in result if r != ActionResult.Success]\n+ return [ActionResult(r) for r in res.action.result if ActionResult(r) != ActionResult.Success]\nasync def query_pathing(\nself, start: Union[Unit, Point2, Point3], end: Union[Point2, Point3]\n",
+        "lang": "Python",
+        "chatgpt": "Refactor return statement in query_pathing method"
+    },
+    {
+        "msg": "Bump version and push to pypi",
+        "diff": "diff --git a/setup.py b/setup.py @@ -10,7 +10,7 @@ test_requirements = convert_deps_to_pip(pfile[\"dev-packages\"], r=False)\nsetup(\nname=\"burnysc2\",\npackages=find_packages(exclude=[\"examples*\", \"examples\"]),\n- version=\"0.12.9\",\n+ version=\"0.12.10\",\ndescription=\"A StarCraft II API Client for Python 3\",\nlicense=\"MIT\",\nauthor=\"BurnySc2\",\n",
+        "lang": "Python",
+        "chatgpt": "Bump version to 0.12.10"
+    },
+    {
+        "msg": "Submit advanced filter modal on enter.",
+        "diff": "diff --git a/src/components/FilterCollapse.js b/src/components/FilterCollapse.js @@ -44,6 +44,7 @@ const numFields = ['cmc', 'price', 'priceFoil', 'power', 'toughness', 'rarity'];\nconst AdvancedFilterModal = ({ isOpen, toggle, apply, values, onChange, ...props }) =>\n<Modal isOpen={isOpen} toggle={toggle} size=\"lg\" {...props}>\n+ <Form onSubmit={e => { e.preventDefault(); apply(); }}>\n<ModalHeader toggle={toggle}>Advanced Filters</ModalHeader>\n<ModalBody>\n<TextField name=\"name\" humanName=\"Card Name\" placeholder={'Any words in the name, e.g. \"Fire\"'} value={values.name} onChange={onChange} />\n@@ -86,8 +87,9 @@ const AdvancedFilterModal = ({ isOpen, toggle, apply, values, onChange, ...props\n</ModalBody>\n<ModalFooter>\n<Button color=\"danger\" aria-label=\"Close\" onClick={toggle}>Cancel</Button>\n- <Button color=\"success\" onClick={apply}>Apply</Button>\n+ <Button color=\"success\" type=\"submit\">Apply</Button>\n</ModalFooter>\n+ </Form>\n</Modal>;\nclass FilterCollapse extends Component {\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add form submission to AdvancedFilterModal"
+    },
+    {
+        "msg": "Lazily loads paths to allow importing the library even if SC2 isn't installed",
+        "diff": "diff --git a/sc2/paths.py b/sc2/paths.py @@ -25,10 +25,6 @@ CWD = {\nPF = platform.system()\n-if PF not in BASEDIR:\n- logger.critical(f\"Unsupported platform '{PF}'\")\n- exit(1)\n-\ndef get_env():\n# TODO: Linux env conf from: https://github.com/deepmind/pysc2/blob/master/pysc2/run_configs/platforms.py\nreturn None\n@@ -41,14 +37,28 @@ def latest_executeble(versions_dir):\nexit(1)\nreturn path / BINPATH[PF]\n-class Paths(object):\n+\n+class _MetaPaths(type):\n+ \"\"\"\"Lazily loads paths to allow importing the library even if SC2 isn't installed.\"\"\"\n+ def __setup(self):\n+ if PF not in BASEDIR:\n+ logger.critical(f\"Unsupported platform '{PF}'\")\n+ exit(1)\n+\ntry:\n- BASE = Path(os.environ.get(\"SC2PATH\", BASEDIR[PF])).expanduser()\n- EXECUTABLE = latest_executeble(BASE / \"Versions\")\n- CWD = base_dir / CWD[PF] if CWD[PF] else None\n+ self.BASE = Path(os.environ.get(\"SC2PATH\", BASEDIR[PF])).expanduser()\n+ self.EXECUTABLE = latest_executeble(self.BASE / \"Versions\")\n+ self.CWD = base_dir / CWD[PF] if CWD[PF] else None\n- REPLAYS = BASE / \"Replays\"\n- MAPS = BASE / \"Maps\"\n+ self.REPLAYS = self.BASE / \"Replays\"\n+ self.MAPS = self.BASE / \"Maps\"\nexcept FileNotFoundError as e:\nlogger.critical(f\"SC2 installation not found: File '{e.filename}' does not exist.\")\nexit(1)\n+\n+ def __getattr__(self, attr):\n+ self.__setup()\n+ return getattr(self, attr)\n+\n+class Paths(metaclass=_MetaPaths):\n+ \"\"\"Paths for SC2 folders, lazily loaded using the above metaclass.\"\"\"\n",
+        "lang": "Python",
+        "chatgpt": "Refactor paths module to lazily load SC2 folders."
+    },
+    {
+        "msg": "Increase SC2 start-timeout limit from 1 to 3 minutes",
+        "diff": "diff --git a/sc2/sc2process.py b/sc2/sc2process.py @@ -193,7 +193,8 @@ class SC2Process:\n)\nasync def _connect(self):\n- for i in range(60):\n+ # How long it waits for SC2 to start (in seconds)\n+ for i in range(180):\nif self._process is None:\n# The ._clean() was called, clearing the process\nlogger.debug(\"Process cleanup complete, exit\")\n",
+        "lang": "Python",
+        "chatgpt": "Increase wait time for SC2 to start from 60 seconds to 180 seconds."
+    },
+    {
+        "msg": "increased suggestions to 1k",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -3370,7 +3370,7 @@ router.post(\n'/api/adds/:id',\nutil.wrapAsyncApi(async (req, res) => {\nconst response = await fetch(\n- `http://127.0.0.1:8000/?cube_name=${req.params.id}&num_recs=${100}&root=${encodeURIComponent(\n+ `http://127.0.0.1:8000/?cube_name=${req.params.id}&num_recs=${1000}&root=${encodeURIComponent(\n'http://localhost:5000',\n)}`,\n);\n",
+        "lang": "JavaScript",
+        "chatgpt": "Increase number of records fetched to 1000 in cube_routes.js"
+    },
+    {
+        "msg": "added card ID to card pages",
+        "diff": "diff --git a/src/pages/CardPage.js b/src/pages/CardPage.js -import React from 'react';\n+import React, { useState } from 'react';\nimport PropTypes from 'prop-types';\nimport UserPropType from 'proptypes/UserPropType';\nimport CardPricePropType from 'proptypes/CardPricePropType';\n@@ -20,6 +20,7 @@ import {\nTable,\nBadge,\nButton,\n+ Input,\n} from 'reactstrap';\nimport ChartComponent from 'react-chartjs-2';\n@@ -45,6 +46,7 @@ import Tab from 'components/Tab';\nimport { cardPrice, cardFoilPrice, cardPriceEur, cardTix, cardElo } from 'utils/Card';\nimport { getTCGLink, getCardMarketLink, getCardHoarderLink, getCardKingdomLink } from 'utils/Affiliate';\n+import { CheckIcon, ClippyIcon } from '@primer/octicons-react';\nconst AutocardA = withAutocard('a');\nconst AddModal = withModal(Button, AddToCubeModal);\n@@ -177,6 +179,33 @@ LegalityBadge.propTypes = {\nstatus: PropTypes.string.isRequired,\n};\n+const CardIdBadge = ({ id }) => {\n+ const [copied, setCopied] = useState(false);\n+\n+ const onCopyClick = async () => {\n+ await navigator.clipboard.writeText(id);\n+ setCopied(true);\n+ };\n+\n+ return (\n+ <InputGroup className=\"flex-nowrap mb-3\" size=\"sm\">\n+ <InputGroupAddon addonType=\"prepend\">\n+ <InputGroupText>Card ID</InputGroupText>\n+ </InputGroupAddon>\n+ <Input id=\"card-id\" className=\"bg-white\" value={id} disabled />\n+ <InputGroupAddon addonType=\"append\" style={{ width: 'auto' }}>\n+ <Button className=\"btn-sm\" onClick={onCopyClick}>\n+ {copied ? <CheckIcon size={16} /> : <ClippyIcon size={16} />}\n+ </Button>\n+ </InputGroupAddon>\n+ </InputGroup>\n+ );\n+};\n+\n+CardIdBadge.propTypes = {\n+ id: PropTypes.string.isRequired,\n+};\n+\nconst getPriceTypeUnit = {\nprice: 'USD',\nprice_foil: 'USD',\n@@ -231,11 +260,12 @@ const CardPage = ({ user, card, data, versions, related, cubes, loginCallback })\ncolor=\"success\"\nblock\noutline\n- className=\"mb-2 mr-2\"\n+ className=\"mb-1 mr-2\"\nmodalProps={{ card, cubes, hideAnalytics: true }}\n>\nAdd to Cube...\n</AddModal>\n+ <CardIdBadge id={card._id} />\n{card.prices && Number.isFinite(cardPrice({ details: card })) && (\n<TextBadge name=\"Price\" className=\"mt-1\" fill>\n<Tooltip text=\"TCGPlayer Market Price\">${cardPrice({ details: card }).toFixed(2)}</Tooltip>\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add CardIdBadge component and useState hook to CardPage."
+    },
+    {
+        "msg": "change shortId generation method",
+        "diff": "diff --git a/serverjs/cubefn.js b/serverjs/cubefn.js @@ -23,22 +23,14 @@ function buildIdQuery(id) {\nasync function generateShortId() {\nconst cubes = await Cube.find({}, ['shortID']);\n-\nconst shortIds = cubes.map((cube) => cube.shortID);\n-\n- const ids = cubes.map((cube) => util.fromBase36(cube.shortID));\n- let max = Math.max(...ids);\n-\n- if (max < 0) {\n- max = 0;\n- }\n+ const space = shortIds.length * 2;\nlet newId = '';\nlet isGoodId = false;\nwhile (!isGoodId) {\n- max += 1;\n- newId = util.toBase36(max);\n-\n+ const rand = Math.floor(Math.random() * space);\n+ newId = util.toBase36(rand);\nisGoodId = !util.hasProfanity(newId) && !shortIds.includes(newId);\n}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor generateShortId function to improve efficiency and remove unnecessary code"
+    },
+    {
+        "msg": "Add shorter prettier scripts.",
+        "diff": "diff --git a/package.json b/package.json \"scripts\": {\n\"beautify\": \"npm run prettier\",\n\"prettier\": \"prettier --write {__tests__,fixtures,models,one_shot_scripts,public,routes,serverjs,src,views}'/**/*.js' webpack.'*'.js\",\n+ \"prettier-master\": \"prettier --write $(git diff master --name-only | grep -E '.js$')\",\n+ \"prettier-head\": \"prettier --write $(git diff HEAD --name-only | grep -E '.js$')\",\n\"lint\": \"prettier --check {__tests__,fixtures,models,one_shot_scripts,public,routes,serverjs,src,views}'/**/*.js'\",\n\"nodemon\": \"nodemon --ignore src --ignore public\",\n\"webpack-dev-server\": \"webpack-dev-server --config webpack.dev.js\",\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add prettier scripts for comparing changes with master and head branches"
+    },
+    {
+        "msg": "Fix the image path\nAlso to test the new github-based process",
+        "diff": "diff --git a/README.md b/README.md **Note:** This is a **read-only mirror** of the formal [Gerrit](https://gerrit.hyperledger.org/r/#/admin/projects/cello) repository. Find more details at [Cello Wiki](https://wiki.hyperledger.org/projects/cello).\n-![Cello](docs/imgs/logo.png)\n+![Cello](docs/images/logo.png)\nHyperledger Cello is a blockchain provision and operation system, which helps manage blockchain networks in an efficient way.\n@@ -21,7 +21,7 @@ Using Cello, everyone can easily:\nA typical usage scenario is illustrated as:\n-![Typical Scenario](docs/imgs/scenario.png)\n+![Typical Scenario](docs/images/scenario.png)\n## Quick Start\n",
+        "lang": "Python",
+        "chatgpt": "Update image file paths in README.md"
+    },
+    {
+        "msg": "Fix crashes on linux",
+        "diff": "diff --git a/sc2/proxy.py b/sc2/proxy.py @@ -170,7 +170,7 @@ class Proxy:\nwhile self.result is None:\nbot_alive = bot_process and bot_process.poll() is None\n- sc2_alive = self.controller.running and self.controller._process._process.poll() is None\n+ sc2_alive = self.controller.running\nif self.done or not (bot_alive and sc2_alive):\nlogger.info(\nf\"Proxy({self.port}): {self.player.name} died, \"\n",
+        "lang": "Python",
+        "chatgpt": "Remove unnecessary check for SC2 process status in Proxy class"
+    },
+    {
+        "msg": "Add target_melee_in_range for scv repair",
+        "diff": "diff --git a/sc2/unit.py b/sc2/unit.py @@ -397,6 +397,15 @@ class Unit:\n<= (self.radius + target.radius + unit_attack_range + bonus_distance) ** 2\n)\n+ def target_melee_in_range(self, target: \"Unit\", bonus_distance: Union[int, float] = 0) -> bool:\n+ \"\"\" Checks if the target is in melee range.\n+ Includes the target's radius when calculating distance to target.\n+ This function is ideal for checking if an scv is in range to repair a target. \"\"\"\n+ return (\n+ self._bot_object._distance_squared_unit_to_unit(self, target)\n+ <= (self.radius + target.radius + bonus_distance) ** 2\n+ )\n+\ndef in_ability_cast_range(\nself, ability_id: AbilityId, target: Union[\"Unit\", Point2], bonus_distance: float = 0\n) -> bool:\n",
+        "lang": "Python",
+        "chatgpt": "Add method to check if target is in melee range"
+    },
+    {
+        "msg": "Enable docker experimental features before running shell script",
+        "diff": "diff --git a/.github/workflows/docker-ci.yml b/.github/workflows/docker-ci.yml @@ -29,6 +29,12 @@ jobs:\nsteps:\n- uses: actions/checkout@v1\n+ - name: Enable experimental docker features\n+ run: |\n+ sudo cat /etc/docker/daemon.json\n+ echo $'{\\n \"experimental\": true\\n}' | sudo tee /etc/docker/daemon.json\n+ sudo systemctl restart docker.service\n+\n- name: Run shell script\nrun: |\nexport VERSION_NUMBER=${{ env.VERSION_NUMBER }}\n",
+        "lang": "Python",
+        "chatgpt": "Enable experimental docker features and restart docker service"
+    },
+    {
+        "msg": "node_manager_daemon_fkie: added some debug outputs",
+        "diff": "diff --git a/node_manager_daemon_fkie/src/node_manager_daemon_fkie/settings.py b/node_manager_daemon_fkie/src/node_manager_daemon_fkie/settings.py @@ -125,9 +125,8 @@ class Settings:\nresult = value\nelse:\nresult = value\n- except Exception as _exc:\n- pass\n- # print exc\n+ except Exception as exc:\n+ rospy.logdebug(\"Cant't get parameter '%s', full parameter path: '%s'\" % (utf8(exc), param_name))\nreturn result\ndef set_param(self, param_name, value, tag=':value'):\n@@ -155,8 +154,8 @@ class Settings:\n# create new parameter entry\ncfg_item[pname] = {val_tag: value}\nself.save()\n- except Exception as _exc:\n- pass\n+ except Exception as exc:\n+ rospy.logdebug(\"Cant't set parameter '%s', full parameter path: '%s'\" % (utf8(exc), param_name))\ndef reload(self):\n'''\n",
+        "lang": "Python",
+        "chatgpt": "Refactor error handling in set_param method"
+    },
+    {
+        "msg": "Change weapon_ready property to weapon_cooldown ==0",
+        "diff": "diff --git a/sc2/unit.py b/sc2/unit.py @@ -1191,7 +1191,7 @@ class Unit:\n@property\ndef weapon_ready(self) -> bool:\n\"\"\" Checks if the weapon is ready to be fired. \"\"\"\n- return self.weapon_cooldown < self._bot_object.client.game_step\n+ return self.weapon_cooldown == 0\n@property\ndef engaged_target_tag(self) -> int:\n",
+        "lang": "Python",
+        "chatgpt": "Refactored weapon_ready property to check if weapon cooldown is equal to 0."
+    },
+    {
+        "msg": "move actionexecution error",
+        "diff": "diff --git a/rasa_core_sdk/endpoint.py b/rasa_core_sdk/endpoint.py @@ -11,7 +11,7 @@ from flask_cors import CORS, cross_origin\nfrom gevent.pywsgi import WSGIServer\nfrom rasa_core_sdk.executor import ActionExecutor\n-from rasa_core.utils import ActionExecutionError\n+from rasa_core.actions.action import ActionExecutionError\nDEFAULT_SERVER_PORT = 5055\n",
+        "lang": "Python",
+        "chatgpt": "Update import statement for ActionExecutionError in endpoint.py"
+    },
+    {
+        "msg": "[CE-490]Add a new command to start worker with mac os\nmake it more friendly for users to start a docker worker node with mac os\n#done",
+        "diff": "diff --git a/docs/setup_worker_docker.md b/docs/setup_worker_docker.md @@ -79,4 +79,10 @@ $ docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 127.0.0.1:2375:2\n$ docker -H 127.0.0.1:2375 info\n```\n+And users can use `0.0.0.0` to replace `127.0.0.1` to make sure Master can reach Worker Node through this port, as Ubuntu.\n+\n+```bash\n+$ docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 0.0.0.0:2375:2375 bobrik/socat TCP-LISTEN:2375,fork UNIX-CONNECT:/var/run/docker.sock\n+```\n+\n<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"https://i.creativecommons.org/l/by/4.0/88x31.png\" /></a><br />This work is licensed under a <a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 International License</a>.\n",
+        "lang": "Python",
+        "chatgpt": "Add option to use `0.0.0.0` for Master to reach Worker Node via port 2375."
+    },
+    {
+        "msg": "fix cube popularity rating",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -1603,7 +1603,10 @@ router.post('/startsealed/:id', body('packs').toInt({ min: 1, max: 16 }), body('\nconst numCards = packs * cards;\n- const cube = await Cube.findOne(buildIdQuery(req.params.id), '_id name draft_formats card_count type cards owner');\n+ const cube = await Cube.findOne(\n+ buildIdQuery(req.params.id),\n+ '_id name draft_formats card_count type cards owner numDecks',\n+ );\nif (!cube) {\nreq.flash('danger', 'Cube not found');\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor cube_routes.js to include numDecks in Cube.findOne query"
+    },
+    {
+        "msg": "Move indexes into definition.",
+        "diff": "diff --git a/models/cube.js b/models/cube.js @@ -17,11 +17,13 @@ let cubeSchema = mongoose.Schema({\n},\nowner: {\ntype: String,\n- required: true\n+ required: true,\n+ index: true\n},\nisListed: {\ntype: Boolean,\n- default: true\n+ default: true,\n+ index: true\n},\nprivatePrices: {\ntype: Boolean,\n@@ -29,7 +31,8 @@ let cubeSchema = mongoose.Schema({\n},\nisFeatured: {\ntype: Boolean,\n- default: false\n+ default: false,\n+ index: true\n},\ncards: [{\ntags: [String],\n@@ -62,14 +65,4 @@ let cubeSchema = mongoose.Schema({\ndraft_formats: {}\n});\n-// Indexes for home page queries\n-cubeSchema.index({\n- isFeatured: 1,\n-});\n-\n-cubeSchema.index({\n- owner: 1,\n- isListed: 1,\n-});\n-\nlet Cube = module.exports = mongoose.model('Cube', cubeSchema)\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add indexes to owner, isListed, and isFeatured fields in Cube model"
+    },
+    {
+        "msg": "unit.py changes",
+        "diff": "diff --git a/sc2/unit.py b/sc2/unit.py @@ -357,6 +357,14 @@ class Unit:\nspeed *= SPEED_ALTERING_BUFFS.get(buff, 1)\nreturn speed\n+ @property\n+ def distance_per_step(self) -> float:\n+ return (self.real_speed/22.4) * self._bot_object.client.game_step\n+\n+ @property\n+ def distance_to_weapon_ready(self) -> float:\n+ return (self.real_speed / 22.4) * self.weapon_cooldown\n+\n@property\ndef is_mineral_field(self) -> bool:\n\"\"\" Checks if the unit is a mineral field. \"\"\"\n@@ -1177,6 +1185,10 @@ class Unit:\nreturn self._proto.weapon_cooldown\nreturn -1\n+ @property\n+ def weapon_ready(self) -> bool:\n+ return self.weapon_cooldown < self._bot_object.client.game_step\n+\n@property\ndef engaged_target_tag(self) -> int:\n# TODO What does this do?\n",
+        "lang": "Python",
+        "chatgpt": "Add properties for distance per step and distance to weapon ready, and weapon ready status."
+    },
+    {
+        "msg": "Add supported ansible versions",
+        "diff": "diff --git a/src/agent/ansible/README.md b/src/agent/ansible/README.md @@ -33,12 +33,13 @@ need to do should be identical.\nsudo apt-get update\nsudo apt-get install python-dev python-pip libssl-dev libffi-dev -y\nsudo pip install --upgrade pip\n- sudo pip install six==1.10.0\n- sudo pip install ansible==2.3.0.0\n+ sudo pip install 'ansible>=2.3.0.0'\ngit clone https://gerrit.hyperledger.org/r/cello\nAll the following work assumed that you are in cello/src/agent/ansible directory\n+Supported ansible versions are 2.3.0.0 or greater.\n+\n## Deploy hyperledger fabric onto different environment\n### On VirtualBox::\n",
+        "lang": "Python",
+        "chatgpt": "Update ansible installation command to support versions 2.3.0.0 or greater"
+    },
+    {
+        "msg": "visual update",
+        "diff": "diff --git a/src/pages/CardPage.js b/src/pages/CardPage.js @@ -46,7 +46,7 @@ import Tab from 'components/Tab';\nimport { cardPrice, cardFoilPrice, cardPriceEur, cardTix, cardElo } from 'utils/Card';\nimport { getTCGLink, getCardMarketLink, getCardHoarderLink, getCardKingdomLink } from 'utils/Affiliate';\n-import { CheckIcon, ClippyIcon } from '@primer/octicons-react';\n+import { ArrowSwitchIcon, CheckIcon, ClippyIcon } from '@primer/octicons-react';\nconst AutocardA = withAutocard('a');\nconst AddModal = withModal(Button, AddToCubeModal);\n@@ -250,6 +250,7 @@ const CardPage = ({ user, card, data, versions, related, cubes, loginCallback })\n<ImageFallback className=\"w-100\" src={imageUsed} fallbackSrc=\"/content/default_card.png\" alt={card.name} />\n{card.image_flip && (\n<Button\n+ className=\"mt-1\"\ncolor=\"success\"\noutline\nblock\n@@ -261,7 +262,7 @@ const CardPage = ({ user, card, data, versions, related, cubes, loginCallback })\n}\n}}\n>\n- Flip\n+ <ArrowSwitchIcon size={16} /> Transform\n</Button>\n)}\n<CardBody className=\"breakdown p-1\">\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add ArrowSwitchIcon to Flip button in CardPage"
+    },
+    {
+        "msg": "Change to simpler projection for consistency",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -4289,7 +4289,7 @@ router.get(\n'/api/date_updated/:id',\nutil.wrapAsyncApi(async (req, res) => {\nconst { id } = req.params;\n- const result = await Cube.findOne(buildIdQuery(id), { date_updated: 1, _id: 0 }).lean();\n+ const result = await Cube.findOne(buildIdQuery(id), 'date_updated').lean();\nif (!result) {\nreturn res.status(404).send({\nsuccess: 'false',\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor Cube.findOne to only return 'date_updated' field"
+    },
+    {
+        "msg": "fkie_node_manager: editor: fixed recursive search",
+        "diff": "diff --git a/fkie_node_manager/src/fkie_node_manager/editor/text_search_thread.py b/fkie_node_manager/src/fkie_node_manager/editor/text_search_thread.py @@ -140,7 +140,7 @@ class TextSearchThread(QObject, threading.Thread):\nnew_dict = dict(args)\nnew_dict.update(include_args)\n# test search string for 'name=' and skip search in not launch files\n- if self._only_launch or inc_path.endswith('.launch') or path.find('.launch.') > 0:\n+ if not self._only_launch or inc_path.endswith('.launch') or path.find('.launch.') > 0:\nself.search(search_text, inc_path, recursive, new_dict, count + 1)\nif self._path == path and self._found == 0:\nself.warning_signal.emit(\"not found '%s' in %s (%srecursive)\" % (search_text, path, '' if recursive else 'not '))\n",
+        "lang": "Python",
+        "chatgpt": "Fix conditional statement in TextSearchThread to properly search in launch files."
+    },
+    {
+        "msg": "linked buttons",
+        "diff": "diff --git a/src/pages/LandingPage.js b/src/pages/LandingPage.js @@ -5,8 +5,12 @@ import { Row, Col, Button } from 'reactstrap';\nimport RenderToRoot from 'utils/RenderToRoot';\nimport Footer from 'layouts/Footer';\n+import LoginModal from 'components/LoginModal';\n+import withModal from 'components/WithModal';\nimport CardSearchBar from 'components/CardSearchBar';\n+const LoginModalButton = withModal(Button, LoginModal);\n+\nconst LandingPage = ({ numusers, numcubes, numdrafts }) => {\nreturn (\n<div className=\"flex-container flex-vertical viewport\">\n@@ -29,12 +33,12 @@ const LandingPage = ({ numusers, numcubes, numdrafts }) => {\n<strong>{numdrafts}</strong>\n{' Completed Drafts'}\n</h5>\n- <Button className=\"landing-btn my-3\" color=\"success\">\n+ <Button href=\"/user/register\" className=\"landing-btn my-3\" color=\"success\">\nSign Up\n</Button>\n- <Button className=\"landing-btn mb-3\" color=\"success\" outline>\n+ <LoginModalButton className=\"landing-btn mb-3\" color=\"success\" outline>\nLogin\n- </Button>\n+ </LoginModalButton>\n</div>\n<Footer />\n</Col>\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add Login functionality to LandingPage with LoginModalButton."
+    },
+    {
+        "msg": "Enforce a maximum cube alias length",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -1642,10 +1642,14 @@ router.post('/editoverview/:id', ensureAuth, function(req, res) {\nreq.flash('danger', 'Cube name should not use profanity.');\nres.redirect('/cube/overview/' + req.params.id);\n} else {\n+ let urlAliasMaxLength = 100;\nif (req.body.urlAlias && cube.urlAlias !== req.body.urlAlias) {\nif (!req.body.urlAlias.match(/^[0-9a-zA-Z_]*$/)) {\nreq.flash('danger', 'Custom URL must contain only alphanumeric characters or underscores.');\nres.redirect('/cube/overview/' + req.params.id);\n+ } else if (req.body.urlAlias.length > urlAliasMaxLength) {\n+ req.flash('danger', 'Custom URL may not be longer than ' + urlAliasMaxLength + ' characters.');\n+ res.redirect('/cube/overview/' + req.params.id);\n} else {\nif (util.has_profanity(req.body.urlAlias)) {\nreq.flash('danger', 'Custom URL may not contain profanity.');\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add validation for custom URL alias length in cube edit overview endpoint"
+    },
+    {
+        "msg": "Fixed to correct react practice",
+        "diff": "diff --git a/src/components/CubeOverviewModal.js b/src/components/CubeOverviewModal.js @@ -26,13 +26,10 @@ class CubeOverviewModal extends Component {\nconstructor(props) {\nsuper(props);\n- props.cube.descriptionhtml= props.cube.descriptionhtml && props.cube.descriptionhtml !== 'undefined' ? props.cube.descriptionhtml : props.cube.description;\n-\nthis.state = {\nisOpen: false,\ntags: props.cube.tags.map((tag) => ({ id: tag, text: tag })),\ncube: JSON.parse(JSON.stringify(props.cube)),\n- description: props.cube.descriptionhtml,\nimage_dict: {},\n};\n@@ -224,7 +221,6 @@ class CubeOverviewModal extends Component {\nrender() {\nconst { cube, cubeID, tags, isOpen } = this.state;\n- console.log(cube);\nreturn (\n<>\n<a className=\"nav-link\" href=\"#\" onClick={this.open}>\n@@ -372,7 +368,7 @@ class CubeOverviewModal extends Component {\n<h6>Description</h6>\n<TextEntry\nname=\"blog\"\n- value={this.state.cube.descriptionhtml}\n+ value={cube.descriptionhtml && cube.descriptionhtml !== 'undefined' ? cube.descriptionhtml :cube.description}\nonChange={this.handleDescriptionChange}\n/>\n<br />\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor CubeOverviewModal component to handle descriptionhtml value properly"
+    },
+    {
+        "msg": "Fixed cleric to wolf",
+        "diff": "diff --git a/serverjs/updatecards.js b/serverjs/updatecards.js @@ -412,7 +412,7 @@ var specialCaseCardsList = {\"Outlaws' Merriment\":[{\n//the cards below are transform cards that are on here due to the way\n//we currently do not populate the oracle text of transform cards.\n\"Arlinn Kord\":[{\n- tokenId: \"94ed2eca-1579-411d-af6f-c7359c65de30\"\n+ tokenId: \"88452ed7-1065-41c3-94a6-dc41108c45c1\"\n}],\n\"Bloodline Keeper\":[{\ntokenId: \"71496671-f7ba-4014-a895-d70a27979db7\"\n@@ -427,7 +427,7 @@ var specialCaseCardsList = {\"Outlaws' Merriment\":[{\ntokenId: \"11d25bde-a303-4b06-a3e1-4ad642deae58\"\n}],\n\"Garruk Relentless\":[{\n- tokenId: \"94ed2eca-1579-411d-af6f-c7359c65de30\"\n+ tokenId: \"88452ed7-1065-41c3-94a6-dc41108c45c1\"\n},{\ntokenId: \"7a49607c-427a-474c-ad77-60cd05844b3c\"\n}],\n@@ -438,7 +438,7 @@ var specialCaseCardsList = {\"Outlaws' Merriment\":[{\ntokenId: \" 94ed2eca-1579-411d-af6f-c7359c65de30\"\n}],\n\"Huntmaster of the Fells\":[{\n- tokenId: \"94ed2eca-1579-411d-af6f-c7359c65de30\"\n+ tokenId: \"88452ed7-1065-41c3-94a6-dc41108c45c1\"\n}],\n\"Legion's Landing\":[{\ntokenId: \"09293ae7-0629-417b-9eda-9bd3f6d8e118\"\n",
+        "lang": "JavaScript",
+        "chatgpt": "Update tokenIds for transform cards in specialCaseCardsList."
+    },
+    {
+        "msg": "Fix circular reference issue.",
+        "diff": "diff --git a/routes/cube_routes.js b/routes/cube_routes.js @@ -881,7 +881,7 @@ router.get('/analysis/:id', async (req, res) => {\naddedTmsp: new Date(),\nimgUrl: undefined,\nfinish: 'Non-foil',\n- details: { ...tokenDetails },\n+ details: { ...(element.tokenId === card.cardID ? {} : tokenDetails) },\n};\n}\n}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor details assignment in cube_routes.js"
+    },
+    {
+        "msg": "fkie_node_manager_daemon: fixed read version with python 3",
+        "diff": "diff --git a/fkie_node_manager_daemon/src/fkie_node_manager_daemon/version.py b/fkie_node_manager_daemon/src/fkie_node_manager_daemon/version.py @@ -61,23 +61,23 @@ def detect_version(package):\ntry:\nwith open(\"%s/VERSION\" % pkg_path) as f:\nversion = f.read()\n- version = version.strip()\n+ version = version.strip().decode('utf-8')\nwith open(\"%s/DATE\" % pkg_path) as f:\ndatetag = f.read().split()\nif datetag:\n- date = datetag[0]\n+ date = datetag[0].decode('utf-8')\nexcept Exception as err:\nsys.stderr.write(\"version detection error: %s\" % utf8(err))\nelif os.path.isdir(\"%s/../.git\" % pkg_path):\ntry:\nos.chdir(pkg_path)\nps = SupervisedPopen(['git', 'describe', '--tags', '--dirty', '--always', '--abbrev=8'], stdout=subprocess.PIPE, object_id='get git version')\n- output = ps.stdout.read()\n+ output = ps.stdout.read().decode('utf-8')\nversion = output.strip()\nps = SupervisedPopen(['git', 'show', '-s', '--format=%ci'], stdout=subprocess.PIPE, object_id='get git date')\noutput = ps.stdout.read().split()\nif output:\n- date = output[0]\n+ date = output[0].decode('utf-8')\nexcept Exception as err:\nsys.stderr.write(\"version detection error: %s\" % utf8(err))\nelse:\n",
+        "lang": "Python",
+        "chatgpt": "Fix version and date decoding in version detection code"
+    },
+    {
+        "msg": "fixed base URL for relative links",
+        "diff": "diff --git a/src/utils/Util.js b/src/utils/Util.js @@ -192,7 +192,7 @@ export function isInternalURL(to) {\nexport function isSamePageURL(to) {\ntry {\n- const url = new URL(to, window.location.origin);\n+ const url = new URL(to, window.location.href);\nreturn (\nurl.hostname === window.location.hostname &&\nurl.pathname === window.location.pathname &&\n",
+        "lang": "JavaScript",
+        "chatgpt": "Update isSamePageURL function to use window.location.href instead of window.location.origin"
+    },
+    {
+        "msg": "Fix \"on_unit_created\" event when workers are leaving the gas structure",
+        "diff": "diff --git a/sc2/bot_ai.py b/sc2/bot_ai.py @@ -78,8 +78,9 @@ class BotAI(DistanceCalculation):\nself.larva_count: int = None\nself.actions: List[UnitCommand] = []\nself.blips: Set[Blip] = set()\n- self._units_previous_map: dict = dict()\n- self._structures_previous_map: dict = dict()\n+ self._unit_tags_seen_this_game: Set[int] = set()\n+ self._units_previous_map: Dict[int, Unit] = dict()\n+ self._structures_previous_map: Dict[int, Unit] = dict()\nself._previous_upgrades: Set[UpgradeId] = set()\n# Internally used to keep track which units received an action in this frame, so that self.train() function does not give the same larva two orders - cleared every frame\nself._unit_tags_received_action: Set[int] = set()\n@@ -1326,7 +1327,8 @@ class BotAI(DistanceCalculation):\nasync def _issue_unit_added_events(self):\nfor unit in self.units:\n- if unit.tag not in self._units_previous_map:\n+ if unit.tag not in self._units_previous_map and unit.tag not in self._unit_tags_seen_this_game:\n+ self._unit_tags_seen_this_game.add(unit.tag)\nawait self.on_unit_created(unit)\nasync def _issue_upgrade_events(self):\n",
+        "lang": "Python",
+        "chatgpt": "\"Add tracking for unit tags seen this game and update previous unit map\""
+    },
+    {
+        "msg": "Add weapon_cooldown to Unit attributes",
+        "diff": "diff --git a/sc2/unit.py b/sc2/unit.py @@ -178,6 +178,19 @@ class Unit(object):\n\"\"\" Checks if a geyser has gas remaining (cant build extractors on empty geysers), useful for lategame \"\"\"\nreturn self._proto.vespene_contents > 0\n+ @property\n+ def weapon_cooldown(self):\n+ \"\"\" Returns time in game loops (self.state.game_loop) until the unit can fire again\n+ Usage:\n+ if unit.weapon_cooldown == 0:\n+ await self.do(unit.attack(target))\n+ else:\n+ await self.do(unit.move(retreatPosition))\n+ \"\"\"\n+ if self.can_attack_ground or self.can_attack_air:\n+ return self._proto.weapon_cooldown\n+ return 1000\n+\n@property\ndef can_attack_ground(self):\n# See data_pb2.py line 141 for info on weapon data\n",
+        "lang": "Python",
+        "chatgpt": "Add weapon_cooldown property to Unit class"
+    },
+    {
+        "msg": "node_manager_fkie: fixed crash while navigation in launch editor",
+        "diff": "diff --git a/node_manager_fkie/src/node_manager_fkie/launch_list_model.py b/node_manager_fkie/src/node_manager_fkie/launch_list_model.py @@ -253,7 +253,7 @@ class LaunchListModel(QStandardItemModel):\nitem = self.itemFromIndex(index)\nprev = '%s\\n' % text if text else ''\ntext = '%sfile://%s' % (prev, item.path)\n- mimeData.setData('text/plain', utf8(text))\n+ mimeData.setData('text/plain', text)\nreturn mimeData\n# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n",
+        "lang": "Python",
+        "chatgpt": "Fix mimeData setData method in LaunchListModel"
+    },
+    {
+        "msg": "Add furthest_distance_to",
+        "diff": "diff --git a/sc2/units.py b/sc2/units.py @@ -103,6 +103,13 @@ class Units(list):\nposition = position.position\nreturn min({unit.position.to2.distance_to(position.to2) for unit in self})\n+ def furthest_distance_to(self, position: Union[Unit, Point2, Point3]) -> Union[int, float]:\n+ \"\"\" Returns the distance between the furthest unit from this group to the target unit \"\"\"\n+ assert self.exists\n+ if isinstance(position, Unit):\n+ position = position.position\n+ return max({unit.position.to2.distance_to(position.to2) for unit in self})\n+\ndef closest_to(self, position: Union[Unit, Point2, Point3]) -> Unit:\nassert self.exists\nif isinstance(position, Unit):\n@@ -110,7 +117,6 @@ class Units(list):\nreturn min(self, key=lambda unit: unit.position.to2.distance_to(position.to2))\ndef furthest_to(self, position: Union[Unit, Point2, Point3]) -> Unit:\n- \"\"\" Returns the distance between the furthest unit from this group to the target unit \"\"\"\nassert self.exists\nif isinstance(position, Unit):\nposition = position.position\n",
+        "lang": "Python",
+        "chatgpt": "Add method to calculate furthest distance to target unit in Units class"
+    },
+    {
+        "msg": "Manually change effects because effect_id.py doesnt seem to be complete",
+        "diff": "diff --git a/sc2/game_state.py b/sc2/game_state.py @@ -40,7 +40,7 @@ class GameState(object):\nself.creep = PixelMap(observation.observation.raw_data.map_state.creep)\nself.dead_units = {dead_unit_tag for dead_unit_tag in observation.observation.raw_data.event.dead_units} # set of unit tags that died this step - sometimes has multiple entries\n- self.effects = {EffectId(effect) for effect in observation.observation.raw_data.effects} # effects like ravager bile shot, lurker attack, everything in effect_id.py # usage: if RAVAGERCORROSIVEBILECP in self.state.effects: do stuff\n+ self.effects = {effect for effect in observation.observation.raw_data.effects} # effects like ravager bile shot, lurker attack, everything in effect_id.py # usage: if RAVAGERCORROSIVEBILECP.value in self.state.effects: do stuff\nself.upgrades = {UpgradeId(upgrade) for upgrade in observation.observation.raw_data.player.upgrade_ids} # usage: if TERRANINFANTRYWEAPONSLEVEL1 in self.state.upgrades: do stuff\n@property\n",
+        "lang": "Python",
+        "chatgpt": "Refactor effects set to use effect values instead of EffectId objects"
+    },
+    {
+        "msg": "node_manager_daemon_fkie: fix hdd_usage monitor if not path available",
+        "diff": "diff --git a/node_manager_daemon_fkie/src/node_manager_daemon_fkie/monitor/hdd_usage.py b/node_manager_daemon_fkie/src/node_manager_daemon_fkie/monitor/hdd_usage.py @@ -53,6 +53,9 @@ class HddUsage(SensorInterface):\nself._path = settings.param('sysmon/Disk/path', self._path)\ndef check_sensor(self):\n+ diag_level = 0\n+ diag_vals = []\n+ diag_msg = ''\ntry:\nhdd = psutil.disk_usage(self._path)\ndiag_level = 0\n",
+        "lang": "Python",
+        "chatgpt": "Add diagnostic information to hdd_usage sensor."
+    },
+    {
+        "msg": "Cut long method description lines",
+        "diff": "diff --git a/rasa_core_sdk/__init__.py b/rasa_core_sdk/__init__.py @@ -154,16 +154,19 @@ class Action(object):\n\"\"\"\nExecute the side effects of this action.\nArgs:\n- dispatcher (CollectingDispatcher): the dispatcher which is used to send\n- messages back to the user. Use ``dipatcher.utter_message()``\n- or any other :class:`rasa_core_sdk.executor.CollectingDispatcher` method.\n+ dispatcher (CollectingDispatcher): the dispatcher which is used to\n+ send messages back to the user. Use ``dipatcher.utter_message()``\n+ or any other :class:`rasa_core_sdk.executor.CollectingDispatcher`\n+ method.\ntracker (Tracker): the state tracker for the current\nuser. You can access slot values using\n- ``tracker.get_slot(slot_name)``, the most recent user\n- message is ``tracker.latest_message.text`` and any other :class:`rasa_core_sdk.Tracker` property.\n+ ``tracker.get_slot(slot_name)``, the most recent user message\n+ is ``tracker.latest_message.text`` and any other\n+ :class:`rasa_core_sdk.Tracker` property.\ndomain (Dict[Text, Any]): the bot's domain\nReturns:\n- List[Event]: A list of :class:`rasa_core_sdk.events.Event` instances that is returned through the endpoint\n+ Dict[Event]: A list of :class:`rasa_core_sdk.events.Event` instances\n+ that is returned through the endpoint\n\"\"\"\nraise NotImplementedError\n",
+        "lang": "Python",
+        "chatgpt": "Refactor Action class to update dispatcher and tracker arguments in execute method"
+    },
+    {
+        "msg": "test for packages",
+        "diff": "diff --git a/fkie_node_manager_daemon/tests/test_common.py b/fkie_node_manager_daemon/tests/test_common.py @@ -100,7 +100,7 @@ class TestCommonLib(unittest.TestCase):\ndef test_get_packages(self):\npath = os.path.dirname(self.nm_path.rstrip(os.path.sep))\npkg_res = get_packages(path)\n- self.assertEqual(6, len(pkg_res), \"wrong count of get_packages(%s), expected: %d, got: %d\" % (path, 6, len(pkg_res)))\n+ self.assertEqual(6, len(pkg_res), \"wrong count of get_packages(%s), expected: %d, got: %d -> packages: %s\" % (path, 6, len(pkg_res), pkg_res))\ndef test_get_cwd(self):\ntest_path = '/this/is/path/to'\n",
+        "lang": "Python",
+        "chatgpt": "Enhance error message in test_get_packages to include list of packages returned"
+    },
+    {
+        "msg": "update synergy scaling",
+        "diff": "diff --git a/src/utils/draftbots.js b/src/utils/draftbots.js @@ -118,7 +118,7 @@ export const getSynergy = (combination, card, picked, synergies) => {\n}\n}\n}\n- return Math.max(0, (synergy + internalSynergy) * 10);\n+ return Math.max(0, (synergy + internalSynergy) * 7);\n};\nexport const getOpenness = (combination, seen) => {\n",
+        "lang": "JavaScript",
+        "chatgpt": "Adjust synergy calculation multiplier from 10 to 7"
+    },
+    {
+        "msg": "fixed != to !== typo",
+        "diff": "diff --git a/src/pages/CardPage.js b/src/pages/CardPage.js @@ -222,7 +222,7 @@ const CardPage = ({ user, card, data, versions, related, cubes, loginCallback })\n});\nconst filteredVersions = sortedVersions.filter((version) => {\n- return version._id != card._id;\n+ return version._id !== card._id;\n});\nreturn (\n",
+        "lang": "JavaScript",
+        "chatgpt": "Fix comparison operator in filteredVersions array in CardPage.js"
+    },
+    {
+        "msg": "Add BulkUploadPage to webpack config.",
+        "diff": "diff --git a/webpack.common.js b/webpack.common.js @@ -52,6 +52,7 @@ const clientConfig = merge(config, {\nconst serverConfig = merge(config, {\ntarget: 'node',\nentry: {\n+ BulkUploadPage: './src/components/BulkUploadPage.js',\nCubeListPage: './src/components/CubeListPage.js',\nCubePlaytestPage: './src/components/CubePlaytestPage.js',\nDashboardPage: './src/components/DashboardPage.js',\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add BulkUploadPage to server entry point in webpack config"
+    },
+    {
+        "msg": "Reverse direction of rating sort.",
+        "diff": "diff --git a/src/topcards.js b/src/topcards.js @@ -52,7 +52,7 @@ class TopCards extends Component {\n/>\n</div>\n<SortableTable\n- sorts={{ Rating: row => -row[3], 'Total Picks': row => -row[4] }}\n+ sorts={{ Rating: row => row[3], 'Total Picks': row => -row[4] }}\ndefaultSort=\"Rating\"\nheaders={{ Name: {}, Rating: { style: { width: '10rem' } }, 'Total Picks': { style: { width: '10rem' } } }}\ndata={this.state.data}\n",
+        "lang": "JavaScript",
+        "chatgpt": "Fix sorting bug in TopCards component"
+    },
+    {
+        "msg": "Don't include enemy_race when running on a single player map",
+        "diff": "diff --git a/sc2/bot_ai.py b/sc2/bot_ai.py @@ -557,6 +557,7 @@ class BotAI:\nself.player_id: int = player_id\nself.race: Race = Race(self._game_info.player_races[self.player_id])\n+ if len(self._game_info.player_races) == 2:\nself.enemy_race = Race(self._game_info.player_races[3 - self.player_id])\nself._units_previous_map: dict = dict()\nself._previous_upgrades: Set[UpgradeId] = set()\n",
+        "lang": "Python",
+        "chatgpt": "Add logic to determine enemy race when there are 2 players."
+    },
+    {
+        "msg": "Fixed issue with deleting objects",
+        "diff": "diff --git a/public/js/main.js b/public/js/main.js @@ -6,46 +6,52 @@ $(document).ready(function() {\n$('.delete-cube').on('click', function(e) {\n$target = $(e.target);\nvar id = $target.attr('data-id');\n- $.ajax({\n- type: 'DELETE',\n- url: '/cube/remove/' + id,\n- success: function() {\n- window.location.href = '/';\n- },\n- error: function(err) {\n- console.log(err)\n+ csrfFetch('/cube/remove/' + id, {\n+ method: 'DELETE',\n+ headers: {}\n+ }).then(response => {\n+ if (!response.ok) {\n+ console.log(response);\n+ }\n+ else\n+ {\n+ window.location.href = '';\n}\n});\n})\n$('.delete-blog').on('click', function(e) {\n$target = $(e.target);\nvar id = $target.attr('data-id');\n- $.ajax({\n- type: 'DELETE',\n- url: '/cube/blog/remove/' + id,\n- success: function() {\n+ csrfFetch('/cube/blog/remove/' + id, {\n+ method: 'DELETE',\n+ headers: {}\n+ }).then(response => {\n+ if (!response.ok) {\n+ console.log(response);\n+ }\n+ else\n+ {\nwindow.location.href = '';\n- },\n- error: function(err) {\n- console.log(err)\n}\n});\n- })\n+ });\n$('.delete-format').on('click', function(e) {\n$target = $(e.target);\nvar id = $target.attr('data-id');\nvar cube = $target.attr('data-cube');\n- $.ajax({\n- type: 'DELETE',\n- url: '/cube/format/remove/' + cube + ';' + id,\n- success: function() {\n+ csrfFetch('/cube/format/remove/' + cube + ';' + id, {\n+ method: 'DELETE',\n+ headers: {}\n+ }).then(response => {\n+ if (!response.ok) {\n+ console.log(response);\n+ }\n+ else\n+ {\nwindow.location.href = '';\n- },\n- error: function(err) {\n- console.log(err)\n}\n});\n- })\n+ });\n});\nfunction ISODateToYYYYMMDD(dateString) {\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor delete functionality to use csrfFetch and handle response accordingly"
+    },
+    {
+        "msg": "add note and link to product ideas document",
+        "diff": "diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md @@ -75,6 +75,10 @@ We have a fairly active discord and would love for you to join the discussion.\nPrivate Message 'DEKKARU', the admin on Discord, to gain the contributor role and unlock the contributor-only channels.\n+# Community feedback / product ideas\n+\n+Feedback from the community is collected and synthesized into roadmap ideas in a shared document [here](https://www.notion.so/CubeCobra-community-feedback-142b06cd81994a61bd850fb5bc817cc8). To gain read/write access, PM 'DEKKARU' or 'emmett9001' on Discord.\n+\n### Commit Message Style\nPlease keep commit messages brief and informative.\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add link to community feedback document in CONTRIBUTING.md"
+    },
+    {
+        "msg": "fkie_master_sync: added names and topics of multimaster nodes to default ignore lists",
+        "diff": "diff --git a/fkie_master_sync/src/fkie_master_sync/sync_thread.py b/fkie_master_sync/src/fkie_master_sync/sync_thread.py @@ -116,8 +116,8 @@ class SyncThread(object):\nself._filter = FilterInterface()\nself._filter.load(self.name,\n['/rosout', self.discoverer_name, '/master_discovery', '/master_sync', '/node_manager', '/node_manager_daemon', '/zeroconf', '/param_sync'], [],\n- ['/rosout', '/rosout_agg', '/diagnostics', '/diagnostics_agg'], ['/'] if sync_on_demand else [],\n- ['/*get_loggers', '/*set_logger_level'], [],\n+ ['/rosout', '/rosout_agg', '/master_discovery/*', '/master_sync/*', '/zeroconf/*'], ['/'] if sync_on_demand else [],\n+ ['/*get_loggers', '/*set_logger_level', '/master_discovery/*', '/master_sync/*', '/node_manager_daemon/*', '/zeroconf/*'], [],\n# do not sync the bond message of the nodelets!!\n['bond/Status', 'fkie_multimaster_msgs/SyncTopicInfo', 'fkie_multimaster_msgs/SyncServiceInfo', 'fkie_multimaster_msgs/SyncMasterInfo', 'fkie_multimaster_msgs/MasterState'],\n[], [],\n",
+        "lang": "Python",
+        "chatgpt": "Refactor filter rules in SyncThread to include additional topics and services."
+    },
+    {
+        "msg": "Added count to the top of each column in deck editor and creature count to top of deck editor",
+        "diff": "diff --git a/public/js/deckbuilder.js b/public/js/deckbuilder.js @@ -172,33 +172,47 @@ function renderDraft() {\nvar lands = 0;\nvar cards = 0;\n+ var creatures = 0;\n//fill up deck\ndeck.playerdeck.forEach(function(col, index) {\nvar colhtml = \"\";\n+ var i = 0;\ncol.forEach(function(card, index2) {\n+ i= i+1;\ncards++;\nif (card.details.type.toLowerCase().includes('land')) {\nlands++;\n}\n+ if (card.details.type.toLowerCase().includes('creature')){\n+ creatures++;\n+ }\nif (card.details.card_flip) {\ncolhtml += '<a style=\"z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;\" class=\"autocard\" card=\"' + card.details.display_image + '\" card_flip=\"' + card.details.image_flip + '\" href=\"#\"><img class=\"deckcard defaultCardImage\" data-id=\"' + index2 + '\" data-col=\"' + index + '\" src=\"' + card.details.display_image + '\" width=\"' + cardWidth + '\" height=\"' + cardHeight + '\"/></a>';\n} else {\ncolhtml += '<a style=\"z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;\" class=\"autocard\" card=\"' + card.details.display_image + '\" href=\"#\"><img class=\"deckcard defaultCardImage\" data-id=\"' + index2 + '\" data-col=\"' + index + '\" src=\"' + card.details.display_image + '\" width=\"' + cardWidth + '\" height=\"' + cardHeight + '\"/></a>';\n}\n});\n+ if (i>0){\n+ colhtml = '<p style=\"text-align:center;margin:0\">' + i.toString() + '</p>' + colhtml;\n+ }\n$('#deckColumn' + index).html(colhtml);\n});\n- $('#deckName').text('Deck (' + cards + ' cards, ' + lands + ' lands)')\n+ $('#deckName').text('Deck (' + cards + ' cards, ' + lands + ' lands, '+ creatures + ' creatures)')\n//fill up sideboard\ndeck.playersideboard.forEach(function(col, index) {\n- var colhtml = \"\";\n+ var colhtml ='';\n+ var i = 0;\ncol.forEach(function(card, index2) {\n+ i= i+1;\nif (card.details.card_flip) {\ncolhtml += '<a style=\"z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;\" class=\"autocard\" card=\"' + card.details.display_image + '\" card_flip=\"' + card.details.image_flip + '\" href=\"#\"><img class=\"sideboardcard\" data-id=\"' + index2 + '\" data-col=\"' + index + '\" src=\"' + card.details.display_image + '\" width=\"' + cardWidth + '\" height=\"' + cardHeight + '\"/></a>';\n} else {\ncolhtml += '<a style=\"z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;\" class=\"autocard\" card=\"' + card.details.display_image + '\" href=\"#\"><img class=\"sideboardcard\" data-id=\"' + index2 + '\" data-col=\"' + index + '\" src=\"' + card.details.display_image + '\" width=\"' + cardWidth + '\" height=\"' + cardHeight + '\"/></a>';\n}\n});\n+ if (i > 0){\n+ colhtml = '<p style=text-align:center>' + i.toString() + '</p>' + colhtml;\n+ }\n$('#sideboardColumn' + index).html(colhtml);\n});\n",
+        "lang": "JavaScript",
+        "chatgpt": "Add creature count to deckbuilder.js and display the number of creatures in the deck."
+    },
+    {
+        "msg": "perf updates",
+        "diff": "diff --git a/routes/root.js b/routes/root.js @@ -114,7 +114,9 @@ router.get('/explore', async (req, res) => {\nrouter.get('/random', async (req, res) => {\nconst count = await Cube.count();\nconst random = Math.floor(Math.random() * count);\n- const cube = await Cube.findOne().skip(random);\n+ const cube = await Cube.findOne()\n+ .skip(random)\n+ .lean();\nres.redirect(`/cube/overview/${cube.urlAlias ? cube.urlAlias : cube.shortID}`);\n});\n@@ -130,7 +132,9 @@ router.get('/dashboard', async (req, res) => {\nowner: user._id,\n},\nCUBE_PREVIEW_FIELDS,\n- ).sort({\n+ )\n+ .lean()\n+ .sort({\ndate_updated: -1,\n});\nconst postsq = Blog.find({\n@@ -207,6 +211,7 @@ router.get('/dashboard/decks/:page', async (req, res) => {\nconst cubes = await Cube.find({\nowner: user._id,\n})\n+ .lean()\n.sort({\ndate_updated: -1,\n})\n@@ -346,10 +351,10 @@ router.get('/search/:query/:page', async (req, res) => {\nconst count = await Cube.count(query);\nconst cubes = await Cube.find(query, CUBE_PREVIEW_FIELDS)\n+ .lean()\n.sort(sort)\n.skip(perPage * page)\n- .limit(perPage)\n- .lean();\n+ .limit(perPage);\nconst reactProps = {\nquery: req.params.query,\n",
+        "lang": "JavaScript",
+        "chatgpt": "Refactor Cube queries to use lean() method for better performance"
+    },
+    {
+        "msg": "Test if test completes without chat",
+        "diff": "diff --git a/test/autotest_bot.py b/test/autotest_bot.py @@ -27,9 +27,9 @@ class TestBot(sc2.BotAI):\nasync def on_step(self, iteration):\nif iteration == 0:\nawait self.chat_send(\"(glhf)\")\n- if iteration == 1:\n+ #if iteration == 1:\n# Test if chat message was sent correctly\n- assert len(self.state.chat) >= 1, self.state.chat\n+ # assert len(self.state.chat) >= 1, self.state.chat\n# Tests at start:\nif iteration == 5:\n",
+        "lang": "Python",
+        "chatgpt": "Commented out chat message test for iteration 1 in on_step function"
+    }
+]
