@@ -1,0 +1,747 @@
+[
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.3.5\n+    rev: v0.4.3\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-05-06T22:28:44Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5477)"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.3.5\n+    rev: v0.4.3\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-05-06T22:05:35Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.3.5 \u2192 v0.4.3](https://github.com/astral-sh/ruff-pre-commit/compare/v0.3.5...v0.4.3)"
+    },
+    {
+        "diff": "diff --git a/src/flask/helpers.py b/a/src/flask/helpers.py @@ -91,7 +91,7 @@ def decorator(*args: t.Any, **kwargs: t.Any) -> t.Any:\n             gen = generator_or_function(*args, **kwargs)  # type: ignore[operator]\n             return stream_with_context(gen)\n \n-        return update_wrapper(decorator, generator_or_function)  # type: ignore[arg-type]\n+        return update_wrapper(decorator, generator_or_function)  # type: ignore[arg-type, return-value]\n \n     def generator() -> t.Iterator[t.AnyStr | None]:\n         ctx = _cv_request.get(None)",
+        "date": "2024-05-06T17:23:10Z",
+        "msg": "fix mypy finding"
+    },
+    {
+        "diff": "diff --git a/src/flask/sessions.py b/a/src/flask/sessions.py @@ -365,10 +365,10 @@ def save_session(\n             return\n \n         expires = self.get_expiration_time(app, session)\n-        val = self.get_signing_serializer(app).dumps(dict(session))  # type: ignore\n+        val = self.get_signing_serializer(app).dumps(dict(session))  # type: ignore[union-attr]\n         response.set_cookie(\n             name,\n-            val,  # type: ignore\n+            val,\n             expires=expires,\n             httponly=httponly,\n             domain=domain,",
+        "date": "2024-05-06T17:12:32Z",
+        "msg": "fix mypy finding"
+    },
+    {
+        "diff": "diff --git a/src/flask/wrappers.py b/a/src/flask/wrappers.py @@ -71,7 +71,7 @@ def endpoint(self) -> str | None:\n         reconstruct the same URL or a modified URL.\n         \"\"\"\n         if self.url_rule is not None:\n-            return self.url_rule.endpoint\n+            return self.url_rule.endpoint  # type: ignore[no-any-return]\n \n         return None\n ",
+        "date": "2024-05-06T17:09:58Z",
+        "msg": "fix mypy finding with new werkzeug endpoint type"
+    },
+    {
+        "diff": "diff --git a/examples/javascript/pyproject.toml b/a/examples/javascript/pyproject.toml @@ -8,7 +8,7 @@ maintainers = [{name = \"Pallets\", email = \"contact@palletsprojects.com\"}]\n dependencies = [\"flask\"]\n \n [project.urls]\n-Documentation = \"https://flask.palletsprojects.com/patterns/jquery/\"\n+Documentation = \"https://flask.palletsprojects.com/patterns/javascript/\"\n \n [project.optional-dependencies]\n test = [\"pytest\"]",
+        "date": "2024-05-02T12:10:51Z",
+        "msg": "examples/javascript: Update Documentation URL in pyproject.toml (#5475)"
+    },
+    {
+        "diff": "diff --git a/examples/javascript/pyproject.toml b/a/examples/javascript/pyproject.toml @@ -8,7 +8,7 @@ maintainers = [{name = \"Pallets\", email = \"contact@palletsprojects.com\"}]\n dependencies = [\"flask\"]\n \n [project.urls]\n-Documentation = \"https://flask.palletsprojects.com/patterns/jquery/\"\n+Documentation = \"https://flask.palletsprojects.com/patterns/javascript/\"\n \n [project.optional-dependencies]\n test = [\"pytest\"]",
+        "date": "2024-05-02T07:57:34Z",
+        "msg": "Update pyproject.toml\n\nCorrection to Documentation URL"
+    },
+    {
+        "diff": "diff --git a/src/flask/sessions.py b/a/src/flask/sessions.py @@ -368,7 +368,7 @@ def save_session(\n         val = self.get_signing_serializer(app).dumps(dict(session))  # type: ignore\n         response.set_cookie(\n             name,\n-            val,  # type: ignore\n+            val,\n             expires=expires,\n             httponly=httponly,\n             domain=domain,",
+        "date": "2024-04-23T23:49:42Z",
+        "msg": "fix mypy findings"
+    },
+    {
+        "diff": "diff --git a/.github/dependabot.yml b/a/.github/dependabot.yml @@ -4,12 +4,6 @@ updates:\n     directory: /\n     schedule:\n       interval: monthly\n-    ignore:\n-      # slsa depends on upload/download v3\n-      - dependency-name: actions/upload-artifact\n-        versions: '>= 4'\n-      - dependency-name: actions/download-artifact\n-        versions: '>= 4'\n     groups:\n       github-actions:\n         patterns:",
+        "date": "2024-04-23T23:31:03Z",
+        "msg": "unignore upload/download-artifact"
+    },
+    {
+        "diff": "diff --git a/tox.ini b/a/tox.ini @@ -32,7 +32,7 @@ commands = mypy\n \n [testenv:docs]\n deps = -r requirements/docs.txt\n-commands = sphinx-build -W -b dirhtml docs docs/_build/dirhtml\n+commands = sphinx-build -E -W -b dirhtml docs docs/_build/dirhtml\n \n [testenv:update-requirements]\n deps =",
+        "date": "2024-04-08T22:28:57Z",
+        "msg": "build docs from scratch each test"
+    },
+    {
+        "diff": "diff --git a/README.md b/a/README.md @@ -16,18 +16,6 @@ community that make adding new functionality easy.\n [Jinja]: https://jinja.palletsprojects.com/\n \n \n-## Installing\n-\n-Install and update from [PyPI][] using an installer such as [pip][]:\n-\n-```\n-$ pip install -U Flask\n-```\n-\n-[PyPI]: https://pypi.org/project/Flask/\n-[pip]: https://pip.pypa.io/en/stable/getting-started/\n-\n-\n ## A Simple Example\n \n ```python\n@@ -47,14 +35,6 @@ $ flask run\n ```\n \n \n-## Contributing\n-\n-For guidance on setting up a development environment and how to make a\n-contribution to Flask, see the [contributing guidelines][].\n-\n-[contributing guidelines]: https://github.com/pallets/flask/blob/main/CONTRIBUTING.rst\n-\n-\n ## Donate\n \n The Pallets organization develops and supports Flask and the libraries",
+        "date": "2024-04-08T22:28:28Z",
+        "msg": "remove install and contribute sections\n\ninstall leads people to install into the system instead of a virtualenv,\nand readme isn't the place to teach that\ncontribute is now linked in the github interface above the readme"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -1,7 +1,7 @@\n Version 3.0.3\n -------------\n \n-Unreleased\n+Released 2024-04-07\n \n -   The default ``hashlib.sha1`` may not be available in FIPS builds. Don't\n     access it at import time so the developer has time to change the default.",
+        "date": "2024-04-07T19:27:04Z",
+        "msg": "release version 3.0.3 (#5461)"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -1,7 +1,7 @@\n Version 3.0.3\n -------------\n \n-Unreleased\n+Released 2024-04-07\n \n -   The default ``hashlib.sha1`` may not be available in FIPS builds. Don't\n     access it at import time so the developer has time to change the default.",
+        "date": "2024-04-07T19:17:41Z",
+        "msg": "release version 3.0.3"
+    },
+    {
+        "diff": "diff --git a/docs/logging.rst b/a/docs/logging.rst @@ -159,7 +159,7 @@ Depending on your project, it may be more useful to configure each logger you\n care about separately, instead of configuring only the root logger. ::\n \n     for logger in (\n-        app.logger,\n+        logging.getLogger(app.name),\n         logging.getLogger('sqlalchemy'),\n         logging.getLogger('other_package'),\n     ):",
+        "date": "2024-04-07T19:03:19Z",
+        "msg": "don't access app.logger when configuring app.logger"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -55,9 +55,11 @@ jobs:\n           GH_TOKEN: ${{ github.token }}\n   publish-pypi:\n     needs: [provenance]\n-    # Wait for approval before attempting to upload to PyPI. This allows reviewing the\n-    # files in the draft release.\n-    environment: publish\n+    environment:\n+      # Wait for approval before attempting to upload to PyPI. This allows reviewing the\n+      # files in the draft release. The projection is configured in the repository settings.\n+      name: publish\n+      url: https://pypi.org/project/flask/${{ github.ref_name }}\n     runs-on: ubuntu-latest\n     permissions:\n       id-token: write",
+        "date": "2024-04-06T23:17:13Z",
+        "msg": "Use per-release URLs in GH env UI when publishing to the PyPI (#5423)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -55,9 +55,11 @@ jobs:\n           GH_TOKEN: ${{ github.token }}\n   publish-pypi:\n     needs: [provenance]\n-    # Wait for approval before attempting to upload to PyPI. This allows reviewing the\n-    # files in the draft release.\n-    environment: publish\n+    environment:\n+      # Wait for approval before attempting to upload to PyPI. This allows reviewing the\n+      # files in the draft release. The projection is configured in the repository settings.\n+      name: publish\n+      url: https://pypi.org/project/flask/${{ github.ref_name }}\n     runs-on: ubuntu-latest\n     permissions:\n       id-token: write",
+        "date": "2024-02-27T00:24:27Z",
+        "msg": "Use per-release URLs in GH env UI when publishing to the PyPI\n\nThis essentially, makes the UI nicer in a few places with a clickable link to the released version being presented in the web interface of GitHub."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.13\n+    rev: v0.2.0\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-02-12T20:50:45Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5404)"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.13\n+    rev: v0.2.0\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-02-05T20:28:43Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.1.13 \u2192 v0.2.0](https://github.com/astral-sh/ruff-pre-commit/compare/v0.1.13...v0.2.0)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -48,8 +48,9 @@ jobs:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       - name: create release\n         run: >\n-          gh release create --draft --repo ${{ github.repository }} ${{ github.ref_name }} *.intoto.jsonl/* artifact/*\n-\n+          gh release create --draft --repo ${{ github.repository }}\n+          ${{ github.ref_name }}\n+          *.intoto.jsonl/* dist/*\n         env:\n           GH_TOKEN: ${{ github.token }}\n   publish-pypi:",
+        "date": "2024-01-18T19:57:22Z",
+        "msg": "fix create release action"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,8 @@ jobs:\n       actions: read\n       id-token: write\n       contents: write\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@07e64b653f10a80b6510f4568f685f8b7b9ea830\n+    # Can't pin with hash due to how this workflow works.\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2024-01-18T19:53:19Z",
+        "msg": "fix slsa generator version"
+    },
+    {
+        "diff": "diff --git a/src/flask/helpers.py b/a/src/flask/helpers.py @@ -49,7 +49,7 @@ def get_load_dotenv(default: bool = True) -> bool:\n \n \n def stream_with_context(\n-    generator_or_function: t.Iterator[t.AnyStr] | t.Callable[..., t.Iterator[t.AnyStr]]\n+    generator_or_function: t.Iterator[t.AnyStr] | t.Callable[..., t.Iterator[t.AnyStr]],\n ) -> t.Iterator[t.AnyStr]:\n     \"\"\"Request contexts disappear when the response is started on the server.\n     This is done for efficiency reasons and to make it less likely to encounter",
+        "date": "2024-01-01T20:24:30Z",
+        "msg": "[pre-commit.ci] auto fixes from pre-commit.com hooks\n\nfor more information, see https://pre-commit.ci"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.6\n+    rev: v0.1.9\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-01-01T20:24:10Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.1.6 \u2192 v0.1.9](https://github.com/astral-sh/ruff-pre-commit/compare/v0.1.6...v0.1.9)"
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -79,7 +79,7 @@ source = [\"src\", \"*/site-packages\"]\n \n [tool.mypy]\n python_version = \"3.8\"\n-files = [\"src/flask\"]\n+files = [\"src/flask\", \"tests/typing\"]\n show_error_codes = true\n pretty = true\n #strict = true",
+        "date": "2023-12-14T00:28:13Z",
+        "msg": "Merge branch '3.0.x'"
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -79,7 +79,7 @@ source = [\"src\", \"*/site-packages\"]\n \n [tool.mypy]\n python_version = \"3.8\"\n-files = [\"src/flask\"]\n+files = [\"src/flask\", \"tests/typing\"]\n show_error_codes = true\n pretty = true\n #strict = true",
+        "date": "2023-12-14T00:27:37Z",
+        "msg": "run typing tests"
+    },
+    {
+        "diff": "diff --git a/docs/server.rst b/a/docs/server.rst @@ -76,8 +76,8 @@ following example shows that process id 6847 is using port 5000.\n             TCP 127.0.0.1:5000 0.0.0.0:0 LISTENING 6847\n \n macOS Monterey and later automatically starts a service that uses port\n-5000. To disable the service, go to System Preferences, Sharing, and\n-disable \"AirPlay Receiver\".\n+5000. You can choose to disable this service instead of using a different port by\n+searching for \"AirPlay Receiver\" in System Preferences and toggling it off.\n \n \n Deferred Errors on Reload",
+        "date": "2023-12-13T23:13:22Z",
+        "msg": "Update docs to address redesigned macOS settings app (#5355)"
+    },
+    {
+        "diff": "diff --git a/docs/server.rst b/a/docs/server.rst @@ -76,8 +76,8 @@ following example shows that process id 6847 is using port 5000.\n             TCP 127.0.0.1:5000 0.0.0.0:0 LISTENING 6847\n \n macOS Monterey and later automatically starts a service that uses port\n-5000. To disable the service, go to System Preferences, Sharing, and\n-disable \"AirPlay Receiver\".\n+5000. You can choose to disable this service instead of using a different port by\n+searching for \"AirPlay Receiver\" in System Preferences and toggling it off.\n \n \n Deferred Errors on Reload",
+        "date": "2023-12-05T17:58:59Z",
+        "msg": "Update docs to address redesigned macOS settings app"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.5\n+    rev: v0.1.6\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2023-12-04T22:26:15Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5354)"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.5\n+    rev: v0.1.6\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2023-12-04T20:29:39Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.1.5 \u2192 v0.1.6](https://github.com/astral-sh/ruff-pre-commit/compare/v0.1.5...v0.1.6)"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,12 +2,12 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.3\n+    rev: v0.1.5\n     hooks:\n       - id: ruff\n       - id: ruff-format\n   - repo: https://github.com/pre-commit/pre-commit-hooks\n-    rev: v4.4.0\n+    rev: v4.5.0\n     hooks:\n       - id: check-merge-conflict\n       - id: debug-statements",
+        "date": "2023-11-15T20:48:42Z",
+        "msg": "Merge branch '3.0.x'"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,12 +2,12 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.3\n+    rev: v0.1.5\n     hooks:\n       - id: ruff\n       - id: ruff-format\n   - repo: https://github.com/pre-commit/pre-commit-hooks\n-    rev: v4.4.0\n+    rev: v4.5.0\n     hooks:\n       - id: check-merge-conflict\n       - id: debug-statements",
+        "date": "2023-11-15T20:47:41Z",
+        "msg": "update pre-commit hooks"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -9,9 +9,6 @@ on:\n       - '*.md'\n       - '*.rst'\n   pull_request:\n-    branches:\n-      - main\n-      - '*.x'\n     paths-ignore:\n       - 'docs/**'\n       - '*.md'\n@@ -24,17 +21,17 @@ jobs:\n       fail-fast: false\n       matrix:\n         include:\n-          - {name: Linux, python: '3.11', os: ubuntu-latest, tox: py311}\n-          - {name: Windows, python: '3.11', os: windows-latest, tox: py311}\n-          - {name: Mac, python: '3.11', os: macos-latest, tox: py311}\n-          - {name: '3.12-dev', python: '3.12-dev', os: ubuntu-latest, tox: py312}\n+          - {name: Linux, python: '3.12', os: ubuntu-latest, tox: py312}\n+          - {name: Windows, python: '3.12', os: windows-latest, tox: py312}\n+          - {name: Mac, python: '3.12', os: macos-latest, tox: py312}\n+          - {name: '3.11', python: '3.11', os: ubuntu-latest, tox: py311}\n           - {name: '3.10', python: '3.10', os: ubuntu-latest, tox: py310}\n           - {name: '3.9', python: '3.9', os: ubuntu-latest, tox: py39}\n           - {name: '3.8', python: '3.8', os: ubuntu-latest, tox: py38}\n           - {name: 'PyPy', python: 'pypy-3.10', os: ubuntu-latest, tox: pypy310}\n-          - {name: 'Minimum Versions', python: '3.11', os: ubuntu-latest, tox: py311-min}\n+          - {name: 'Minimum Versions', python: '3.12', os: ubuntu-latest, tox: py312-min}\n           - {name: 'Development Versions', python: '3.8', os: ubuntu-latest, tox: py38-dev}\n-          - {name: Typing, python: '3.11', os: ubuntu-latest, tox: typing}\n+          - {name: Typing, python: '3.12', os: ubuntu-latest, tox: typing}\n     steps:\n       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744\n       - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1",
+        "date": "2023-11-09T16:45:23Z",
+        "msg": "update python version matrix\n\n(cherry picked from commit 6ee5dcc0ec93e8c11e5362f1e151d99168d6d2e6)"
+    },
+    {
+        "diff": "diff --git a/.readthedocs.yaml b/a/.readthedocs.yaml @@ -1,8 +1,8 @@\n version: 2\n build:\n-  os: ubuntu-20.04\n+  os: ubuntu-22.04\n   tools:\n-    python: \"3.10\"\n+    python: \"3.12\"\n python:\n   install:\n     - requirements: requirements/docs.txt",
+        "date": "2023-11-09T16:39:48Z",
+        "msg": "update read the docs env\n\n(cherry picked from commit 29f1bd22d75cab1b0433339425fabd21b8229228)"
+    },
+    {
+        "diff": "diff --git a/.github/dependabot.yml b/a/.github/dependabot.yml @@ -1,9 +1,18 @@\n version: 2\n updates:\n-- package-ecosystem: \"github-actions\"\n-  directory: \"/\"\n-  schedule:\n-    interval: \"monthly\"\n-    day: \"monday\"\n-    time: \"16:00\"\n-    timezone: \"UTC\"\n+  - package-ecosystem: github-actions\n+    directory: /\n+    schedule:\n+      interval: monthly\n+    groups:\n+      github-actions:\n+        patterns:\n+          - '*'\n+  - package-ecosystem: pip\n+    directory: /requirements/\n+    schedule:\n+      interval: monthly\n+    groups:\n+      python-requirements:\n+        patterns:\n+          - '*'",
+        "date": "2023-11-09T16:46:13Z",
+        "msg": "enable grouped updates for actions and python"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -9,9 +9,6 @@ on:\n       - '*.md'\n       - '*.rst'\n   pull_request:\n-    branches:\n-      - main\n-      - '*.x'\n     paths-ignore:\n       - 'docs/**'\n       - '*.md'\n@@ -24,17 +21,17 @@ jobs:\n       fail-fast: false\n       matrix:\n         include:\n-          - {name: Linux, python: '3.11', os: ubuntu-latest, tox: py311}\n-          - {name: Windows, python: '3.11', os: windows-latest, tox: py311}\n-          - {name: Mac, python: '3.11', os: macos-latest, tox: py311}\n-          - {name: '3.12-dev', python: '3.12-dev', os: ubuntu-latest, tox: py312}\n+          - {name: Linux, python: '3.12', os: ubuntu-latest, tox: py312}\n+          - {name: Windows, python: '3.12', os: windows-latest, tox: py312}\n+          - {name: Mac, python: '3.12', os: macos-latest, tox: py312}\n+          - {name: '3.11', python: '3.11', os: ubuntu-latest, tox: py311}\n           - {name: '3.10', python: '3.10', os: ubuntu-latest, tox: py310}\n           - {name: '3.9', python: '3.9', os: ubuntu-latest, tox: py39}\n           - {name: '3.8', python: '3.8', os: ubuntu-latest, tox: py38}\n           - {name: 'PyPy', python: 'pypy-3.10', os: ubuntu-latest, tox: pypy310}\n-          - {name: 'Minimum Versions', python: '3.11', os: ubuntu-latest, tox: py311-min}\n+          - {name: 'Minimum Versions', python: '3.12', os: ubuntu-latest, tox: py312-min}\n           - {name: 'Development Versions', python: '3.8', os: ubuntu-latest, tox: py38-dev}\n-          - {name: Typing, python: '3.11', os: ubuntu-latest, tox: typing}\n+          - {name: Typing, python: '3.12', os: ubuntu-latest, tox: typing}\n     steps:\n       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744\n       - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1",
+        "date": "2023-11-09T16:45:23Z",
+        "msg": "update python version matrix"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -1,8 +1,8 @@\n-name: 'Lock threads'\n-# Lock closed issues that have not received any further activity for\n-# two weeks. This does not close open issues, only humans may do that.\n-# We find that it is easier to respond to new issues with fresh examples\n-# rather than continuing discussions on old issues.\n+name: 'Lock inactive closed issues'\n+# Lock closed issues that have not received any further activity for two weeks.\n+# This does not close open issues, only humans may do that. We find that it is\n+# easier to respond to new issues with fresh examples rather than continuing\n+# discussions on old issues.\n \n on:\n   schedule:",
+        "date": "2023-11-09T16:40:39Z",
+        "msg": "update description"
+    },
+    {
+        "diff": "diff --git a/.readthedocs.yaml b/a/.readthedocs.yaml @@ -1,8 +1,8 @@\n version: 2\n build:\n-  os: ubuntu-20.04\n+  os: ubuntu-22.04\n   tools:\n-    python: \"3.10\"\n+    python: \"3.12\"\n python:\n   install:\n     - requirements: requirements/docs.txt",
+        "date": "2023-11-09T16:39:48Z",
+        "msg": "update read the docs env"
+    },
+    {
+        "diff": "diff --git a/docs/deploying/asgi.rst b/a/docs/deploying/asgi.rst @@ -20,7 +20,7 @@ wrapping the Flask app,\n     asgi_app = WsgiToAsgi(app)\n \n and then serving the ``asgi_app`` with the ASGI server, e.g. using\n-`Hypercorn <https://gitlab.com/pgjones/hypercorn>`_,\n+`Hypercorn <https://github.com/pgjones/hypercorn>`_,\n \n .. sourcecode:: text\n ",
+        "date": "2023-10-28T15:42:53Z",
+        "msg": "Update link to hypercorn (#5313)"
+    },
+    {
+        "diff": "diff --git a/docs/deploying/asgi.rst b/a/docs/deploying/asgi.rst @@ -20,7 +20,7 @@ wrapping the Flask app,\n     asgi_app = WsgiToAsgi(app)\n \n and then serving the ``asgi_app`` with the ASGI server, e.g. using\n-`Hypercorn <https://gitlab.com/pgjones/hypercorn>`_,\n+`Hypercorn <https://github.com/pgjones/hypercorn>`_,\n \n .. sourcecode:: text\n ",
+        "date": "2023-10-28T07:38:33Z",
+        "msg": "Fix link to Hypercorn in docs/deploying/asgi.rst - they moved from gitlab from github."
+    },
+    {
+        "diff": "diff --git a/docs/testing.rst b/a/docs/testing.rst @@ -192,7 +192,7 @@ which records the request that produced that response.\n .. code-block:: python\n \n     def test_logout_redirect(client):\n-        response = client.get(\"/logout\")\n+        response = client.get(\"/logout\", follow_redirects=True)\n         # Check that there was one redirect response.\n         assert len(response.history) == 1\n         # Check that the second request was to the index page.",
+        "date": "2023-10-20T16:50:00Z",
+        "msg": "docs/testing.rst: fix follow_redirects sample code (#5303)"
+    },
+    {
+        "diff": "diff --git a/docs/testing.rst b/a/docs/testing.rst @@ -192,7 +192,7 @@ which records the request that produced that response.\n .. code-block:: python\n \n     def test_logout_redirect(client):\n-        response = client.get(\"/logout\")\n+        response = client.get(\"/logout\", follow_redirects=True)\n         # Check that there was one redirect response.\n         assert len(response.history) == 1\n         # Check that the second request was to the index page.",
+        "date": "2023-10-20T15:17:24Z",
+        "msg": "docs/testing.rst: fix follow_redirects sample code"
+    },
+    {
+        "diff": "diff --git a/examples/javascript/README.rst b/a/examples/javascript/README.rst @@ -15,7 +15,7 @@ page. Demonstrates using |fetch|_, |XMLHttpRequest|_,  and\n .. |jQuery.ajax| replace:: ``jQuery.ajax``\n .. _jQuery.ajax: https://api.jquery.com/jQuery.ajax/\n \n-.. _Flask docs: https://flask.palletsprojects.com/patterns/jquery/\n+.. _Flask docs: https://flask.palletsprojects.com/patterns/javascript/\n \n \n Install",
+        "date": "2023-10-07T00:36:39Z",
+        "msg": "examples/javascript: replace obsolete link (#5287)"
+    },
+    {
+        "diff": "diff --git a/docs/index.rst b/a/docs/index.rst @@ -6,7 +6,11 @@ Welcome to Flask\n .. image:: _static/flask-horizontal.png\n     :align: center\n \n-Welcome to Flask's documentation. Get started with :doc:`installation`\n+Welcome to Flask's documentation. Flask is a lightweight WSGI web application framework.\n+It is designed to make getting started quick and easy, with the ability to scale up to\n+complex applications.\n+\n+Get started with :doc:`installation`\n and then get an overview with the :doc:`quickstart`. There is also a\n more detailed :doc:`tutorial/index` that shows how to create a small but\n complete application with Flask. Common patterns are described in the",
+        "date": "2023-10-06T23:37:42Z",
+        "msg": "Update index.rst (#5291)\n\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/javascript.rst b/a/docs/patterns/javascript.rst @@ -197,7 +197,7 @@ in the previous section. The following example shows how to replace a\n         const geology_div = getElementById(\"geology-fact\")\n         fetch(geology_url)\n             .then(response => response.text)\n-            .then(text => geology_div.innerHtml = text)\n+            .then(text => geology_div.innerHTML = text)\n     </script>\n \n ",
+        "date": "2023-09-22T08:13:43Z",
+        "msg": "Fix wrong spelling of JS method .innerHTML"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n+      - uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n+      - uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e\n         with:\n           packages-dir: artifact/",
+        "date": "2023-09-05T21:02:38Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.8 to 1.8.10 (#5248)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.7.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-09-05T21:02:28Z",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.7.0 to 1.9.0 (#5247)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n+      - uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n+      - uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e\n         with:\n           packages-dir: artifact/",
+        "date": "2023-09-01T16:30:35Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.8 to 1.8.10\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.8 to 1.8.10.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/f8c70e705ffc13c3b4d1221169b84f12a75d6ca8...b7f401de30cb6434a1e19f805ff006643653240e)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.7.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-09-01T16:30:31Z",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.7.0 to 1.9.0\n\nBumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.7.0 to 1.9.0.\n- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)\n- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.7.0...v1.9.0)\n\n---\nupdated-dependencies:\n- dependency-name: slsa-framework/slsa-github-generator\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -11,7 +11,7 @@ Unreleased\n Version 2.3.3\n -------------\n \n-Unreleased\n+Released 2023-08-21\n \n -   Python 3.12 compatibility.\n -   Require Werkzeug >= 2.3.7.",
+        "date": "2023-08-27T16:21:54Z",
+        "msg": "Merge remote-tracking branch 'origin/2.3.x'"
+    },
+    {
+        "diff": "diff --git a/src/flask/app.py b/a/src/flask/app.py @@ -409,7 +409,6 @@ def create_url_adapter(self, request: Request | None) -> MapAdapter | None:\n             else:\n                 subdomain = None\n \n-            print(self.config[\"SERVER_NAME\"], subdomain)\n             return self.url_map.bind_to_environ(\n                 request.environ,\n                 server_name=self.config[\"SERVER_NAME\"],",
+        "date": "2023-08-27T09:17:12Z",
+        "msg": "Remove print left in by accident\n\nThis was added as per 0ec7f713d679ceed2c605e62ac5d38d579f29fa0 by\nmistake."
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -4,6 +4,8 @@ Version 3.0.0\n Unreleased\n \n -   Remove previously deprecated code. :pr:`5223`\n+-   Restructure the code such that the Flask (app) and Blueprint\n+    classes have Sans-IO bases. :pr:`5127`\n \n \n Version 2.3.3",
+        "date": "2023-08-19T18:25:36Z",
+        "msg": "Add a changelog for the sans-io changes"
+    },
+    {
+        "diff": "diff --git a/src/flask/typing.py b/a/src/flask/typing.py @@ -77,7 +77,10 @@\n # https://github.com/pallets/flask/issues/4095\n # https://github.com/pallets/flask/issues/4295\n # https://github.com/pallets/flask/issues/4297\n-ErrorHandlerCallable = t.Callable[[t.Any], ResponseReturnValue]\n+ErrorHandlerCallable = t.Union[\n+    t.Callable[[t.Any], ResponseReturnValue],\n+    t.Callable[[t.Any], t.Awaitable[ResponseReturnValue]],\n+]\n \n RouteCallable = t.Union[\n     t.Callable[..., ResponseReturnValue],",
+        "date": "2023-08-14T10:10:15Z",
+        "msg": "Correct the error handler typing\n\nIt may also be awaitable, as invocations are wrapped in ensure_sync."
+    },
+    {
+        "diff": "diff --git a/src/flask/typing.py b/a/src/flask/typing.py @@ -5,7 +5,7 @@\n if t.TYPE_CHECKING:  # pragma: no cover\n     from _typeshed.wsgi import WSGIApplication  # noqa: F401\n     from werkzeug.datastructures import Headers  # noqa: F401\n-    from werkzeug.wrappers import Response  # noqa: F401\n+    from werkzeug.sansio.response import Response  # noqa: F401\n \n # The possible types that are directly convertible or are a Response object.\n ResponseValue = t.Union[",
+        "date": "2023-07-16T13:04:23Z",
+        "msg": "Widen the response typing\n\nWhilst not strictly true for Flask, it is true for Flask and Quart and\nhence makes it much easier for Quart to extend Flask classes. The\nalternatives are generic usage in the sansio codebase or mixed usage\nwithin Flask. I think this is a good compromise."
+    },
+    {
+        "diff": "diff --git a/docs/patterns/appdispatch.rst b/a/docs/patterns/appdispatch.rst @@ -146,7 +146,7 @@ the ``Host`` header to figure out the subdomain one simply looks at the\n request path up to the first slash::\n \n     from threading import Lock\n-    from werkzeug.wsgi import pop_path_info, peek_path_info\n+    from wsgiref.util import shift_path_info\n \n     class PathDispatcher:\n \n@@ -166,13 +166,20 @@ request path up to the first slash::\n                 return app\n \n         def __call__(self, environ, start_response):\n-            app = self.get_application(peek_path_info(environ))\n+            app = self.get_application(self._peek_path_info(environ))\n             if app is not None:\n-                pop_path_info(environ)\n+                shift_path_info(environ)\n             else:\n                 app = self.default_app\n             return app(environ, start_response)\n \n+    def _peek_path_info(environ):\n+        segments = environ.get(\"PATH_INFO\", \"\").lstrip(\"/\").split(\"/\", 1)\n+        if segments:\n+            return segments[0]\n+\n+        return None\n+\n The big difference between this and the subdomain one is that this one\n falls back to another application if the creator function returns ``None``::\n ",
+        "date": "2023-08-13T12:12:25Z",
+        "msg": "update dispatch-by-path example"
+    },
+    {
+        "diff": "diff --git a/tests/test_basic.py b/a/tests/test_basic.py @@ -431,9 +431,9 @@ def dump_session_contents():\n         client.get(\"/\")\n         s = flask.session\n         assert s[\"t\"] == (1, 2, 3)\n-        assert type(s[\"b\"]) == bytes\n+        assert type(s[\"b\"]) is bytes\n         assert s[\"b\"] == b\"\\xff\"\n-        assert type(s[\"m\"]) == Markup\n+        assert type(s[\"m\"]) is Markup\n         assert s[\"m\"] == Markup(\"<html>\")\n         assert s[\"u\"] == the_uuid\n         assert s[\"d\"] == now\n@@ -760,7 +760,7 @@ def test_teardown_request_handler_error(app, client):\n \n     @app.teardown_request\n     def teardown_request1(exc):\n-        assert type(exc) == ZeroDivisionError\n+        assert type(exc) is ZeroDivisionError\n         called.append(True)\n         # This raises a new error and blows away sys.exc_info(), so we can\n         # test that all teardown_requests get passed the same original\n@@ -772,7 +772,7 @@ def teardown_request1(exc):\n \n     @app.teardown_request\n     def teardown_request2(exc):\n-        assert type(exc) == ZeroDivisionError\n+        assert type(exc) is ZeroDivisionError\n         called.append(True)\n         # This raises a new error and blows away sys.exc_info(), so we can\n         # test that all teardown_requests get passed the same original",
+        "date": "2023-08-16T20:37:56Z",
+        "msg": "fix flake8 bugbear findings"
+    },
+    {
+        "diff": "diff --git a/tests/test_basic.py b/a/tests/test_basic.py @@ -431,9 +431,9 @@ def dump_session_contents():\n         client.get(\"/\")\n         s = flask.session\n         assert s[\"t\"] == (1, 2, 3)\n-        assert type(s[\"b\"]) == bytes\n+        assert type(s[\"b\"]) is bytes\n         assert s[\"b\"] == b\"\\xff\"\n-        assert type(s[\"m\"]) == Markup\n+        assert type(s[\"m\"]) is Markup\n         assert s[\"m\"] == Markup(\"<html>\")\n         assert s[\"u\"] == the_uuid\n         assert s[\"d\"] == now\n@@ -760,7 +760,7 @@ def test_teardown_request_handler_error(app, client):\n \n     @app.teardown_request\n     def teardown_request1(exc):\n-        assert type(exc) == ZeroDivisionError\n+        assert type(exc) is ZeroDivisionError\n         called.append(True)\n         # This raises a new error and blows away sys.exc_info(), so we can\n         # test that all teardown_requests get passed the same original\n@@ -772,7 +772,7 @@ def teardown_request1(exc):\n \n     @app.teardown_request\n     def teardown_request2(exc):\n-        assert type(exc) == ZeroDivisionError\n+        assert type(exc) is ZeroDivisionError\n         called.append(True)\n         # This raises a new error and blows away sys.exc_info(), so we can\n         # test that all teardown_requests get passed the same original",
+        "date": "2023-08-16T20:37:26Z",
+        "msg": "fix flake8 bugbear findings"
+    },
+    {
+        "diff": "diff --git a/src/flask/cli.py b/a/src/flask/cli.py @@ -302,7 +302,7 @@ def load_app(self) -> Flask:\n         else:\n             if self.app_import_path:\n                 path, name = (\n-                    re.split(r\":(?![\\\\/])\", self.app_import_path, 1) + [None]\n+                    re.split(r\":(?![\\\\/])\", self.app_import_path, maxsplit=1) + [None]\n                 )[:2]\n                 import_name = prepare_import(path)\n                 app = locate_app(import_name, name)",
+        "date": "2023-08-16T20:35:46Z",
+        "msg": "Merge branch '2.3.x'"
+    },
+    {
+        "diff": "diff --git a/src/flask/cli.py b/a/src/flask/cli.py @@ -302,7 +302,7 @@ def load_app(self) -> Flask:\n         else:\n             if self.app_import_path:\n                 path, name = (\n-                    re.split(r\":(?![\\\\/])\", self.app_import_path, 1) + [None]\n+                    re.split(r\":(?![\\\\/])\", self.app_import_path, maxsplit=1) + [None]\n                 )[:2]\n                 import_name = prepare_import(path)\n                 app = locate_app(import_name, name)",
+        "date": "2023-08-16T20:35:13Z",
+        "msg": "Pass maxsplit via kwarg to re.split (#5215)"
+    },
+    {
+        "diff": "diff --git a/src/flask/cli.py b/a/src/flask/cli.py @@ -302,7 +302,7 @@ def load_app(self) -> Flask:\n         else:\n             if self.app_import_path:\n                 path, name = (\n-                    re.split(r\":(?![\\\\/])\", self.app_import_path, 1) + [None]\n+                    re.split(r\":(?![\\\\/])\", self.app_import_path, maxsplit=1) + [None]\n                 )[:2]\n                 import_name = prepare_import(path)\n                 app = locate_app(import_name, name)",
+        "date": "2023-08-08T09:10:49Z",
+        "msg": "Pass maxsplit via kwarg to re.split"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n+      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n+      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n         with:\n           packages-dir: artifact/",
+        "date": "2023-08-01T16:59:06Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.7 to 1.8.8 (#5213)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n+      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n+      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n         with:\n           packages-dir: artifact/",
+        "date": "2023-08-01T16:56:22Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.7 to 1.8.8\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.7 to 1.8.8.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/f5622bde02b04381239da3573277701ceca8f6a0...f8c70e705ffc13c3b4d1221169b84f12a75d6ca8)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -3,7 +3,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade\n-    rev: v3.8.0\n+    rev: v3.10.1\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]\n@@ -15,11 +15,11 @@ repos:\n         files: \"^(?!examples/)\"\n         args: [\"--application-directories\", \"src\"]\n   - repo: https://github.com/psf/black\n-    rev: 23.3.0\n+    rev: 23.7.0\n     hooks:\n       - id: black\n   - repo: https://github.com/PyCQA/flake8\n-    rev: 6.0.0\n+    rev: 6.1.0\n     hooks:\n       - id: flake8\n         additional_dependencies:",
+        "date": "2023-08-01T16:17:47Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5211)"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -3,7 +3,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade\n-    rev: v3.8.0\n+    rev: v3.10.1\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]\n@@ -15,11 +15,11 @@ repos:\n         files: \"^(?!examples/)\"\n         args: [\"--application-directories\", \"src\"]\n   - repo: https://github.com/psf/black\n-    rev: 23.3.0\n+    rev: 23.7.0\n     hooks:\n       - id: black\n   - repo: https://github.com/PyCQA/flake8\n-    rev: 6.0.0\n+    rev: 6.1.0\n     hooks:\n       - id: flake8\n         additional_dependencies:",
+        "date": "2023-08-01T08:45:55Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/asottile/pyupgrade: v3.8.0 \u2192 v3.10.1](https://github.com/asottile/pyupgrade/compare/v3.8.0...v3.10.1)\n- [github.com/psf/black: 23.3.0 \u2192 23.7.0](https://github.com/psf/black/compare/23.3.0...23.7.0)\n- [github.com/PyCQA/flake8: 6.0.0 \u2192 6.1.0](https://github.com/PyCQA/flake8/compare/6.0.0...6.1.0)"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -3,7 +3,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade\n-    rev: v3.7.0\n+    rev: v3.8.0\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]",
+        "date": "2023-07-04T13:18:22Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5187)"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -3,7 +3,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade\n-    rev: v3.7.0\n+    rev: v3.8.0\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]",
+        "date": "2023-07-04T06:36:29Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/asottile/pyupgrade: v3.7.0 \u2192 v3.8.0](https://github.com/asottile/pyupgrade/compare/v3.7.0...v3.8.0)"
+    },
+    {
+        "diff": "diff --git a/docs/tutorial/install.rst b/a/docs/tutorial/install.rst @@ -35,6 +35,7 @@ The ``pyproject.toml`` file describes your project and how to build it.\n     [project]\n     name = \"flaskr\"\n     version = \"1.0.0\"\n+    description = \"The basic blog app built in the Flask tutorial.\"\n     dependencies = [\n         \"flask\",\n     ]",
+        "date": "2023-07-03T12:58:14Z",
+        "msg": "Update install.rst with required description (#5182)"
+    },
+    {
+        "diff": "diff --git a/docs/tutorial/install.rst b/a/docs/tutorial/install.rst @@ -35,6 +35,7 @@ The ``pyproject.toml`` file describes your project and how to build it.\n     [project]\n     name = \"flaskr\"\n     version = \"1.0.0\"\n+    description = \"The basic blog app built in the Flask tutorial.\"\n     dependencies = [\n         \"flask\",\n     ]",
+        "date": "2023-07-01T14:09:51Z",
+        "msg": "Update install.rst with required description"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.6.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.7.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-07-01T16:24:11Z",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.6.0 to 1.7.0 (#5185)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -19,7 +19,7 @@ jobs:\n   lock:\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: dessant/lock-threads@c1b35aecc5cdb1a34539d14196df55838bb2f836\n+      - uses: dessant/lock-threads@be8aa5be94131386884a6da4189effda9b14aa21\n         with:\n           issue-inactive-days: 14\n           pr-inactive-days: 14",
+        "date": "2023-07-01T16:23:57Z",
+        "msg": "Bump dessant/lock-threads from 4.0.0 to 4.0.1 (#5184)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n+      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n+      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n         with:\n           packages-dir: artifact/",
+        "date": "2023-07-01T16:23:35Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.6 to 1.8.7 (#5183)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.6.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.7.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-07-01T16:16:25Z",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.6.0 to 1.7.0\n\nBumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.6.0 to 1.7.0.\n- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)\n- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.6.0...v1.7.0)\n\n---\nupdated-dependencies:\n- dependency-name: slsa-framework/slsa-github-generator\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -19,7 +19,7 @@ jobs:\n   lock:\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: dessant/lock-threads@c1b35aecc5cdb1a34539d14196df55838bb2f836\n+      - uses: dessant/lock-threads@be8aa5be94131386884a6da4189effda9b14aa21\n         with:\n           issue-inactive-days: 14\n           pr-inactive-days: 14",
+        "date": "2023-07-01T16:16:22Z",
+        "msg": "Bump dessant/lock-threads from 4.0.0 to 4.0.1\n\nBumps [dessant/lock-threads](https://github.com/dessant/lock-threads) from 4.0.0 to 4.0.1.\n- [Release notes](https://github.com/dessant/lock-threads/releases)\n- [Changelog](https://github.com/dessant/lock-threads/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/dessant/lock-threads/compare/c1b35aecc5cdb1a34539d14196df55838bb2f836...be8aa5be94131386884a6da4189effda9b14aa21)\n\n---\nupdated-dependencies:\n- dependency-name: dessant/lock-threads\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n+      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n+      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n         with:\n           packages-dir: artifact/",
+        "date": "2023-07-01T16:16:19Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.6 to 1.8.7\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.6 to 1.8.7.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/a56da0b891b3dc519c7ee3284aff1fad93cc8598...f5622bde02b04381239da3573277701ceca8f6a0)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/docs/errorhandling.rst b/a/docs/errorhandling.rst @@ -231,7 +231,7 @@ responses, you could also pass them through directly.\n Error handlers still respect the exception class hierarchy. If you\n register handlers for both ``HTTPException`` and ``Exception``, the\n ``Exception`` handler will not handle ``HTTPException`` subclasses\n-because it the ``HTTPException`` handler is more specific.\n+because the ``HTTPException`` handler is more specific.\n \n \n Unhandled Exceptions",
+        "date": "2023-06-30T00:28:25Z",
+        "msg": "fix typo in errorhandling doc (#5180)"
+    },
+    {
+        "diff": "diff --git a/docs/errorhandling.rst b/a/docs/errorhandling.rst @@ -231,7 +231,7 @@ responses, you could also pass them through directly.\n Error handlers still respect the exception class hierarchy. If you\n register handlers for both ``HTTPException`` and ``Exception``, the\n ``Exception`` handler will not handle ``HTTPException`` subclasses\n-because it the ``HTTPException`` handler is more specific.\n+because the ``HTTPException`` handler is more specific.\n \n \n Unhandled Exceptions",
+        "date": "2023-06-30T00:20:35Z",
+        "msg": "fix typo in errorhandling doc"
+    },
+    {
+        "diff": "diff --git a/tox.ini b/a/tox.ini @@ -34,17 +34,9 @@ skip_install = true\n commands = pre-commit run --all-files\n \n [testenv:typing]\n-package = wheel\n-wheel_build_env = .pkg\n-constrain_package_deps = true\n-use_frozen_constraints = true\n deps = -r requirements/typing.txt\n commands = mypy\n \n [testenv:docs]\n-package = wheel\n-wheel_build_env = .pkg\n-constrain_package_deps = true\n-use_frozen_constraints = true\n deps = -r requirements/docs.txt\n commands = sphinx-build -W -b html -d {envtmpdir}/doctrees docs {envtmpdir}/html",
+        "date": "2023-06-27T15:30:43Z",
+        "msg": "Merge branch '2.3.x'"
+    },
+    {
+        "diff": "diff --git a/tox.ini b/a/tox.ini @@ -34,17 +34,9 @@ skip_install = true\n commands = pre-commit run --all-files\n \n [testenv:typing]\n-package = wheel\n-wheel_build_env = .pkg\n-constrain_package_deps = true\n-use_frozen_constraints = true\n deps = -r requirements/typing.txt\n commands = mypy\n \n [testenv:docs]\n-package = wheel\n-wheel_build_env = .pkg\n-constrain_package_deps = true\n-use_frozen_constraints = true\n deps = -r requirements/docs.txt\n commands = sphinx-build -W -b html -d {envtmpdir}/doctrees docs {envtmpdir}/html",
+        "date": "2023-06-27T15:29:41Z",
+        "msg": "simplify tox config\n\nenvs inherit base testenv"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/sqlalchemy.rst b/a/docs/patterns/sqlalchemy.rst @@ -34,8 +34,7 @@ official documentation on the `declarative`_ extension.\n Here's the example :file:`database.py` module for your application::\n \n     from sqlalchemy import create_engine\n-    from sqlalchemy.orm import scoped_session, sessionmaker\n-    from sqlalchemy.ext.declarative import declarative_base\n+    from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base\n \n     engine = create_engine('sqlite:////tmp/test.db')\n     db_session = scoped_session(sessionmaker(autocommit=False,",
+        "date": "2023-06-21T16:32:37Z",
+        "msg": "update import of declarative_base from SQLAlchemy (#5171)"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/sqlalchemy.rst b/a/docs/patterns/sqlalchemy.rst @@ -34,8 +34,7 @@ official documentation on the `declarative`_ extension.\n Here's the example :file:`database.py` module for your application::\n \n     from sqlalchemy import create_engine\n-    from sqlalchemy.orm import scoped_session, sessionmaker\n-    from sqlalchemy.ext.declarative import declarative_base\n+    from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base\n \n     engine = create_engine('sqlite:////tmp/test.db')\n     db_session = scoped_session(sessionmaker(autocommit=False,",
+        "date": "2023-06-21T14:54:33Z",
+        "msg": "update import of declarative_base from SQLAlchemy"
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -54,8 +54,8 @@ version = {attr = \"flask.__version__\"}\n testpaths = [\"tests\"]\n filterwarnings = [\n     \"error\",\n-    # change in Python 3.12 alpha causes warning from inside pytest\n-    \"ignore:onerror argument:DeprecationWarning\",\n+    # change in Python 3.12 causes warning from inside pytest\n+    \"ignore:ast:DeprecationWarning\",\n ]\n \n [tool.coverage.run]",
+        "date": "2023-06-06T16:30:34Z",
+        "msg": "ignore pytest ast warnings"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -7,7 +7,7 @@ repos:\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]\n-  - repo: https://github.com/asottile/reorder_python_imports\n+  - repo: https://github.com/asottile/reorder-python-imports\n     rev: v3.9.0\n     hooks:\n       - id: reorder-python-imports",
+        "date": "2023-06-06T04:21:31Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- https://github.com/asottile/reorder_python_imports \u2192 https://github.com/asottile/reorder-python-imports"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -1,5 +1,5 @@\n ci:\n-  autoupdate_branch: \"2.2.x\"\n+  autoupdate_branch: \"2.3.x\"\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade",
+        "date": "2023-06-06T16:26:05Z",
+        "msg": "Merge branch '2.3.x'"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -1,5 +1,5 @@\n ci:\n-  autoupdate_branch: \"2.2.x\"\n+  autoupdate_branch: \"2.3.x\"\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade",
+        "date": "2023-06-06T16:25:47Z",
+        "msg": "retarget pre-commit.ci"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n+      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n+      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n         with:\n           packages-dir: artifact/",
+        "date": "2023-06-01T18:47:53Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.5 to 1.8.6 (#5149)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.5.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.6.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-06-01T18:46:49Z",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.5.0 to 1.6.0 (#5148)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n+      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n+      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n         with:\n           packages-dir: artifact/",
+        "date": "2023-06-01T16:56:46Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.5 to 1.8.6\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.5 to 1.8.6.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/0bf742be3ebe032c25dd15117957dc15d0cfc38d...a56da0b891b3dc519c7ee3284aff1fad93cc8598)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.5.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.6.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-06-01T16:56:43Z",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.5.0 to 1.6.0\n\nBumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.5.0 to 1.6.0.\n- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)\n- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.5.0...v1.6.0)\n\n---\nupdated-dependencies:\n- dependency-name: slsa-framework/slsa-github-generator\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -4,7 +4,6 @@ description = \"A simple framework for building complex web applications.\"\n readme = \"README.rst\"\n license = {text = \"BSD-3-Clause\"}\n maintainers = [{name = \"Pallets\", email = \"contact@palletsprojects.com\"}]\n-authors = [{name = \"Armin Ronacher\", email = \"armin.ronacher@active-4.com\"}]\n classifiers = [\n     \"Development Status :: 5 - Production/Stable\",\n     \"Environment :: Web Environment\",",
+        "date": "2023-05-31T16:18:33Z",
+        "msg": "update metadata"
+    },
+    {
+        "diff": "diff --git a/docs/config.rst b/a/docs/config.rst @@ -410,8 +410,8 @@ from a TOML file:\n \n .. code-block:: python\n \n-    import toml\n-    app.config.from_file(\"config.toml\", load=toml.load)\n+    import tomllib\n+    app.config.from_file(\"config.toml\", load=tomllib.load, text=False)\n \n Or from a JSON file:\n ",
+        "date": "2023-05-31T16:14:56Z",
+        "msg": "Merge pull request #5140 from Jeroendevr/patch-1"
+    },
+    {
+        "diff": "diff --git a/docs/config.rst b/a/docs/config.rst @@ -410,8 +410,8 @@ from a TOML file:\n \n .. code-block:: python\n \n-    import toml\n-    app.config.from_file(\"config.toml\", load=toml.load)\n+    import tomllib\n+    app.config.from_file(\"config.toml\", load=tomllib.load, text=False)\n \n Or from a JSON file:\n ",
+        "date": "2023-05-24T09:13:36Z",
+        "msg": "Config from Data Files to match from_file API\n\nIn the API docs using a TOML file to load config is referred to as https://flask.palletsprojects.com/en/2.3.x/api/#flask.Config.from_file\r\n\r\nTo keep docs consistent a small change to the config docs."
+    },
+    {
+        "diff": "diff --git a/docs/patterns/javascript.rst b/a/docs/patterns/javascript.rst @@ -125,8 +125,8 @@ in a Flask view.\n .. code-block:: javascript\n \n     let data = new FormData()\n-    data.append(\"name\": \"Flask Room\")\n-    data.append(\"description\": \"Talk about Flask here.\")\n+    data.append(\"name\", \"Flask Room\")\n+    data.append(\"description\", \"Talk about Flask here.\")\n     fetch(room_url, {\n         \"method\": \"POST\",\n         \"body\": data,",
+        "date": "2023-05-18T12:33:44Z",
+        "msg": "docs: fix wrong JS syntax (#5136)"
+    },
+    {
+        "diff": "diff --git a/src/flask/config.py b/a/src/flask/config.py @@ -72,7 +72,9 @@ class Config(dict):\n     :param defaults: an optional dictionary of default values\n     \"\"\"\n \n-    def __init__(self, root_path: str, defaults: dict | None = None) -> None:\n+    def __init__(\n+        self, root_path: str | os.PathLike, defaults: dict | None = None\n+    ) -> None:\n         super().__init__(defaults or {})\n         self.root_path = root_path\n \n@@ -164,7 +166,7 @@ def from_prefixed_env(\n \n         return True\n \n-    def from_pyfile(self, filename: str, silent: bool = False) -> bool:\n+    def from_pyfile(self, filename: str | os.PathLike, silent: bool = False) -> bool:\n         \"\"\"Updates the values in the config from a Python file.  This function\n         behaves as if the file was imported as module with the\n         :meth:`from_object` function.\n@@ -233,7 +235,7 @@ class and has ``@property`` attributes, it needs to be\n \n     def from_file(\n         self,\n-        filename: str,\n+        filename: str | os.PathLike,\n         load: t.Callable[[t.IO[t.Any]], t.Mapping],\n         silent: bool = False,\n         text: bool = True,",
+        "date": "2023-05-14T16:43:35Z",
+        "msg": "Merge pull request #5126 from pgjones/pathlike\n\nAllow for PathLike types for config file variables"
+    },
+    {
+        "diff": "diff --git a/src/flask/config.py b/a/src/flask/config.py @@ -72,7 +72,9 @@ class Config(dict):\n     :param defaults: an optional dictionary of default values\n     \"\"\"\n \n-    def __init__(self, root_path: str, defaults: dict | None = None) -> None:\n+    def __init__(\n+        self, root_path: str | os.PathLike, defaults: dict | None = None\n+    ) -> None:\n         super().__init__(defaults or {})\n         self.root_path = root_path\n \n@@ -164,7 +166,7 @@ def from_prefixed_env(\n \n         return True\n \n-    def from_pyfile(self, filename: str, silent: bool = False) -> bool:\n+    def from_pyfile(self, filename: str | os.PathLike, silent: bool = False) -> bool:\n         \"\"\"Updates the values in the config from a Python file.  This function\n         behaves as if the file was imported as module with the\n         :meth:`from_object` function.\n@@ -233,7 +235,7 @@ class and has ``@property`` attributes, it needs to be\n \n     def from_file(\n         self,\n-        filename: str,\n+        filename: str | os.PathLike,\n         load: t.Callable[[t.IO[t.Any]], t.Mapping],\n         silent: bool = False,\n         text: bool = True,",
+        "date": "2023-05-14T15:09:25Z",
+        "msg": "Allow for PathLike types for config file variables\n\nThis follows the Flask practice elsewhere and makes it clear PathLike\nfilenames are valid."
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -69,6 +69,15 @@ Released 2023-04-25\n -   Use postponed evaluation of annotations. :pr:`5071`\n \n \n+Version 2.2.5\n+-------------\n+\n+Released 2023-05-02\n+\n+-   Update for compatibility with Werkzeug 2.3.3.\n+-   Set ``Vary: Cookie`` header when the session is accessed, modified, or refreshed.\n+\n+\n Version 2.2.4\n -------------\n ",
+        "date": "2023-05-02T14:50:30Z",
+        "msg": "Merge branch '2.2.x' into 2.3.x"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n+      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n         with:\n           repository_url: https://test.pypi.org/legacy/\n           packages_dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n+      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n         with:\n           packages_dir: artifact/",
+        "date": "2023-05-01T17:22:01Z",
+        "msg": "Merge pull request #5106 from pallets/dependabot/github_actions/pypa/gh-action-pypi-publish-1.8.5\n\nBump pypa/gh-action-pypi-publish from 1.8.4 to 1.8.5"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n+      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n         with:\n           repository_url: https://test.pypi.org/legacy/\n           packages_dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n+      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n         with:\n           packages_dir: artifact/",
+        "date": "2023-05-01T16:57:14Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.4 to 1.8.5\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.4 to 1.8.5.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/29930c9cf57955dc1b98162d0d8bc3ec80d9e75c...0bf742be3ebe032c25dd15117957dc15d0cfc38d)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -1,7 +1,7 @@\n Version 2.3.2\n -------------\n \n-Released 2022-05-01\n+Released 2023-05-01\n \n -   Set ``Vary: Cookie`` header when the session is accessed, modified, or refreshed.\n -   Update Werkzeug requirement to >=2.3.3 to apply recent bug fixes.",
+        "date": "2023-05-01T16:01:40Z",
+        "msg": "fix release date"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -3,6 +3,9 @@ Version 2.3.2\n \n Unreleased\n \n+-   Session cookie sets ``Vary: Cookie`` header when it is accessed, modified, cleared,\n+    or refreshed.\n+\n \n Version 2.3.1\n -------------",
+        "date": "2023-05-01T15:13:12Z",
+        "msg": "update changelog"
+    },
+    {
+        "diff": "diff --git a/src/flask/app.py b/a/src/flask/app.py @@ -1852,7 +1852,7 @@ def make_response(self, rv: ft.ResponseReturnValue) -> Response:\n \n         # extend existing headers with provided headers\n         if headers:\n-            rv.headers.update(headers)\n+            rv.headers.update(headers)  # type: ignore[arg-type]\n \n         return rv\n ",
+        "date": "2023-05-01T15:10:25Z",
+        "msg": "fix mypy finding"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -53,7 +53,7 @@ Unreleased\n Version 2.2.4\n -------------\n \n-Unreleased\n+Released 2023-04-25\n \n -   Update for compatibility with Werkzeug 2.3.\n ",
+        "date": "2023-04-25T17:55:41Z",
+        "msg": "Merge branch '2.2.x'"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -34,7 +34,7 @@ jobs:\n           - {name: '3.7', python: '3.7', os: ubuntu-latest, tox: py37}\n           - {name: 'PyPy', python: 'pypy-3.9', os: ubuntu-latest, tox: pypy39}\n           - {name: 'Pallets Minimum Versions', python: '3.11', os: ubuntu-latest, tox: py311-min}\n-          - {name: 'Pallets Development Versions', python: '3.7', os: ubuntu-latest, tox: py37-dev}\n+          - {name: 'Pallets Development Versions', python: '3.8', os: ubuntu-latest, tox: py38-dev}\n           - {name: Typing, python: '3.11', os: ubuntu-latest, tox: typing}\n     steps:\n       - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c",
+        "date": "2023-04-25T17:06:20Z",
+        "msg": "update dev env"
+    },
+    {
+        "diff": "diff --git a/tox.ini b/a/tox.ini @@ -3,7 +3,7 @@ envlist =\n     py3{12,11,10,9,8,7}\n     pypy3{9,8,7}\n     py311-min\n-    py37-dev\n+    py38-dev\n     style\n     typing\n     docs",
+        "date": "2023-04-25T17:00:01Z",
+        "msg": "update dev env"
+    },
+    {
+        "diff": "diff --git a/docs/signals.rst b/a/docs/signals.rst @@ -99,7 +99,7 @@ Creating Signals\n \n If you want to use signals in your own application, you can use the\n blinker library directly.  The most common use case are named signals in a\n-custom :class:`~blinker.base.Namespace`..  This is what is recommended\n+custom :class:`~blinker.base.Namespace`.  This is what is recommended\n most of the time::\n \n     from blinker import Namespace",
+        "date": "2023-04-24T18:21:42Z",
+        "msg": "Merge pull request #5077 from EtiennePelletier/master\n\nRemove double period in signals documentation page"
+    },
+    {
+        "diff": "diff --git a/docs/signals.rst b/a/docs/signals.rst @@ -99,7 +99,7 @@ Creating Signals\n \n If you want to use signals in your own application, you can use the\n blinker library directly.  The most common use case are named signals in a\n-custom :class:`~blinker.base.Namespace`..  This is what is recommended\n+custom :class:`~blinker.base.Namespace`.  This is what is recommended\n most of the time::\n \n     from blinker import Namespace",
+        "date": "2023-04-24T17:06:27Z",
+        "msg": "Remove double period in signals documentation page"
+    },
+    {
+        "diff": "diff --git a/docs/debugging.rst b/a/docs/debugging.rst @@ -66,9 +66,9 @@ be used to step through code during a request before an error is raised,\n or if no error is raised. Some even have a remote mode so you can debug\n code running on another machine.\n \n-When using an external debugger, the app should still be in debug mode,\n-but it can be useful to disable the built-in debugger and reloader,\n-which can interfere.\n+When using an external debugger, the app should still be in debug mode, otherwise Flask\n+turns unhandled errors into generic 500 error pages. However, the built-in debugger and\n+reloader should be disabled so they don't interfere with the external debugger.\n \n .. code-block:: text\n \n@@ -80,8 +80,20 @@ When running from Python:\n \n     app.run(debug=True, use_debugger=False, use_reloader=False)\n \n-Disabling these isn't required, an external debugger will continue to\n-work with the following caveats. If the built-in debugger is not\n-disabled, it will catch unhandled exceptions before the external\n-debugger can. If the reloader is not disabled, it could cause an\n-unexpected reload if code changes during debugging.\n+Disabling these isn't required, an external debugger will continue to work with the\n+following caveats.\n+\n+-   If the built-in debugger is not disabled, it will catch unhandled exceptions before\n+    the external debugger can.\n+-   If the reloader is not disabled, it could cause an unexpected reload if code changes\n+    during a breakpoint.\n+-   The development server will still catch unhandled exceptions if the built-in\n+    debugger is disabled, otherwise it would crash on any error. If you want that (and\n+    usually you don't) pass ``passthrough_errors=True`` to ``app.run``.\n+\n+    .. code-block:: python\n+\n+        app.run(\n+            debug=True, passthrough_errors=True,\n+            use_debugger=False, use_reloader=False\n+        )",
+        "date": "2023-04-15T18:57:46Z",
+        "msg": "Merge pull request #5066 from pallets/docs-passthrough\n\ndocument passthrough_errors"
+    },
+    {
+        "diff": "diff --git a/docs/debugging.rst b/a/docs/debugging.rst @@ -66,9 +66,9 @@ be used to step through code during a request before an error is raised,\n or if no error is raised. Some even have a remote mode so you can debug\n code running on another machine.\n \n-When using an external debugger, the app should still be in debug mode,\n-but it can be useful to disable the built-in debugger and reloader,\n-which can interfere.\n+When using an external debugger, the app should still be in debug mode, otherwise Flask\n+turns unhandled errors into generic 500 error pages. However, the built-in debugger and\n+reloader should be disabled so they don't interfere with the external debugger.\n \n .. code-block:: text\n \n@@ -80,8 +80,20 @@ When running from Python:\n \n     app.run(debug=True, use_debugger=False, use_reloader=False)\n \n-Disabling these isn't required, an external debugger will continue to\n-work with the following caveats. If the built-in debugger is not\n-disabled, it will catch unhandled exceptions before the external\n-debugger can. If the reloader is not disabled, it could cause an\n-unexpected reload if code changes during debugging.\n+Disabling these isn't required, an external debugger will continue to work with the\n+following caveats.\n+\n+-   If the built-in debugger is not disabled, it will catch unhandled exceptions before\n+    the external debugger can.\n+-   If the reloader is not disabled, it could cause an unexpected reload if code changes\n+    during a breakpoint.\n+-   The development server will still catch unhandled exceptions if the built-in\n+    debugger is disabled, otherwise it would crash on any error. If you want that (and\n+    usually you don't) pass ``passthrough_errors=True`` to ``app.run``.\n+\n+    .. code-block:: python\n+\n+        app.run(\n+            debug=True, passthrough_errors=True,\n+            use_debugger=False, use_reloader=False\n+        )",
+        "date": "2023-04-15T18:53:06Z",
+        "msg": "document passthrough_errors"
+    },
+    {
+        "diff": "diff --git a/CONTRIBUTING.rst b/a/CONTRIBUTING.rst @@ -121,7 +121,7 @@ First time setup in your local environment\n       .. code-block:: text\n \n          > py -3 -m venv .venv\n-         > env\\Scripts\\activate\n+         > .venv\\Scripts\\activate\n \n -   Install the development dependencies, then install Flask in editable mode.\n ",
+        "date": "2023-04-15T14:39:35Z",
+        "msg": "fix typo"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -58,15 +58,15 @@ jobs:\n     # files in the draft release.\n     environment: 'publish'\n     runs-on: ubuntu-latest\n+    permissions:\n+      id-token: write\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n       - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n         with:\n-          password: ${{ secrets.TEST_PYPI_TOKEN }}\n           repository_url: https://test.pypi.org/legacy/\n           packages_dir: artifact/\n       - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n         with:\n-          password: ${{ secrets.PYPI_TOKEN }}\n           packages_dir: artifact/",
+        "date": "2023-04-13T15:24:58Z",
+        "msg": "Merge pull request #5059 from pallets/oidc-publish\n\nuse OIDC instead of token for publishing"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -58,15 +58,15 @@ jobs:\n     # files in the draft release.\n     environment: 'publish'\n     runs-on: ubuntu-latest\n+    permissions:\n+      id-token: write\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n       - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n         with:\n-          password: ${{ secrets.TEST_PYPI_TOKEN }}\n           repository_url: https://test.pypi.org/legacy/\n           packages_dir: artifact/\n       - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n         with:\n-          password: ${{ secrets.PYPI_TOKEN }}\n           packages_dir: artifact/",
+        "date": "2023-04-13T15:18:14Z",
+        "msg": "use oidc instead of token"
+    },
+    {
+        "diff": "diff --git a/src/flask/wrappers.py b/a/src/flask/wrappers.py @@ -151,7 +151,7 @@ class Response(ResponseBase):\n         Added :attr:`max_cookie_size`.\n     \"\"\"\n \n-    default_mimetype = \"text/html\"\n+    default_mimetype: t.Optional[str] = \"text/html\"\n \n     json_module = json\n ",
+        "date": "2023-04-12T20:43:23Z",
+        "msg": "Merge pull request #5034 from adamtheturtle/default-mimetype-optional\n\nAllow Response subclasses to set default_mimetype as None"
+    },
+    {
+        "diff": "diff --git a/src/flask/wrappers.py b/a/src/flask/wrappers.py @@ -151,7 +151,7 @@ class Response(ResponseBase):\n         Added :attr:`max_cookie_size`.\n     \"\"\"\n \n-    default_mimetype = \"text/html\"\n+    default_mimetype: t.Optional[str] = \"text/html\"\n \n     json_module = json\n ",
+        "date": "2023-03-26T13:38:11Z",
+        "msg": "Allow Response subclasses to set default_mimetype as None\n\nThis matches the type - see https://github.com/pallets/werkzeug/blob/92c6380248c7272ee668e1f8bbd80447027ccce2/src/werkzeug/sansio/response.py#L94."
+    },
+    {
+        "diff": "diff --git a/docs/deploying/eventlet.rst b/a/docs/deploying/eventlet.rst @@ -54,7 +54,7 @@ its ``wsgi.server``, as well as your app or app factory.\n     from hello import create_app\n \n     app = create_app()\n-    wsgi.server(eventlet.listen((\"127.0.0.1\", 8000), app)\n+    wsgi.server(eventlet.listen((\"127.0.0.1\", 8000)), app)\n \n .. code-block:: text\n ",
+        "date": "2023-04-12T20:29:05Z",
+        "msg": "Merge pull request #5029 from lettow-humain/main\n\nAppending missing parentheses"
+    },
+    {
+        "diff": "diff --git a/docs/deploying/eventlet.rst b/a/docs/deploying/eventlet.rst @@ -54,7 +54,7 @@ its ``wsgi.server``, as well as your app or app factory.\n     from hello import create_app\n \n     app = create_app()\n-    wsgi.server(eventlet.listen((\"127.0.0.1\", 8000), app)\n+    wsgi.server(eventlet.listen((\"127.0.0.1\", 8000)), app)\n \n .. code-block:: text\n ",
+        "date": "2023-03-17T10:58:49Z",
+        "msg": "fix parentheses"
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -53,7 +53,11 @@ version = {attr = \"flask.__version__\"}\n \n [tool.pytest.ini_options]\n testpaths = [\"tests\"]\n-filterwarnings = [\"error\"]\n+filterwarnings = [\n+    \"error\",\n+    # change in Python 3.12 alpha causes warning from inside pytest\n+    \"ignore:onerror argument:DeprecationWarning\",\n+]\n \n [tool.coverage.run]\n branch = true",
+        "date": "2023-04-11T22:34:39Z",
+        "msg": "ignore warning from pytest due to change in Python 3.12 alpha"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/appfactories.rst b/a/docs/patterns/appfactories.rst @@ -99,7 +99,7 @@ to the factory like this:\n \n .. code-block:: text\n \n-    $ flask --app hello:create_app(local_auth=True) run``\n+    $ flask --app hello:create_app(local_auth=True) run\n \n Then the ``create_app`` factory in ``myapp`` is called with the keyword\n argument ``local_auth=True``. See :doc:`/cli` for more detail.",
+        "date": "2023-04-05T21:56:26Z",
+        "msg": "Merge pull request #5037 from pamelafox/patch-1\n\nFix typo in appfactories.rst code block"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -15,7 +15,7 @@ repos:\n         files: \"^(?!examples/)\"\n         args: [\"--application-directories\", \"src\"]\n   - repo: https://github.com/psf/black\n-    rev: 23.1.0\n+    rev: 23.3.0\n     hooks:\n       - id: black\n   - repo: https://github.com/PyCQA/flake8",
+        "date": "2023-04-04T14:00:49Z",
+        "msg": "Merge pull request #5041 from pallets/pre-commit-ci-update-config\n\n[pre-commit.ci] pre-commit autoupdate"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -15,7 +15,7 @@ repos:\n         files: \"^(?!examples/)\"\n         args: [\"--application-directories\", \"src\"]\n   - repo: https://github.com/psf/black\n-    rev: 23.1.0\n+    rev: 23.3.0\n     hooks:\n       - id: black\n   - repo: https://github.com/PyCQA/flake8",
+        "date": "2023-04-04T06:31:29Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/psf/black: 23.1.0 \u2192 23.3.0](https://github.com/psf/black/compare/23.1.0...23.3.0)"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -61,12 +61,12 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@c7f29f7adef1a245bd91520e94867e5c6eedddcc\n+      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n         with:\n           password: ${{ secrets.TEST_PYPI_TOKEN }}\n           repository_url: https://test.pypi.org/legacy/\n           packages_dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@c7f29f7adef1a245bd91520e94867e5c6eedddcc\n+      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n         with:\n           password: ${{ secrets.PYPI_TOKEN }}\n           packages_dir: artifact/",
+        "date": "2023-04-03T13:19:09Z",
+        "msg": "Merge pull request #5038 from pallets/dependabot/github_actions/pypa/gh-action-pypi-publish-1.8.4\n\nBump pypa/gh-action-pypi-publish from 1.6.4 to 1.8.4"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -49,7 +49,7 @@ jobs:\n           pip install -U setuptools\n           python -m pip install -U pip\n       - name: cache mypy\n-        uses: actions/cache@69d9d449aced6a2ede0bc19182fadc3a0a42d2b0\n+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8\n         with:\n           path: ./.mypy_cache\n           key: mypy|${{ matrix.python }}|${{ hashFiles('pyproject.toml') }}",
+        "date": "2023-04-03T13:18:57Z",
+        "msg": "Merge pull request #5040 from pallets/dependabot/github_actions/actions/cache-3.3.1\n\nBump actions/cache from 3.2.6 to 3.3.1"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -49,7 +49,7 @@ jobs:\n           pip install -U setuptools\n           python -m pip install -U pip\n       - name: cache mypy\n-        uses: actions/cache@69d9d449aced6a2ede0bc19182fadc3a0a42d2b0\n+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8\n         with:\n           path: ./.mypy_cache\n           key: mypy|${{ matrix.python }}|${{ hashFiles('pyproject.toml') }}",
+        "date": "2023-04-01T16:57:11Z",
+        "msg": "Bump actions/cache from 3.2.6 to 3.3.1\n\nBumps [actions/cache](https://github.com/actions/cache) from 3.2.6 to 3.3.1.\n- [Release notes](https://github.com/actions/cache/releases)\n- [Changelog](https://github.com/actions/cache/blob/main/RELEASES.md)\n- [Commits](https://github.com/actions/cache/compare/69d9d449aced6a2ede0bc19182fadc3a0a42d2b0...88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8)\n\n---\nupdated-dependencies:\n- dependency-name: actions/cache\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -61,12 +61,12 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@c7f29f7adef1a245bd91520e94867e5c6eedddcc\n+      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n         with:\n           password: ${{ secrets.TEST_PYPI_TOKEN }}\n           repository_url: https://test.pypi.org/legacy/\n           packages_dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@c7f29f7adef1a245bd91520e94867e5c6eedddcc\n+      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n         with:\n           password: ${{ secrets.PYPI_TOKEN }}\n           packages_dir: artifact/",
+        "date": "2023-04-01T16:57:01Z",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.6.4 to 1.8.4\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.6.4 to 1.8.4.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/c7f29f7adef1a245bd91520e94867e5c6eedddcc...29930c9cf57955dc1b98162d0d8bc3ec80d9e75c)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/appfactories.rst b/a/docs/patterns/appfactories.rst @@ -99,7 +99,7 @@ to the factory like this:\n \n .. code-block:: text\n \n-    $ flask --app hello:create_app(local_auth=True) run``\n+    $ flask --app hello:create_app(local_auth=True) run\n \n Then the ``create_app`` factory in ``myapp`` is called with the keyword\n argument ``local_auth=True``. See :doc:`/cli` for more detail.",
+        "date": "2023-03-31T19:20:27Z",
+        "msg": "Update appfactories.rst\n\nRemove unneeded backticks"
+    },
+    {
+        "diff": "diff --git a/docs/errorhandling.rst b/a/docs/errorhandling.rst @@ -69,7 +69,6 @@ See also:\n -   Sentry also supports catching errors from a worker queue\n     (RQ, Celery, etc.) in a similar fashion. See the `Python SDK docs\n     <https://docs.sentry.io/platforms/python/>`__ for more information.\n--   `Getting started with Sentry <https://docs.sentry.io/quickstart/?platform=python>`__\n -   `Flask-specific documentation <https://docs.sentry.io/platforms/python/guides/flask/>`__\n \n ",
+        "date": "2023-03-11T15:32:12Z",
+        "msg": "Merge pull request #5024 from pallets/docs-sentry\n\nremove broken link"
+    },
+    {
+        "diff": "diff --git a/docs/errorhandling.rst b/a/docs/errorhandling.rst @@ -69,7 +69,6 @@ See also:\n -   Sentry also supports catching errors from a worker queue\n     (RQ, Celery, etc.) in a similar fashion. See the `Python SDK docs\n     <https://docs.sentry.io/platforms/python/>`__ for more information.\n--   `Getting started with Sentry <https://docs.sentry.io/quickstart/?platform=python>`__\n -   `Flask-specific documentation <https://docs.sentry.io/platforms/python/guides/flask/>`__\n \n ",
+        "date": "2023-03-11T15:29:51Z",
+        "msg": "remove broken link"
+    },
+    {
+        "diff": "diff --git a/docs/installation.rst b/a/docs/installation.rst @@ -44,7 +44,7 @@ use them if you install them.\n * `Watchdog`_ provides a faster, more efficient reloader for the development\n   server.\n \n-.. _Blinker: https://pythonhosted.org/blinker/\n+.. _Blinker: https://blinker.readthedocs.io/en/stable/\n .. _python-dotenv: https://github.com/theskumar/python-dotenv#readme\n .. _watchdog: https://pythonhosted.org/watchdog/\n ",
+        "date": "2023-03-08T19:04:53Z",
+        "msg": "Merge pull request #5020 from gultas/patch-1\n\nUpdate installation.rst"
+    },
+    {
+        "diff": "diff --git a/docs/installation.rst b/a/docs/installation.rst @@ -44,7 +44,7 @@ use them if you install them.\n * `Watchdog`_ provides a faster, more efficient reloader for the development\n   server.\n \n-.. _Blinker: https://pythonhosted.org/blinker/\n+.. _Blinker: https://blinker.readthedocs.io/en/stable/\n .. _python-dotenv: https://github.com/theskumar/python-dotenv#readme\n .. _watchdog: https://pythonhosted.org/watchdog/\n ",
+        "date": "2023-03-08T18:28:33Z",
+        "msg": "Update installation.rst\n\nThe link to Blinker does not work."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.5.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-03-01T17:04:40Z",
+        "msg": "Merge pull request #5005 from pallets/dependabot/github_actions/slsa-framework/slsa-github-generator-1.5.0\n\nBump slsa-framework/slsa-github-generator from 1.4.0 to 1.5.0"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -49,7 +49,7 @@ jobs:\n           pip install -U setuptools\n           python -m pip install -U pip\n       - name: cache mypy\n-        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920\n+        uses: actions/cache@69d9d449aced6a2ede0bc19182fadc3a0a42d2b0\n         with:\n           path: ./.mypy_cache\n           key: mypy|${{ matrix.python }}|${{ hashFiles('pyproject.toml') }}",
+        "date": "2023-03-01T17:02:06Z",
+        "msg": "Merge pull request #5006 from pallets/dependabot/github_actions/actions/cache-3.2.6\n\nBump actions/cache from 3.2.4 to 3.2.6"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -49,7 +49,7 @@ jobs:\n           pip install -U setuptools\n           python -m pip install -U pip\n       - name: cache mypy\n-        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920\n+        uses: actions/cache@69d9d449aced6a2ede0bc19182fadc3a0a42d2b0\n         with:\n           path: ./.mypy_cache\n           key: mypy|${{ matrix.python }}|${{ hashFiles('pyproject.toml') }}",
+        "date": "2023-03-01T16:57:34Z",
+        "msg": "Bump actions/cache from 3.2.4 to 3.2.6\n\nBumps [actions/cache](https://github.com/actions/cache) from 3.2.4 to 3.2.6.\n- [Release notes](https://github.com/actions/cache/releases)\n- [Changelog](https://github.com/actions/cache/blob/main/RELEASES.md)\n- [Commits](https://github.com/actions/cache/compare/627f0f41f6904a5b1efbaed9f96d9eb58e92e920...69d9d449aced6a2ede0bc19182fadc3a0a42d2b0)\n\n---\nupdated-dependencies:\n- dependency-name: actions/cache\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.5.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-03-01T16:57:31Z",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.4.0 to 1.5.0\n\nBumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.4.0 to 1.5.0.\n- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)\n- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.4.0...v1.5.0)\n\n---\nupdated-dependencies:\n- dependency-name: slsa-framework/slsa-github-generator\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/src/flask/templating.py b/a/src/flask/templating.py @@ -134,7 +134,7 @@ def _render(app: \"Flask\", template: Template, context: t.Dict[str, t.Any]) -> st\n \n def render_template(\n     template_name_or_list: t.Union[str, Template, t.List[t.Union[str, Template]]],\n-    **context: t.Any\n+    **context: t.Any,\n ) -> str:\n     \"\"\"Render a template by name with the given context.\n \n@@ -180,7 +180,7 @@ def generate() -> t.Iterator[str]:\n \n def stream_template(\n     template_name_or_list: t.Union[str, Template, t.List[t.Union[str, Template]]],\n-    **context: t.Any\n+    **context: t.Any,\n ) -> t.Iterator[str]:\n     \"\"\"Render a template by name with the given context as a stream.\n     This returns an iterator of strings, which can be used as a",
+        "date": "2023-02-10T23:07:24Z",
+        "msg": "run latest black format"
+    },
+    {
+        "diff": "diff --git a/docs/index.rst b/a/docs/index.rst @@ -48,6 +48,7 @@ community-maintained extensions to add even more functionality.\n    config\n    signals\n    views\n+   lifecycle\n    appcontext\n    reqcontext\n    blueprints",
+        "date": "2023-02-10T22:54:49Z",
+        "msg": "Merge pull request #4973 from pallets/docs-lifetime\n\ndocument the lifecycle of a flask application and request"
+    },
+    {
+        "diff": "diff --git a/docs/reqcontext.rst b/a/docs/reqcontext.rst @@ -69,11 +69,12 @@ everything that runs in the block will have access to :data:`request`,\n populated with your test data. ::\n \n     def generate_report(year):\n-        format = request.args.get('format')\n+        format = request.args.get(\"format\")\n         ...\n \n     with app.test_request_context(\n-            '/make_report/2017', data={'format': 'short'}):\n+        \"/make_report/2017\", query_string={\"format\": \"short\"}\n+    ):\n         generate_report()\n \n If you see that error somewhere else in your code not related to",
+        "date": "2023-02-10T18:53:02Z",
+        "msg": "Merge pull request #4972 from pallets/docs-push-reqctx\n\nfix test client arg for query string example"
+    },
+    {
+        "diff": "diff --git a/docs/reqcontext.rst b/a/docs/reqcontext.rst @@ -69,11 +69,12 @@ everything that runs in the block will have access to :data:`request`,\n populated with your test data. ::\n \n     def generate_report(year):\n-        format = request.args.get('format')\n+        format = request.args.get(\"format\")\n         ...\n \n     with app.test_request_context(\n-            '/make_report/2017', data={'format': 'short'}):\n+        \"/make_report/2017\", query_string={\"format\": \"short\"}\n+    ):\n         generate_report()\n \n If you see that error somewhere else in your code not related to",
+        "date": "2023-02-10T18:50:48Z",
+        "msg": "fix test client arg for query string example"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/celery.rst b/a/docs/patterns/celery.rst @@ -14,6 +14,10 @@ Celery itself.\n .. _Celery: https://celery.readthedocs.io\n .. _First Steps with Celery: https://celery.readthedocs.io/en/latest/getting-started/first-steps-with-celery.html\n \n+The Flask repository contains `an example <https://github.com/pallets/flask/tree/main/examples/celery>`_\n+based on the information on this page, which also shows how to use JavaScript to submit\n+tasks and poll for progress and results.\n+\n \n Install\n -------\n@@ -209,6 +213,9 @@ Now you can start the task using the first route, then poll for the result using\n second route. This keeps the Flask request workers from being blocked waiting for tasks\n to finish.\n \n+The Flask repository contains `an example <https://github.com/pallets/flask/tree/main/examples/celery>`_\n+using JavaScript to submit tasks and poll for progress and results.\n+\n \n Passing Data to Tasks\n ---------------------",
+        "date": "2023-02-09T18:50:57Z",
+        "msg": "add celery example"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/packages.rst b/a/docs/patterns/packages.rst @@ -66,6 +66,8 @@ To use the ``flask`` command and run your application you need to set\n the ``--app`` option that tells Flask where to find the application\n instance:\n \n+.. code-block:: text\n+\n     $ flask --app yourapplication run\n \n What did we gain from this?  Now we can restructure the application a bit",
+        "date": "2023-02-09T02:44:10Z",
+        "msg": "Merge pull request #4966 from ivanovmg/fix/cmd-format\n\nFix command-line formatting"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/packages.rst b/a/docs/patterns/packages.rst @@ -66,6 +66,8 @@ To use the ``flask`` command and run your application you need to set\n the ``--app`` option that tells Flask where to find the application\n instance:\n \n+.. code-block:: text\n+\n     $ flask --app yourapplication run\n \n What did we gain from this?  Now we can restructure the application a bit",
+        "date": "2023-02-09T02:38:57Z",
+        "msg": "Fix command-line formatting"
+    },
+    {
+        "diff": "diff --git a/tests/test_reqctx.py b/a/tests/test_reqctx.py @@ -227,7 +227,6 @@ def index():\n \n \n def test_session_dynamic_cookie_name():\n-\n     # This session interface will use a cookie with a different name if the\n     # requested url ends with the string \"dynamic_cookie\"\n     class PathAwareSessionInterface(SecureCookieSessionInterface):",
+        "date": "2023-02-07T04:43:02Z",
+        "msg": "[pre-commit.ci] auto fixes from pre-commit.com hooks\n\nfor more information, see https://pre-commit.ci"
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -15,7 +15,7 @@ repos:\n         files: \"^(?!examples/)\"\n         args: [\"--application-directories\", \"src\"]\n   - repo: https://github.com/psf/black\n-    rev: 22.12.0\n+    rev: 23.1.0\n     hooks:\n       - id: black\n   - repo: https://github.com/PyCQA/flake8",
+        "date": "2023-02-07T04:42:52Z",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/psf/black: 22.12.0 \u2192 23.1.0](https://github.com/psf/black/compare/22.12.0...23.1.0)"
+    },
+    {
+        "diff": "diff --git a/docs/views.rst b/a/docs/views.rst @@ -297,7 +297,7 @@ provide get (list) and post (create) methods.\n             db.session.commit()\n             return jsonify(item.to_json())\n \n-    def register_api(app, model, url):\n+    def register_api(app, model, name):\n         item = ItemAPI.as_view(f\"{name}-item\", model)\n         group = GroupAPI.as_view(f\"{name}-group\", model)\n         app.add_url_rule(f\"/{name}/<int:id>\", view_func=item)",
+        "date": "2023-02-02T17:01:21Z",
+        "msg": "Merge pull request #4952 from muffinmad/patch-1\n\nFix function argument name"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/appfactories.rst b/a/docs/patterns/appfactories.rst @@ -91,15 +91,15 @@ To run such an application, you can use the :command:`flask` command:\n \n .. code-block:: text\n \n-    $ flask run --app hello run\n+    $ flask --app hello run\n \n Flask will automatically detect the factory if it is named\n ``create_app`` or ``make_app`` in ``hello``. You can also pass arguments\n to the factory like this:\n \n .. code-block:: text\n \n-    $ flask run --app hello:create_app(local_auth=True)``\n+    $ flask --app hello:create_app(local_auth=True) run``\n \n Then the ``create_app`` factory in ``myapp`` is called with the keyword\n argument ``local_auth=True``. See :doc:`/cli` for more detail.",
+        "date": "2023-02-02T17:01:03Z",
+        "msg": "Merge pull request #4960 from owgreen/fix_appfactories_doc\n\nFix appfactories doc"
+    },
+    {
+        "diff": "diff --git a/docs/patterns/appfactories.rst b/a/docs/patterns/appfactories.rst @@ -91,15 +91,15 @@ To run such an application, you can use the :command:`flask` command:\n \n .. code-block:: text\n \n-    $ flask run --app hello run\n+    $ flask --app hello run\n \n Flask will automatically detect the factory if it is named\n ``create_app`` or ``make_app`` in ``hello``. You can also pass arguments\n to the factory like this:\n \n .. code-block:: text\n \n-    $ flask run --app hello:create_app(local_auth=True)``\n+    $ flask --app hello:create_app(local_auth=True) run``\n \n Then the ``create_app`` factory in ``myapp`` is called with the keyword\n argument ``local_auth=True``. See :doc:`/cli` for more detail.",
+        "date": "2023-02-02T15:43:02Z",
+        "msg": "fix doc"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -49,7 +49,7 @@ jobs:\n           pip install -U setuptools\n           python -m pip install -U pip\n       - name: cache mypy\n-        uses: actions/cache@58c146cc91c5b9e778e71775dfe9bf1442ad9a12\n+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920\n         with:\n           path: ./.mypy_cache\n           key: mypy|${{ matrix.python }}|${{ hashFiles('pyproject.toml') }}",
+        "date": "2023-02-01T16:55:09Z",
+        "msg": "Merge pull request #4959 from pallets/dependabot/github_actions/actions/cache-3.2.4\n\nBump actions/cache from 3.2.3 to 3.2.4"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -49,7 +49,7 @@ jobs:\n           pip install -U setuptools\n           python -m pip install -U pip\n       - name: cache mypy\n-        uses: actions/cache@58c146cc91c5b9e778e71775dfe9bf1442ad9a12\n+        uses: actions/cache@627f0f41f6904a5b1efbaed9f96d9eb58e92e920\n         with:\n           path: ./.mypy_cache\n           key: mypy|${{ matrix.python }}|${{ hashFiles('pyproject.toml') }}",
+        "date": "2023-02-01T16:01:30Z",
+        "msg": "Bump actions/cache from 3.2.3 to 3.2.4\n\nBumps [actions/cache](https://github.com/actions/cache) from 3.2.3 to 3.2.4.\n- [Release notes](https://github.com/actions/cache/releases)\n- [Changelog](https://github.com/actions/cache/blob/main/RELEASES.md)\n- [Commits](https://github.com/actions/cache/compare/58c146cc91c5b9e778e71775dfe9bf1442ad9a12...627f0f41f6904a5b1efbaed9f96d9eb58e92e920)\n\n---\nupdated-dependencies:\n- dependency-name: actions/cache\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    },
+    {
+        "diff": "diff --git a/docs/views.rst b/a/docs/views.rst @@ -297,7 +297,7 @@ provide get (list) and post (create) methods.\n             db.session.commit()\n             return jsonify(item.to_json())\n \n-    def register_api(app, model, url):\n+    def register_api(app, model, name):\n         item = ItemAPI.as_view(f\"{name}-item\", model)\n         group = GroupAPI.as_view(f\"{name}-group\", model)\n         app.add_url_rule(f\"/{name}/<int:id>\", view_func=item)",
+        "date": "2023-01-23T15:01:49Z",
+        "msg": "Fix function argument name"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -1,18 +1,25 @@\n-# This does not automatically close \"stale\" issues. Instead, it locks closed issues after 2 weeks of no activity.\n-# If there's a new issue related to an old one, we've found it's much easier to work on as a new issue.\n-\n name: 'Lock threads'\n+# Lock closed issues that have not received any further activity for\n+# two weeks. This does not close open issues, only humans may do that.\n+# We find that it is easier to respond to new issues with fresh examples\n+# rather than continuing discussions on old issues.\n \n on:\n   schedule:\n     - cron: '0 0 * * *'\n \n+permissions:\n+  issues: write\n+  pull-requests: write\n+\n+concurrency:\n+  group: lock\n+\n jobs:\n   lock:\n     runs-on: ubuntu-latest\n     steps:\n       - uses: dessant/lock-threads@v4\n         with:\n-          github-token: ${{ github.token }}\n           issue-inactive-days: 14\n           pr-inactive-days: 14",
+        "date": "2023-01-09T20:45:16Z",
+        "msg": "set workflow permissions"
+    },
+    {
+        "diff": "diff --git a/src/flask/views.py b/a/src/flask/views.py @@ -92,8 +92,8 @@ def as_view(\n         :attr:`init_every_request` to ``False``, the same instance will\n         be used for every request.\n \n-        The arguments passed to this method are forwarded to the view\n-        class ``__init__`` method.\n+        Except for ``name``, all other arguments passed to this method\n+        are forwarded to the view class ``__init__`` method.\n \n         .. versionchanged:: 2.2\n             Added the ``init_every_request`` class attribute.",
+        "date": "2023-01-09T19:11:02Z",
+        "msg": "Merge pull request #4942 from bhushan-mohanraj/patch-2\n\nClarify the docstring for `View.as_view`."
+    },
+    {
+        "diff": "diff --git a/src/flask/views.py b/a/src/flask/views.py @@ -92,8 +92,8 @@ def as_view(\n         :attr:`init_every_request` to ``False``, the same instance will\n         be used for every request.\n \n-        The arguments passed to this method are forwarded to the view\n-        class ``__init__`` method.\n+        Except for ``name``, all other arguments passed to this method\n+        are forwarded to the view class ``__init__`` method.\n \n         .. versionchanged:: 2.2\n             Added the ``init_every_request`` class attribute.",
+        "date": "2023-01-07T03:14:03Z",
+        "msg": "clarify `View.as_view` docstring"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -11,7 +11,7 @@ jobs:\n   lock:\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: dessant/lock-threads@v3\n+      - uses: dessant/lock-threads@v4\n         with:\n           github-token: ${{ github.token }}\n           issue-inactive-days: 14",
+        "date": "2023-01-03T15:24:17Z",
+        "msg": "Merge pull request #4933 from pallets/dependabot/github_actions/dessant/lock-threads-4\n\nBump dessant/lock-threads from 3 to 4"
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -11,7 +11,7 @@ jobs:\n   lock:\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: dessant/lock-threads@v3\n+      - uses: dessant/lock-threads@v4\n         with:\n           github-token: ${{ github.token }}\n           issue-inactive-days: 14",
+        "date": "2023-01-01T16:01:00Z",
+        "msg": "Bump dessant/lock-threads from 3 to 4\n\nBumps [dessant/lock-threads](https://github.com/dessant/lock-threads) from 3 to 4.\n- [Release notes](https://github.com/dessant/lock-threads/releases)\n- [Changelog](https://github.com/dessant/lock-threads/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/dessant/lock-threads/compare/v3...v4)\n\n---\nupdated-dependencies:\n- dependency-name: dessant/lock-threads\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>"
+    }
+]

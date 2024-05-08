@@ -1,0 +1,702 @@
+[
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.3.5\n+    rev: v0.4.3\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-05-06T22:28:44Z",
+        "chatgpt": "Update ruff-pre-commit to v0.4.3 in .pre-commit-config.yaml",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5477)",
+        "chatgpt_cot": "Update pre-commit-config.yaml to use version v0.4.3 of the ruff-pre-commit repository for monthly autoupdate schedule, replacing version v0.3.5."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.3.5\n+    rev: v0.4.3\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-05-06T22:05:35Z",
+        "chatgpt": "Update ruff-pre-commit to version v0.4.3",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.3.5 → v0.4.3](https://github.com/astral-sh/ruff-pre-commit/compare/v0.3.5...v0.4.3)",
+        "chatgpt_cot": "Update pre-commit hook version to v0.4.3 in the .pre-commit-config.yaml file for compatibility and functionality improvements."
+    },
+    {
+        "diff": "diff --git a/src/flask/helpers.py b/a/src/flask/helpers.py @@ -91,7 +91,7 @@ def decorator(*args: t.Any, **kwargs: t.Any) -> t.Any:\n             gen = generator_or_function(*args, **kwargs)  # type: ignore[operator]\n             return stream_with_context(gen)\n \n-        return update_wrapper(decorator, generator_or_function)  # type: ignore[arg-type]\n+        return update_wrapper(decorator, generator_or_function)  # type: ignore[arg-type, return-value]\n \n     def generator() -> t.Iterator[t.AnyStr | None]:\n         ctx = _cv_request.get(None)",
+        "date": "2024-05-06T17:23:10Z",
+        "chatgpt": "Update type hinting for return value in decorator function.",
+        "msg": "fix mypy finding",
+        "chatgpt_cot": "Fix type hinting issue in helpers.py file by adding \"return-value\" argument to update_wrapper() function."
+    },
+    {
+        "diff": "diff --git a/src/flask/sessions.py b/a/src/flask/sessions.py @@ -365,10 +365,10 @@ def save_session(\n             return\n \n         expires = self.get_expiration_time(app, session)\n-        val = self.get_signing_serializer(app).dumps(dict(session))  # type: ignore\n+        val = self.get_signing_serializer(app).dumps(dict(session))  # type: ignore[union-attr]\n         response.set_cookie(\n             name,\n-            val,  # type: ignore\n+            val,\n             expires=expires,\n             httponly=httponly,\n             domain=domain,",
+        "date": "2024-05-06T17:12:32Z",
+        "chatgpt": "Fix type ignore in saving session cookie value",
+        "msg": "fix mypy finding",
+        "chatgpt_cot": "Fix type hinting issue in save_session() method of sessions.py file."
+    },
+    {
+        "diff": "diff --git a/src/flask/wrappers.py b/a/src/flask/wrappers.py @@ -71,7 +71,7 @@ def endpoint(self) -> str | None:\n         reconstruct the same URL or a modified URL.\n         \"\"\"\n         if self.url_rule is not None:\n-            return self.url_rule.endpoint\n+            return self.url_rule.endpoint  # type: ignore[no-any-return]\n \n         return None\n ",
+        "date": "2024-05-06T17:09:58Z",
+        "chatgpt": "Fix type hinting issue in endpoint method",
+        "msg": "fix mypy finding with new werkzeug endpoint type",
+        "chatgpt_cot": "Fix type hinting issue in endpoint() method in wrappers.py"
+    },
+    {
+        "diff": "diff --git a/examples/javascript/pyproject.toml b/a/examples/javascript/pyproject.toml @@ -8,7 +8,7 @@ maintainers = [{name = \"Pallets\", email = \"contact@palletsprojects.com\"}]\n dependencies = [\"flask\"]\n \n [project.urls]\n-Documentation = \"https://flask.palletsprojects.com/patterns/jquery/\"\n+Documentation = \"https://flask.palletsprojects.com/patterns/javascript/\"\n \n [project.optional-dependencies]\n test = [\"pytest\"]",
+        "date": "2024-05-02T12:10:51Z",
+        "chatgpt": "Update documentation URL in pyproject.toml for Flask to point to the correct patterns for JavaScript.",
+        "msg": "examples/javascript: Update Documentation URL in pyproject.toml (#5475)",
+        "chatgpt_cot": "Update Flask documentation URL to use JavaScript instead of jQuery patterns."
+    },
+    {
+        "diff": "diff --git a/examples/javascript/pyproject.toml b/a/examples/javascript/pyproject.toml @@ -8,7 +8,7 @@ maintainers = [{name = \"Pallets\", email = \"contact@palletsprojects.com\"}]\n dependencies = [\"flask\"]\n \n [project.urls]\n-Documentation = \"https://flask.palletsprojects.com/patterns/jquery/\"\n+Documentation = \"https://flask.palletsprojects.com/patterns/javascript/\"\n \n [project.optional-dependencies]\n test = [\"pytest\"]",
+        "date": "2024-05-02T07:57:34Z",
+        "chatgpt": "Update documentation URL in pyproject.toml",
+        "msg": "Update pyproject.toml\n\nCorrection to Documentation URL",
+        "chatgpt_cot": "Update Flask documentation URL to use JavaScript instead of jQuery."
+    },
+    {
+        "diff": "diff --git a/src/flask/sessions.py b/a/src/flask/sessions.py @@ -368,7 +368,7 @@ def save_session(\n         val = self.get_signing_serializer(app).dumps(dict(session))  # type: ignore\n         response.set_cookie(\n             name,\n-            val,  # type: ignore\n+            val,\n             expires=expires,\n             httponly=httponly,\n             domain=domain,",
+        "date": "2024-04-23T23:49:42Z",
+        "chatgpt": "Refactor save_session method to remove unnecessary type ignore comments",
+        "msg": "fix mypy findings",
+        "chatgpt_cot": "Fix type annotation issue in save_session function in sessions.py."
+    },
+    {
+        "diff": "diff --git a/.github/dependabot.yml b/a/.github/dependabot.yml @@ -4,12 +4,6 @@ updates:\n     directory: /\n     schedule:\n       interval: monthly\n-    ignore:\n-      # slsa depends on upload/download v3\n-      - dependency-name: actions/upload-artifact\n-        versions: '>= 4'\n-      - dependency-name: actions/download-artifact\n-        versions: '>= 4'\n     groups:\n       github-actions:\n         patterns:",
+        "date": "2024-04-23T23:31:03Z",
+        "chatgpt": "Remove outdated dependencies in dependabot.yml",
+        "msg": "unignore upload/download-artifact",
+        "chatgpt_cot": "Remove unnecessary dependencies in dependabot.yml to streamline update process."
+    },
+    {
+        "diff": "diff --git a/tox.ini b/a/tox.ini @@ -32,7 +32,7 @@ commands = mypy\n \n [testenv:docs]\n deps = -r requirements/docs.txt\n-commands = sphinx-build -W -b dirhtml docs docs/_build/dirhtml\n+commands = sphinx-build -E -W -b dirhtml docs docs/_build/dirhtml\n \n [testenv:update-requirements]\n deps =",
+        "date": "2024-04-08T22:28:57Z",
+        "chatgpt": "Update sphinx-build command in docs testenv to use -E flag.",
+        "msg": "build docs from scratch each test",
+        "chatgpt_cot": "Fix compilation issue by modifying the \"sphinx-build\" command in tox.ini to include the \"-E\" flag."
+    },
+    {
+        "diff": "diff --git a/README.md b/a/README.md @@ -16,18 +16,6 @@ community that make adding new functionality easy.\n [Jinja]: https://jinja.palletsprojects.com/\n \n \n-## Installing\n-\n-Install and update from [PyPI][] using an installer such as [pip][]:\n-\n-```\n-$ pip install -U Flask\n-```\n-\n-[PyPI]: https://pypi.org/project/Flask/\n-[pip]: https://pip.pypa.io/en/stable/getting-started/\n-\n-\n ## A Simple Example\n \n ```python\n@@ -47,14 +35,6 @@ $ flask run\n ```\n \n \n-## Contributing\n-\n-For guidance on setting up a development environment and how to make a\n-contribution to Flask, see the [contributing guidelines][].\n-\n-[contributing guidelines]: https://github.com/pallets/flask/blob/main/CONTRIBUTING.rst\n-\n-\n ## Donate\n \n The Pallets organization develops and supports Flask and the libraries",
+        "date": "2024-04-08T22:28:28Z",
+        "chatgpt": "Removed installation and contribution sections from README.md",
+        "msg": "remove install and contribute sections\n\ninstall leads people to install into the system instead of a virtualenv,\nand readme isn't the place to teach that\ncontribute is now linked in the github interface above the readme",
+        "chatgpt_cot": "Remove installation and contribution instructions from README.md"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -1,7 +1,7 @@\n Version 3.0.3\n -------------\n \n-Unreleased\n+Released 2024-04-07\n \n -   The default ``hashlib.sha1`` may not be available in FIPS builds. Don't\n     access it at import time so the developer has time to change the default.",
+        "date": "2024-04-07T19:27:04Z",
+        "chatgpt": "Release version 3.0.3 on 2024-04-07 and fix issue with default hashlib.sha1 in FIPS builds.",
+        "msg": "release version 3.0.3 (#5461)",
+        "chatgpt_cot": "Update release date in CHANGES.rst file"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -1,7 +1,7 @@\n Version 3.0.3\n -------------\n \n-Unreleased\n+Released 2024-04-07\n \n -   The default ``hashlib.sha1`` may not be available in FIPS builds. Don't\n     access it at import time so the developer has time to change the default.",
+        "date": "2024-04-07T19:17:41Z",
+        "chatgpt": "Release version 3.0.3 on 2024-04-07 and update default ``hashlib.sha1`` availability for FIPS builds.",
+        "msg": "release version 3.0.3",
+        "chatgpt_cot": "Change release date in CHANGES.rst from \"Unreleased\" to \"Released 2024-04-07\"."
+    },
+    {
+        "diff": "diff --git a/docs/logging.rst b/a/docs/logging.rst @@ -159,7 +159,7 @@ Depending on your project, it may be more useful to configure each logger you\n care about separately, instead of configuring only the root logger. ::\n \n     for logger in (\n-        app.logger,\n+        logging.getLogger(app.name),\n         logging.getLogger('sqlalchemy'),\n         logging.getLogger('other_package'),\n     ):",
+        "date": "2024-04-07T19:03:19Z",
+        "chatgpt": "Refactored logger configuration to handle each logger separately.",
+        "msg": "don't access app.logger when configuring app.logger",
+        "chatgpt_cot": "Refactor logger configuration to use getLogger method instead of app.logger in logging.rst file."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -55,9 +55,11 @@ jobs:\n           GH_TOKEN: ${{ github.token }}\n   publish-pypi:\n     needs: [provenance]\n-    # Wait for approval before attempting to upload to PyPI. This allows reviewing the\n-    # files in the draft release.\n-    environment: publish\n+    environment:\n+      # Wait for approval before attempting to upload to PyPI. This allows reviewing the\n+      # files in the draft release. The projection is configured in the repository settings.\n+      name: publish\n+      url: https://pypi.org/project/flask/${{ github.ref_name }}\n     runs-on: ubuntu-latest\n     permissions:\n       id-token: write",
+        "date": "2024-04-06T23:17:13Z",
+        "chatgpt": "Add environment configuration for PyPI publishing with approval waiting",
+        "msg": "Use per-release URLs in GH env UI when publishing to the PyPI (#5423)",
+        "chatgpt_cot": "Add environment configuration for publishing to PyPI, including waiting for approval and configuring the repository settings."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -55,9 +55,11 @@ jobs:\n           GH_TOKEN: ${{ github.token }}\n   publish-pypi:\n     needs: [provenance]\n-    # Wait for approval before attempting to upload to PyPI. This allows reviewing the\n-    # files in the draft release.\n-    environment: publish\n+    environment:\n+      # Wait for approval before attempting to upload to PyPI. This allows reviewing the\n+      # files in the draft release. The projection is configured in the repository settings.\n+      name: publish\n+      url: https://pypi.org/project/flask/${{ github.ref_name }}\n     runs-on: ubuntu-latest\n     permissions:\n       id-token: write",
+        "date": "2024-02-27T00:24:27Z",
+        "chatgpt": "Add environment configuration for PyPI approval in publish workflow",
+        "msg": "Use per-release URLs in GH env UI when publishing to the PyPI\n\nThis essentially, makes the UI nicer in a few places with a clickable link to the released version being presented in the web interface of GitHub.",
+        "chatgpt_cot": "Fix workflow configuration to wait for approval before uploading to PyPI."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.13\n+    rev: v0.2.0\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-02-12T20:50:45Z",
+        "chatgpt": "Update ruff-pre-commit to v0.2.0版本.",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5404)",
+        "chatgpt_cot": "Update ruff-pre-commit to v0.2.0 in .pre-commit-config.yaml to include the latest changes and improvements from the repository."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.13\n+    rev: v0.2.0\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-02-05T20:28:43Z",
+        "chatgpt": "Update ruff-pre-commit to v0.2.0 version",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.1.13 → v0.2.0](https://github.com/astral-sh/ruff-pre-commit/compare/v0.1.13...v0.2.0)",
+        "chatgpt_cot": "Update ruff-pre-commit to version v0.2.0 in .pre-commit-config.yaml file."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -48,8 +48,9 @@ jobs:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       - name: create release\n         run: >\n-          gh release create --draft --repo ${{ github.repository }} ${{ github.ref_name }} *.intoto.jsonl/* artifact/*\n-\n+          gh release create --draft --repo ${{ github.repository }}\n+          ${{ github.ref_name }}\n+          *.intoto.jsonl/* dist/*\n         env:\n           GH_TOKEN: ${{ github.token }}\n   publish-pypi:",
+        "date": "2024-01-18T19:57:22Z",
+        "chatgpt": "\"Update publish.yaml to fix release creation command\"",
+        "msg": "fix create release action",
+        "chatgpt_cot": "Update release creation command in publish workflow to include dist folder for artifact creation."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,8 @@ jobs:\n       actions: read\n       id-token: write\n       contents: write\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@07e64b653f10a80b6510f4568f685f8b7b9ea830\n+    # Can't pin with hash due to how this workflow works.\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2024-01-18T19:53:19Z",
+        "chatgpt": "Update slsa-github-generator workflow to use version v1.9.0",
+        "msg": "fix slsa generator version",
+        "chatgpt_cot": "Update workflow to use the latest version of slsa-github-generator (v1.9.0) to fix compatibility issues."
+    },
+    {
+        "diff": "diff --git a/src/flask/helpers.py b/a/src/flask/helpers.py @@ -49,7 +49,7 @@ def get_load_dotenv(default: bool = True) -> bool:\n \n \n def stream_with_context(\n-    generator_or_function: t.Iterator[t.AnyStr] | t.Callable[..., t.Iterator[t.AnyStr]]\n+    generator_or_function: t.Iterator[t.AnyStr] | t.Callable[..., t.Iterator[t.AnyStr]],\n ) -> t.Iterator[t.AnyStr]:\n     \"\"\"Request contexts disappear when the response is started on the server.\n     This is done for efficiency reasons and to make it less likely to encounter",
+        "date": "2024-01-01T20:24:30Z",
+        "chatgpt": "Add missing comma in stream_with_context function signature",
+        "msg": "[pre-commit.ci] auto fixes from pre-commit.com hooks\n\nfor more information, see https://pre-commit.ci",
+        "chatgpt_cot": "Add support for streaming responses in Flask's `stream_with_context` function."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.6\n+    rev: v0.1.9\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2024-01-01T20:24:10Z",
+        "chatgpt": "Update ruff-pre-commit to version v0.1.9",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.1.6 → v0.1.9](https://github.com/astral-sh/ruff-pre-commit/compare/v0.1.6...v0.1.9)",
+        "chatgpt_cot": "Update ruff-pre-commit to version v0.1.9 in .pre-commit-config.yaml file."
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -79,7 +79,7 @@ source = [\"src\", \"*/site-packages\"]\n \n [tool.mypy]\n python_version = \"3.8\"\n-files = [\"src/flask\"]\n+files = [\"src/flask\", \"tests/typing\"]\n show_error_codes = true\n pretty = true\n #strict = true",
+        "date": "2023-12-14T00:28:13Z",
+        "chatgpt": "Add \"tests/typing\" to mypy files in pyproject.toml",
+        "msg": "Merge branch '3.0.x'",
+        "chatgpt_cot": "Add \"tests/typing\" to mypy configuration to include type checking for the tests directory."
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -79,7 +79,7 @@ source = [\"src\", \"*/site-packages\"]\n \n [tool.mypy]\n python_version = \"3.8\"\n-files = [\"src/flask\"]\n+files = [\"src/flask\", \"tests/typing\"]\n show_error_codes = true\n pretty = true\n #strict = true",
+        "date": "2023-12-14T00:27:37Z",
+        "chatgpt": "Add \"tests/typing\" to mypy files in pyproject.toml",
+        "msg": "run typing tests",
+        "chatgpt_cot": "Add typing tests for Flask in order to improve code quality and ensure type safety."
+    },
+    {
+        "diff": "diff --git a/docs/server.rst b/a/docs/server.rst @@ -76,8 +76,8 @@ following example shows that process id 6847 is using port 5000.\n             TCP 127.0.0.1:5000 0.0.0.0:0 LISTENING 6847\n \n macOS Monterey and later automatically starts a service that uses port\n-5000. To disable the service, go to System Preferences, Sharing, and\n-disable \"AirPlay Receiver\".\n+5000. You can choose to disable this service instead of using a different port by\n+searching for \"AirPlay Receiver\" in System Preferences and toggling it off.\n \n \n Deferred Errors on Reload",
+        "date": "2023-12-13T23:13:22Z",
+        "chatgpt": "Updated server documentation to provide alternative method for disabling service using port 5000.",
+        "msg": "Update docs to address redesigned macOS settings app (#5355)",
+        "chatgpt_cot": "Update server.rst with instructions to disable AirPlay Receiver service on macOS Monterey."
+    },
+    {
+        "diff": "diff --git a/docs/server.rst b/a/docs/server.rst @@ -76,8 +76,8 @@ following example shows that process id 6847 is using port 5000.\n             TCP 127.0.0.1:5000 0.0.0.0:0 LISTENING 6847\n \n macOS Monterey and later automatically starts a service that uses port\n-5000. To disable the service, go to System Preferences, Sharing, and\n-disable \"AirPlay Receiver\".\n+5000. You can choose to disable this service instead of using a different port by\n+searching for \"AirPlay Receiver\" in System Preferences and toggling it off.\n \n \n Deferred Errors on Reload",
+        "date": "2023-12-05T17:58:59Z",
+        "chatgpt": "Updated instructions for disabling the service using port 5000 in macOS.",
+        "msg": "Update docs to address redesigned macOS settings app",
+        "chatgpt_cot": "Update server documentation to provide alternative solution for disabling AirPlay Receiver service on port 5000."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.5\n+    rev: v0.1.6\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2023-12-04T22:26:15Z",
+        "chatgpt": "Update ruff-pre-commit to version v0.1.6",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5354)",
+        "chatgpt_cot": "Update ruff-pre-commit to version v0.1.6 in .pre-commit-config.yaml."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,7 +2,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.5\n+    rev: v0.1.6\n     hooks:\n       - id: ruff\n       - id: ruff-format",
+        "date": "2023-12-04T20:29:39Z",
+        "chatgpt": "Update ruff-pre-commit to v0.1.6 in .pre-commit-config.yaml",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/astral-sh/ruff-pre-commit: v0.1.5 → v0.1.6](https://github.com/astral-sh/ruff-pre-commit/compare/v0.1.5...v0.1.6)",
+        "chatgpt_cot": "Update pre-commit-config.yaml to use version v0.1.6 of astral-sh/ruff-pre-commit repository."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,12 +2,12 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.3\n+    rev: v0.1.5\n     hooks:\n       - id: ruff\n       - id: ruff-format\n   - repo: https://github.com/pre-commit/pre-commit-hooks\n-    rev: v4.4.0\n+    rev: v4.5.0\n     hooks:\n       - id: check-merge-conflict\n       - id: debug-statements",
+        "date": "2023-11-15T20:48:42Z",
+        "chatgpt": "Update pre-commit hook versions to v0.1.5 and v4.5.0",
+        "msg": "Merge branch '3.0.x'",
+        "chatgpt_cot": "Update pre-commit hooks to latest versions: ruff v0.1.5 and pre-commit-hooks v4.5.0."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -2,12 +2,12 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/astral-sh/ruff-pre-commit\n-    rev: v0.1.3\n+    rev: v0.1.5\n     hooks:\n       - id: ruff\n       - id: ruff-format\n   - repo: https://github.com/pre-commit/pre-commit-hooks\n-    rev: v4.4.0\n+    rev: v4.5.0\n     hooks:\n       - id: check-merge-conflict\n       - id: debug-statements",
+        "date": "2023-11-15T20:47:41Z",
+        "chatgpt": "Update pre-commit hooks versions to v0.1.5 and v4.5.0",
+        "msg": "update pre-commit hooks",
+        "chatgpt_cot": "Update pre-commit hooks to latest versions: ruff v0.1.5 and pre-commit-hooks v4.5.0."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -9,9 +9,6 @@ on:\n       - '*.md'\n       - '*.rst'\n   pull_request:\n-    branches:\n-      - main\n-      - '*.x'\n     paths-ignore:\n       - 'docs/**'\n       - '*.md'\n@@ -24,17 +21,17 @@ jobs:\n       fail-fast: false\n       matrix:\n         include:\n-          - {name: Linux, python: '3.11', os: ubuntu-latest, tox: py311}\n-          - {name: Windows, python: '3.11', os: windows-latest, tox: py311}\n-          - {name: Mac, python: '3.11', os: macos-latest, tox: py311}\n-          - {name: '3.12-dev', python: '3.12-dev', os: ubuntu-latest, tox: py312}\n+          - {name: Linux, python: '3.12', os: ubuntu-latest, tox: py312}\n+          - {name: Windows, python: '3.12', os: windows-latest, tox: py312}\n+          - {name: Mac, python: '3.12', os: macos-latest, tox: py312}\n+          - {name: '3.11', python: '3.11', os: ubuntu-latest, tox: py311}\n           - {name: '3.10', python: '3.10', os: ubuntu-latest, tox: py310}\n           - {name: '3.9', python: '3.9', os: ubuntu-latest, tox: py39}\n           - {name: '3.8', python: '3.8', os: ubuntu-latest, tox: py38}\n           - {name: 'PyPy', python: 'pypy-3.10', os: ubuntu-latest, tox: pypy310}\n-          - {name: 'Minimum Versions', python: '3.11', os: ubuntu-latest, tox: py311-min}\n+          - {name: 'Minimum Versions', python: '3.12', os: ubuntu-latest, tox: py312-min}\n           - {name: 'Development Versions', python: '3.8', os: ubuntu-latest, tox: py38-dev}\n-          - {name: Typing, python: '3.11', os: ubuntu-latest, tox: typing}\n+          - {name: Typing, python: '3.12', os: ubuntu-latest, tox: typing}\n     steps:\n       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744\n       - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1",
+        "date": "2023-11-09T16:45:23Z",
+        "chatgpt": "Update Python versions in GitHub workflows tests.yaml file",
+        "msg": "update python version matrix\n\n(cherry picked from commit 6ee5dcc0ec93e8c11e5362f1e151d99168d6d2e6)",
+        "chatgpt_cot": "Fix workflow test configuration by updating Python versions and removing unnecessary branches."
+    },
+    {
+        "diff": "diff --git a/.readthedocs.yaml b/a/.readthedocs.yaml @@ -1,8 +1,8 @@\n version: 2\n build:\n-  os: ubuntu-20.04\n+  os: ubuntu-22.04\n   tools:\n-    python: \"3.10\"\n+    python: \"3.12\"\n python:\n   install:\n     - requirements: requirements/docs.txt",
+        "date": "2023-11-09T16:39:48Z",
+        "chatgpt": "Update build configuration for ReadTheDocs to use Ubuntu 22.04 and Python 3.12",
+        "msg": "update read the docs env\n\n(cherry picked from commit 29f1bd22d75cab1b0433339425fabd21b8229228)",
+        "chatgpt_cot": "Update build configuration for ReadTheDocs to use Ubuntu 22.04 and Python 3.12, reflecting the latest versions available for the project."
+    },
+    {
+        "diff": "diff --git a/.github/dependabot.yml b/a/.github/dependabot.yml @@ -1,9 +1,18 @@\n version: 2\n updates:\n-- package-ecosystem: \"github-actions\"\n-  directory: \"/\"\n-  schedule:\n-    interval: \"monthly\"\n-    day: \"monday\"\n-    time: \"16:00\"\n-    timezone: \"UTC\"\n+  - package-ecosystem: github-actions\n+    directory: /\n+    schedule:\n+      interval: monthly\n+    groups:\n+      github-actions:\n+        patterns:\n+          - '*'\n+  - package-ecosystem: pip\n+    directory: /requirements/\n+    schedule:\n+      interval: monthly\n+    groups:\n+      python-requirements:\n+        patterns:\n+          - '*'",
+        "date": "2023-11-09T16:46:13Z",
+        "chatgpt": "Refactor dependabot.yml to update schedule and add new package ecosystem configurations.",
+        "msg": "enable grouped updates for actions and python",
+        "chatgpt_cot": "Update dependabot.yml to include updates for both GitHub Actions and pip packages."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -9,9 +9,6 @@ on:\n       - '*.md'\n       - '*.rst'\n   pull_request:\n-    branches:\n-      - main\n-      - '*.x'\n     paths-ignore:\n       - 'docs/**'\n       - '*.md'\n@@ -24,17 +21,17 @@ jobs:\n       fail-fast: false\n       matrix:\n         include:\n-          - {name: Linux, python: '3.11', os: ubuntu-latest, tox: py311}\n-          - {name: Windows, python: '3.11', os: windows-latest, tox: py311}\n-          - {name: Mac, python: '3.11', os: macos-latest, tox: py311}\n-          - {name: '3.12-dev', python: '3.12-dev', os: ubuntu-latest, tox: py312}\n+          - {name: Linux, python: '3.12', os: ubuntu-latest, tox: py312}\n+          - {name: Windows, python: '3.12', os: windows-latest, tox: py312}\n+          - {name: Mac, python: '3.12', os: macos-latest, tox: py312}\n+          - {name: '3.11', python: '3.11', os: ubuntu-latest, tox: py311}\n           - {name: '3.10', python: '3.10', os: ubuntu-latest, tox: py310}\n           - {name: '3.9', python: '3.9', os: ubuntu-latest, tox: py39}\n           - {name: '3.8', python: '3.8', os: ubuntu-latest, tox: py38}\n           - {name: 'PyPy', python: 'pypy-3.10', os: ubuntu-latest, tox: pypy310}\n-          - {name: 'Minimum Versions', python: '3.11', os: ubuntu-latest, tox: py311-min}\n+          - {name: 'Minimum Versions', python: '3.12', os: ubuntu-latest, tox: py312-min}\n           - {name: 'Development Versions', python: '3.8', os: ubuntu-latest, tox: py38-dev}\n-          - {name: Typing, python: '3.11', os: ubuntu-latest, tox: typing}\n+          - {name: Typing, python: '3.12', os: ubuntu-latest, tox: typing}\n     steps:\n       - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744\n       - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1",
+        "date": "2023-11-09T16:45:23Z",
+        "chatgpt": "Update python versions in test workflow.",
+        "msg": "update python version matrix",
+        "chatgpt_cot": "Update test workflow to include Python 3.12 and remove branches from pull_request trigger."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -1,8 +1,8 @@\n-name: 'Lock threads'\n-# Lock closed issues that have not received any further activity for\n-# two weeks. This does not close open issues, only humans may do that.\n-# We find that it is easier to respond to new issues with fresh examples\n-# rather than continuing discussions on old issues.\n+name: 'Lock inactive closed issues'\n+# Lock closed issues that have not received any further activity for two weeks.\n+# This does not close open issues, only humans may do that. We find that it is\n+# easier to respond to new issues with fresh examples rather than continuing\n+# discussions on old issues.\n \n on:\n   schedule:",
+        "date": "2023-11-09T16:40:39Z",
+        "chatgpt": "Update workflow to lock inactive closed issues for better issue management.",
+        "msg": "update description",
+        "chatgpt_cot": "Change the name of the workflow to \"Lock inactive closed issues\" and update the comments to clarify the purpose of the workflow."
+    },
+    {
+        "diff": "diff --git a/.readthedocs.yaml b/a/.readthedocs.yaml @@ -1,8 +1,8 @@\n version: 2\n build:\n-  os: ubuntu-20.04\n+  os: ubuntu-22.04\n   tools:\n-    python: \"3.10\"\n+    python: \"3.12\"\n python:\n   install:\n     - requirements: requirements/docs.txt",
+        "date": "2023-11-09T16:39:48Z",
+        "chatgpt": "Update .readthedocs.yaml for Ubuntu and Python versions",
+        "msg": "update read the docs env",
+        "chatgpt_cot": "Update Ubuntu and Python versions in the Readthedocs configuration file."
+    },
+    {
+        "diff": "diff --git a/docs/deploying/asgi.rst b/a/docs/deploying/asgi.rst @@ -20,7 +20,7 @@ wrapping the Flask app,\n     asgi_app = WsgiToAsgi(app)\n \n and then serving the ``asgi_app`` with the ASGI server, e.g. using\n-`Hypercorn <https://gitlab.com/pgjones/hypercorn>`_,\n+`Hypercorn <https://github.com/pgjones/hypercorn>`_,\n \n .. sourcecode:: text\n ",
+        "date": "2023-10-28T15:42:53Z",
+        "chatgpt": "Update Hypercorn link to use Github instead of Gitlab.",
+        "msg": "Update link to hypercorn (#5313)",
+        "chatgpt_cot": "Fix broken link to Hypercorn repository in ASGI deployment documentation."
+    },
+    {
+        "diff": "diff --git a/docs/deploying/asgi.rst b/a/docs/deploying/asgi.rst @@ -20,7 +20,7 @@ wrapping the Flask app,\n     asgi_app = WsgiToAsgi(app)\n \n and then serving the ``asgi_app`` with the ASGI server, e.g. using\n-`Hypercorn <https://gitlab.com/pgjones/hypercorn>`_,\n+`Hypercorn <https://github.com/pgjones/hypercorn>`_,\n \n .. sourcecode:: text\n ",
+        "date": "2023-10-28T07:38:33Z",
+        "chatgpt": "Update Hypercorn link to point to GitHub instead of GitLab",
+        "msg": "Fix link to Hypercorn in docs/deploying/asgi.rst - they moved from gitlab from github.",
+        "chatgpt_cot": "Update link to Hypercorn in ASGI deployment documentation."
+    },
+    {
+        "diff": "diff --git a/docs/testing.rst b/a/docs/testing.rst @@ -192,7 +192,7 @@ which records the request that produced that response.\n .. code-block:: python\n \n     def test_logout_redirect(client):\n-        response = client.get(\"/logout\")\n+        response = client.get(\"/logout\", follow_redirects=True)\n         # Check that there was one redirect response.\n         assert len(response.history) == 1\n         # Check that the second request was to the index page.",
+        "date": "2023-10-20T16:50:00Z",
+        "chatgpt": "Add follow_redirects parameter to client.get in test_logout_redirect function",
+        "msg": "docs/testing.rst: fix follow_redirects sample code (#5303)",
+        "chatgpt_cot": "Fix logout redirect test by adding follow_redirects=True to client.get() method call."
+    },
+    {
+        "diff": "diff --git a/docs/testing.rst b/a/docs/testing.rst @@ -192,7 +192,7 @@ which records the request that produced that response.\n .. code-block:: python\n \n     def test_logout_redirect(client):\n-        response = client.get(\"/logout\")\n+        response = client.get(\"/logout\", follow_redirects=True)\n         # Check that there was one redirect response.\n         assert len(response.history) == 1\n         # Check that the second request was to the index page.",
+        "date": "2023-10-20T15:17:24Z",
+        "chatgpt": "Add follow_redirects parameter to client.get(\"/logout\") in test_logout_redirect function",
+        "msg": "docs/testing.rst: fix follow_redirects sample code",
+        "chatgpt_cot": "Add follow_redirects parameter to client.get() method in test_logout_redirect() function."
+    },
+    {
+        "diff": "diff --git a/examples/javascript/README.rst b/a/examples/javascript/README.rst @@ -15,7 +15,7 @@ page. Demonstrates using |fetch|_, |XMLHttpRequest|_,  and\n .. |jQuery.ajax| replace:: ``jQuery.ajax``\n .. _jQuery.ajax: https://api.jquery.com/jQuery.ajax/\n \n-.. _Flask docs: https://flask.palletsprojects.com/patterns/jquery/\n+.. _Flask docs: https://flask.palletsprojects.com/patterns/javascript/\n \n \n Install",
+        "date": "2023-10-07T00:36:39Z",
+        "chatgpt": "Update Flask documentation link to point to patterns/javascript instead of patterns/jquery",
+        "msg": "examples/javascript: replace obsolete link (#5287)",
+        "chatgpt_cot": "Update Flask documentation link to point to the correct JavaScript section."
+    },
+    {
+        "diff": "diff --git a/docs/index.rst b/a/docs/index.rst @@ -6,7 +6,11 @@ Welcome to Flask\n .. image:: _static/flask-horizontal.png\n     :align: center\n \n-Welcome to Flask's documentation. Get started with :doc:`installation`\n+Welcome to Flask's documentation. Flask is a lightweight WSGI web application framework.\n+It is designed to make getting started quick and easy, with the ability to scale up to\n+complex applications.\n+\n+Get started with :doc:`installation`\n and then get an overview with the :doc:`quickstart`. There is also a\n more detailed :doc:`tutorial/index` that shows how to create a small but\n complete application with Flask. Common patterns are described in the",
+        "date": "2023-10-06T23:37:42Z",
+        "chatgpt": "Update introduction in index.rst to include information about Flask being a lightweight WSGI web application framework.",
+        "msg": "Update index.rst (#5291)\n\nCo-authored-by: pre-commit-ci[bot] <66853113+pre-commit-ci[bot]@users.noreply.github.com>",
+        "chatgpt_cot": "Add introduction to Flask framework in documentation, providing overview and installation instructions."
+    },
+    {
+        "diff": "diff --git a/docs/patterns/javascript.rst b/a/docs/patterns/javascript.rst @@ -197,7 +197,7 @@ in the previous section. The following example shows how to replace a\n         const geology_div = getElementById(\"geology-fact\")\n         fetch(geology_url)\n             .then(response => response.text)\n-            .then(text => geology_div.innerHtml = text)\n+            .then(text => geology_div.innerHTML = text)\n     </script>\n \n ",
+        "date": "2023-09-22T08:13:43Z",
+        "chatgpt": "Fix typo in innerHTML assignment in JavaScript example",
+        "msg": "Fix wrong spelling of JS method .innerHTML",
+        "chatgpt_cot": "Fix typo in JavaScript pattern documentation for replacing innerHtml with innerHTML."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n+      - uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n+      - uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e\n         with:\n           packages-dir: artifact/",
+        "date": "2023-09-05T21:02:38Z",
+        "chatgpt": "Update pypa/gh-action-pypi-publish action to version b7f401de30cb6434a1e19f805ff006643653240e",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.8 to 1.8.10 (#5248)",
+        "chatgpt_cot": "Update PyPI publish action to latest version for Test PyPI upload."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.7.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-09-05T21:02:28Z",
+        "chatgpt": "Update slsa-github-generator to v1.9.0 in publish.yaml workflow",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.7.0 to 1.9.0 (#5247)",
+        "chatgpt_cot": "Update slsa-github-generator version to v1.9.0 in publish.yaml workflow to align with changes in the workflow configuration and ensure compatibility with dependencies."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n+      - uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n+      - uses: pypa/gh-action-pypi-publish@b7f401de30cb6434a1e19f805ff006643653240e\n         with:\n           packages-dir: artifact/",
+        "date": "2023-09-01T16:30:35Z",
+        "chatgpt": "Update pypa/gh-action-pypi-publish to b7f401de30cb6434a1e19f805ff006643653240e",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.8 to 1.8.10\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.8 to 1.8.10.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/f8c70e705ffc13c3b4d1221169b84f12a75d6ca8...b7f401de30cb6434a1e19f805ff006643653240e)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update PyPI publishing action version to fix potential issues with package upload."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.7.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.9.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-09-01T16:30:31Z",
+        "chatgpt": "Update slsa-github-generator to v1.9.0 in publish.yaml workflow",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.7.0 to 1.9.0\n\nBumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.7.0 to 1.9.0.\n- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)\n- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.7.0...v1.9.0)\n\n---\nupdated-dependencies:\n- dependency-name: slsa-framework/slsa-github-generator\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update SLSA GitHub generator to v1.9.0 in publish.yaml workflow, fixing potential issues and improving functionality."
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -11,7 +11,7 @@ Unreleased\n Version 2.3.3\n -------------\n \n-Unreleased\n+Released 2023-08-21\n \n -   Python 3.12 compatibility.\n -   Require Werkzeug >= 2.3.7.",
+        "date": "2023-08-27T16:21:54Z",
+        "chatgpt": "\"Released version 2.3.3 on 2023-08-21 with Python 3.12 compatibility and requirement of Werkzeug >= 2.3.7.\"",
+        "msg": "Merge remote-tracking branch 'origin/2.3.x'",
+        "chatgpt_cot": "Update release date in CHANGES.rst file to \"2023-08-21\"."
+    },
+    {
+        "diff": "diff --git a/src/flask/app.py b/a/src/flask/app.py @@ -409,7 +409,6 @@ def create_url_adapter(self, request: Request | None) -> MapAdapter | None:\n             else:\n                 subdomain = None\n \n-            print(self.config[\"SERVER_NAME\"], subdomain)\n             return self.url_map.bind_to_environ(\n                 request.environ,\n                 server_name=self.config[\"SERVER_NAME\"],",
+        "date": "2023-08-27T09:17:12Z",
+        "chatgpt": "Remove print statement in create_url_adapter method",
+        "msg": "Remove print left in by accident\n\nThis was added as per 0ec7f713d679ceed2c605e62ac5d38d579f29fa0 by\nmistake.",
+        "chatgpt_cot": "Remove unnecessary print statement in create_url_adapter method."
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -4,6 +4,8 @@ Version 3.0.0\n Unreleased\n \n -   Remove previously deprecated code. :pr:`5223`\n+-   Restructure the code such that the Flask (app) and Blueprint\n+    classes have Sans-IO bases. :pr:`5127`\n \n \n Version 2.3.3",
+        "date": "2023-08-19T18:25:36Z",
+        "chatgpt": "Restructure code to have Sans-IO bases for Flask (app) and Blueprint classes. :pr:`5127`",
+        "msg": "Add a changelog for the sans-io changes",
+        "chatgpt_cot": "Restructure code for Flask and Blueprint classes to have Sans-IO bases, removing previously deprecated code. Version 3.0.0."
+    },
+    {
+        "diff": "diff --git a/src/flask/typing.py b/a/src/flask/typing.py @@ -77,7 +77,10 @@\n # https://github.com/pallets/flask/issues/4095\n # https://github.com/pallets/flask/issues/4295\n # https://github.com/pallets/flask/issues/4297\n-ErrorHandlerCallable = t.Callable[[t.Any], ResponseReturnValue]\n+ErrorHandlerCallable = t.Union[\n+    t.Callable[[t.Any], ResponseReturnValue],\n+    t.Callable[[t.Any], t.Awaitable[ResponseReturnValue]],\n+]\n \n RouteCallable = t.Union[\n     t.Callable[..., ResponseReturnValue],",
+        "date": "2023-08-14T10:10:15Z",
+        "chatgpt": "Refactor ErrorHandlerCallable and RouteCallable to allow for asynchronous error handling and route handling.",
+        "msg": "Correct the error handler typing\n\nIt may also be awaitable, as invocations are wrapped in ensure_sync.",
+        "chatgpt_cot": "Update ErrorHandlerCallable and RouteCallable type annotations to include support for async functions in Flask typing module."
+    },
+    {
+        "diff": "diff --git a/src/flask/typing.py b/a/src/flask/typing.py @@ -5,7 +5,7 @@\n if t.TYPE_CHECKING:  # pragma: no cover\n     from _typeshed.wsgi import WSGIApplication  # noqa: F401\n     from werkzeug.datastructures import Headers  # noqa: F401\n-    from werkzeug.wrappers import Response  # noqa: F401\n+    from werkzeug.sansio.response import Response  # noqa: F401\n \n # The possible types that are directly convertible or are a Response object.\n ResponseValue = t.Union[",
+        "date": "2023-07-16T13:04:23Z",
+        "chatgpt": "\"Update werkzeug.wrappers import to werkzeug.sansio.response\"",
+        "msg": "Widen the response typing\n\nWhilst not strictly true for Flask, it is true for Flask and Quart and\nhence makes it much easier for Quart to extend Flask classes. The\nalternatives are generic usage in the sansio codebase or mixed usage\nwithin Flask. I think this is a good compromise.",
+        "chatgpt_cot": "Fix import error in typing.py by updating the import statement for Response from werkzeug.wrappers to werkzeug.sansio.response."
+    },
+    {
+        "diff": "diff --git a/docs/patterns/appdispatch.rst b/a/docs/patterns/appdispatch.rst @@ -146,7 +146,7 @@ the ``Host`` header to figure out the subdomain one simply looks at the\n request path up to the first slash::\n \n     from threading import Lock\n-    from werkzeug.wsgi import pop_path_info, peek_path_info\n+    from wsgiref.util import shift_path_info\n \n     class PathDispatcher:\n \n@@ -166,13 +166,20 @@ request path up to the first slash::\n                 return app\n \n         def __call__(self, environ, start_response):\n-            app = self.get_application(peek_path_info(environ))\n+            app = self.get_application(self._peek_path_info(environ))\n             if app is not None:\n-                pop_path_info(environ)\n+                shift_path_info(environ)\n             else:\n                 app = self.default_app\n             return app(environ, start_response)\n \n+    def _peek_path_info(environ):\n+        segments = environ.get(\"PATH_INFO\", \"\").lstrip(\"/\").split(\"/\", 1)\n+        if segments:\n+            return segments[0]\n+\n+        return None\n+\n The big difference between this and the subdomain one is that this one\n falls back to another application if the creator function returns ``None``::\n ",
+        "date": "2023-08-13T12:12:25Z",
+        "chatgpt": "Refactor path handling in appdispatch.rst to use wsgiref.util.shift_path_info instead of werkzeug.wsgi.pop_path_info and peek_path_info. Added new _peek_path_info function for improved path handling.",
+        "msg": "update dispatch-by-path example",
+        "chatgpt_cot": "Fix import and method usage in appdispatch.rst to correctly handle request paths and fallback to default app."
+    },
+    {
+        "diff": "diff --git a/tests/test_basic.py b/a/tests/test_basic.py @@ -431,9 +431,9 @@ def dump_session_contents():\n         client.get(\"/\")\n         s = flask.session\n         assert s[\"t\"] == (1, 2, 3)\n-        assert type(s[\"b\"]) == bytes\n+        assert type(s[\"b\"]) is bytes\n         assert s[\"b\"] == b\"\\xff\"\n-        assert type(s[\"m\"]) == Markup\n+        assert type(s[\"m\"]) is Markup\n         assert s[\"m\"] == Markup(\"<html>\")\n         assert s[\"u\"] == the_uuid\n         assert s[\"d\"] == now\n@@ -760,7 +760,7 @@ def test_teardown_request_handler_error(app, client):\n \n     @app.teardown_request\n     def teardown_request1(exc):\n-        assert type(exc) == ZeroDivisionError\n+        assert type(exc) is ZeroDivisionError\n         called.append(True)\n         # This raises a new error and blows away sys.exc_info(), so we can\n         # test that all teardown_requests get passed the same original\n@@ -772,7 +772,7 @@ def teardown_request1(exc):\n \n     @app.teardown_request\n     def teardown_request2(exc):\n-        assert type(exc) == ZeroDivisionError\n+        assert type(exc) is ZeroDivisionError\n         called.append(True)\n         # This raises a new error and blows away sys.exc_info(), so we can\n         # test that all teardown_requests get passed the same original",
+        "date": "2023-08-16T20:37:56Z",
+        "chatgpt": "Refactor type assertions to use \"is\" instead of \"==\" in test_basic.py",
+        "msg": "fix flake8 bugbear findings",
+        "chatgpt_cot": "Fix type assertion issues in test_basic.py to ensure correct data types."
+    },
+    {
+        "diff": "diff --git a/tests/test_basic.py b/a/tests/test_basic.py @@ -431,9 +431,9 @@ def dump_session_contents():\n         client.get(\"/\")\n         s = flask.session\n         assert s[\"t\"] == (1, 2, 3)\n-        assert type(s[\"b\"]) == bytes\n+        assert type(s[\"b\"]) is bytes\n         assert s[\"b\"] == b\"\\xff\"\n-        assert type(s[\"m\"]) == Markup\n+        assert type(s[\"m\"]) is Markup\n         assert s[\"m\"] == Markup(\"<html>\")\n         assert s[\"u\"] == the_uuid\n         assert s[\"d\"] == now\n@@ -760,7 +760,7 @@ def test_teardown_request_handler_error(app, client):\n \n     @app.teardown_request\n     def teardown_request1(exc):\n-        assert type(exc) == ZeroDivisionError\n+        assert type(exc) is ZeroDivisionError\n         called.append(True)\n         # This raises a new error and blows away sys.exc_info(), so we can\n         # test that all teardown_requests get passed the same original\n@@ -772,7 +772,7 @@ def teardown_request1(exc):\n \n     @app.teardown_request\n     def teardown_request2(exc):\n-        assert type(exc) == ZeroDivisionError\n+        assert type(exc) is ZeroDivisionError\n         called.append(True)\n         # This raises a new error and blows away sys.exc_info(), so we can\n         # test that all teardown_requests get passed the same original",
+        "date": "2023-08-16T20:37:26Z",
+        "chatgpt": "Refactor type assertion to use 'is' keyword instead of '==' in test_basic.py",
+        "msg": "fix flake8 bugbear findings",
+        "chatgpt_cot": "Fix type comparison issues in test_basic.py to ensure correct data types are used."
+    },
+    {
+        "diff": "diff --git a/src/flask/cli.py b/a/src/flask/cli.py @@ -302,7 +302,7 @@ def load_app(self) -> Flask:\n         else:\n             if self.app_import_path:\n                 path, name = (\n-                    re.split(r\":(?![\\\\/])\", self.app_import_path, 1) + [None]\n+                    re.split(r\":(?![\\\\/])\", self.app_import_path, maxsplit=1) + [None]\n                 )[:2]\n                 import_name = prepare_import(path)\n                 app = locate_app(import_name, name)",
+        "date": "2023-08-16T20:35:46Z",
+        "chatgpt": "Fix maxsplit parameter in app_import_path split function",
+        "msg": "Merge branch '2.3.x'",
+        "chatgpt_cot": "Fix bug in load_app method by adding maxsplit parameter to re.split() function."
+    },
+    {
+        "diff": "diff --git a/src/flask/cli.py b/a/src/flask/cli.py @@ -302,7 +302,7 @@ def load_app(self) -> Flask:\n         else:\n             if self.app_import_path:\n                 path, name = (\n-                    re.split(r\":(?![\\\\/])\", self.app_import_path, 1) + [None]\n+                    re.split(r\":(?![\\\\/])\", self.app_import_path, maxsplit=1) + [None]\n                 )[:2]\n                 import_name = prepare_import(path)\n                 app = locate_app(import_name, name)",
+        "date": "2023-08-16T20:35:13Z",
+        "chatgpt": "Fixing maxsplit parameter in app_import_path split function",
+        "msg": "Pass maxsplit via kwarg to re.split (#5215)",
+        "chatgpt_cot": "Fix import path splitting issue in Flask CLI load_app method."
+    },
+    {
+        "diff": "diff --git a/src/flask/cli.py b/a/src/flask/cli.py @@ -302,7 +302,7 @@ def load_app(self) -> Flask:\n         else:\n             if self.app_import_path:\n                 path, name = (\n-                    re.split(r\":(?![\\\\/])\", self.app_import_path, 1) + [None]\n+                    re.split(r\":(?![\\\\/])\", self.app_import_path, maxsplit=1) + [None]\n                 )[:2]\n                 import_name = prepare_import(path)\n                 app = locate_app(import_name, name)",
+        "date": "2023-08-08T09:10:49Z",
+        "chatgpt": "Fix maxsplit parameter in app_import_path split function",
+        "msg": "Pass maxsplit via kwarg to re.split",
+        "chatgpt_cot": "Fix compilation issue by adding a maxsplit parameter in re.split() method to load the Flask app from a specified import path."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n+      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n+      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n         with:\n           packages-dir: artifact/",
+        "date": "2023-08-01T16:59:06Z",
+        "chatgpt": "Update PyPI publish action to use latest version.",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.7 to 1.8.8 (#5213)",
+        "chatgpt_cot": "Update PyPI publishing action to latest version."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n+      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n+      - uses: pypa/gh-action-pypi-publish@f8c70e705ffc13c3b4d1221169b84f12a75d6ca8\n         with:\n           packages-dir: artifact/",
+        "date": "2023-08-01T16:56:22Z",
+        "chatgpt": "Update PyPI publish action to use latest version.",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.7 to 1.8.8\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.7 to 1.8.8.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/f5622bde02b04381239da3573277701ceca8f6a0...f8c70e705ffc13c3b4d1221169b84f12a75d6ca8)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update PyPI publish action to latest version for Test PyPI upload."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -3,7 +3,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade\n-    rev: v3.8.0\n+    rev: v3.10.1\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]\n@@ -15,11 +15,11 @@ repos:\n         files: \"^(?!examples/)\"\n         args: [\"--application-directories\", \"src\"]\n   - repo: https://github.com/psf/black\n-    rev: 23.3.0\n+    rev: 23.7.0\n     hooks:\n       - id: black\n   - repo: https://github.com/PyCQA/flake8\n-    rev: 6.0.0\n+    rev: 6.1.0\n     hooks:\n       - id: flake8\n         additional_dependencies:",
+        "date": "2023-08-01T16:17:47Z",
+        "chatgpt": "Update pre-commit hooks to latest versions of pyupgrade, black, and flake8. Updated pyupgrade to v3.10.1, black to v23.7.0, and flake8 to v6.1.0.",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5211)",
+        "chatgpt_cot": "Update pre-commit hooks to latest versions (pyupgrade v3.10.1, black v23.7.0, flake8 v6.1.0) for better code formatting and linting."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -3,7 +3,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade\n-    rev: v3.8.0\n+    rev: v3.10.1\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]\n@@ -15,11 +15,11 @@ repos:\n         files: \"^(?!examples/)\"\n         args: [\"--application-directories\", \"src\"]\n   - repo: https://github.com/psf/black\n-    rev: 23.3.0\n+    rev: 23.7.0\n     hooks:\n       - id: black\n   - repo: https://github.com/PyCQA/flake8\n-    rev: 6.0.0\n+    rev: 6.1.0\n     hooks:\n       - id: flake8\n         additional_dependencies:",
+        "date": "2023-08-01T08:45:55Z",
+        "chatgpt": "Update pre-commit hooks to latest versions of pyupgrade, black, and flake8.",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/asottile/pyupgrade: v3.8.0 → v3.10.1](https://github.com/asottile/pyupgrade/compare/v3.8.0...v3.10.1)\n- [github.com/psf/black: 23.3.0 → 23.7.0](https://github.com/psf/black/compare/23.3.0...23.7.0)\n- [github.com/PyCQA/flake8: 6.0.0 → 6.1.0](https://github.com/PyCQA/flake8/compare/6.0.0...6.1.0)",
+        "chatgpt_cot": "Update pre-commit hooks to latest versions of pyupgrade, black, and flake8."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -3,7 +3,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade\n-    rev: v3.7.0\n+    rev: v3.8.0\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]",
+        "date": "2023-07-04T13:18:22Z",
+        "chatgpt": "Update pyupgrade to version v3.8.0 in .pre-commit-config.yaml",
+        "msg": "[pre-commit.ci] pre-commit autoupdate (#5187)",
+        "chatgpt_cot": "Update pyupgrade to version v3.8.0 in .pre-commit-config.yaml to support Python 3.8 features."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -3,7 +3,7 @@ ci:\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade\n-    rev: v3.7.0\n+    rev: v3.8.0\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]",
+        "date": "2023-07-04T06:36:29Z",
+        "chatgpt": "Update pyupgrade to version v3.8.0",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- [github.com/asottile/pyupgrade: v3.7.0 → v3.8.0](https://github.com/asottile/pyupgrade/compare/v3.7.0...v3.8.0)",
+        "chatgpt_cot": "Update pyupgrade to version 3.8.0 for compatibility with Python 3.8, ensuring code quality and adherence to best practices."
+    },
+    {
+        "diff": "diff --git a/docs/tutorial/install.rst b/a/docs/tutorial/install.rst @@ -35,6 +35,7 @@ The ``pyproject.toml`` file describes your project and how to build it.\n     [project]\n     name = \"flaskr\"\n     version = \"1.0.0\"\n+    description = \"The basic blog app built in the Flask tutorial.\"\n     dependencies = [\n         \"flask\",\n     ]",
+        "date": "2023-07-03T12:58:14Z",
+        "chatgpt": "Add description to project in pyproject.toml",
+        "msg": "Update install.rst with required description (#5182)",
+        "chatgpt_cot": "Add description to project in install.rst file."
+    },
+    {
+        "diff": "diff --git a/docs/tutorial/install.rst b/a/docs/tutorial/install.rst @@ -35,6 +35,7 @@ The ``pyproject.toml`` file describes your project and how to build it.\n     [project]\n     name = \"flaskr\"\n     version = \"1.0.0\"\n+    description = \"The basic blog app built in the Flask tutorial.\"\n     dependencies = [\n         \"flask\",\n     ]",
+        "date": "2023-07-01T14:09:51Z",
+        "chatgpt": "Add description to pyproject.toml for Flaskr project.",
+        "msg": "Update install.rst with required description",
+        "chatgpt_cot": "Add description to pyproject.toml file in the Flask tutorial to provide information about the basic blog app."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.6.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.7.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-07-01T16:24:11Z",
+        "chatgpt": "Update slsa-github-generator to v1.7.0 in publish.yaml workflow",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.6.0 to 1.7.0 (#5185)",
+        "chatgpt_cot": "Update SLSA GitHub generator to v1.7.0 in publish.yaml workflow file."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -19,7 +19,7 @@ jobs:\n   lock:\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: dessant/lock-threads@c1b35aecc5cdb1a34539d14196df55838bb2f836\n+      - uses: dessant/lock-threads@be8aa5be94131386884a6da4189effda9b14aa21\n         with:\n           issue-inactive-days: 14\n           pr-inactive-days: 14",
+        "date": "2023-07-01T16:23:57Z",
+        "chatgpt": "Update lock-threads action to version be8aa5be94131386884a6da4189effda9b14aa21",
+        "msg": "Bump dessant/lock-threads from 4.0.0 to 4.0.1 (#5184)",
+        "chatgpt_cot": "Update lock-threads action version to be8aa5be94131386884a6da4189effda9b14aa21 for GitHub workflow."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n+      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n+      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n         with:\n           packages-dir: artifact/",
+        "date": "2023-07-01T16:23:35Z",
+        "chatgpt": "Update pypa/gh-action-pypi-publish to latest version",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.6 to 1.8.7 (#5183)",
+        "chatgpt_cot": "Update PyPI publish action to latest version for better compatibility and reliability."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.6.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.7.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-07-01T16:16:25Z",
+        "chatgpt": "Update slsa-github-generator to v1.7.0 in publish.yaml workflow.",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.6.0 to 1.7.0\n\nBumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.6.0 to 1.7.0.\n- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)\n- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.6.0...v1.7.0)\n\n---\nupdated-dependencies:\n- dependency-name: slsa-framework/slsa-github-generator\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update SLSA GitHub generator workflow to v1.7.0 to ensure compatibility and utilize new features."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/lock.yaml b/a/.github/workflows/lock.yaml @@ -19,7 +19,7 @@ jobs:\n   lock:\n     runs-on: ubuntu-latest\n     steps:\n-      - uses: dessant/lock-threads@c1b35aecc5cdb1a34539d14196df55838bb2f836\n+      - uses: dessant/lock-threads@be8aa5be94131386884a6da4189effda9b14aa21\n         with:\n           issue-inactive-days: 14\n           pr-inactive-days: 14",
+        "date": "2023-07-01T16:16:22Z",
+        "chatgpt": "Update lock-threads action to version be8aa5be94131386884a6da4189effda9b14aa21",
+        "msg": "Bump dessant/lock-threads from 4.0.0 to 4.0.1\n\nBumps [dessant/lock-threads](https://github.com/dessant/lock-threads) from 4.0.0 to 4.0.1.\n- [Release notes](https://github.com/dessant/lock-threads/releases)\n- [Changelog](https://github.com/dessant/lock-threads/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/dessant/lock-threads/compare/c1b35aecc5cdb1a34539d14196df55838bb2f836...be8aa5be94131386884a6da4189effda9b14aa21)\n\n---\nupdated-dependencies:\n- dependency-name: dessant/lock-threads\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update lock-threads action to version be8aa5be94131386884a6da4189effda9b14aa21 to set issue and PR inactive days to 14."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n+      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n+      - uses: pypa/gh-action-pypi-publish@f5622bde02b04381239da3573277701ceca8f6a0\n         with:\n           packages-dir: artifact/",
+        "date": "2023-07-01T16:16:19Z",
+        "chatgpt": "Update PyPI publish action to use latest version.",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.6 to 1.8.7\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.6 to 1.8.7.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/a56da0b891b3dc519c7ee3284aff1fad93cc8598...f5622bde02b04381239da3573277701ceca8f6a0)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update GitHub Action for publishing to Test PyPI to use specific version of pypa/gh-action-pypi-publish to ensure consistency and reliability in the workflow."
+    },
+    {
+        "diff": "diff --git a/docs/errorhandling.rst b/a/docs/errorhandling.rst @@ -231,7 +231,7 @@ responses, you could also pass them through directly.\n Error handlers still respect the exception class hierarchy. If you\n register handlers for both ``HTTPException`` and ``Exception``, the\n ``Exception`` handler will not handle ``HTTPException`` subclasses\n-because it the ``HTTPException`` handler is more specific.\n+because the ``HTTPException`` handler is more specific.\n \n \n Unhandled Exceptions",
+        "date": "2023-06-30T00:28:25Z",
+        "chatgpt": "Refactored error handling to respect exception class hierarchy. Updated handling of HTTPException subclasses.",
+        "msg": "fix typo in errorhandling doc (#5180)",
+        "chatgpt_cot": "Fix more specific exception handler in errorhandling.rst documentation."
+    },
+    {
+        "diff": "diff --git a/docs/errorhandling.rst b/a/docs/errorhandling.rst @@ -231,7 +231,7 @@ responses, you could also pass them through directly.\n Error handlers still respect the exception class hierarchy. If you\n register handlers for both ``HTTPException`` and ``Exception``, the\n ``Exception`` handler will not handle ``HTTPException`` subclasses\n-because it the ``HTTPException`` handler is more specific.\n+because the ``HTTPException`` handler is more specific.\n \n \n Unhandled Exceptions",
+        "date": "2023-06-30T00:20:35Z",
+        "chatgpt": "Fix typo in error handling documentation.",
+        "msg": "fix typo in errorhandling doc",
+        "chatgpt_cot": "Fix typo in error handling documentation"
+    },
+    {
+        "diff": "diff --git a/tox.ini b/a/tox.ini @@ -34,17 +34,9 @@ skip_install = true\n commands = pre-commit run --all-files\n \n [testenv:typing]\n-package = wheel\n-wheel_build_env = .pkg\n-constrain_package_deps = true\n-use_frozen_constraints = true\n deps = -r requirements/typing.txt\n commands = mypy\n \n [testenv:docs]\n-package = wheel\n-wheel_build_env = .pkg\n-constrain_package_deps = true\n-use_frozen_constraints = true\n deps = -r requirements/docs.txt\n commands = sphinx-build -W -b html -d {envtmpdir}/doctrees docs {envtmpdir}/html",
+        "date": "2023-06-27T15:30:43Z",
+        "chatgpt": "Refactor tox.ini for testenv configurations",
+        "msg": "Merge branch '2.3.x'",
+        "chatgpt_cot": "Remove unnecessary package and build environment configurations in tox.ini."
+    },
+    {
+        "diff": "diff --git a/tox.ini b/a/tox.ini @@ -34,17 +34,9 @@ skip_install = true\n commands = pre-commit run --all-files\n \n [testenv:typing]\n-package = wheel\n-wheel_build_env = .pkg\n-constrain_package_deps = true\n-use_frozen_constraints = true\n deps = -r requirements/typing.txt\n commands = mypy\n \n [testenv:docs]\n-package = wheel\n-wheel_build_env = .pkg\n-constrain_package_deps = true\n-use_frozen_constraints = true\n deps = -r requirements/docs.txt\n commands = sphinx-build -W -b html -d {envtmpdir}/doctrees docs {envtmpdir}/html",
+        "date": "2023-06-27T15:29:41Z",
+        "chatgpt": "Refactor tox.ini to remove duplicate package and constraints in testenv configurations",
+        "msg": "simplify tox config\n\nenvs inherit base testenv",
+        "chatgpt_cot": "Remove unnecessary package and build environment configurations in tox.ini."
+    },
+    {
+        "diff": "diff --git a/docs/patterns/sqlalchemy.rst b/a/docs/patterns/sqlalchemy.rst @@ -34,8 +34,7 @@ official documentation on the `declarative`_ extension.\n Here's the example :file:`database.py` module for your application::\n \n     from sqlalchemy import create_engine\n-    from sqlalchemy.orm import scoped_session, sessionmaker\n-    from sqlalchemy.ext.declarative import declarative_base\n+    from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base\n \n     engine = create_engine('sqlite:////tmp/test.db')\n     db_session = scoped_session(sessionmaker(autocommit=False,",
+        "date": "2023-06-21T16:32:37Z",
+        "chatgpt": "Refactor database.py module to import declarative_base directly from sqlalchemy.orm.",
+        "msg": "update import of declarative_base from SQLAlchemy (#5171)",
+        "chatgpt_cot": "Refactor imports in sqlalchemy.rst for declarative_base."
+    },
+    {
+        "diff": "diff --git a/docs/patterns/sqlalchemy.rst b/a/docs/patterns/sqlalchemy.rst @@ -34,8 +34,7 @@ official documentation on the `declarative`_ extension.\n Here's the example :file:`database.py` module for your application::\n \n     from sqlalchemy import create_engine\n-    from sqlalchemy.orm import scoped_session, sessionmaker\n-    from sqlalchemy.ext.declarative import declarative_base\n+    from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base\n \n     engine = create_engine('sqlite:////tmp/test.db')\n     db_session = scoped_session(sessionmaker(autocommit=False,",
+        "date": "2023-06-21T14:54:33Z",
+        "chatgpt": "Refactored database.py module to import declarative_base directly from sqlalchemy.orm.",
+        "msg": "update import of declarative_base from SQLAlchemy",
+        "chatgpt_cot": "Refactor imports in sqlalchemy.rst to import declarative_base from sqlalchemy.orm."
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -54,8 +54,8 @@ version = {attr = \"flask.__version__\"}\n testpaths = [\"tests\"]\n filterwarnings = [\n     \"error\",\n-    # change in Python 3.12 alpha causes warning from inside pytest\n-    \"ignore:onerror argument:DeprecationWarning\",\n+    # change in Python 3.12 causes warning from inside pytest\n+    \"ignore:ast:DeprecationWarning\",\n ]\n \n [tool.coverage.run]",
+        "date": "2023-06-06T16:30:34Z",
+        "chatgpt": "Fix ignore warning in pytest caused by Python 3.12 change",
+        "msg": "ignore pytest ast warnings",
+        "chatgpt_cot": "Fix pytest warning caused by Python 3.12 change in pyproject.toml file."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -7,7 +7,7 @@ repos:\n     hooks:\n       - id: pyupgrade\n         args: [\"--py38-plus\"]\n-  - repo: https://github.com/asottile/reorder_python_imports\n+  - repo: https://github.com/asottile/reorder-python-imports\n     rev: v3.9.0\n     hooks:\n       - id: reorder-python-imports",
+        "date": "2023-06-06T04:21:31Z",
+        "chatgpt": "Fix typo in repository URL for reorder-python-imports plugin",
+        "msg": "[pre-commit.ci] pre-commit autoupdate\n\nupdates:\n- https://github.com/asottile/reorder_python_imports → https://github.com/asottile/reorder-python-imports",
+        "chatgpt_cot": "Fix import order issue in .pre-commit-config.yaml by updating the repository URL to \"https://github.com/asottile/reorder-python-imports\" in line 7."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -1,5 +1,5 @@\n ci:\n-  autoupdate_branch: \"2.2.x\"\n+  autoupdate_branch: \"2.3.x\"\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade",
+        "date": "2023-06-06T16:26:05Z",
+        "chatgpt": "Update autoupdate_branch to \"2.3.x\" in ci section of .pre-commit-config.yaml",
+        "msg": "Merge branch '2.3.x'",
+        "chatgpt_cot": "Update autoupdate_branch in .pre-commit-config.yaml to \"2.3.x\" in order to align with the latest version."
+    },
+    {
+        "diff": "diff --git a/.pre-commit-config.yaml b/a/.pre-commit-config.yaml @@ -1,5 +1,5 @@\n ci:\n-  autoupdate_branch: \"2.2.x\"\n+  autoupdate_branch: \"2.3.x\"\n   autoupdate_schedule: monthly\n repos:\n   - repo: https://github.com/asottile/pyupgrade",
+        "date": "2023-06-06T16:25:47Z",
+        "chatgpt": "Update autoupdate_branch to \"2.3.x\" in ci configuration",
+        "msg": "retarget pre-commit.ci",
+        "chatgpt_cot": "Update autoupdate_branch in .pre-commit-config.yaml from \"2.2.x\" to \"2.3.x\" for monthly autoupdate schedule."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n+      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n+      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n         with:\n           packages-dir: artifact/",
+        "date": "2023-06-01T18:47:53Z",
+        "chatgpt": "Update pypa/gh-action-pypi-publish to use a specific version for Test PyPI and packages-dir.",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.5 to 1.8.6 (#5149)",
+        "chatgpt_cot": "Update PyPI publishing action to latest version for test and production repositories."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.5.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.6.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-06-01T18:46:49Z",
+        "chatgpt": "Update slsa-github-generator to v1.6.0 in publish.yaml workflow",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.5.0 to 1.6.0 (#5148)",
+        "chatgpt_cot": "Update SLSA GitHub generator to v1.6.0 in publish.yaml workflow to include new features or bug fixes."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n+      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n         with:\n           repository-url: https://test.pypi.org/legacy/\n           packages-dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n+      - uses: pypa/gh-action-pypi-publish@a56da0b891b3dc519c7ee3284aff1fad93cc8598\n         with:\n           packages-dir: artifact/",
+        "date": "2023-06-01T16:56:46Z",
+        "chatgpt": "Update pypi-publish action to use latest version",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.5 to 1.8.6\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.5 to 1.8.6.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/0bf742be3ebe032c25dd15117957dc15d0cfc38d...a56da0b891b3dc519c7ee3284aff1fad93cc8598)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update PyPI publish action version to fix potential issues with artifact upload."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -33,7 +33,7 @@ jobs:\n       id-token: write\n       contents: write\n     # Can't pin with hash due to how this workflow works.\n-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.5.0\n+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.6.0\n     with:\n       base64-subjects: ${{ needs.build.outputs.hash }}\n   create-release:",
+        "date": "2023-06-01T16:56:43Z",
+        "chatgpt": "Update slsa-github-generator to v1.6.0 in publish workflow",
+        "msg": "Bump slsa-framework/slsa-github-generator from 1.5.0 to 1.6.0\n\nBumps [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) from 1.5.0 to 1.6.0.\n- [Release notes](https://github.com/slsa-framework/slsa-github-generator/releases)\n- [Changelog](https://github.com/slsa-framework/slsa-github-generator/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/slsa-framework/slsa-github-generator/compare/v1.5.0...v1.6.0)\n\n---\nupdated-dependencies:\n- dependency-name: slsa-framework/slsa-github-generator\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update SLSA GitHub generator to v1.6.0 in publish.yaml workflow file."
+    },
+    {
+        "diff": "diff --git a/pyproject.toml b/a/pyproject.toml @@ -4,7 +4,6 @@ description = \"A simple framework for building complex web applications.\"\n readme = \"README.rst\"\n license = {text = \"BSD-3-Clause\"}\n maintainers = [{name = \"Pallets\", email = \"contact@palletsprojects.com\"}]\n-authors = [{name = \"Armin Ronacher\", email = \"armin.ronacher@active-4.com\"}]\n classifiers = [\n     \"Development Status :: 5 - Production/Stable\",\n     \"Environment :: Web Environment\",",
+        "date": "2023-05-31T16:18:33Z",
+        "chatgpt": "Remove author information from pyproject.toml",
+        "msg": "update metadata",
+        "chatgpt_cot": "Update maintainers list in pyproject.toml file."
+    },
+    {
+        "diff": "diff --git a/docs/config.rst b/a/docs/config.rst @@ -410,8 +410,8 @@ from a TOML file:\n \n .. code-block:: python\n \n-    import toml\n-    app.config.from_file(\"config.toml\", load=toml.load)\n+    import tomllib\n+    app.config.from_file(\"config.toml\", load=tomllib.load, text=False)\n \n Or from a JSON file:\n ",
+        "date": "2023-05-31T16:14:56Z",
+        "chatgpt": "Use tomllib for loading TOML files and set text to False.",
+        "msg": "Merge pull request #5140 from Jeroendevr/patch-1",
+        "chatgpt_cot": "Update import statement and function call in config.rst to use tomllib instead of toml."
+    },
+    {
+        "diff": "diff --git a/docs/config.rst b/a/docs/config.rst @@ -410,8 +410,8 @@ from a TOML file:\n \n .. code-block:: python\n \n-    import toml\n-    app.config.from_file(\"config.toml\", load=toml.load)\n+    import tomllib\n+    app.config.from_file(\"config.toml\", load=tomllib.load, text=False)\n \n Or from a JSON file:\n ",
+        "date": "2023-05-24T09:13:36Z",
+        "chatgpt": "\"Update config file loading to use tomllib and add option to load as text\"",
+        "msg": "Config from Data Files to match from_file API\n\nIn the API docs using a TOML file to load config is referred to as https://flask.palletsprojects.com/en/2.3.x/api/#flask.Config.from_file\r\n\r\nTo keep docs consistent a small change to the config docs.",
+        "chatgpt_cot": "Fix import error in config file by using tomllib instead of toml."
+    },
+    {
+        "diff": "diff --git a/docs/patterns/javascript.rst b/a/docs/patterns/javascript.rst @@ -125,8 +125,8 @@ in a Flask view.\n .. code-block:: javascript\n \n     let data = new FormData()\n-    data.append(\"name\": \"Flask Room\")\n-    data.append(\"description\": \"Talk about Flask here.\")\n+    data.append(\"name\", \"Flask Room\")\n+    data.append(\"description\", \"Talk about Flask here.\")\n     fetch(room_url, {\n         \"method\": \"POST\",\n         \"body\": data,",
+        "date": "2023-05-18T12:33:44Z",
+        "chatgpt": "Fix syntax error in JavaScript code in Flask view documentation",
+        "msg": "docs: fix wrong JS syntax (#5136)",
+        "chatgpt_cot": "Fix syntax error in JavaScript code by correcting the format of FormData append statements."
+    },
+    {
+        "diff": "diff --git a/src/flask/config.py b/a/src/flask/config.py @@ -72,7 +72,9 @@ class Config(dict):\n     :param defaults: an optional dictionary of default values\n     \"\"\"\n \n-    def __init__(self, root_path: str, defaults: dict | None = None) -> None:\n+    def __init__(\n+        self, root_path: str | os.PathLike, defaults: dict | None = None\n+    ) -> None:\n         super().__init__(defaults or {})\n         self.root_path = root_path\n \n@@ -164,7 +166,7 @@ def from_prefixed_env(\n \n         return True\n \n-    def from_pyfile(self, filename: str, silent: bool = False) -> bool:\n+    def from_pyfile(self, filename: str | os.PathLike, silent: bool = False) -> bool:\n         \"\"\"Updates the values in the config from a Python file.  This function\n         behaves as if the file was imported as module with the\n         :meth:`from_object` function.\n@@ -233,7 +235,7 @@ class and has ``@property`` attributes, it needs to be\n \n     def from_file(\n         self,\n-        filename: str,\n+        filename: str | os.PathLike,\n         load: t.Callable[[t.IO[t.Any]], t.Mapping],\n         silent: bool = False,\n         text: bool = True,",
+        "date": "2023-05-14T16:43:35Z",
+        "chatgpt": "Update Config class to support os.PathLike for root_path and filenames",
+        "msg": "Merge pull request #5126 from pgjones/pathlike\n\nAllow for PathLike types for config file variables",
+        "chatgpt_cot": "Fix type annotations in flask/config.py for root_path and filename parameters"
+    },
+    {
+        "diff": "diff --git a/src/flask/config.py b/a/src/flask/config.py @@ -72,7 +72,9 @@ class Config(dict):\n     :param defaults: an optional dictionary of default values\n     \"\"\"\n \n-    def __init__(self, root_path: str, defaults: dict | None = None) -> None:\n+    def __init__(\n+        self, root_path: str | os.PathLike, defaults: dict | None = None\n+    ) -> None:\n         super().__init__(defaults or {})\n         self.root_path = root_path\n \n@@ -164,7 +166,7 @@ def from_prefixed_env(\n \n         return True\n \n-    def from_pyfile(self, filename: str, silent: bool = False) -> bool:\n+    def from_pyfile(self, filename: str | os.PathLike, silent: bool = False) -> bool:\n         \"\"\"Updates the values in the config from a Python file.  This function\n         behaves as if the file was imported as module with the\n         :meth:`from_object` function.\n@@ -233,7 +235,7 @@ class and has ``@property`` attributes, it needs to be\n \n     def from_file(\n         self,\n-        filename: str,\n+        filename: str | os.PathLike,\n         load: t.Callable[[t.IO[t.Any]], t.Mapping],\n         silent: bool = False,\n         text: bool = True,",
+        "date": "2023-05-14T15:09:25Z",
+        "chatgpt": "Refactor config.py to use os.PathLike for root_path and filename parameters",
+        "msg": "Allow for PathLike types for config file variables\n\nThis follows the Flask practice elsewhere and makes it clear PathLike\nfilenames are valid.",
+        "chatgpt_cot": "Update parameter types to accept os.PathLike for filenames in the Config class constructors and methods in the Flask configuration file for improved compatibility."
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -69,6 +69,15 @@ Released 2023-04-25\n -   Use postponed evaluation of annotations. :pr:`5071`\n \n \n+Version 2.2.5\n+-------------\n+\n+Released 2023-05-02\n+\n+-   Update for compatibility with Werkzeug 2.3.3.\n+-   Set ``Vary: Cookie`` header when the session is accessed, modified, or refreshed.\n+\n+\n Version 2.2.4\n -------------\n ",
+        "date": "2023-05-02T14:50:30Z",
+        "chatgpt": "Update for compatibility with Werkzeug 2.3.3 and set \"Vary: Cookie\" header when session is accessed, modified, or refreshed. Released version 2.2.5 on 2023-05-02.",
+        "msg": "Merge branch '2.2.x' into 2.3.x",
+        "chatgpt_cot": "Update for compatibility with Werkzeug 2.3.3 and set \"Vary: Cookie\" header when session is accessed, modified, or refreshed in version 2.2.5."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n+      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n         with:\n           repository_url: https://test.pypi.org/legacy/\n           packages_dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n+      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n         with:\n           packages_dir: artifact/",
+        "date": "2023-05-01T17:22:01Z",
+        "chatgpt": "Update pypa/gh-action-pypi-publish to version 0bf742be3ebe032c25dd15117957dc15d0cfc38d",
+        "msg": "Merge pull request #5106 from pallets/dependabot/github_actions/pypa/gh-action-pypi-publish-1.8.5\n\nBump pypa/gh-action-pypi-publish from 1.8.4 to 1.8.5",
+        "chatgpt_cot": "Update pypi publish action version to fix potential issues with artifact upload in publish workflow."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/publish.yaml b/a/.github/workflows/publish.yaml @@ -63,10 +63,10 @@ jobs:\n     steps:\n       - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a\n       # Try uploading to Test PyPI first, in case something fails.\n-      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n+      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n         with:\n           repository_url: https://test.pypi.org/legacy/\n           packages_dir: artifact/\n-      - uses: pypa/gh-action-pypi-publish@29930c9cf57955dc1b98162d0d8bc3ec80d9e75c\n+      - uses: pypa/gh-action-pypi-publish@0bf742be3ebe032c25dd15117957dc15d0cfc38d\n         with:\n           packages_dir: artifact/",
+        "date": "2023-05-01T16:57:14Z",
+        "chatgpt": "Update pypa/gh-action-pypi-publish to version 0bf742be3ebe032c25dd15117957dc15d0cfc38d",
+        "msg": "Bump pypa/gh-action-pypi-publish from 1.8.4 to 1.8.5\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.8.4 to 1.8.5.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/29930c9cf57955dc1b98162d0d8bc3ec80d9e75c...0bf742be3ebe032c25dd15117957dc15d0cfc38d)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+        "chatgpt_cot": "Update PyPI publish action to version 0bf742be3ebe032c25dd15117957dc15d0cfc38d for test and production environments."
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -1,7 +1,7 @@\n Version 2.3.2\n -------------\n \n-Released 2022-05-01\n+Released 2023-05-01\n \n -   Set ``Vary: Cookie`` header when the session is accessed, modified, or refreshed.\n -   Update Werkzeug requirement to >=2.3.3 to apply recent bug fixes.",
+        "date": "2023-05-01T16:01:40Z",
+        "chatgpt": "Update release date to 2023-05-01 in CHANGES.rst",
+        "msg": "fix release date",
+        "chatgpt_cot": "Update release date in CHANGES.rst from 2022-05-01 to 2023-05-01."
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -3,6 +3,9 @@ Version 2.3.2\n \n Unreleased\n \n+-   Session cookie sets ``Vary: Cookie`` header when it is accessed, modified, cleared,\n+    or refreshed.\n+\n \n Version 2.3.1\n -------------",
+        "date": "2023-05-01T15:13:12Z",
+        "chatgpt": "Add functionality to set \"Vary: Cookie\" header when session cookie is accessed, modified, cleared, or refreshed.",
+        "msg": "update changelog",
+        "chatgpt_cot": "Add functionality to set \"Vary: Cookie\" header in session cookie when accessed, modified, cleared, or refreshed. Update CHANGES.rst for version 2.3.2."
+    },
+    {
+        "diff": "diff --git a/src/flask/app.py b/a/src/flask/app.py @@ -1852,7 +1852,7 @@ def make_response(self, rv: ft.ResponseReturnValue) -> Response:\n \n         # extend existing headers with provided headers\n         if headers:\n-            rv.headers.update(headers)\n+            rv.headers.update(headers)  # type: ignore[arg-type]\n \n         return rv\n ",
+        "date": "2023-05-01T15:10:25Z",
+        "chatgpt": "Fixing type ignore for headers update in make_response function",
+        "msg": "fix mypy finding",
+        "chatgpt_cot": "Fix type hinting issue in make_response method"
+    },
+    {
+        "diff": "diff --git a/CHANGES.rst b/a/CHANGES.rst @@ -53,7 +53,7 @@ Unreleased\n Version 2.2.4\n -------------\n \n-Unreleased\n+Released 2023-04-25\n \n -   Update for compatibility with Werkzeug 2.3.\n ",
+        "date": "2023-04-25T17:55:41Z",
+        "chatgpt": "Release version 2.2.4 on 2023-04-25 and update for compatibility with Werkzeug 2.3.",
+        "msg": "Merge branch '2.2.x'",
+        "chatgpt_cot": "Update release date and compatibility with Werkzeug 2.3 in CHANGES.rst file."
+    },
+    {
+        "diff": "diff --git a/.github/workflows/tests.yaml b/a/.github/workflows/tests.yaml @@ -34,7 +34,7 @@ jobs:\n           - {name: '3.7', python: '3.7', os: ubuntu-latest, tox: py37}\n           - {name: 'PyPy', python: 'pypy-3.9', os: ubuntu-latest, tox: pypy39}\n           - {name: 'Pallets Minimum Versions', python: '3.11', os: ubuntu-latest, tox: py311-min}\n-          - {name: 'Pallets Development Versions', python: '3.7', os: ubuntu-latest, tox: py37-dev}\n+          - {name: 'Pallets Development Versions', python: '3.8', os: ubuntu-latest, tox: py38-dev}\n           - {name: Typing, python: '3.11', os: ubuntu-latest, tox: typing}\n     steps:\n       - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c",
+        "date": "2023-04-25T17:06:20Z",
+        "chatgpt": "Update Pallets Development Versions to use Python 3.8 instead of 3.7",
+        "msg": "update dev env",
+        "chatgpt_cot": "Update Pallets Development Versions to Python 3.8 in tests.yaml workflow file."
+    }
+]
