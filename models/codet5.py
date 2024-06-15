@@ -2,13 +2,12 @@
 from transformers import pipeline
 import json
 import os
-import random
 
 os.environ['HF_HOME'] = './'
-with open('../data/chronicle/chronicle_data.json') as f:
+with open('../data/final_preprocessed_data/js_baseline_test_data_300.json') as f:
     data = json.load(f)
 
-pipe = pipeline("text2text-generation", model="JetBrains-Research/cmg-codet5-with-history")
+pipe = pipeline("text2text-generation", model="google/flan-t5-small")
 
 
 
@@ -22,4 +21,4 @@ The following is a diff which describes the code changes in a commit, Your task 
 {diffs[0]}
 According to the diff, the commit message should be:
 """
-print(pipe('prompt'))
+print(pipe(prompt))
