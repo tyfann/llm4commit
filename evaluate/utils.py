@@ -515,9 +515,9 @@ def calculate_log_MNEXT(file_path, ref_name, pred_name):
     print(f'{file_path}/{pred_name}: {log_MNEXT_score}')
 
 if __name__ == '__main__':
-    calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_gpt35.json', 'msg', 'chatgpt')
-    calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_gpt35_rag.json', 'msg', 'chatgpt_rag')
-    calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_gpt35_cot.json', 'msg', 'chatgpt_cot')
-    calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_gpt35_model_classified_rag.json', 'msg', 'chatgpt_rag')
-    calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_race.json', 'msg', 'race')
-    calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_nngen.json', 'msg', 'nngen')
+    calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_gpt35_zeroshot.json', 'msg', 'chatgpt_zeroshot')
+    calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_gpt35_rag.json', 'msg', 'chatgpt_rag')
+    calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_race.json', 'msg', 'race')
+    # calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_gpt35_model_classified_rag.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_race.json', 'msg', 'race')
+    # calculate_log_MNEXT('../data/vdo_filtered/generation/dev_test_nngen.json', 'msg', 'nngen')
