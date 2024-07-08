@@ -1,0 +1,1002 @@
+[
+    {
+        "diff": "diff --git a/packages/veui/src/components/FilterPanel.vue b/packages/veui/src/components/FilterPanel.vue @@ -89,8 +89,7 @@ export default {\n}\n},\ncreated () {\n- let me = this\n- this.debounceSearch = debounce(() => me.search(), 200)\n+ this.debounceSearch = debounce(() => this.search(), 200)\n},\nbeforeDestroy () {\nthis.debounceSearch.cancel()\n",
+        "human": "refactor: remove unnecessary me = this",
+        "race": "fix: debounce search",
+        "zeroshot": "Refactor debounceSearch function in FilterPanel.vue",
+        "rag": "refactor: FilterPanel | Use arrow function in debounceSearch initialization",
+        "classified_rag": "refactor: Remove unnecessary variable assignment in debounce function in FilterPanel.vue",
+        "nngen": "fix(vue): dynamic range slider when enableAppbase is true",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/src/use/emitter.js b/src/use/emitter.js import { getCurrentInstance } from 'vue'\n-import { capitalize } from 'element-ui/src/utils/util'\n-const EVENT_NAME_KEY = Symbol('ELEMENT_EVENTS')\n+import mitt from 'mitt'\n-export function useEmitter(instance = getCurrentInstance()) {\n- return {\n- dispatch: dispatch(instance),\n- broadcast: broadcast(instance),\n- on: on(instance),\n- once: once(instance),\n- off: off(instance)\n- }\n-}\n-\n-function on(instance) {\n- return (originalEventName, callback) => {\n- const eventName = 'on' + capitalize(originalEventName)\n+const emitter = mitt()\n- if (!instance.vnode.props) {\n- instance.vnode.props = {}\n- }\n-\n- if (!instance.vnode.props[EVENT_NAME_KEY]) {\n- instance.vnode.props[EVENT_NAME_KEY] = new Set()\n- }\n- instance.vnode.props[EVENT_NAME_KEY].add(eventName)\n+export function useEmitter() {\n+ const currentComponentInstance = getCurrentInstance()\n- if (!instance.vnode.props[eventName]) {\n- instance.vnode.props[eventName] = (...params) => {\n- const callbacks = instance.vnode.props[eventName].__events\n- if (callbacks) {\n- callbacks.forEach((cf) => {\n- cf(...params)\n- })\n- }\n- }\n- instance.vnode.props[eventName].__events = []\n- }\n- instance.vnode.props[eventName].__events.push(callback)\n+ function on(type, handler) {\n+ const handleWrapper = (e) => {\n+ const { value, type, emitComponentInstance } = e\n+ if (type === 'broadcast') {\n+ if (isChildComponent(currentComponentInstance, emitComponentInstance)) {\n+ handler && handler(value)\n}\n+ } else if (type === 'dispatch') {\n+ if (isChildComponent(emitComponentInstance, currentComponentInstance)) {\n+ handler && handler(value)\n}\n-function once(instance) {\n- const $off = off(instance)\n- const $on = on(instance)\n- return (originalEventName, handle) => {\n- const _on = (...params) => {\n- $off(originalEventName, _on)\n- handle(...params)\n- }\n- $on(originalEventName, _on)\n+ } else {\n+ handler && handler(value)\n}\n}\n-function off(instance) {\n- return (originalEventName, callback) => {\n- const eventNameList =\n- instance.vnode.props && instance.vnode.props[EVENT_NAME_KEY]\n- if (!eventNameList || !eventNameList.size) {\n- return\n+ // Save the real handler because the need to call off\n+ handler.wrapper = handleWrapper\n+ emitter.on(type, handleWrapper)\n}\n- if (!originalEventName) {\n- eventNameList.forEach((eventName) => {\n- delete instance.vnode.props[eventName]\n+ function broadcast(type, evt) {\n+ emitter.emit(type, {\n+ type: 'broadcast',\n+ emitComponentInstance: currentComponentInstance,\n+ value: evt\n})\n- eventNameList.clear()\n- return\n}\n- const eventName = 'on' + capitalize(originalEventName)\n-\n- if (!callback) {\n- delete instance.vnode.props[eventName]\n- eventNameList.delete(eventName)\n- return\n+ function dispatch(type, evt) {\n+ emitter.emit(type, {\n+ type: 'dispatch',\n+ emitComponentInstance: currentComponentInstance,\n+ value: evt\n+ })\n}\n- const handlers =\n- instance.vnode.props[eventName] &&\n- instance.vnode.props[eventName].__events\n- if (handlers && handlers.length) {\n- const index = handlers.indexOf(callback)\n- if (index > -1) {\n- handlers.splice(index, 1)\n- }\n- }\n- }\n+ function off(type, handler) {\n+ emitter.off(type, handler.wrapper)\n}\n-function dispatch(instance) {\n- return (componentName, eventName, ...params) => {\n- let parent = instance.parent\n- while (parent && parent.type.name !== componentName) {\n- parent = parent.parent\n+ function emit(type, evt) {\n+ emitter.emit(type, {\n+ value: evt\n+ })\n}\n- if (parent) {\n- parent.emit(eventName, ...params)\n- }\n+ return {\n+ on,\n+ broadcast,\n+ dispatch,\n+ off,\n+ emit\n}\n}\n-function broadcast(instance) {\n- return (componentName, eventName, ...params) => {\n- const _broadcast = (componentInstance) => {\n- if (!componentInstance) return\n+/**\n+ * check componentChild is componentParent child components\n+ * @param {*} componentChild\n+ * @param {*} componentParent\n+ */\n+function isChildComponent(componentChild, componentParent) {\n+ const parentUId = componentParent.uid\n- const children = componentInstance.subTree.children\n- if (children) {\n- children.forEach((vnode) => {\n- const childComponent = vnode.component\n-\n- if (childComponent?.type?.name === componentName) {\n- childComponent.emit(eventName, ...params)\n- } else {\n- _broadcast(childComponent)\n- }\n- })\n- }\n+ while (componentChild && componentChild?.parent?.uid !== parentUId) {\n+ componentChild = componentChild.parent\n}\n- _broadcast(instance)\n- }\n+ return Boolean(componentChild)\n}\n",
+        "human": "refactor: again implementation emitter logic",
+        "race": "feat: add event emitter",
+        "zeroshot": "Refactor emitter.js to use mitt for event handling",
+        "rag": "refactor(emitter): remove unnecessary parameter in useEmitter function and add isChildComponent helper function",
+        "classified_rag": "refactor(emitter): update useEmitter function to use mitt for event handling",
+        "nngen": "refactor(identify): refactory identity mw",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/packages/chakra-ui-docs/docs/alertdialog.mdx b/packages/chakra-ui-docs/docs/alertdialog.mdx -import Vue from 'vue'\n-import LiveEditor from '../components/LiveEditor'\n-import Code from '../components/CodeBlock'\nimport SEO from '../components/SEO'\n-import { CButton, CAlertDialog, CAlertDialogContent, CAlertDialogOverlay, CAlertDialogBody, CAlertDialogHeader, CAlertDialogFooter, CAlertDialogCloseButton } from '@chakra-ui/vue'\n-Vue.component('CButton', CButton)\n-Vue.component('CAlertDialog', CAlertDialog)\n-Vue.component('CAlertDialogContent', CAlertDialogContent)\n-Vue.component('CAlertDialogOverlay', CAlertDialogOverlay)\n-Vue.component('CAlertDialogBody', CAlertDialogBody)\n-Vue.component('CAlertDialogHeader', CAlertDialogHeader)\n-Vue.component('CAlertDialogFooter', CAlertDialogFooter)\n-Vue.component('CAlertDialogCloseButton', CAlertDialogCloseButton)\n<SEO\ntitle=\"Alert Dialog\"\n@@ -38,7 +26,8 @@ Chakra UI exports 7 alert dialog related components.\n<br />\n-<Code lang=\"javascript\" code={`import {\n+```js\n+import {\nCAlertDialog,\nCAlertDialogHeader,\nCAlertDialogBody,\n@@ -47,7 +36,7 @@ Chakra UI exports 7 alert dialog related components.\nCAlertDialogContent,\nCAlertDialogCloseButton\n} from \"@chakra-ui/vue\";\n-`} />\n+```\n## Usage\n@@ -55,12 +44,11 @@ Chakra UI exports 7 alert dialog related components.\nVue ref to a focusable element or component in your alert dialog. The `leastDestructiveRef` prop also accepts\na function that returns a ref.\n-Based on <a href=\"https://www.w3.org/TR/wai-aria-practices/#alertdialog\" target=\"_blank\">WAI-ARIA specifications for alert dialogs</a>,\n+Based on [WAI-ARIA specifications for alert dialogs](https://www.w3.org/TR/wai-aria-practices/#alertdialog)\nwhen the dialog opens, focus should be placed on the least destructive element\nto prevent users from accidentally confirming the destructive action.\n-<LiveEditor>\n-{`\n+```vue live=true\n<template>\n<div>\n<c-alert-dialog\n@@ -72,10 +60,10 @@ to prevent users from accidentally confirming the destructive action.\n<c-alert-dialog-content>\n<c-alert-dialog-header font-size=\"lg\" font-weight=\"bold\">\nDelete Customer\n- </c-alert-dialog-header>\\n\n+ </c-alert-dialog-header>\n<c-alert-dialog-body>\nAre you sure? You can't undo this action afterwards.\n- </c-alert-dialog-body>\\n\n+ </c-alert-dialog-body>\n<c-alert-dialog-footer>\n<c-button ref=\"cancelRef\" @click=\"closeDialog\">\nCancel\n@@ -90,7 +78,7 @@ to prevent users from accidentally confirming the destructive action.\nDelete Customer\n</c-button>\n</div>\n-</template>\\n\n+</template>\n<script>\nexport default {\ndata () {\n@@ -107,9 +95,8 @@ export default {\n}\n}\n}\n-<\\/script>\n-`}\n-</LiveEditor>\n+</script>\n+```\n## Accessibility\n",
+        "human": "docs: update alertdialog",
+        "race": "docs: update alertdialog docs",
+        "zeroshot": "Refactor alert dialog component imports and code formatting",
+        "rag": "refactor(chakra-ui-docs): remove unnecessary Vue imports and components, update alert dialog documentation format",
+        "classified_rag": "docs(alertdialog): remove unnecessary Vue imports and update code block syntax in documentation",
+        "nngen": "feat(docs): DialogPlugin - Ability to render with custom component",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/lib/plugins/main.js b/lib/plugins/main.js @@ -56,13 +56,11 @@ export default async (ctx, inject) => {\n<% for (service of serverServices) { %>\n<% const serviceName = serviceNames[service] %>\n- let <%= serviceName %>Ready = false\nfire.<%= serviceName %> = null\nfire.<%= serviceName %>Ready = async () => {\n- if (!<%= serviceName %>Ready) {\n+ if (!fire.<%= serviceName %>) {\nawait fire.appReady()\nfire.<%= serviceName %> = await <%= `${service}Service(session, firebase)` %>\n- <%= serviceName %>Ready = true\n}\nreturn fire.<%= serviceName %>\n@@ -72,13 +70,11 @@ export default async (ctx, inject) => {\nif (process.client) {\n<% for (service of clientServices) { %>\n<% const serviceName = serviceNames[service] %>\n- let <%= serviceName %>Ready = false\nfire.<%= serviceName %> = null\nfire.<%= serviceName %>Ready = async () => {\n- if (!<%= serviceName %>Ready) {\n+ if (!fire.<%= serviceName %>) {\nawait fire.appReady()\nfire.<%= serviceName %> = await <%= `${service}Service(session, firebase)` %>\n- <%= serviceName %>Ready = true\n}\nreturn fire.<%= serviceName %>\n",
+        "human": "refactor: remove serviceReady vars, check service directly",
+        "race": "fix: remove unnecessary `Ready` variable",
+        "zeroshot": "Refactor service initialization logic in main.js",
+        "rag": "refactor(main): simplify condition for service readiness in server and client side\n",
+        "classified_rag": "refactor: simplify service initialization logic in main plugin",
+        "nngen": "fix(modules.vps): remove api version for us region\\nref:",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/src/common/routing/index.jsx b/src/common/routing/index.jsx import {Route} from 'react-router-dom'\nimport {Users, Dashboard, Login} from 'containers'\n-import {RouteAuth} from 'components/addons'\n+import RouteAuth from 'components/addons/RouteAuth'\nimport {createBrowserHistory, createMemoryHistory} from 'history'\nexport const history = getHistory()\n",
+        "human": "refactor(src/common/routing/index.jsx): make absolute export for RouteAuth",
+        "race": "Fix RouteAuth import",
+        "zeroshot": "Refactor routing index.jsx to import RouteAuth from correct path",
+        "rag": "refactor: update import statement for RouteAuth in routing index file",
+        "classified_rag": "refactor: updated import statement for RouteAuth component",
+        "nngen": "feat(Switch): change focus to native colors",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/docusaurus/docs/adding-images-fonts-and-files.md b/docusaurus/docs/adding-images-fonts-and-files.md @@ -59,3 +59,5 @@ const App = () => (\n```\nThis is handy if you don't want to load SVG as a separate file. Don't forget the curly braces in the import! The `ReactComponent` import name is special and tells Create React App that you want a React component that renders an SVG, rather than its filename.\n+\n+> **Tip:** The imported SVG React Component accepts a `title` prop along with other props that a `svg` element accepts. Use this prop to add an accessbile title to your svg component.\n",
+        "human": "docs(svg): add tip for title props accessibility",
+        "race": "Add tip about title prop",
+        "zeroshot": "Add tip for adding accessible title to SVG React Component",
+        "rag": "docs(adding-images-fonts-and-files): add tip for adding accessible title to imported SVG component",
+        "classified_rag": "docs: Add tip for using imported SVG React Component",
+        "nngen": "chore(Styleguide): Add documentation for turning down svgo",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/packages/razzle/scripts/build.js b/packages/razzle/scripts/build.js @@ -72,7 +72,7 @@ loadRazzleConfig(webpack).then(\nconsole.log();\n},\nerr => {\n- printErrors('Failed to compile.', err, verbose);\n+ printErrors('Failed to compile.', [err], verbose);\nprocess.exit(1);\n}\n);\n",
+        "human": "fix(razzle): pass array to printerrors",
+        "race": "Fixing linting errors",
+        "zeroshot": "Fix error handling in build script",
+        "rag": "fix(razzle): update error handling in build script to pass an array of errors to printErrors function",
+        "classified_rag": "chore: update error handling in build script",
+        "nngen": "chore: Enable importing json files\\nBabel was chocking on the syntax of json files. Transform them before running babel.",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/test/common.js b/test/common.js @@ -4,6 +4,7 @@ var thunky = require('thunky')\nexports.getConfig = thunky(function (cb) {\n// Includes TURN -- needed for tests to pass on Sauce Labs\n// https://github.com/feross/simple-peer/issues/41\n+ // WARNING: This is *NOT* a public endpoint. Do not depend on it in your app.\nget.concat('https://instant.io/__rtcConfig__', function (err, res, data) {\nif (err) return cb(err)\ndata = data.toString()\n",
+        "human": "test: add warning about TURN endpoint",
+        "race": "chore: add warning about public endpoint",
+        "zeroshot": "Add warning about non-public endpoint in getConfig function",
+        "rag": "chore(testing): update common test configuration with warning message",
+        "classified_rag": "test: update getConfig function with warning message",
+        "nngen": "refactor: handle socket error",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/packages/razzle/config/babel-loader/razzle-babel-loader.js b/packages/razzle/config/babel-loader/razzle-babel-loader.js @@ -64,6 +64,7 @@ module.exports = babelLoader.custom(function(babel) {\nisServer: opts.isServer,\nisModern: opts.isModern,\nhasModern: opts.hasModern,\n+ supportsStaticESM: opts.supportsStaticESM,\ndevelopment: opts.development,\nshouldUseReactRefresh: opts.shouldUseReactRefresh,\n};\n@@ -101,6 +102,7 @@ module.exports = babelLoader.custom(function(babel) {\ndelete loader.distDir;\ndelete loader.isModern;\ndelete loader.hasModern;\n+ delete loader.supportsStaticESM;\ndelete loader.development;\ndelete loader.shouldUseReactRefresh;\nreturn { loader, custom };\n@@ -112,6 +114,7 @@ module.exports = babelLoader.custom(function(babel) {\nconst isServer = customOptions.isServer;\nconst isModern = customOptions.isModern;\nconst hasModern = customOptions.hasModern;\n+ const supportsStaticESM = customOptions.supportsStaticESM;\nconst development = customOptions.development;\nconst shouldUseReactRefresh = customOptions.shouldUseReactRefresh;\n@@ -134,6 +137,7 @@ module.exports = babelLoader.custom(function(babel) {\npresetOptions.caller.isServer = isServer;\npresetOptions.caller.isModern = isModern;\npresetOptions.caller.isDev = development;\n+ presetOptions.caller.supportsStaticESM = supportsStaticESM;\nconst emitWarning = this.emitWarning.bind(this);\nObject.defineProperty(presetOptions.caller, 'onWarning', {\n",
+        "human": "feat(babel-loader): add supportsStaticESM option",
+        "race": "Add supportStaticESM to diff",
+        "zeroshot": "Add support for static ESM in babel loader configuration",
+        "rag": "refactor: update babel-loader config to include supportsStaticESM option",
+        "classified_rag": "refactor: remove supportsStaticESM option from babel loader config",
+        "nngen": "chore: add config for remote debugging",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/docs/src/examples/addons/TextArea/Usage/index.js b/docs/src/examples/addons/TextArea/Usage/index.js @@ -9,7 +9,7 @@ const TextAreaUsageExamples = () => (\n<Segment>\n<Message warning>\n<Message.Header>Auto height</Message.Header>\n- We don't support `autoHeight` more. If you need this feature you can use{' '}\n+ We don't support `autoHeight` anymore. If you need this feature you can use{' '}\n<a\nhref='https://www.npmjs.com/package/react-textarea-autosize'\nrel='noopener noreferrer'\n",
+        "human": "docs(TextArea): fix verbiage in TextArea docs\nChange the phrase  \"don't support more\" to \"don't support anymore\" in the TextArea docs source, for proper English grammar",
+        "race": "Fix typo in textarea example",
+        "zeroshot": "Fix typo in commit message",
+        "rag": "fix(textareausageexamples): typo correction in autoHeight message",
+        "classified_rag": "docs(textarea): fix typo in message about autoHeight support\nclose",
+        "nngen": "fix(command-status): site info is missing for sites without netlify.toml",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/stories/10-Toast.stories.js b/stories/10-Toast.stories.js import { storiesOf } from '@storybook/vue'\nimport { Button } from '../packages/kiwi-core/src'\n+import { colorModeObserver } from '../packages/kiwi-core/src/utils/color-mode-observer'\n+\n+const watch = {\n+ $theme: {\n+ immediate: true,\n+ handler (theme) {\n+ colorModeObserver.theme = theme()\n+ }\n+ },\n+ $icons: {\n+ immediate: true,\n+ handler (icons) {\n+ colorModeObserver.icons = icons\n+ }\n+ }\n+}\nstoriesOf('UI | Toast', module)\n.add('Simple Toast', () => ({\ncomponents: { Button },\n+ watch,\ninject: ['$theme', '$icons'],\nmethods: {\nshowToast () {\n@@ -24,6 +41,7 @@ storiesOf('UI | Toast', module)\n}))\n.add('With status', () => ({\ncomponents: { Button },\n+ watch,\ninject: ['$theme', '$icons'],\nmethods: {\ninfoToast () {\n@@ -78,6 +96,7 @@ storiesOf('UI | Toast', module)\n}))\n.add('With variant', () => ({\ncomponents: { Button },\n+ watch,\ninject: ['$theme', '$icons'],\nmethods: {\nsuccessToast (variant = 'solid') {\n",
+        "human": "fix(storybook): fix toast issue in storybook",
+        "race": "Add color mode observer to Toast story",
+        "zeroshot": "Add color mode observer for theme and icons in Toast component.",
+        "rag": "feat(Toast): Added color mode observer for theme and icons in Toast component",
+        "classified_rag": "refactor(toast): add color mode observer for theme and icons\ncode diff type: refactor",
+        "nngen": "fix(Test): Simplify test data",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/src/utils/resize-event.js b/src/utils/resize-event.js +import { onMounted, getCurrentInstance } from 'vue'\nimport ResizeObserver from 'resize-observer-polyfill'\nconst isServer = typeof window === 'undefined'\n@@ -14,6 +15,36 @@ const resizeHandler = function(entries) {\n}\n}\n+export const useResizeEvent = () => {\n+ let element = null\n+\n+ const addResizeListener = (fn) => {\n+ element.__resizeListeners__.push(fn)\n+ }\n+\n+ const removeResizeListener = (fn) => {\n+ if (!element || !element.__resizeListeners__) return\n+ element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1)\n+ if (!element.__resizeListeners__.length) {\n+ element.__ro__.disconnect()\n+ }\n+ }\n+ onMounted(() => {\n+ element = getCurrentInstance().vnode.el\n+ if (isServer) return\n+ if (!element.__resizeListeners__) {\n+ element.__resizeListeners__ = []\n+ element.__ro__ = new ResizeObserver(resizeHandler)\n+ element.__ro__.observe(element)\n+ }\n+ })\n+\n+ return {\n+ addResizeListener,\n+ removeResizeListener\n+ }\n+}\n+\n/* istanbul ignore next */\nexport const addResizeListener = function(element, fn) {\nif (isServer) return\n",
+        "human": "feat: add implementation based on vue3 for resize-event.js",
+        "race": "feat: add useResizeEvent util",
+        "zeroshot": "Add useResizeEvent hook for handling resize events",
+        "rag": "feat: add useResizeEvent hook for handling resize events in Vue components",
+        "classified_rag": "feat: implement useResizeEvent hook for adding and removing resize listeners",
+        "nngen": "refactor: reuse rectToClientRect util",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/scripts/createComponent/builders.js b/scripts/createComponent/builders.js @@ -54,24 +54,11 @@ storiesOf('${componentName}', module)\n// Output generated for component's test file\nbuildTestJs: componentName =>\n`import React from 'react';\n-import createSnapshotTest from 'test-utils/createSnapshotTest';\nimport { render, act } from '@testing-library/react';\nimport ${componentName} from '../${componentName}';\ndescribe('${componentName}', () => {\n- it('should render with required props', () => {\n- createSnapshotTest(<${componentName}>Test</${componentName}>);\n- });\n-\n- it('should render with many props assigned', () => {\n- createSnapshotTest(\n- <${componentName} className=\"test-class\">\n- Test\n- </${componentName}>,\n- );\n- });\n-\nit('should not render', () => {\nconst { container } = render(<${componentName} />);\n",
+        "human": "feat: removing snapshop testing",
+        "race": "Remove snapshot tests",
+        "zeroshot": "Refactor test file for better readability and maintainability",
+        "rag": "chore(builders): remove unnecessary createSnapshotTest import",
+        "classified_rag": "test(scripts/createComponent): refactor test file for ${componentName} component",
+        "nngen": "test(Root): add MoleculePagination tests",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/stories/Index.stories.mdx b/stories/Index.stories.mdx @@ -7,7 +7,7 @@ import { Button } from 'reactstrap';\n### Reactstrap is a [React](https://reactjs.org) component library for [Bootstrap](https://getbootstrap.com)\n-Reactstrap is currently compatible with Bootstrap 5.1. If you are using Bootstrap 4, you'll need to use [Reactstrap v8](/legacy/8.10.1)\n+Reactstrap is currently compatible with Bootstrap 5.1. If you are using Bootstrap 4, you'll need to use [Reactstrap v8](./legacy/8.10.1)\n## Getting Started\n",
+        "human": "chore: fix link to legacy docs",
+        "race": "Fix broken link in diff",
+        "zeroshot": "Update link to Reactstrap v8 in Index.stories.mdx",
+        "rag": "docs(Index): update Reactstrap compatibility information for Bootstrap 4 users",
+        "classified_rag": "docs(Index): update Reactstrap compatibility information",
+        "nngen": "feat: adding expo qr code to readme",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/src/common/components/addons/LazyLoad/index.jsx b/src/common/components/addons/LazyLoad/index.jsx @@ -23,15 +23,18 @@ class LazyLoad extends Component {\ncomponentToRender: null\n}\n- async componentWillMount () {\n- const {component} = this.props\n- const componentToRender = await component()\n+ async load () {\n+ const componentToRender = await this.props.component()\nthis.setState({\ncomponentLoaded: true,\ncomponentToRender: componentToRender.default\n})\n}\n+ componentWillMount () {\n+ this.load()\n+ }\n+\nrender () {\nconst {componentLoaded} = this.state\n@@ -41,6 +44,8 @@ class LazyLoad extends Component {\n: 'NO'}`\n)\n+ // console.log(this.state.componentToRender)\n+\nif (componentLoaded) {\nconst props = _.omit(this.props, ['component'])\nconst LoadedComponent = this.state.componentToRender\n",
+        "human": "refactor(LazyLoad): move component loading outside of willMount\nrefactor(LazyLoad): move component loading outside of willMount",
+        "race": "fix lazy load",
+        "zeroshot": "Refactor componentWillMount to use a separate load function in LazyLoad component",
+        "rag": "refactor(common/components): move component loading logic to separate function in LazyLoad component",
+        "classified_rag": "refactor(LazyLoad): move component loading logic to separate function for better readability",
+        "nngen": "feat(atom/accordion): add prop to enable autoclose between collapsible children",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/packages/veui/src/mixins/key-select.js b/packages/veui/src/mixins/key-select.js @@ -116,9 +116,7 @@ const useKeySelect = ({ useNativeFocus, handlers, expandedKey = 'expanded' }) =>\ncase 'Escape':\ncase 'Left':\ncase 'ArrowLeft':\n- if (typeof this.close === 'function') {\n- this.close()\n- }\n+ this[expandedKey] = false\nbreak\ncase 'Up':\ncase 'ArrowUp':\n",
+        "human": "refactor: use `expandedKey` instead of implicitly relying on `close`",
+        "race": "fix: close function is not defined",
+        "zeroshot": "Refactor key-select mixin to close expanded item using property assignment.",
+        "rag": "refactor(veui): simplify key-select logic for closing the component",
+        "classified_rag": "refactor(KeySelectMixin): Simplify close method call in key select mixin by directly setting expandedKey to false",
+        "nngen": "fix: [Bug] QSelect does not allow white space in filter",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/src/modules/Popup/Popup.js b/src/modules/Popup/Popup.js @@ -117,10 +117,10 @@ export default class Popup extends Component {\ntrigger: PropTypes.node,\n/** Popup width. */\n- wide: PropTypes.oneOfType(\n+ wide: PropTypes.oneOfType([\nPropTypes.bool,\nPropTypes.oneOf(['very']),\n- ),\n+ ]),\n}\nstatic defaultProps = {\n",
+        "human": "fix(Popup): fix in propTypes\nFixes",
+        "race": "fix: fix proptypes",
+        "zeroshot": "Fix PropTypes declaration in Popup component",
+        "rag": "fix(ui5-popup): correct PropTypes for wide prop",
+        "classified_rag": "fix(Popup): correct PropTypes for wide prop",
+        "nngen": "chore(card): update prop types to match new enums for range",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/config/environment.js b/config/environment.js /* eslint-env node */\nmodule.exports = function(environment) {\n- let ALGOLIA_APP_ID = process.env.ALGOLIA_APP_ID || 'N4SO04CV0R';\n- let ALGOLIA_API_KEY = process.env.ALGOLIA_API_KEY || '0b28a7a3adf986fa5d402567d9d8b850';\n+ let ALGOLIA_APP_ID = process.env.ALGOLIA_APP_ID || 'Y1OMR4C7MF';\n+ let ALGOLIA_API_KEY = process.env.ALGOLIA_API_KEY || 'c35425b69b31be1bb4786f0a72146306';\nlet ENV = {\nmodulePrefix: 'ember-api-docs',\n",
+        "human": "feat(environment): Updates config for algolia",
+        "race": "Update Algolia credentials",
+        "zeroshot": "Update Algolia credentials in environment.js",
+        "rag": "chore: update default values for ALGOLIA_APP_ID and ALGOLIA_API_KEY in environment.js",
+        "classified_rag": "refactor: Update default Algolia credentials in environment config",
+        "nngen": "chore: add SKIP_METAMASK_INSTALL",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/packages/veui-theme-dls/components/NumberInput.js b/packages/veui-theme-dls/components/NumberInput.js @@ -32,12 +32,8 @@ config.defaults(\nspinner: ''\n},\nicons: {\n- increase ({ style }) {\n- return ICON_MAP[style].increase\n- },\n- decrease ({ style }) {\n- return ICON_MAP[style].decrease\n- }\n+ increase: ({ style }) => ICON_MAP[style].increase,\n+ decrease: ({ style }) => ICON_MAP[style].decrease\n}\n},\n'numberinput'\n",
+        "human": "refactor: minor tweak to part fn exp",
+        "race": "fix: fix numberinput icon map",
+        "zeroshot": "Refactor NumberInput component icons to use arrow function syntax.",
+        "rag": "refactor: updated NumberInput icons to use arrow functions",
+        "classified_rag": "refactor: Simplify icon functions in NumberInput component",
+        "nngen": "style(text): fix code style",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/webpack_config/server/webpack.base.js b/webpack_config/server/webpack.base.js @@ -65,7 +65,9 @@ const baseWebpackConfig = {\nextensions: isomorphicWebpackConfig.resolve.extensions,\nmodules: isomorphicWebpackConfig.resolve.modules,\nalias: {\n- ...isomorphicWebpackConfig.resolve.alias\n+ ...isomorphicWebpackConfig.resolve.alias,\n+ 'webpack-assets': `${CLIENT_DIST_PATH}/webpack-assets.json`,\n+ 'favicons-assets': `${CLIENT_DIST_PATH}/favicons-stats.json`\n// create_server: createServerAliasPath\n}\n},\n",
+        "human": "feat(server/webpack.base): add 'webpack-assets' and 'favicons-assets' to aliases\nfeat(server/webpack.base): add 'webpack-assets' and 'favicons-assets'\nto aliases",
+        "race": "Add webpack-assets and favicons-stats aliases",
+        "zeroshot": "Add webpack-assets and favicons-assets aliases to base webpack config",
+        "rag": "feat: Add webpack-assets and favicons-assets aliases to baseWebpackConfig",
+        "classified_rag": "build: add webpack-assets and favicons-assets aliases in webpack base config",
+        "nngen": "fix: support es20215 to es5",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/website/package.json b/website/package.json },\n\"dependencies\": {\n\"@chakra-ui/theme-vue\": \"^0.2.7\",\n- \"@chakra-ui/vue\": \"^0.6.4\",\n+ \"@chakra-ui/vue\": \"^0.6.5\",\n\"@fortawesome/free-brands-svg-icons\": \"^5.12.0\",\n\"@fortawesome/free-solid-svg-icons\": \"^5.11.2\",\n\"@mdx-js/vue-loader\": \"^1.6.1\",\n",
+        "human": "chore: bump docs version",
+        "race": "chore: update vue to 0.6.5",
+        "zeroshot": "Update Chakra UI Vue dependency to version 0.6.5",
+        "rag": "chore: update @chakra-ui/vue version to 0.6.5",
+        "classified_rag": "docs: update chakra-ui/vue version to 0.6.5",
+        "nngen": "feat(app): upgrade vue-router to v4.0.8",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/src/__tests__/PopperContent.spec.js b/src/__tests__/PopperContent.spec.js @@ -117,8 +117,6 @@ describe('PopperContent', () => {\nit('should have x-placement of auto by default', () => {\nconst wrapper = mount(<PopperContent target=\"target\" isOpen container=\"inline\">Yo!</PopperContent>);\n- console.log(wrapper.debug());\n-\nexpect(wrapper.find('div[x-placement=\"auto\"]').exists()).toBe(true);\n});\n",
+        "human": "test(PopperContent): remove debug statement\ntest(PopperContent): remove debug statement",
+        "race": "Remove debug log from test",
+        "zeroshot": "Remove console.log statement in PopperContent.spec.js test",
+        "rag": "src(tests): remove console.log statement",
+        "classified_rag": "test: remove console.log from PopperContent.spec.js test case",
+        "nngen": "feat(remove failing test): remove failing test",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/packages/vega/src/component/Histogram/test/histogram.spec.js b/packages/vega/src/component/Histogram/test/histogram.spec.js @@ -11,6 +11,13 @@ test('Histogram component', t => {\nconst height = 400;\nconst maxBins = 10;\n+ // Count how many \"classes\" there are -- each one will be represented by a\n+ // rect mark.\n+ let classes = new Set();\n+ data.forEach(d => {\n+ classes.add(d.a);\n+ });\n+\nlet el = document.createElement('div');\nlet vis = new Histogram(el, {\ndata,\n@@ -26,7 +33,7 @@ test('Histogram component', t => {\n.select('.mark-rect.role-mark.marks')\n.selectAll('path')\n.nodes();\n- t.equal(bars.length, maxBins, 'Plot has correct number of bin marks');\n+ t.equal(bars.length, classes.size, 'Plot has correct number of bin marks');\nt.end();\n});\n",
+        "human": "test(vega): update test strategy for histogram",
+        "race": "Fix histogram test",
+        "zeroshot": "Refactor Histogram component to dynamically calculate number of bin marks based on unique classes.",
+        "rag": "feat(vega): Update histogram component to dynamically adjust number of bin marks based on data classes",
+        "classified_rag": "test(histogramspec): update histogram test for correct number of bin marks",
+        "nngen": "test: array of schemas with r.is.valid",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/website/index.html b/website/index.html <p><a href=\"https://www.casinoenvivo.com/blackjack\"><img\nsrc=\"https://images.opencollective.com/casino-en-vivo/1340a53/logo/256.png\" style=\"margin-top:20px\"\nwidth=\"120\"></a></p>\n+\n+ <p><a href=\"https://kasynohex.com/\"><img\n+ src=\"https://images.opencollective.com/kasynohex-com/b25daf6/logo/256.png\" style=\"margin-top:20px\"\n+ width=\"120\"></a></p>\n+\n+ <p><a href=\"https://netticasinohex.com/\"><img\n+ src=\"https://images.opencollective.com/netticasinohex-com/71d7417/logo/256.png\" style=\"margin-top:20px\"\n+ width=\"120\"></a></p>\n+\n+ <p><a href=\"https://aussiecasinohex.com/\"><img\n+ src=\"https://images.opencollective.com/aussiecasinohex/923df37/logo/256.png\" style=\"margin-top:20px\"\n+ width=\"120\"></a></p>\n</div>\n</div>\n</main>\n",
+        "human": "docs: new sponsors\n[skip ci]",
+        "race": "Add new logo links",
+        "zeroshot": "Add logos and links for new casino websites.",
+        "rag": "chore: add opencollective sponsors: kasynohex.com, netticasinohex.com, aussiecasinohex.com",
+        "classified_rag": "website: update sponsor logos",
+        "nngen": "chore: add opencollective sponsors: top web design companies, casino top",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/packages/chakra-ui-core/src/CAlertDialog/CAlertDialog.js b/packages/chakra-ui-core/src/CAlertDialog/CAlertDialog.js +/**\n+ * Hey! Welcome to @chakra-ui/vue AlertDialog\n+ *\n+ * AlertDialog component is used interrupt the user with\n+ * a mandatory confirmation or action.\n+ *\n+ * An alert dialog is a modal dialog that interrupts the user's\n+ * workflow to communicate an important message and acquire a response.\n+ * Examples include action confirmation prompts and error message confirmations.\n+ * The `alertdialog` role enables assistive technologies and browsers to\n+ * distinguish alert dialogs from other dialogs so they have the option\n+ * of giving alert dialogs special treatment, such as playing a system alert sound.\n+ *\n+ * @see Docs https://vue.chakra-ui.com/alertdialog\n+ * @see Source link to source\n+ * @see A11y https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CAlertDialog/accessibility.md\n+ * @see WAI-ARIA https://www.w3.org/TR/wai-aria-practices-1.2/#alertdialog\n+ */\n+\n+\n+\nimport baseProps from '../config/props'\nimport { forwardProps, HTMLElement } from '../utils'\n",
+        "human": "feat(alertdialog): added accessibility.md",
+        "race": "docs: alertdialog",
+        "zeroshot": "Add documentation and import statements for AlertDialog component",
+        "rag": "docs(alertdialog): add documentation for AlertDialog component",
+        "classified_rag": "docs(chakra-ui-core): update AlertDialog component documentation",
+        "nngen": "docs: update plans",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"sass-loader\": \"^8.0.0\",\n\"styled-system\": \"^5.1.2\",\n\"v-scroll-lock\": \"^1.1.0\",\n- \"vue\": \"^2.6.10\",\n\"vue-loader\": \"^15.7.1\",\n\"vue-lorem-ipsum\": \"^0.0.1\",\n\"vue-template-compiler\": \"^2.6.10\"\n",
+        "human": "chore: improve dependency tree",
+        "race": "Remove vue from diff",
+        "zeroshot": "Remove vue dependency from package.json",
+        "rag": "fix(app): update vue-loader version to 15.7.1",
+        "classified_rag": "chore: remove vue dependency and update package.json",
+        "nngen": "fix(app): correctly specify vue-router version",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"scripts\": {\n\"install\": \"lerna bootstrap --hoist\",\n\"clean:lerna\": \"lerna clean\",\n- \"clean:dist\": \"sh scripts/clean-all\",\n- \"build\": \"sh scripts/build-all\",\n+ \"clean:dist\": \"bash scripts/clean-all\",\n+ \"build\": \"bash scripts/build-all\",\n\"build:examples\": \"cd packages/examples && npm run build\",\n\"examples\": \"cd packages/examples && npm run serve\",\n- \"build:test\": \"sh scripts/build-test\",\n- \"build:coverage\": \"COVERAGE=1 sh scripts/build-test\",\n- \"test:unit\": \"sh scripts/run-test\",\n+ \"build:test\": \"bash scripts/build-test\",\n+ \"build:coverage\": \"COVERAGE=1 bash scripts/build-test\",\n+ \"test:unit\": \"bash scripts/run-test\",\n\"test:image\": \"cd packages/examples && npm test\",\n- \"test:coverage\": \"COVERAGE=1 sh scripts/run-test\",\n+ \"test:coverage\": \"COVERAGE=1 bash scripts/run-test\",\n\"coverage:report\": \"http-server build/coverage/html -p ${PORT-3000}\",\n\"build:docs\": \"sphinx-build -a -b html docs/ build/docs/\",\n- \"lint\": \"sh scripts/run-lint\",\n+ \"lint\": \"bash scripts/run-lint\",\n\"lint:pycandela\": \"flake8 --config python/pycandela/flake8.cfg python/pycandela\",\n\"docs\": \"http-server build/docs -p ${PORT-3000}\",\n\"commit\": \"git-cz\",\n",
+        "human": "ci: use bash instead of sh",
+        "race": "chore: use bash instead of sh",
+        "zeroshot": "Refactor scripts to use bash instead of sh for consistency.",
+        "rag": "chore: update build and test scripts to use bash instead of sh for cross-platform compatibility",
+        "classified_rag": "chore: update build and test scripts to use bash instead of sh",
+        "nngen": "chore: Move coverage script to npm scripts",
+        "type": "ci"
+    },
+    {
+        "diff": "diff --git a/src/server.js b/src/server.js -import { createServer } from 'http';\nimport ws from 'ws';\nimport sirv from 'sirv';\nimport polka from 'polka';\nimport parse from '@polka/url';\n+import { createServer } from 'http';\nimport compression from './lib/polkompress.js';\n/**\n",
+        "human": "chore: juggle :)",
+        "race": "Fix import order in diff",
+        "zeroshot": "Fix import statement for compression module",
+        "rag": "refactor: import compression module for server.js",
+        "classified_rag": "refactor: update imports in server.js",
+        "nngen": "refactor: :rotating_light: remove unused import",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/src/common/actions/auth/index.test.js b/src/common/actions/auth/index.test.js @@ -16,7 +16,7 @@ describe('Auth actions', () => {\n* @arg {Function} done - is a callback that you need to execute,\n* If your action performing async task (e.g. request to API)\n*/\n- it('creates LOGIN_AUTH_SUCCESS when LOGIN_AUTH was successful', done => {\n+ test('creates LOGIN_AUTH_SUCCESS when LOGIN_AUTH was successful', function (done) {\n// Create expected output of your action\nconst expectedActions = {\ntype: actions.LOGIN_AUTH_SUCCESS,\n@@ -26,12 +26,45 @@ describe('Auth actions', () => {\n}\n// Create store for testing\nconst store = mockStore({})\n+ // try {\n// Dispatch action\n- return store.dispatch(actions.LOGIN_AUTH).then(res => {\n+ store\n+ .dispatch(actions.LOGIN_AUTH)\n+ .then(res => {\n+ // That means that there is no server that can respond to the request\n+ // NOTE:\n+ if (!res.errors) {\n+ console.error(`There is no server that can respond to the '/auth' request!`)\n+ expect(true).toEqual(true)\n+ return done()\n+ }\n// Compare expected and real outputs\nexpect(res).toEqual(expectedActions)\n// Call `done()` callback, because action is async\ndone()\n})\n})\n+\n+ test('creates LOGIN_AUTH_FAIL when LOGIN_AUTH was unsuccessful', function (done) {\n+ // Create expected output of your action\n+ const expectedActions = {\n+ type: actions.LOGIN_AUTH_FAIL,\n+ result: {\n+ errors: {}\n+ }\n+ }\n+ // Create store for testing\n+ const store = mockStore({})\n+ // try {\n+ // Dispatch action\n+ store\n+ .dispatch(actions.LOGIN_AUTH)\n+ .then(res => {\n+\n+ // Compare expected and real outputs\n+ expect(res.type).toEqual(expectedActions.type)\n+ // Call `done()` callback, because action is async\n+ done()\n+ })\n+ })\n})\n",
+        "human": "feat(actions/auth): add test to handle LOGIN_AUTH_FAIL, fix LOGIN_AUTH_SUCCESS test\nfeat(actions/auth): add test to handle LOGIN_AUTH_FAIL. Test that\nhandles LOGIN_AUTH_SUCCESS now is passed even if no local server is\nfound",
+        "race": "Add tests for auth action",
+        "zeroshot": "Refactor auth actions test to use 'test' instead of 'it' and add test for LOGIN_AUTH_FAIL case",
+        "rag": "test(auth): Add test case for LOGIN_AUTH_FAIL action in auth actions",
+        "classified_rag": "test(auth): Add a test to check that LOGIN_AUTH_FAIL action is dispatched when LOGIN_AUTH was unsuccessful",
+        "nngen": "fix(Test): Simplify test data",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/config/environment.js b/config/environment.js @@ -59,7 +59,7 @@ module.exports = function(environment) {\nENV.contentSecurityPolicy = {\n\"default-src\": \"'self' *.fastly.net\",\n- \"connect-src\": \"'self' https://s3.amazonaws.com *.algolia.net *.fastly.net\",\n+ \"connect-src\": \"'self' https://s3.amazonaws.com *.algolia.net *.algolianet.com *.fastly.net\",\n\"script-src\": \"'self' unsafe-inline use.typekit.net 'sha256-36n/xkZHEzq3lo4O+0jXMYbl+dWu3C8orOFHtcAH6HU=' *.fastly.net https://www.google-analytics.com\",\n\"font-src\": \"'self' data://* https://fonts.gstatic.com *.fastly.net\",\n\"img-src\": \"'self' data://* *.fastly.net https://www.google-analytics.com\",\n",
+        "human": "fix(environment): Fix content security policy",
+        "race": "Add Algolianet to S3 S3 S3 S3 S3 connect",
+        "zeroshot": "Update connect-src in contentSecurityPolicy to include *.algolianet.com",
+        "rag": "style(security): update content security policy for connect sources in environment config",
+        "classified_rag": "chore: update connect-src in content security policy",
+        "nngen": "docs: ok to load images from domain",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/index.d.ts b/index.d.ts /// <reference types=\"jquery\" />\n-interface BootstrapTableHtml{\n- searchInput: string;\n- searchButton: string;\n- pagination: string[];\n- pageDropdown: string[];\n- inputGroup: string;\n- toolbarDropdown: string[];\n- icon: string;\n- pageDropdownItem: string;\n- paginationItem: string;\n- toolbarDropdownSeparator: string;\n- dropdownCaret: string;\n- searchClearButton: string;\n- toolbarDropdownItem: string\n-}\n-\ninterface BootstrapTableIcons {\ntoggleOff: string;\nclearSearch: string;\n@@ -62,7 +46,7 @@ interface BootstrapTableEvents{\n'scroll-body.bs.table': string\n}\n-interface BootstrapTableColumn{\n+export interface BootstrapTableColumn {\nsortName?: any;\nwidthUnit?: string;\nsorter?: any;\n@@ -98,7 +82,7 @@ interface BootstrapTableColumn{\ncardVisible?: boolean\n}\n-interface BootstrapTableLocale{\n+export interface BootstrapTableLocale {\nformatPaginationSwitchDown?: () => string;\nformatColumns?: () => string;\n@@ -141,7 +125,7 @@ interface BootstrapTableLocale{\nformatRecordsPerPage(pageNumber: number): string\n}\n-interface BootstrapAjaxParams{\n+export interface BootstrapAjaxParams {\ncache: boolean;\ndata: {\nsearch: string;\n@@ -157,7 +141,7 @@ interface BootstrapAjaxParams{\nsuccess: (results: any, textStatus?: string, jqXHR?: JQueryXHR) => any;\n}\n-interface BootstrapTableOptions{\n+export interface BootstrapTableOptions {\nonCheck?: (row: any, $element: JQuery<HTMLElement>) => boolean | undefined;\nloadingFontSize?: string;\nonDblClickCell?: (field: string, value: any, row: any, $element: JQuery<HTMLElement>) => boolean | undefined;\n",
+        "human": "feat: Export TypeScript types",
+        "race": "Export all types",
+        "zeroshot": "Refactor BootstrapTable interfaces and export necessary types",
+        "rag": "refactor: export BootstrapTableColumn, BootstrapTableLocale, BootstrapAjaxParams, and BootstrapTableOptions interfaces",
+        "classified_rag": "refactor: export all interfaces in index.d.ts for better accessibility",
+        "nngen": "refactor: :recycle: change global type definitions",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/README.md b/README.md @@ -145,7 +145,7 @@ export default {\nYou can also view all developed components in **[Storybook](https://chakra-ui-vue.netlify.com)!**\n### Development for Contributing:\n-Interested in contributing? See our open issues! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.\n+Interested in contributing? See our [open issues](/issues)! Remember to take a look at our [CONTRIBUTORS](../../.github/CONTRIBUTING.md) guide.\n```bash\nyarn install\n",
+        "human": "docs: add link to open issues",
+        "race": "docs: fix link to open issues",
+        "zeroshot": "Update link to open issues in README.md",
+        "rag": "docs: update link to open issues in README for contributing section",
+        "classified_rag": "docs: update link to open issues in contribution section",
+        "nngen": "docs: Fix contributing guidelines link",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/docs/guide/introduction/README.md b/docs/guide/introduction/README.md @@ -23,4 +23,4 @@ The module adds a plugin to your Nuxt.js application that handles the initializa\n## Disclaimer\n-This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is possibly not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you wan't your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.\n+This module is meant for easy and quick set-up of Firebase in a Nuxt project. Due to the nature of this module, it is possibly not optimal for websites that need to be super performant and/or SEO friendly, since the module adds the Firebase services to the global scope. If you want your website to be more performant, you'd probably be better off by importing the services only in the files where you need them (i.e. by NOT using this module). That being said, the difference might be marginal depending on your project.\n",
+        "human": "docs(guide/introduction): fix typo",
+        "race": "docs(docs): fix typo in Disclaimer",
+        "zeroshot": "Update README.md to fix typo in word \"wan't\" to \"want\"",
+        "rag": "docs: update Firebase module disclaimer for Nuxt project",
+        "classified_rag": "docs: update disclaimer in Firebase setup guide",
+        "nngen": "fix: solve merge issues",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/.travis.yml b/.travis.yml @@ -29,9 +29,10 @@ before_deploy:\n- npm run build\ndeploy:\nprovider: npm\n- email: dumbdrum@gmail.com\n+ email:\n+ secure: AUw8fn5gmJKKXzSvLs+vUZRz/htXtUAApRCy6SD7EZyQMHiFMfXCXdOIcSCyiOsxlvsh+Wv12qmfKySd3Yi3exeGbuZ/rQcK+i582iVBiBVRru2wcQ5iN9E21zgaRYk8c3lHWGDzorrJfr3dMbhmi4atmvrMg/u/jVLmz5h4Y8pHZeJ24WSl26NJo4WH2ibjOADfwKZmTH4jPMICKXpMvmUJ7K49LPE8MRHJRwSefadwtVcLuHHBqNOmDmUfNF9bEgTm0FnOtwEycsS6y1seB6pTOyidz9N5F5fB1eCyVuc/ev27Bvw6HL+i8anchtgGlGJyW/yL6yxycNfkGWaoJ243GhMbt4PTNwtiksolGvbgJ071yoRVqV/8m8tnTJWyShy16Y96hD2vFKV8lj4Fru3Ad8s0VU40ebslOa1IlzrmxxuUYOhX9Ir1ryHgnf7AEnVwie0p0IbJJY/SqPsa3kIyeoG9RePoruzS+v685GMRM+O7ZN34x4H2UogzWIql9IvpGAUdO5FDP9Ww8BkuLEv4myTZh7x4chqYLKQXoPIBzCzdbO8Hl4t7BYgFB2OLaTdcqPvjeANp7EtDzemCYFtNLuS34HKHQCwKcfr+Ar6/ZDlSKdWu0w7XC5jk0rYrDn97BKnbnNmn77d6ZWr6bzo439pCu91jW6DEyI6iAOM=\napi_key:\n- secure: Fth8EnmhP+/TV7Uj5Czz3nwuek40GOnIlWRppqGs2IA+Q/le7V3R4xvgTlA/p5xN17IH1EhT/UVZBoNd1lOi6wcbgqrkeqPTarqNbkhzaEFJokNBkOJR7FmGC41Y76XbqPl2zeU//p+7dtrCEUacXCDWEfoCjA34GHaD0snd2yuPXYH0FOy1YkydauqGjLg8Y65g3f94xxAnY2Wm2TJzC5rnCjKPMXKEKAX6LpI5UIbq8UDPP8sFv+JpAkgI1/ygY8daBOeIurJEUUoVNazZWtvgdMFcBlL90QbP62HTU1vGTMK7cNT64COTlOrP4BdvIgWh1KaYXiboEwFrooA3fp/1KDNcCC1sXmXa2UoFOAUh9vr4SFBA8vE7tjWEvYtI2zCVD8b5ekLGfPandezKolh8V3sbeJrDFhY0G9lap8ftHWQejohvG/6xjI+/pe+UDpHH1USIqf0DtAnDn5mNWWav/5xCp8HlsIsmh5EKCM3//a8aWY6H+eMfeEFPzU/X3jC4ZUGZ+D5ZGQQ/NX9tvyeoH0pnRnlZil8MAjf/e2/IWu66ruAUde3eMpX4h+w0q8bVGvH4ObR7QKiJdTntwJSsp9iO4uBHTSpoo9yYO9ycepMAc5af0Np7K1xOv7ja5BvMesSVzyZsbDK3Q8iOOWBDk54bqV7PrFtRPn+VIjk=\n+ secure: vnNNG+s14Yqnnj/ZjvMnAvsxd+QeLDlfo/iDA0EyHoFIBaSpApYoPzNd2FSZKyI/2kMYdKwUT40DF/qS+NBbhKY2M/HPUqomDny6Lw7XJKI7gTmtA2trlUR/fcHucOjW8PhMqQhB90J8J/RuWK2nS1Y3Mrhwtkbx0ShRl2mnWeysFOfrNywIi3bMDfUVWwQNcnC8c+w09F/S9tZKjjSSzcK9/raEwvZ2iSr2H6HRdlqf7JEl2H6F3k7ltx01FzIzdoTMAYsNENWDZfZUd8vfjmTfbtvVQC6n6uZd28PB1AGdsgy27aeBUe+C28UDlX6p3p6rRsPoLHXYx4hWlGmQvfIyl+vxlSiv8WcOJy2NnXnoJhMeYNmJVEQpBzWlI906z5UCn5+A3E+mPEKXg0jI/uQF5CFguMwwu2vl5N03ZNtD9tdFR0b53N+GCGkOF7jq7SeviR7b3/YmdHi9q5hFEmBXdYFzajxsaqUDYvHtVnjHSW3yT8pnxOvnG7JErg28bTdcYRHc//IVImjktFFsX85ukbGsgAwQAP9oVU0Wz7b0aQ0REnyW2aMroy1JGs8z/voM4aiNfvF6GwrBysWd4AYkalisjkq/LY1G3NDxU9gvPfRIIckgbQcgJ98eSHlG/2i7HqKlSH9Hf2LBAzkhwke3BTaI/hAuq3k0wDIVSY0=\nskip_cleanup: true\non:\ntags: true\n",
+        "human": "chore: try to fix automatic releases",
+        "race": "chore: update npm token",
+        "zeroshot": "Update npm email in Travis CI configuration",
+        "rag": "build: update npm email and api_key in travis.yml",
+        "classified_rag": "ci(travis): update npm email secure token",
+        "nngen": "chore(travis): add Paragon room notifications\\nchore(travis): adjust encrypted hipchat notification\\nchore(travis): move command to one line",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/.travis.yml b/.travis.yml @@ -10,6 +10,12 @@ node_js:\ncache:\nnpm: true\n+before_script:\n+ - echo \"which google-chrome\"\n+ - echo `which google-chrome`\n+ - echo \"which google-chrome-stable\"\n+ - echo `which google-chrome-stable`\n+ - export LIGHTHOUSE_CHROMIUM_PATH=`which google-chrome-stable`\nscript:\n- npm run lint\n- npm run test\n",
+        "human": "chore: Travis setup chrome path [WIP]",
+        "race": "Add LIGHTHOUSE_CHROMIUM_PATH to before_script",
+        "zeroshot": "Add before_script to check for Google Chrome and set LIGHTHOUSE_CHROMIUM_PATH",
+        "rag": "ci: add before_script to check google-chrome and set LIGHTHOUSE_CHROMIUM_PATH",
+        "classified_rag": "ci: add before_script to check google-chrome and google-chrome-stable paths",
+        "nngen": "refactor(ci): Travis config",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/src/modules/Progress/Progress.d.ts b/src/modules/Progress/Progress.d.ts @@ -39,7 +39,7 @@ export interface ProgressProps {\nindicating?: boolean;\n/** A progress bar can have its colors inverted. */\n- inverted?: string;\n+ inverted?: boolean;\n/** Can be set to either to display progress as percent or ratio. */\nlabel?: SemanticShorthandItem<HtmlLabelProps>;\n",
+        "human": "fix(Progress): fix wrong inverted type\nfix(Progress): fix wrong inverted type",
+        "race": "Fix Progress inverted prop type",
+        "zeroshot": "Fix type of inverted prop in Progress component",
+        "rag": "fix(progress): updated inverted prop type to boolean in Progress component",
+        "classified_rag": "fix(Progress): updated type for inverted property",
+        "nngen": "fix(progress): typo in selector name",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"lint:fix\": \"yarn lint --fix\",\n\"prettier\": \"prettier --list-different \\\"**/*.{js,jsx,ts,tsx}\\\"\",\n\"prettier:fix\": \"prettier --write \\\"**/*.{js,jsx,ts,tsx}\\\"\",\n- \"postcommit\": \"git update-index --again\",\n\"prerelease\": \"yarn lint && yarn tsd:lint && yarn tsd:test && yarn test && cross-env NODE_ENV=production yarn build\",\n\"postrelease\": \"yarn deploy:docs\",\n\"release:major\": \"yarn prerelease && ta-script npm/release major && yarn postrelease\",\n},\n\"husky\": {\n\"hooks\": {\n- \"pre-commit\": \"lint-staged\"\n+ \"pre-commit\": \"lint-staged\",\n+ \"post-commit\": \"git update-index --again\"\n}\n},\n\"lint-staged\": {\n",
+        "human": "chore: update husky hooks",
+        "race": "chore: update index after commit",
+        "zeroshot": "Add post-commit hook to update index again after commit",
+        "rag": "chore(package.json): update husky hooks and add post-commit hook",
+        "classified_rag": "chore(package.json): update husky pre-commit hook and add post-commit hook",
+        "nngen": "chore(package.json): fix husky hooks",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"author\": \"Roni Choudhury\",\n\"license\": \"Apache-2.0\",\n\"devDependencies\": {\n+ \"UpSet\": \"git+https://github.com/jeffbaumes/upset#no-global-vars\",\n\"babel-cli\": \"^6.7.5\",\n\"babel-core\": \"^6.24.1\",\n\"babel-istanbul-loader\": \"^0.1.0\",\n\"style-loader\": \"^0.18.1\",\n\"stylus\": \"^0.54.5\",\n\"stylus-loader\": \"^3.0.1\",\n+ \"tap-spec\": \"^4.1.1\",\n\"tape\": \"^4.6.3\",\n\"tape-catch\": \"^1.0.6\",\n- \"tap-spec\": \"^4.1.1\",\n\"telegraph-events\": \"^1.0.3\",\n\"underscore\": \"^1.8.3\",\n- \"UpSet\": \"git+https://github.com/jeffbaumes/upset#no-global-vars\",\n\"url-loader\": \"^0.5.8\",\n\"validate-commit-msg\": \"^2.8.2\",\n\"vega\": \"^2.4.2\",\n",
+        "human": "style: alphabetize deps in package.json",
+        "race": "move upset to devDependencies",
+        "zeroshot": "Add UpSet library and tap-spec devDependency, remove tap-spec from devDependencies",
+        "rag": "chore(package): update devDependencies\n- Updated UpSet to use git+https://github.com/jeffbaumes/upset#no-global-vars\n- Removed duplicate entry for tap-spec\n- Updated babel-cli to \"^6.7.5\"\n- Updated babel-core to \"^6.24.1\"\n- Updated babel-istanbul-loader to \"^0.1.0\"\n- Updated style-loader to \"^0.18.1\"\n- Updated stylus to \"^0.54.5\"\n- Updated stylus-loader to \"^3.0.1\"\n- Updated tape to \"^4.6.3\"\n- Updated tape-catch to \"^1.0.6\"\n- Updated telegraph-events to \"^1.0.3\"\n- Updated underscore to \"^1.8.3\"\n- Updated url-loader to \"^0.5.8\"\n- Updated validate-commit-msg to \"^2.8.2\"\n- Updated vega to \"^2.4.2\"",
+        "classified_rag": "chore(deps): update devDependencies and add UpSet library",
+        "nngen": "build: add  vue as a peer dependency",
+        "type": "style"
+    },
+    {
+        "diff": "diff --git a/src/common/reducers/posts/index.test.js b/src/common/reducers/posts/index.test.js @@ -27,6 +27,13 @@ const LOCATION_CHANGE_TO_INBOX = {\n}\n}\n+const LOCATION_CHANGE_TO_ITSELF = {\n+ type: actions.LOCATION_CHANGE,\n+ payload: {\n+ pathname: '/'\n+ }\n+}\n+\ndescribe('POSTS REDUCER', () => {\nit('should return the initial state', () => {\nexpect(reducer(undefined, {x: 'string'})).toEqual(initialState)\n@@ -72,8 +79,16 @@ describe('POSTS REDUCER', () => {\nit('should handle LOCATION_CHANGE to other paths', () => {\nconst customState = {\n...initialState,\n- lol: 3\n+ hello: 'world'\n}\nexpect(reducer(customState, LOCATION_CHANGE_TO_INBOX)).toEqual(initialState)\n})\n+\n+ it('should handle LOCATION_CHANGE to own path', () => {\n+ const customState = {\n+ ...initialState,\n+ hello: 'world'\n+ }\n+ expect(reducer(customState, LOCATION_CHANGE_TO_ITSELF)).toEqual(customState)\n+ })\n})\n",
+        "human": "feat(reducers/posts/test): add test to handle location change to own path\nfeat(reducers/posts/test): add test to handle location change to own\npath",
+        "race": "Add test for LOCATION_CHANGE to own path",
+        "zeroshot": "Add test case for handling LOCATION_CHANGE to own path in posts reducer",
+        "rag": "test(common/reducers/posts): add test for handling location change to own path",
+        "classified_rag": "test(reducer): handle LOCATION_CHANGE to own path in reducer",
+        "nngen": "feat(crdt-breakouts): add test/hosp data for tables",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/docs/guide/options/README.md b/docs/guide/options/README.md @@ -450,8 +450,17 @@ More information [here](https://firebase.google.com/docs/firestore/manage-data/e\nAdds settings to your Firebase initialization, e.g. `host` or `ssl`.\nSee more [here](https://firebase.google.com/docs/reference/js/firebase.firestore.Settings).\n-::: danger\n-There seems to be an issue when using settings() in Universal mode (see [this issue](https://github.com/firebase/firebase-js-sdk/issues/2733)). Therefore, settings currently only work in SPA mode.\n+::: warning Important\n+When using settings() in Universal mode (see [this issue](https://github.com/nuxt-community/firebase-module/issues/116)), you need to set `runInNewContext` to `false` in your nuxt.config.js like so:\n+\n+```js\n+// Add this to your nuxt.config.js\n+render: {\n+ bundleRenderer: {\n+ runInNewContext: false\n+ }\n+ },\n+```\n:::\n### functions\n",
+        "human": "docs(docs): changed \"important\" info in Firestore settings()",
+        "race": "docs(settings): update docs",
+        "zeroshot": "Add warning about using settings() in Universal mode and provide solution in nuxt.config.js.",
+        "rag": "docs: update Firebase settings initialization in README.md",
+        "classified_rag": "docs(guide/options): update settings usage in Universal mode",
+        "nngen": "docs: add deploy guide for firebase",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/examples/docs/zh-CN/upload.md b/examples/docs/zh-CN/upload.md :::demo\n```html\n<el-upload\n- action=\"#\"\n+ action=\"https://jsonplaceholder.typicode.com/posts/\"\nlist-type=\"picture-card\"\n+ ref=\"uploadRef\"\n:auto-upload=\"false\">\n- <template v-slot:default>\n+ <template #default>\n<i class=\"el-icon-plus\"></i>\n</template>\n- <template v-slot:file=\"{file}\">\n- <img\n- class=\"el-upload-list__item-thumbnail\"\n- :src=\"file.url\" alt=\"\"\n- >\n+ <template #file=\"{file}\">\n+ <img class=\"el-upload-list__item-thumbnail\" :src=\"file.url\" alt=\"\">\n<span class=\"el-upload-list__item-actions\">\n- <span\n- class=\"el-upload-list__item-preview\"\n- @click=\"handlePictureCardPreview(file)\"\n- >\n+ <span class=\"el-upload-list__item-preview\" @click=\"handlePictureCardPreview(file)\">\n<i class=\"el-icon-zoom-in\"></i>\n</span>\n- <span\n- v-if=\"!disabled\"\n- class=\"el-upload-list__item-delete\"\n- @click=\"handleDownload(file)\"\n- >\n+ <span class=\"el-upload-list__item-delete\" @click=\"handleDownload(file)\">\n<i class=\"el-icon-download\"></i>\n</span>\n- <span\n- v-if=\"!disabled\"\n- class=\"el-upload-list__item-delete\"\n- @click=\"handleRemove(file)\"\n- >\n+ <span class=\"el-upload-list__item-delete\" @click=\"handleRemove(file)\">\n<i class=\"el-icon-delete\"></i>\n</span>\n</span>\n-\n</template>\n</el-upload>\n-<el-dialog :visible.sync=\"dialogVisible\">\n- <img width=\"100%\" :src=\"dialogImageUrl\" alt=\"\">\n+ <el-dialog :visible.sync=\"dialogVisible\" v-model:visible=\"dialogVisible\">\n+ <img width=\"100%\" :src=\"dialogImageUrl\" style=\"width: 100%\">\n</el-dialog>\n<script>\n- import { ref , getCurrentInstance } from 'vue';\n+import { ref, unref } from 'vue'\n+\nexport default {\nsetup() {\n- const dialogImageUrl = ref('');\n- const dialogVisible = ref(false);\n- const disables = ref(false);\n+ const dialogImageUrl = ref('')\n+ const dialogVisible = ref(false)\n+ const uploadRef = ref(null)\n- const self = getCurrentInstance().ctx;\nconst handleRemove = (file) => {\n- console.log(file);\n+ console.log('remove')\n+ uploadRef.value.handleRemove(file)\n}\n+\nconst handlePictureCardPreview = (file) => {\n- self.dialogImageUrl = file.url;\n- self.dialogVisible = true;\n+ dialogImageUrl.value = unref(file).url\n+ dialogVisible.value = true\n}\n+\nconst handleDownload = (file) => {\n- console.log(file);\n+ console.log('DownLoad')\n}\nreturn {\ndialogImageUrl,\ndialogVisible,\n- disables,\n+ uploadRef,\nhandleRemove,\nhandlePictureCardPreview,\nhandleDownload\n",
+        "human": "refactor: upload.md fourth case\nfor details, see:",
+        "race": "feat: add uploadRef",
+        "zeroshot": "Refactor upload component and add new features",
+        "rag": "refactor(upload): refactor upload component to use Composition API and improve readability",
+        "classified_rag": "docs(upload): minor improvements in upload.md",
+        "nngen": "refactor(checkbox): remove script setup",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/packages/razzle/config/createConfigAsync.js b/packages/razzle/config/createConfigAsync.js @@ -300,6 +300,12 @@ module.exports = (\nif (baseRes !== res) {\nreturn callback()\n}\n+\n+ // This is the @babel/plugin-transform-runtime \"helpers: true\" option\n+ if (res.match(/node_modules[/\\\\]@babel[/\\\\]runtime[/\\\\]/)) {\n+ return callback()\n+ }\n+\n// Anything else that is standard JavaScript within `node_modules`\n// can be externalized.\nif (res.match(/node_modules[/\\\\].*\\.js$/)) {\n",
+        "human": "fix: bundle babel runtime",
+        "race": "Add babel runtime option to diff",
+        "zeroshot": "Exclude @babel/plugin-transform-runtime helpers from externalization in createConfigAsync",
+        "rag": "feat(razzle): add handling for @babel/plugin-transform-runtime helpers option",
+        "classified_rag": "feat: add check for @babel/plugin-transform-runtime \"helpers: true\" option in createConfigAsync",
+        "nngen": "refactor: cleanup onData handler",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/scss/mixins/_forms.scss b/scss/mixins/_forms.scss @mixin form-validation-state-selector($state) {\n@if ($state == \"valid\" or $state == \"invalid\") {\n.was-validated #{if(&, \"&\", \"\")}:#{$state},\n- #{if(&, \"&\", \"\")}.is-#{$state} {\n+ #{if(&, \"&\", \"\")}.is-#{$state}, #{if(&, \"&\", \"\")}.ng-#{$state} {\n@content;\n}\n} @else {\n- #{if(&, \"&\", \"\")}.is-#{$state} {\n+ #{if(&, \"&\", \"\")}.is-#{$state}, #{if(&, \"&\", \"\")}.ng-#{$state} {\n@content;\n}\n}\n",
+        "human": "feat(forms): angular validation classes",
+        "race": "fix(form-validation): fix form validation state selector",
+        "zeroshot": "Add ng- prefix to form validation state selectors",
+        "rag": "style(forms mixin): add ng- prefix to form validation state selectors",
+        "classified_rag": "feat(forms): Update form-validation-state-selector mixin to include ng- prefix for state classes",
+        "nngen": "refactor: use immer in activity reducer",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/packages/putout/ChangeLog b/packages/putout/ChangeLog +2022.08.24, v27.3.0\n+\n+fix:\n+- @putout/plugin-madrun: description\n+\n+feature:\n+- @putout/plugin-logical-expressions: add remove-duplicates\n+- @putout/plugin-logical-expressions: add\n+- (package) @putout/plugin-simplify-logical-expressions v4.0.0\n+- (@putout/plugin-simplify-logical-expressions) merge @putout/plugin-remove-duplicates-from-logical-expressions\n+\n2022.08.24, v27.2.0\nfeature:\n",
+        "human": "chore: package: v27.3.0",
+        "race": "chore: add missing change log",
+        "zeroshot": "Fix description in @putout/plugin-madrun and add new features in @putout/plugin-logical-expressions and @putout/plugin-simplify-logical-expressions.",
+        "rag": "build(v27.3.0): update packages/putout/ChangeLog [ci skip]",
+        "classified_rag": "chore: update CHANGELOG for version 27.3.0\nAdded description for @putout/plugin-madrun\nAdded new feature remove-duplicates for @putout/plugin-logical-expressions\nUpdated version to 4.0.0 for @putout/plugin-simplify-logical-expressions\nMerged @putout/plugin-remove-duplicates-from-logical-expressions into @putout/plugin-simplify-logical-expressions",
+        "nngen": "build(npm): :arrow_up: handlebars, inquirer, coffeescript, eslint-plugin-import, typescript",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/.travis.yml b/.travis.yml @@ -8,15 +8,11 @@ node_js:\ncache:\ndirectories:\n- node_modules\n-before_script:\n-- chmod +x scripts/docs\nscript:\n- npm run lint\n- npm run cover -- --runInBand\nafter_script:\n- npm run report-coverage\n-after_success:\n-- scripts/docs\nenv:\nglobal:\nsecure: Jb9Q9+XnCh+n5uNJuqUmLmPG6mUUv7iTi5bNeK6TpLdrVKk+2mLdobV3iRUy/DEqNLwt2lxwzp1oq4YI/lZ0vlUam7HpFWpSf4PAI8ckGRqFdus7K45o+zxHLJ2zBQwXacsZB204qtO8RDdXaNb9PjRGNFdKm3ZuqZTv6PkO+hS05EFxmcW95HiSHpV/qPxKjEsDdCpoTNEA3MP0dNtSKygeht2nFQVr7WkOhkjDvUtU9EypkGbJeBCd0AckqXM0Qvmdi++csyz5VRQhhUwI/2BKSjbBVUZ6Q3m8sX2p4G/wFEbhXl5eKTzAYLuf+9kT9Jg+gKdT30PoChx2NPKHv0XS8BOrKQScs6KIwOVH2/CNCKqAxh3HkCMSONmqEQRqBK1V/gSCZ4zDX9PgrfyE23FLN/GM4YtBlkVCMLh8Y/hiapXUaDobxh/o2tfOoQkeoZWZeoeIydhwULTDSG2R3PKV7rkGYas0VQ+qtU+i8VG+PzjPT4DRf4xIKzNzJbFIq9oTNYBTasWi6+OKzNw0uH3ydmRzf+GxaTwOIdR3nRQMQN60dH+6qeJkrIvpfrGAB5gqTutXPfe0xf2rMrW6dyipnSgGlk1JOgA+cU4CPyHql1OA+ox/kIQ4I3PIJBu5YYE3amFmKLu3vnDHELSzM1CYeOs0sDasRyiDkKE79l0=\n@@ -24,6 +20,20 @@ branches:\nonly:\n- master\n- \"/^\\\\d+\\\\.\\\\d+(\\\\.\\\\d+)?(-\\\\S*)?$/\"\n+\n+jobs:\n+ include:\n+ - stage: deploy\n+ node_js: 12\n+ before_script:\n+ - chmod +x scripts/docs\n+ script: echo \"Deploying ...\"\n+ after_success:\n+ - scripts/docs\n+ branches:\n+ only:\n+ - master\n+ - \"/^\\\\d+\\\\.\\\\d+(\\\\.\\\\d+)?(-\\\\S*)?$/\"\nbefore_deploy:\n- echo 'Preparing to publish'\n- npm run build\n",
+        "human": "chore: ci to only deploy after all jobs have finished",
+        "race": "Add deploy stage",
+        "zeroshot": "Add deploy job for Travis CI configuration",
+        "rag": "refactor(ci): update travis.yml for deployment configuration and add credentials",
+        "classified_rag": "ci: Add deploy stage for node 12\nAdded a new deploy stage for node 12 in the Travis configuration file.",
+        "nngen": "chore: reorder stages",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/packages/tag/src/tag.vue b/packages/tag/src/tag.vue +\n<script>\n+import { h, computed, getCurrentInstance, Transition } from \"vue\";\nexport default {\n- name: 'ElTag',\n+ name: \"ElTag\",\nprops: {\ntext: String,\nclosable: Boolean,\nsize: String,\neffect: {\ntype: String,\n- default: 'light',\n+ default: \"light\",\nvalidator(val) {\n- return ['dark', 'light', 'plain'].indexOf(val) !== -1;\n- }\n- }\n- },\n- methods: {\n- handleClose(event) {\n- event.stopPropagation();\n- this.$emit('close', event);\n+ return [\"dark\", \"light\", \"plain\"].indexOf(val) !== -1;\n},\n- handleClick(event) {\n- this.$emit('click', event);\n- }\n},\n- computed: {\n- tagSize() {\n- return this.size || (this.$ELEMENT || {}).size;\n- }\n},\n- render(h) {\n- const { type, tagSize, hit, effect } = this;\n+ setup(props, { emit, slots }) {\n+ const {\n+ type,\n+ hit,\n+ effect,\n+ color,\n+ closable,\n+ disableTransitions,\n+ size,\n+ } = props;\n+\n+ const tagSize = computed(() => {\n+ return size || (getCurrentInstance().proxy.$ELEMENT || {}).size;\n+ });\n+ const handleClose = (event) => {\n+ event.stopPropagation();\n+ emit(\"close\", event);\n+ };\n+ const handleClick = (event) => {\n+ emit(\"click\", event);\n+ };\n+\nconst classes = [\n- 'el-tag',\n- type ? `el-tag--${type}` : '',\n- tagSize ? `el-tag--${tagSize}` : '',\n- effect ? `el-tag--${effect}` : '',\n- hit && 'is-hit'\n+ \"el-tag\",\n+ type ? `el-tag--${type}` : \"\",\n+ tagSize.value ? `el-tag--${tagSize.value}` : \"\",\n+ effect ? `el-tag--${effect}` : \"\",\n+ hit && \"is-hit\",\n];\nconst tagEl = (\n<span\nclass={classes}\n- style={{ backgroundColor: this.color }}\n- on-click={ this.handleClick }>\n- { this.$slots.default }\n- {\n- this.closable && <i class=\"el-tag__close el-icon-close\" on-click={ this.handleClose }></i>\n- }\n+ style={{ backgroundColor: color }}\n+ on-click={handleClick}\n+ >\n+ {slots.default && slots.default()}\n+ {closable && (\n+ <i class=\"el-tag__close el-icon-close\" on-click={handleClose}></i>\n+ )}\n</span>\n);\n-\n- return this.disableTransitions ? tagEl : <transition name=\"el-zoom-in-center\">{ tagEl }</transition>;\n- }\n+ return () =>\n+ disableTransitions ? (\n+ tagEl\n+ ) : (\n+ <Transition name=\"el-zoom-in-center\">{tagEl}</Transition>\n+ );\n+ },\n};\n</script>\n",
+        "human": "refactor: use vue3 to refactor tag component",
+        "race": "refactor: tag component",
+        "zeroshot": "Refactor tag component to use Composition API and improve code readability",
+        "rag": "refactor(tag): adds script setup syntax, updates computed properties, removes render method, and simplifies event handling",
+        "classified_rag": "refactor(tag): updates script setup syntax, improves code structure and event handling",
+        "nngen": "refactor: Collapse use setup",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/packages/kiwi-core/src/Menu/MenuOption.js b/packages/kiwi-core/src/Menu/MenuOption.js @@ -218,7 +218,7 @@ const MenuOptionGroup = {\n}\n}\n- const children = this.$slots.default\n+ const children = this.$slots.default.filter(e => e.tag)\nconst clonedChildNodes = children.map(vnode => {\nlet result\n",
+        "human": "fix(menuoption): filter empty slots",
+        "race": "Fix menu option diff",
+        "zeroshot": "Filter out non-element nodes in MenuOption children",
+        "rag": "refactor: filter out non-element nodes from default slot before cloning in MenuOptionGroup component",
+        "classified_rag": "refactor(MenuOption): filter out non-element children in MenuOptionGroup",
+        "nngen": "fix(framework): allow the creation of components with static area content only",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/docs/src/components/ComponentDoc/ComponentExample/ComponentExample.js b/docs/src/components/ComponentDoc/ComponentExample/ComponentExample.js @@ -15,6 +15,7 @@ import ComponentExampleRenderSource from './ComponentExampleRenderSource'\nimport ComponentExampleTitle from './ComponentExampleTitle'\nconst childrenStyle = {\n+ paddingBottom: 0,\npaddingTop: 0,\nmaxWidth: '50rem',\n}\n@@ -224,12 +225,12 @@ class ComponentExample extends PureComponent {\n<div id={this.anchorName} style={{ paddingTop: '1rem' }}>\n<Grid\nclassName='docs-example'\n- columns='equal'\npadded='vertically'\nonMouseLeave={handleMouseLeave}\nonMouseMove={handleMouseMove}\nstyle={exampleStyle}\n>\n+ <Grid.Row columns='equal'>\n<Grid.Column>\n<ComponentExampleTitle\ndescription={description}\n@@ -248,11 +249,12 @@ class ComponentExample extends PureComponent {\nshowHTML={showHTML}\n/>\n</Grid.Column>\n+ </Grid.Row>\n{children && (\n- <Grid.Column width={16} style={childrenStyle}>\n- {children}\n- </Grid.Column>\n+ <Grid.Row columns={1} style={childrenStyle}>\n+ <Grid.Column>{children}</Grid.Column>\n+ </Grid.Row>\n)}\n<Grid.Column\n",
+        "human": "docs(ComponentExample): fix children display",
+        "race": "Fixing the example layout",
+        "zeroshot": "Refactor ComponentExample layout to use Grid.Row and Grid.Column for better structure",
+        "rag": "style(ComponentExample): improve layout for children in ComponentExample component",
+        "classified_rag": "docs(ComponentExample): update Grid structure in ComponentExample for better layout\nCode diff type: docs",
+        "nngen": "fix: alignment of Toolbar",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/src/system/pair.js b/src/system/pair.js @@ -83,6 +83,11 @@ const Pair = Class.create({\nreturn ary;\n},\n+ // Returns a new list made by applying `func` to each element\n+ mapList: function(func) {\n+ return array_to_list(this.map(func));\n+ },\n+\n// Destructively concat the given list to the receiver.\n// The receiver must be a proper list.\n// Returns the receiver.\n",
+        "human": "feat: Pair.prototype.mapList",
+        "race": "Add mapList method to Pair",
+        "zeroshot": "Add mapList method to Pair class",
+        "rag": "src(system/pair): add mapList method to Pair class",
+        "classified_rag": "feat: add mapList method to Pair class",
+        "nngen": "fix(result): detail prop issues",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/docs/src/routes.js b/docs/src/routes.js @@ -4,8 +4,8 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'\nimport ExternalExampleLayout from './components/ExternalExampleLayout'\nimport DocsLayout from './components/DocsLayout'\nimport DocsRoot from './components/DocsRoot'\n-import LayoutsLayout from './components/layoutsLayout'\n-import LayoutsRoot from './components/layoutsRoot'\n+import LayoutsLayout from './components/LayoutsLayout'\n+import LayoutsRoot from './components/LayoutsRoot'\nimport Introduction from './views/Introduction'\nimport Layouts from './views/layouts'\n",
+        "human": "docs(routes): fix layout component imports",
+        "race": "Fix typo in diff",
+        "zeroshot": "Fix capitalization of component file names in routes.js",
+        "rag": "style: fix import casing in routes.js file",
+        "classified_rag": "docs: Fix import paths for LayoutsLayout and LayoutsRoot\nUpdated import paths to match correct casing for components",
+        "nngen": "refactor(main): import media control plugin\\nrefers clappr/clappr#1606",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/packages/create-razzle-app/lib/utils/install.js b/packages/create-razzle-app/lib/utils/install.js @@ -22,7 +22,7 @@ module.exports = function install(opts) {\nconsole.log(messages.installing(packages));\nprocess.chdir(projectPath);\n- const stdio = 'pipe';\n+ const stdio = opts.verbose ? 'inherit' : 'pipe';\nreturn new Promise(function(resolve, reject) {\nconst stopInstallSpinner = output.wait('Installing modules');\n",
+        "human": "feat(create-razzle-app): make verbose show install",
+        "race": "inherit stdio when verbose",
+        "zeroshot": "Update install.js to use verbose option for stdio output",
+        "rag": "chore: update stdio option based on verbose flag in install script",
+        "classified_rag": "refactor: update stdio handling in install script",
+        "nngen": "refactor(cli): prep for AST parser",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/packages/chakra-ui-core/src/CAccordion/tests/CAccordion.test.js b/packages/chakra-ui-core/src/CAccordion/tests/CAccordion.test.js @@ -144,7 +144,6 @@ it('has the proper aria attributes', () => {\nexpect(panel).toHaveAttribute('aria-labelledby')\n})\n-// test that tab moves focus to the next focusable element\nit('tab moves focus to the next focusable element', async () => {\nrenderComponent({\ntemplate: `\n@@ -178,7 +177,43 @@ it('tab moves focus to the next focusable element', async () => {\nexpect(last).toHaveFocus()\n})\n-// test that aria-contols for button is same as id for panel\n+\n+it('shift+tab moves focus to the previous focusable element', async () => {\n+ renderComponent({\n+ template: `\n+ <CAccordion>\n+ <CAccordionItem>\n+ <CAccordionHeader>First section</CAccordionHeader>\n+ <CAccordionPanel>Panel 1</CAccordionPanel>\n+ </CAccordionItem>\n+ <CAccordionItem>\n+ <CAccordionHeader>Second section</CAccordionHeader>\n+ <CAccordionPanel>Panel 2</CAccordionPanel>\n+ </CAccordionItem>\n+ <CAccordionItem>\n+ <CAccordionHeader>Last section</CAccordionHeader>\n+ <CAccordionPanel>Panel 3</CAccordionPanel>\n+ </CAccordionItem>\n+ </CAccordion>`\n+ })\n+\n+ const first = screen.getByText('First section')\n+ const second = screen.getByText('Second section')\n+ const last = screen.getByText('Last section')\n+\n+ await userEvent.tab()\n+ expect(first).toHaveFocus()\n+\n+ await userEvent.tab()\n+ expect(second).toHaveFocus()\n+\n+ await userEvent.tab()\n+ expect(last).toHaveFocus()\n+\n+ await userEvent.tab({shift: true}) // shift+tab\n+ expect(second).toHaveFocus()\n+})\n+\nit('aria-contols for button is same as id for panel', () => {\nrenderComponent({\ntemplate: `\n@@ -195,7 +230,6 @@ it('aria-contols for button is same as id for panel', () => {\nexpect(button.getAttribute('aria-controls')).toEqual(panel.getAttribute('id'))\n})\n-// test that aria-expanded is true/false when accordion is open/closed\nit('aria-expanded is true/false when accordion is open/closed', () => {\nrenderComponent({\ntemplate: `\n@@ -215,7 +249,6 @@ it('aria-expanded is true/false when accordion is open/closed', () => {\nexpect(button).toHaveAttribute('aria-expanded', 'true')\n})\n-// test that panel has role=region and aria-labelledby\nit('panel has role=region and aria-labelledby', () => {\nrenderComponent({\ntemplate: `\n@@ -231,29 +264,3 @@ it('panel has role=region and aria-labelledby', () => {\nexpect(panel).toHaveAttribute('aria-labelledby')\nexpect(panel).toHaveAttribute('role', 'region')\n})\n\\ No newline at end of file\n-\n-// eslint-disable-next-line no-undef\n-xit('arrow up & down moves focus to next/previous accordion', async () => {\n- renderComponent({\n- template: `\n- <CAccordion>\n- <CAccordionItem>\n- <CAccordionHeader>Section 1 title</CAccordionHeader>\n- <CAccordionPanel>Panel 1</CAccordionPanel>\n- </CAccordionItem>\n- <CAccordionItem>\n- <CAccordionHeader>Section 2 title</CAccordionHeader>\n- <CAccordionPanel>Panel 2</CAccordionPanel>\n- </CAccordionItem>\n- </CAccordion>`\n- })\n-\n- const first = screen.getByText('Section 1 title')\n- const second = screen.getByText('Section 2 title')\n-\n- await fireEvent.keyDown(first, { key: 'ArrowDown', keyCode: 40 })\n- expect(second).toHaveFocus()\n-\n- await fireEvent.keyDown(second, { key: 'ArrowUp', keyCode: 38 })\n- expect(first).toHaveFocus()\n-})\n",
+        "human": "test(accordion): add shift+tab tests for accordion",
+        "race": "Add shift+tab test",
+        "zeroshot": "Add shift+tab functionality to move focus to the previous focusable element in CAccordion.",
+        "rag": "test(chakra-ui-core): add shift+tab focus navigation test in CAccordion.test.js",
+        "classified_rag": "test(chakra-ui-core): add shift+tab focus navigation test in CAccordion test suite",
+        "nngen": "feat(Root): add css normalize",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/docs/app/Components/ComponentDoc/ComponentExample.js b/docs/app/Components/ComponentDoc/ComponentExample.js @@ -138,7 +138,7 @@ class ComponentExample extends Component {\nresetJSX = () => {\nconst { sourceCode } = this.state\nconst original = this.getOriginalSourceCode()\n- if (sourceCode !== original && confirm('Loose your changes?')) { // eslint-disable-line no-alert\n+ if (sourceCode !== original && confirm('Lose your changes?')) { // eslint-disable-line no-alert\nthis.setState({ sourceCode: original })\nthis.renderSourceCode()\n}\n",
+        "human": "fix(ComponentExample): typo \"loose\" to \"lose\"\nfix(ComponentExample): typo \"loose\" to \"lose\"",
+        "race": "Fix eslint error in resetJSX",
+        "zeroshot": "Fix typo in confirm message in ComponentExample.js",
+        "rag": "chore(ComponentExample): fix typo in confirmation message for resetting changes",
+        "classified_rag": "style(docs): corrected spelling mistake in confirmation message",
+        "nngen": "fix: remove extra debug",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/packages/create-razzle-app/lib/index.js b/packages/create-razzle-app/lib/index.js @@ -160,6 +160,7 @@ function installWithMessageFactory(opts, isExample = false) {\nreturn install({\nnpm: opts.npm,\nyarn: opts.yarn,\n+ verbose: opts.verbose,\nprojectName: projectName,\nprojectPath: projectPath,\npackages: isExample\n",
+        "human": "fix(create-razzle-app): pass down verbose",
+        "race": "Add verbose option to installWithMessageFactory",
+        "zeroshot": "Add verbose option to install function in create-razzle-app",
+        "rag": "fix(create-razzle-app): add verbose option to install function",
+        "classified_rag": "feat: add verbose option for installation with message factory",
+        "nngen": "refactor(carlita): Removed deprecated measurements from Carlita",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/rollup.config.js b/rollup.config.js import { terser } from \"rollup-plugin-terser\"\n+import { VERSION } from \"./src/version.js\";\n+\n+const banner = `/*\n+ * BiwaScheme ${VERSION} - R6RS/R7RS Scheme in JavaScript\n+ *\n+ * Copyright (c) 2007-${(new Date).getFullYear()} Yutaka HARA (http://www.biwascheme.org/)\n+ * Licensed under the MIT license.\n+ */`\nexport default {\n- plugins: [\n- terser({ output: { comments: /@license/i } }),\n- ],\ninput: \"src/main-browser.js\",\noutput: [\n{\n@@ -11,13 +16,15 @@ export default {\nformat: \"iife\",\nname: \"BiwaScheme\",\nstrict: false,\n+ banner: banner,\n},\n{\nfile: \"release/biwascheme-min.js\",\nformat: \"iife\",\nname: \"BiwaScheme\",\nstrict: false,\n- plugins: [terser()],\n+ banner: banner,\n+ plugins: [terser({output: {comments: /Copyright/}})],\n},\n]\n}\n",
+        "human": "feat: Add banner",
+        "race": "Add banner to rollup config",
+        "zeroshot": "Add version information and copyright banner to rollup configuration",
+        "rag": "build(rollup): update banner in rollup config",
+        "classified_rag": "chore: add banner to output files and update terser plugin configuration",
+        "nngen": "build: emit sourcemaps",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/packages/chakra-ui-core/src/CCircularProgress/tests/CCircularProgress.test.js b/packages/chakra-ui-core/src/CCircularProgress/tests/CCircularProgress.test.js import { CCircularProgress, CCircularProgressLabel } from '../..'\n-import { render } from '@/tests/test-utils'\n+import { render, screen } from '@/tests/test-utils'\nconst renderComponent = (props) => {\nconst base = {\n@@ -20,26 +20,26 @@ it('should render correctly', () => {\n})\nit('should display a label', () => {\n- const { queryByText } = renderComponent({\n+ renderComponent({\ntemplate: `\n<CCircularProgress :value=\"40\">\n<CCircularProgressLabel>40%</CCircularProgressLabel>\n</CCircularProgress>`\n})\n- expect(queryByText('40%')).toBeInTheDocument()\n+ expect(screen.getByText('40%')).toBeInTheDocument()\n})\ntest('a11y - progress has a \"role\" set to \"progressbar\"', () => {\n- const { queryByRole } = renderComponent()\n+ renderComponent()\n- expect(queryByRole('progressbar')).toBeInTheDocument()\n+ expect(screen.queryByRole('progressbar')).toBeInTheDocument()\n})\ntest('a11y - progress has a \"aria-valuenow\" set to the percentage completion value', () => {\n- const { queryByTestId } = renderComponent()\n+ renderComponent()\n- expect(queryByTestId('CircularProgress')).toHaveAttribute(\n+ expect(screen.queryByTestId('CircularProgress')).toHaveAttribute(\n'aria-valuenow',\n'40'\n)\n",
+        "human": "test(circular-progress): refactor circular progress",
+        "race": "Fix tests for CCircularProgress",
+        "zeroshot": "Refactor CCircularProgress.test.js to use screen instead of query methods",
+        "rag": "refactor(CCircularProgress): update test-utils import and query methods",
+        "classified_rag": "test(chakra-ui-core): update CCircularProgress test to use screen utility",
+        "nngen": "test(Root): add MoleculeBreadcrum tests",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/src/runtime/node/base64url.ts b/src/runtime/node/base64url.ts import { decoder } from '../../lib/buffer_utils.js'\n-export const encode = (input: Uint8Array | string) =>\n- Buffer.from(input).toString('base64').replace(/=/g, '').replace(/\\+/g, '-').replace(/\\//g, '_')\n+let encodeImpl: (input: Uint8Array | string) => string\n-export const decode = (input: Uint8Array | string) => {\n+function normalize(input: string | Uint8Array) {\nlet encoded = input\nif (encoded instanceof Uint8Array) {\nencoded = decoder.decode(encoded)\n}\n- return new Uint8Array(Buffer.from(encoded, 'base64'))\n+ return encoded\n}\n+\n+if (Buffer.isEncoding('base64url')) {\n+ encodeImpl = (input) => Buffer.from(input).toString(<BufferEncoding>'base64url')\n+} else {\n+ encodeImpl = (input) =>\n+ Buffer.from(input).toString('base64').replace(/=/g, '').replace(/\\+/g, '-').replace(/\\//g, '_')\n+}\n+\n+export const encode = encodeImpl\n+export const decode = (input: Uint8Array | string) => Buffer.from(normalize(input), 'base64')\n",
+        "human": "perf: use 'base64url' encoding when available in Node.js runtime",
+        "race": "fix: base64url encoding",
+        "zeroshot": "Refactor base64url encoding and decoding functions",
+        "rag": "refactor: update src/runtime/node/base64url.ts with improved encoding and decoding logic",
+        "classified_rag": "fix: normalize base64url encoding in base64url.ts",
+        "nngen": "refactor: update lib/helpers/base64url.js",
+        "type": "perf"
+    },
+    {
+        "diff": "diff --git a/src/server.js b/src/server.js import { createServer } from 'http';\n-import { parse as parseUrl } from 'url';\nimport ws from 'ws';\n-import polka from 'polka';\nimport sirv from 'sirv';\n+import polka from 'polka';\n+import parse from '@polka/url';\nimport compression from './lib/polkompress.js';\n/**\n@@ -32,7 +32,7 @@ export default function server({ cwd, out, compress = true } = {}) {\n};\napp.server.on('upgrade', (req, socket, head) => {\n- const pathname = parseUrl(req.url).pathname;\n+ const pathname = parse(req).pathname;\nif (pathname == '/_hmr') {\napp.ws.handleUpgrade(req, socket, head, ws => {\nws.emit('connection', ws, req);\n",
+        "human": "fix: reuse `polka/url` dep",
+        "race": "Use polka url parser",
+        "zeroshot": "Refactor server.js to use @polka/url for URL parsing and remove unnecessary imports.",
+        "rag": "refactor(server): use @polka/url for parsing URL in server.js",
+        "classified_rag": "refactor: use @polka/url for parsing URL in server.js",
+        "nngen": "fix(input): add missing exports to index.js",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/README.md b/README.md @@ -27,8 +27,8 @@ Then open [http://localhost:3000/](http://localhost:3000/) to see your app. The\nInstall reactstrap and Bootstrap from NPM. Reactstrap does not include Bootstrap CSS so this needs to be installed as well:\n```\n-npm install bootstrap@4.0.0-alpha.6 --save\n-npm install --save reactstrap react-transition-group react react-dom\n+npm install --save bootstrap@4.0.0-alpha.6\n+npm install --save reactstrap react-transition-group@^1.1.2 react@^15.3.0 react-dom@^15.3.0\n```\nImport Bootstrap CSS in the ```src/index.js``` file:\n",
+        "human": "chore(readme): add version to install instructions\ncloses",
+        "race": "Update react version in docs",
+        "zeroshot": "Update npm package versions for reactstrap and react-transition-group",
+        "rag": "docs: Update reactstrap and react-transition-group versions in installation instructions",
+        "classified_rag": "docs: update installation instructions for reactstrap and Bootstrap in README.md",
+        "nngen": "docs(@phenomic/preset-react-app): specify react-router@3 requirement",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/packages/web/src/sideEffects/worker/index.js b/packages/web/src/sideEffects/worker/index.js @@ -5,25 +5,24 @@ const callBackToStream = require('../../most-utils/callbackToObservable')\nconst makeWorkerEffect = (workerPath) => {\nconst workerEventsCb = callBackToStream()\n- let _worker = WebWorkify(workerPath)\n+ let _worker = WebWorkify(workerPath, {})\n_worker.onerror = (error) => workerEventsCb.callback({ error })\n_worker.onmessage = (message) => workerEventsCb.callback(message)\nconst workerSink = (outToWorker$) => {\n// cancel whatever is going on in the worker by terminating it\noutToWorker$.filter(({ cmd }) => cmd === 'cancel')\n- .forEach((_) => _worker.terminate())\n-\n- // send other messages to the worker\n- outToWorker$\n- .filter(({ cmd }) => cmd !== 'cancel')\n.forEach((task) => {\n- // FIXME: sub optimal ! worker recreation is SLOW and should not be systematic\n_worker.terminate()\n_worker = WebWorkify(workerPath)\n_worker.onerror = (error) => workerEventsCb.callback({ error })\n_worker.onmessage = (message) => workerEventsCb.callback(message)\n- // do the task\n+ })\n+\n+ // send other messages to the worker\n+ outToWorker$\n+ .filter(({ cmd }) => cmd !== 'cancel')\n+ .forEach((task) => {\n_worker.postMessage(task)\n})\n}\n",
+        "human": "perf(web): changed to retain webworker process",
+        "race": "fix(web): worker recreation is slow",
+        "zeroshot": "Refactor worker creation and termination logic in makeWorkerEffect",
+        "rag": "chore: update worker effect in WebWorkify with additional options",
+        "classified_rag": "fix(web): prevent unnecessary worker recreation during task execution",
+        "nngen": "fix(Test): Simplify test data",
+        "type": "perf"
+    },
+    {
+        "diff": "diff --git a/truffle-config.js b/truffle-config.js @@ -8,7 +8,7 @@ const providerWithMnemonic = (mnemonic, rpcEndpoint) =>\nnew HDWalletProvider(mnemonic, rpcEndpoint);\nconst infuraProvider = network => providerWithMnemonic(\n- process.env.MNEMONIC,\n+ process.env.MNEMONIC || '',\n`https://${network}.infura.io/${process.env.INFURA_API_KEY}`\n);\n",
+        "human": "fix: default to empty string for mnemonic",
+        "race": "Fix infura provider",
+        "zeroshot": "Fix issue with missing default value for MNEMONIC in truffle-config.js",
+        "rag": "refactor: Update mnemonic fallback in provider configuration",
+        "classified_rag": "chore(truffle-config): update mnemonic fallback in providerWithMnemonic function",
+        "nngen": "chore: Update contentful space",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"main\": \"src/client/index.jsx\",\n\"description\": \"Advanced universal React starter built with a scale in mind.\",\n\"dependencies\": {\n- \"awral\": \"^1.1.2\",\n+ \"awral\": \"^1.2.0\",\n\"body-parser\": \"^1.18.2\",\n\"chalk\": \"^2.2.0\",\n\"chokidar\": \"^1.7.0\",\n",
+        "human": "feat(package.json): install\ninstall",
+        "race": "Update ARequestStack to 1.2.0",
+        "zeroshot": "Update awral dependency to version 1.2.0",
+        "rag": "fix(package): update awral to version 1.2.0",
+        "classified_rag": "chore(deps): update awral to v1.2.0\nUpdate Awral to the latest version for improved functionality and features.",
+        "nngen": "chore(package.json): add keywords",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/docs/app/Examples/modules/Modal/Variations/ModalExampleScrollingContent.js b/docs/app/Examples/modules/Modal/Variations/ModalExampleScrollingContent.js @@ -27,7 +27,7 @@ const ModalExampleScrollingContent = () => (\n</Modal.Content>\n<Modal.Actions>\n<Button primary>\n- Proceed <Icon name='right chevron' />\n+ Proceed <Icon name='chevron right' />\n</Button>\n</Modal.Actions>\n</Modal>\n",
+        "human": "docs(ModalExampleScrollingContent): your description\nTo conform with typescript definition files",
+        "race": "Fix modal example",
+        "zeroshot": "Update icon name in ModalExampleScrollingContent to 'chevron right'",
+        "rag": "fix: corrected icon name in ModalExampleScrollingContent",
+        "classified_rag": "fix: corrected icon name in ModalExampleScrollingContent",
+        "nngen": "test: update test to not use lodash.merge",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/packages/razzle/config/createJestConfig.js b/packages/razzle/config/createJestConfig.js @@ -33,7 +33,7 @@ module.exports = (\n// TODO: I don't know if it's safe or not to just use / as path separator\n// in Jest configs. We need help from somebody with Windows to determine this.\n- const config = Object.assign(\n+ let config = Object.assign(\n{\ncollectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],\n",
+        "human": "fix(razzle): use let so config can be redefined",
+        "race": "Fix eslint errors in jest config",
+        "zeroshot": "Refactor Jest config variable declaration to use let instead of const",
+        "rag": "chore: Change const to let for Jest config object in createJestConfig.js",
+        "classified_rag": "refactor: change const to let in createJestConfig.js for better flexibility and reassignment.",
+        "nngen": "build(webpack): single output for production",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/packages/razzle-plugin-scss/tests/index.test.js b/packages/razzle-plugin-scss/tests/index.test.js @@ -69,19 +69,16 @@ const nodeLoaderTests = [\nloaderFinder: cssLoaderFinder,\n},\n{\n- name: 'should not add postcss-loader',\n+ name: 'should add postcss-loader',\nloaderFinder: postCssLoaderFinder,\n- status: 'falsy',\n},\n{\n- name: 'should not add resolve-url-loader',\n+ name: 'should add resolve-url-loader',\nloaderFinder: resolveUrlLoaderFinder,\n- status: 'falsy',\n},\n{\n- name: 'should not add sass-loader',\n+ name: 'should add sass-loader',\nloaderFinder: sassLoaderFinder,\n- status: 'falsy',\n},\n];\n",
+        "human": "fix(scss): fix tests",
+        "race": "fix: remove status from nodeLoaderTests",
+        "zeroshot": "Refactor loader configuration to add necessary loaders for SCSS processing",
+        "rag": "tests: update loader tests to add postcss-loader and resolve-url-loader",
+        "classified_rag": "test(razzle-plugin-scss): Update loader tests for postcss-loader, resolve-url-loader, and sass-loader",
+        "nngen": "feat(Scripts): add images and svg loaders",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/website/pages/docs/customization.md b/website/pages/docs/customization.md @@ -414,10 +414,32 @@ To make the Jest test runner work with absolute imports, you'll need to add a `j\n```\nNow that you've configured your project to support absolute imports, if you want to import a module located at src/components/Button.js, you can import the module like so:\n+\n```js\nimport Button from 'components/Button';\n```\n+## Aliased Paths/ Modules\n+\n+You can configure your application to support importing modules using aliased paths. This can be done by configuring a jsconfig.json or tsconfig.json file in the root of your project. If you're using TypeScript in your project, you will already have a tsconfig.json file.\n+\n+```json\n+{\n+ \"compilerOptions\": {\n+ \"baseUrl\": \"src\",\n+ \"paths\": {\n+ \"@extra/*\": [\"../extra/*\"]\n+ }\n+ }\n+}\n+```\n+\n+Now that you've configured your project to support aliased imports, if you want to import a module located at extra/components/Button.js, you can import the module like so:\n+\n+```js\n+import Button from '@extra/components/Button';\n+```\n+\n## Experimental\nRazzle has support for some experimental features. Coming soon.\n",
+        "human": "docs: document compilerOptions.paths in ts/jsconfig",
+        "race": "Add alias paths/modules docs",
+        "zeroshot": "Add support for aliased paths/modules in Jest test runner",
+        "rag": "docs: reference Jest unit test configuration for aliased paths and modules",
+        "classified_rag": "docs: reference aliased paths/modules in Jest unit test configuration",
+        "nngen": "docs: improve angular tutorial",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/packages/chakra-ui-core/src/CText/tests/CText.test.js b/packages/chakra-ui-core/src/CText/tests/CText.test.js import CText from '..'\n-import { render } from '@/tests/test-utils'\n+import { render, screen } from '@/tests/test-utils'\nconst renderComponent = (props) => {\nconst inlineAttrs = (props && props.inlineAttrs) || ''\n@@ -19,9 +19,9 @@ it('should render correctly', () => {\nit('should change the style', () => {\nconst inlineAttrs = 'd=\"flex\"'\n- const { asFragment, getByTestId } = renderComponent({ inlineAttrs })\n+ const { asFragment } = renderComponent({ inlineAttrs })\n- const text = getByTestId('text')\n+ const text = screen.getByTestId('text')\nexpect(asFragment()).toMatchSnapshot()\nexpect(text).toHaveStyle('display: flex')\n@@ -44,8 +44,8 @@ it.each`\n'should display text type as $as',\n({ as }) => {\nconst inlineAttrs = `as=${as}`\n- const { getByTestId } = renderComponent({ inlineAttrs })\n- const text = getByTestId('text')\n+ renderComponent({ inlineAttrs })\n+ const text = screen.getByTestId('text')\nexpect(text.tagName.toLowerCase()).toEqual(as)\n}\n)\n",
+        "human": "test(text): refactor use screen",
+        "race": "fix: CText tests",
+        "zeroshot": "Refactor CText.test.js to use screen instead of getByTestId",
+        "rag": "test: update render function and use screen instead of getByTestId in CText.test.js",
+        "classified_rag": "test: update CText.test.js to use screen utility instead of getByTestId",
+        "nngen": "refactor: Replace custom divider with Chakra UI's Divider component",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/faq.md b/faq.md @@ -71,7 +71,7 @@ If you see nodemon trying to run two scripts, like:\n9 Dec 23:52:58 - [nodemon] starting `node ./app.js fixtures/sigint.js`\n```\n-This is because the main script argument (`fixtures/sigint.js` in this case) wasn't found, and a `package.json`'s main file *was* found. ie. to solve, double check the path to your script is correct.\n+This is because the main script argument (`fixtures/sigint.js` in this case) wasn't found, and a `package.json`'s main file _was_ found. ie. to solve, double check the path to your script is correct.\n## What has precedence, ignore or watch?\n@@ -106,10 +106,10 @@ sudo ln -s /usr/bin/nodejs /usr/local/bin/node\nFedora and Ubuntu pakage node as nodejs, because node.dpkg is\n> Description-en: Amateur Packet Radio Node program\n- The node program accepts TCP/IP and packet radio network connections and\n- presents users with an interface that allows them to make gateway connections\n- to remote hosts using a variety of amateur radio protocols.\n-They make the binary is nodejs, rather than node. So long as you're not using that Packet Radio Node Program mentioned above the workaround will work.\n+> The node program accepts TCP/IP and packet radio network connections and\n+> presents users with an interface that allows them to make gateway connections\n+> to remote hosts using a variety of amateur radio protocols.\n+> They make the binary is nodejs, rather than node. So long as you're not using that Packet Radio Node Program mentioned above the workaround will work.\nThank you [@EvanCarroll](https://github.com/remy/nodemon/issues/68#issuecomment-13672509)\n@@ -138,7 +138,7 @@ forever stop foo\nThis will stop both nodemon and the node process it was monitoring.\n-Note that I *would not* recommend using nodemon in a production environment - but that's because I wouldn't want it restart without my explicit instruction.\n+Note that I _would not_ recommend using nodemon in a production environment - but that's because I wouldn't want it restart without my explicit instruction.\n## What does \"verbose\" give me?\n@@ -146,10 +146,10 @@ The `--verbose` (or `-V`) puts nodemon in verbose mode which adds some detail to\nAdditional restart information:\n-- Which nodemon configs are loaded (local and global if found)\n-- Which ignore rules are being applied\n-- Which file extensions are being watch\n-- The process ID of your application (the `child pid`)\n+* Which nodemon configs are loaded (local and global if found)\n+* Which ignore rules are being applied\n+* Which file extensions are being watch\n+* The process ID of your application (the `child pid`)\nFor example:\n@@ -166,10 +166,10 @@ For example:\nWhen nodemon detects a change, the following addition information is shown:\n-- Which file(s) triggered the check\n-- Which (if any) rules the file matched to cause a subsequent restart\n-- How many rules were matched and out of those rules, how many cause a restart\n-- A list of all the files that *successfully* caused a restart\n+* Which file(s) triggered the check\n+* Which (if any) rules the file matched to cause a subsequent restart\n+* How many rules were matched and out of those rules, how many cause a restart\n+* A list of all the files that _successfully_ caused a restart\nFor example, on `lib/app.js` being changed:\n@@ -192,9 +192,9 @@ Note that if you have a `nodemon.json` in your `$HOME` path, then this will also\n## nodemon does nothing\n-On Ubuntu globally installed node applications have been found to have no output when they're run. This *seems* to be an issue with node not being correctly installed (possibly linked to the binary having to be called `nodejs`).\n+On Ubuntu globally installed node applications have been found to have no output when they're run. This _seems_ to be an issue with node not being correctly installed (possibly linked to the binary having to be called `nodejs`).\n-The solution (that's worked in the past) is to install [nvm](https://github.com/creationix/nvm) first and using it to install node, *rather* than using `apt-get` (or similar tools) to install node directly.\n+The solution (that's worked in the past) is to install [nvm](https://github.com/creationix/nvm) first and using it to install node, _rather_ than using `apt-get` (or similar tools) to install node directly.\n## If nodemon is facing the watch errors (Mac & Linux)\n@@ -204,3 +204,15 @@ Try the following command on terminal:\necho fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p\n```\n+## Error: Cannot find module 'internal/util/types'\n+\n+If you see the error `Cannot find module 'internal/util/types'`, the error is solved with a clean npm cache and trying to reinstall the dependency you're working with.\n+\n+A start is to use the following commands:\n+\n+```\n+sudo npm cache clean --force\n+sudo npm i -g npm\n+```\n+\n+Otherwise see [issue #1124](https://github.com/remy/nodemon/issues/1124) for further suggestions.\n",
+        "human": "docs: update faq on issue",
+        "race": "Add npm cache clean and npm i -g npm",
+        "zeroshot": "Fix formatting and typos in faq.md",
+        "rag": "fix: update faq.md (fix typos and formatting)",
+        "classified_rag": "docs(FAQ): update information about nodemon and nodejs installation on Ubuntu",
+        "nngen": "feat(docs): document email tool\\nAdd documentation for using the email blast tool to send out the\\nweekly newsletter.",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"lint\": \"cross-env NODE_ENV=production eslint .\",\n\"lint:fix\": \"npm run lint -- --fix\",\n\"lint:watch\": \"watch 'npm run lint --silent' docs gulp src test\",\n- \"prerelease\": \"npm run lint && npm test && cross-env NODE_ENV=production npm run build\",\n+ \"prerelease\": \"npm run lint && npm run tsd:lint && npm test && cross-env NODE_ENV=production npm run build\",\n\"postrelease\": \"NODE_ENV=production npm run deploy:docs\",\n\"release:major\": \"npm run prerelease && ta-script npm/release.sh major && npm run prerelease\",\n\"release:minor\": \"npm run prerelease && ta-script npm/release.sh minor && npm run prerelease\",\n",
+        "human": "chore(package): run tsd lint prerelease",
+        "race": "chore(release): add tsd linting to prerelease script",
+        "zeroshot": "Add tsd:lint script to prerelease step",
+        "rag": "chore: Update prerelease script to include tsd:lint task",
+        "classified_rag": "chore: update prerelease script to include tsd:lint step",
+        "nngen": "chore(package): fix `prepublishOnly` script with `lint:dts`",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/src/collections/Grid/Grid.js b/src/collections/Grid/Grid.js @@ -93,7 +93,7 @@ Grid.propTypes = {\n/** Represents column count per row in Grid. */\ncolumns: PropTypes.oneOf([...SUI.WIDTHS, 'equal']),\n- /** A grid can be combined with a container to use avaiable layout and alignment. */\n+ /** A grid can be combined with a container to use the available layout and alignment. */\ncontainer: PropTypes.bool,\n/** A grid can have dividers between its columns. */\n",
+        "human": "docs(Grid): fix a typo",
+        "race": "docs(Grid): fix typo",
+        "zeroshot": "Fix typo in Grid component PropTypes comment",
+        "rag": "docs(core-grid): update Grid container prop description",
+        "classified_rag": "docs(core-grid): update Grid container prop description",
+        "nngen": "feat(layout/grid): move to with property for grid items",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/docs/src/examples/modules/Dropdown/Usage/index.js b/docs/src/examples/modules/Dropdown/Usage/index.js @@ -98,7 +98,7 @@ const DropdownUsageExamples = () => (\nexamplePath='modules/Dropdown/Usage/DropdownExampleSearchQuery'\n>\n<Message info>\n- This example also shows how to override default bevahiour of the search query and keep\n+ This example also shows how to override default behaviour of the search query and keep\nentered value after selection.\n</Message>\n</ComponentExample>\n",
+        "human": "docs(Dropdown): fix typo in message",
+        "race": "Fix typo in dropdown example",
+        "zeroshot": "Fix typo in DropdownUsageExamples component message",
+        "rag": "docs: update default behaviour description in DropdownUsageExamples",
+        "classified_rag": "docs: fix typo in default behaviour description",
+        "nngen": "docs: update value prop description",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/webpack_config/server.js b/webpack_config/server.js @@ -3,15 +3,14 @@ const path = require('path')\nconst express = require('express')\nconst httpProxy = require('http-proxy')\nconst webpack = require('webpack')\n-const webpackConfig = require('./webpack.dev')\n+const webpackConfig = require('./client/webpack.dev')\nconst config = require('./config')\nconst LogPlugin = require('./log-plugin')\nconst open = require('open')\n-const app = express()\nconst apiProxy = httpProxy.createProxyServer()\n-\n-const port = config.port\n+const app = express()\n+const {port} = config\nwebpackConfig.entry.client = [\n'react-hot-loader/patch',\n'webpack-hot-middleware/client?reload=true',\n@@ -31,6 +30,7 @@ try {\nconst devMiddleWare = require('webpack-dev-middleware')(compiler, {\npublicPath: webpackConfig.output.publicPath,\n+ // @Metnew: personally I prefer `quite: \"true\"`\nquiet: false,\nhot: true,\ninline: true,\n@@ -60,9 +60,13 @@ app.get('*', (req, res) => {\n})\n})\n-// Proxy api requests\n+// Proxy api requests to BASE_API\napp.use(process.env.BASE_API, function (req, res) {\n- req.url = req.baseUrl\n+ /**\n+ * // req.baseUrl - The URL path on which a router instance was mounted.\n+ * {@link https://expressjs.com/ru/4x/api.html#req.baseUrl}\n+ */\n+ req.url = req.baseUrl + req.url\napiProxy.web(req, res, {\ntarget: {\nport: 4000,\n",
+        "human": "refactor(webpack_config/config): fix import path for client webpack.base, some style fixes",
+        "race": "Fix webpack dev server",
+        "zeroshot": "Refactor webpack configuration and update proxy API request handling",
+        "rag": "refactor(webpack_config): update webpackConfig path to client folder\n- Updated the path for webpackConfig to point to the client folder instead of the root folder\n- Removed unnecessary express initialization and port assignment\n- Added comments for better code readability and understanding",
+        "classified_rag": "refactor(webpack_config): update proxy request handling in server.js",
+        "nngen": "refactor: cleanup craco config",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/docs/src/examples/modules/Search/Types/SearchExampleStandard.js b/docs/src/examples/modules/Search/Types/SearchExampleStandard.js import _ from 'lodash'\nimport faker from 'faker'\n-import React, { Component } from 'react'\n+import React from 'react'\nimport { Search, Grid, Header, Segment } from 'semantic-ui-react'\n-const initialState = { isLoading: false, results: [], value: '' }\n-\nconst source = _.times(5, () => ({\ntitle: faker.company.companyName(),\ndescription: faker.company.catchPhrase(),\n@@ -12,48 +10,77 @@ const source = _.times(5, () => ({\nprice: faker.finance.amount(0, 100, 2, '$'),\n}))\n-export default class SearchExampleStandard extends Component {\n- state = initialState\n+const initialState = {\n+ loading: false,\n+ results: [],\n+ value: '',\n+}\n+\n+function exampleReducer(state, action) {\n+ switch (action.type) {\n+ case 'CLEAN_QUERY':\n+ return initialState\n+ case 'START_SEARCH':\n+ return { ...state, loading: true, value: action.query }\n+ case 'FINISH_SEARCH':\n+ return { ...state, loading: false, results: action.results }\n+ case 'UPDATE_SELECTION':\n+ return { ...state, value: action.selection }\n+\n+ default:\n+ throw new Error()\n+ }\n+}\n- handleResultSelect = (e, { result }) => this.setState({ value: result.title })\n+function SearchExampleStandard() {\n+ const [state, dispatch] = React.useReducer(exampleReducer, initialState)\n+ const { loading, results, value } = state\n- handleSearchChange = (e, { value }) => {\n- this.setState({ isLoading: true, value })\n+ const timeoutRef = React.useRef()\n+ const handleSearchChange = React.useCallback((e, data) => {\n+ clearTimeout(timeoutRef.current)\n+ dispatch({ type: 'START_SEARCH', query: data.value })\n- setTimeout(() => {\n- if (this.state.value.length < 1) return this.setState(initialState)\n+ timeoutRef.current = setTimeout(() => {\n+ if (data.value.length === 0) {\n+ dispatch({ type: 'CLEAN_QUERY' })\n+ return\n+ }\n- const re = new RegExp(_.escapeRegExp(this.state.value), 'i')\n+ const re = new RegExp(_.escapeRegExp(data.value), 'i')\nconst isMatch = (result) => re.test(result.title)\n- this.setState({\n- isLoading: false,\n+ dispatch({\n+ type: 'FINISH_SEARCH',\nresults: _.filter(source, isMatch),\n})\n}, 300)\n+ }, [])\n+ React.useEffect(() => {\n+ return () => {\n+ clearTimeout(timeoutRef.current)\n}\n-\n- render() {\n- const { isLoading, value, results } = this.state\n+ }, [])\nreturn (\n<Grid>\n<Grid.Column width={6}>\n<Search\n- loading={isLoading}\n- onResultSelect={this.handleResultSelect}\n- onSearchChange={_.debounce(this.handleSearchChange, 500, {\n- leading: true,\n- })}\n+ loading={loading}\n+ onResultSelect={(e, data) =>\n+ dispatch({ type: 'UPDATE_SELECTION', selection: data.result.title })\n+ }\n+ onSearchChange={handleSearchChange}\nresults={results}\nvalue={value}\n/>\n</Grid.Column>\n+\n<Grid.Column width={10}>\n<Segment>\n<Header>State</Header>\n<pre style={{ overflowX: 'auto' }}>\n- {JSON.stringify(this.state, null, 2)}\n+ {JSON.stringify({ loading, results, value }, null, 2)}\n</pre>\n<Header>Options</Header>\n<pre style={{ overflowX: 'auto' }}>\n@@ -64,4 +91,5 @@ export default class SearchExampleStandard extends Component {\n</Grid>\n)\n}\n-}\n+\n+export default SearchExampleStandard\n",
+        "human": "docs(SearchExampleStandard): use React hooks\n* docs(SearchExampleStandard): your description\nConverted into Functional functional component\n* moved source out of function\n* Update SearchExampleStandard.js\n* Update SearchExampleStandard.js\n* Update SearchExampleStandard.js",
+        "race": "Update Search example to use hooks",
+        "zeroshot": "Refactor SearchExampleStandard component to use functional components and hooks",
+        "rag": "refactor(searchexamplestandard): refactor class component to functional component using hooks and reducer for state management",
+        "classified_rag": "refactor(search): refactor SearchExampleStandard component to use functional component and hooks",
+        "nngen": "feat(atom/image): hooks migratino",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"uppercamelcase\": \"^1.1.0\",\n\"url-loader\": \"^1.0.1\",\n\"vue\": \"^3.0.0-rc.4\",\n- \"vue-jest\": \"github:vuejs/vue-jest#next\",\n+ \"vue-jest\": \"vuejs/vue-jest#next\",\n\"vue-loader\": \"^16.0.0-beta.4\",\n\"vue-router\": \"^4.0.0-beta.3\",\n\"webpack\": \"^4.14.0\",\n",
+        "human": "test: timeline test case",
+        "race": "fix: vue-jest link",
+        "zeroshot": "Update vue-jest dependency in package.json",
+        "rag": "chore(package): update vue-router to v4.0.0-beta.3",
+        "classified_rag": "chore(deps): update `vue-jest` dependency",
+        "nngen": "feat(app): Upgrade vue-loader to v16.4.1",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/packages/veui-theme-one/components/uploader.less b/packages/veui-theme-one/components/uploader.less & &-button-remove {\nfloat: right;\n+ margin-right: 4px;\ncolor: @veui-gray-color-2;\nopacity: 0;\n.centered-line(20px);\n}\n}\n- &-list-transition-enter,\n- &-list-transition-leave-to {\n+ &-list-enter,\n+ &-list-leave-to {\nopacity: 0;\n}\n- .veui-uploader-list-transition-leave-active {\n+\n+ & &-list-leave-active {\nposition: absolute;\n}\n",
+        "human": "refactor: simplify class name",
+        "race": "fix: fix uploader diff",
+        "zeroshot": "Update styles for uploader component in veui-theme-one",
+        "rag": "style(uploader): adjust margin and opacity for remove button and transition classes",
+        "classified_rag": "style: update transition classes in uploader component CSS",
+        "nngen": "refactor(package/calendar): review To-Do List action entities",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/lib/monitor/run.js b/lib/monitor/run.js @@ -195,7 +195,7 @@ function run(options) {\nif (signal === config.signal || code === 0) {\n// this was a clean exit, so emit exit, rather than crash\ndebug('bus.emit(exit) via ' + config.signal);\n- bus.emit('exit');\n+ bus.emit('exit', signal);\n// exit the monitor, but do it gracefully\nif (signal === config.signal) {\n",
+        "human": "fix: ensure signal is sent to exit event",
+        "race": "fix(monitor): emit signal on exit",
+        "zeroshot": "Update bus.emit('exit') to include signal parameter",
+        "rag": "refactor: emit exit signal with specific signal code",
+        "classified_rag": "refactor(monitor): Update exit event emission in run function",
+        "nngen": "feat: networkMode > rulesMode",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/website/pages/contributors.vue b/website/pages/contributors.vue <carbon-ad />\n- <c-image :src=\"require('@/assets/logo/chakra-ui-vue-blue@2x.png')\" />\n-\n<c-box>\n<c-box v-for=\"(person, _i) in contributors\" :key=\"_i\" bb=\"1px solid\" border-color=\"gray.200\" p=\"3\">\n<c-text font-weight=\"bold\" mt=\"3\" font-size=\"1.3rem\">\n",
+        "human": "refactor: cleanup test code",
+        "race": "Remove logo from contributors page",
+        "zeroshot": "Remove carbon-ad and c-image from contributors page",
+        "rag": "feat: update contributors page with Chakra UI Vue logo and list of contributors.",
+        "classified_rag": "docs: remove unnecessary image tag and update contributors display layout.",
+        "nngen": "feat(navpointers): actualize descriptions",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/README.md b/README.md @@ -42,14 +42,14 @@ or\n## Packages\n-| Package | Version |\n-| ---------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |\n-| [wmr](packages/wmr) | [![wmr npm](https://img.shields.io/npm/v/wmr.svg)](https://npm.im/wmr) |\n-| [create-wmr](packages/create-wmr) | [![create-wmr npm](https://img.shields.io/npm/v/create-wmr.svg)](https://npm.im/create-wmr) |\n-| [@wmr-plugins/directory-import](packages/directory-plugin) | [![@wmr-plugins/directory-import npm](https://img.shields.io/npm/v/@wmr-plugins/directory-import.svg)](https://npm.im/@wmr-plugins/directory-import) |\n-| [@wmr-plugins/nomodule](packages/nomodule-plugin) | [![@wmr-plugins/nomodule npm](https://img.shields.io/npm/v/@wmr-plugins/nomodule.svg)](https://npm.im/@wmr-plugins/nomodule) |\n-| [@wmr-plugins/service-worker](packages/sw-plugin) | [![@wmr-plugins/service-worker npm](https://img.shields.io/npm/v/@wmr-plugins/service-worker.svg)](https://npm.im/@wmr-plugins/service-worker) |\n-| [preact-iso](packages/preact-iso) | [![preact-iso npm](https://img.shields.io/npm/v/preact-iso.svg)](https://npm.im/preact-iso) |\n+| Package | Description | Version |\n+| ---------------------------------------------------------- | :---------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |\n+| [wmr](packages/wmr) | The tiny all-in-one development tool for modern web apps | [![wmr npm](https://img.shields.io/npm/v/wmr.svg)](https://npm.im/wmr) |\n+| [create-wmr](packages/create-wmr) | Create a new WMR project in seconds | [![create-wmr npm](https://img.shields.io/npm/v/create-wmr.svg)](https://npm.im/create-wmr) |\n+| [@wmr-plugins/directory-import](packages/directory-plugin) | Allows you to import multiple files in a single statement | [![@wmr-plugins/directory-import npm](https://img.shields.io/npm/v/@wmr-plugins/directory-import.svg)](https://npm.im/@wmr-plugins/directory-import) |\n+| [@wmr-plugins/nomodule](packages/nomodule-plugin) | Allows you to create legacy bundles alongside WMR's modern output | [![@wmr-plugins/nomodule npm](https://img.shields.io/npm/v/@wmr-plugins/nomodule.svg)](https://npm.im/@wmr-plugins/nomodule) |\n+| [@wmr-plugins/service-worker](packages/sw-plugin) | Allows you to add a service worker | [![@wmr-plugins/service-worker npm](https://img.shields.io/npm/v/@wmr-plugins/service-worker.svg)](https://npm.im/@wmr-plugins/service-worker) |\n+| [preact-iso](packages/preact-iso) | Isomorphic async tools for Preact | [![preact-iso npm](https://img.shields.io/npm/v/preact-iso.svg)](https://npm.im/preact-iso) |\n## Contributing\n",
+        "human": "docs: Adding descriptions to packages listed in root readme",
+        "race": "docs: add description to packages",
+        "zeroshot": "Update package descriptions in README.md",
+        "rag": "chore(README): Update package descriptions in table",
+        "classified_rag": "docs: update package descriptions in README.md",
+        "nngen": "fix: readme badge",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/src/entry.js b/src/entry.js @@ -9,6 +9,7 @@ import ElAside from '../packages/aside'\nimport ElMain from '../packages/main'\nimport ElIcon from '../packages/icon'\nimport ElButton from '../packages/button'\n+import ElButtonGroup from '../packages/button-group'\nimport ElLink from '../packages/link'\n// Form\nimport ElRadio from '../packages/radio'\n@@ -102,6 +103,7 @@ const components = [\nElAlert,\nElContainer,\nElButton,\n+ ElButtonGroup,\nElSwitch,\nElProgress,\nElLink,\n@@ -205,6 +207,7 @@ export {\nElMain,\nElAlert,\nElButton,\n+ ElButtonGroup,\nElSwitch,\nElProgress,\nElLink,\n",
+        "human": "feat: export button-group compnoent",
+        "race": "feat: add button-group to entry.js",
+        "zeroshot": "Add ElButtonGroup component to entry.js and components list",
+        "rag": "fix(button-group): export ElButtonGroup component correctly",
+        "classified_rag": "feat(exports): export ElButtonGroup in entry.js",
+        "nngen": "refactor: change deploy export",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/src/use/emitter.js b/src/use/emitter.js @@ -16,14 +16,14 @@ export function useEmitter() {\nconst { value, type, emitComponentInstance } = e\nif (type === BROADCAST) {\nif (isChildComponent(currentComponentInstance, emitComponentInstance)) {\n- handler && handler(value)\n+ handler && handler(...value)\n}\n} else if (type === DISPATCH) {\nif (isChildComponent(emitComponentInstance, currentComponentInstance)) {\n- handler && handler(value)\n+ handler && handler(...value)\n}\n} else {\n- handler && handler(value)\n+ handler && handler(...value)\n}\n}\n@@ -32,19 +32,19 @@ export function useEmitter() {\nemitter.on(type, handleWrapper)\n}\n- function broadcast(type, evt) {\n+ function broadcast(type, ...args) {\nemitter.emit(type, {\ntype: BROADCAST,\nemitComponentInstance: currentComponentInstance,\n- value: evt\n+ value: args\n})\n}\n- function dispatch(type, evt) {\n+ function dispatch(type, ...args) {\nemitter.emit(type, {\ntype: DISPATCH,\nemitComponentInstance: currentComponentInstance,\n- value: evt\n+ value: args\n})\n}\n@@ -52,9 +52,9 @@ export function useEmitter() {\nemitter.off(type, handler[wrapper])\n}\n- function emit(type, evt) {\n+ function emit(type, ...args) {\nemitter.emit(type, {\n- value: evt\n+ value: args\n})\n}\n",
+        "human": "feat: emitter support multi-parameter",
+        "race": "feat: add support for multiple arguments to event handlers",
+        "zeroshot": "Refactor emitter.js to accept multiple arguments in handler functions",
+        "rag": "refactor: update handler function to accept spread arguments",
+        "classified_rag": "refactor(src): update handler function parameters in useEmitter module",
+        "nngen": "refactor: alow import of non-text content from saz files",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/packages/chakra-ui-core/src/CStat/CStat.js b/packages/chakra-ui-core/src/CStat/CStat.js @@ -38,17 +38,17 @@ const arrowOptions = {\n*/\nconst CStat = {\nname: 'CStat',\n- extends: CBox,\n- render (h) {\n- const children = cleanChildren(this.$slots.default)\n+ functional: true,\n+ render (h, { props, slots, data, ...rest }) {\n+ const children = cleanChildren(slots().default)\nreturn h(CBox, {\n- props: {\n+ ...rest,\n+ props: { as: props.as },\n+ attrs: {\nflex: 1,\npr: 4,\nposition: 'relative',\n- ...forwardProps(this.$props)\n- },\n- attrs: {\n+ ...(data.attrs || {}),\n'data-chakra-component': 'CStat'\n}\n}, children)\n@@ -65,17 +65,20 @@ const CStat = {\n*/\nconst CStatGroup = {\nname: 'CStatGroup',\n- extends: CFlex,\n- render (h) {\n- const children = cleanChildren(this.$slots.default)\n+ functional: true,\n+ props: CFlex.props,\n+ render (h, { props, slots, data, ...rest }) {\n+ const children = cleanChildren(slots().default)\nreturn h(CFlex, {\n+ ...rest,\nprops: {\nflexWrap: 'wrap',\njustifyContent: 'space-around',\nalignItems: 'flex-start',\n- ...forwardProps(this.$props)\n+ ...forwardProps(props)\n},\nattrs: {\n+ ...(data.attrs || {}),\n'data-chakra-component': 'CStatGroup'\n}\n}, children)\n@@ -92,23 +95,27 @@ const CStatGroup = {\n*/\nconst CStatArrow = {\nname: 'CStatArrow',\n- extends: CIcon,\n+ functional: true,\nprops: {\n+ ...CIcon.props,\ntype: {\ntype: String,\ndefault: 'increase'\n}\n},\n- render (h) {\n+ render (h, { props, slots, data, ...rest }) {\nreturn h(CIcon, {\n+ ...rest,\nprops: {\n- mr: 1,\nsize: '14px',\n- verticalAlign: 'middle',\n- ...arrowOptions[this.type],\n- ...forwardProps(this.$props)\n+ ...arrowOptions[props.type],\n+ ...forwardProps(props)\n},\nattrs: {\n+ mr: 1,\n+ verticalAlign: 'middle',\n+ ...(data.attrs || {}),\n+ color: arrowOptions[props.type].color,\n'data-chakra-component': 'CStatArrow'\n}\n})\n@@ -125,19 +132,20 @@ const CStatArrow = {\n*/\nconst CStatNumber = {\nname: 'CStatNumber',\n- extends: CText,\n- render (h) {\n+ functional: true,\n+ props: CText.props,\n+ render (h, { props, slots, data, ...rest }) {\nreturn h(CText, {\n- props: {\n+ ...rest,\n+ props: forwardProps(props),\n+ attrs: {\nfontSize: '2xl',\nverticalAlign: 'baseline',\nfontWeight: 'semibold',\n- ...forwardProps(this.$props)\n- },\n- attrs: {\n+ ...(data.attrs || {}),\n'data-chakra-component': 'CStatNumber'\n}\n- }, this.$slots.default)\n+ }, slots().default)\n}\n}\n@@ -151,16 +159,20 @@ const CStatNumber = {\n*/\nconst CStatHelperText = {\nname: 'CStatHelperText',\n- extends: CText,\n- render (h) {\n+ functional: true,\n+ props: CText.props,\n+ render (h, { props, slots, data, ...rest }) {\nreturn h(CText, {\n- props: {\n+ ...rest,\n+ props: forwardProps(props),\n+ attrs: {\nfontSize: 'sm',\nopacity: 0.8,\nmb: 2,\n- ...forwardProps(this.$props)\n+ ...(data.attrs || {}),\n+ 'data-chakra-component': 'CStatHelperText'\n}\n- }, this.$slots.default)\n+ }, slots().default)\n}\n}\n@@ -174,18 +186,19 @@ const CStatHelperText = {\n*/\nconst CStatLabel = {\nname: 'CStatLabel',\n- extends: CText,\n- render (h) {\n+ functional: true,\n+ props: CText.props,\n+ render (h, { props, slots, data, ...rest }) {\nreturn h(CText, {\n- props: {\n+ ...rest,\n+ props: forwardProps(props),\n+ attrs: {\nfontWeight: 'medium',\nfontSize: 'sm',\n- ...forwardProps(this.$props)\n- },\n- attrs: {\n+ ...(data.attrs || {}),\n'data-chakra-component': 'CStatLabel'\n}\n- }, this.$slots.default)\n+ }, slots().default)\n}\n}\n",
+        "human": "refactor(stat): use functional api",
+        "race": "Add functional props to CStat",
+        "zeroshot": "Refactor CStat components to use functional components and improve prop handling",
+        "rag": "refactor(chakra-ui-core): refactor CStat components to be functional components",
+        "classified_rag": "refactor(chakra-ui-core): convert CStat, CStatGroup, CStatArrow, CStatNumber, CStatHelperText, and CStatLabel components to functional components",
+        "nngen": "fix(vue): url params parsing",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/packages/chakra-ui-docs/layouts/default.vue b/packages/chakra-ui-docs/layouts/default.vue @@ -105,6 +105,9 @@ export default {\n},\n'table, p': {\n'code': this.code[colorMode]\n+ },\n+ li: {\n+ code: this.code[colorMode]\n}\n})(this.$chakra.theme))\n},\n",
+        "human": "fix: added style rule for code element in li",
+        "race": "add li to diff",
+        "zeroshot": "Add code styling to list items in default layout",
+        "rag": "feat(chakra-ui-docs): add code styling to li elements",
+        "classified_rag": "style(chakra-ui-docs): improve code formatting for list items",
+        "nngen": "feat: Stepper - Allow action to take place before jumping to next step",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/examples/with-typeorm-graphql/babel.config.json b/examples/with-typeorm-graphql/babel.config.json \"preset-typescript\": { \"onlyRemoveTypeImports\": true },\n\"decorators\": { \"legacy\": true },\n\"parameter-decorator\": true,\n+ \"typescript-metadata\": true,\n\"class-properties\": { \"loose\": true },\n}]\n]\n",
+        "human": "fix(example): add typescript metadate in preset options",
+        "race": "Add typescript-metadata to diff",
+        "zeroshot": "Add support for TypeScript metadata in babel configuration",
+        "rag": "chore(with-typeorm-graphql): enable typescript-metadata in babel config",
+        "classified_rag": "chore: Update Babel config with TypeScript metadata support",
+        "nngen": "chore(rollup): to resolve browser entries over main",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/src/addons/Portal/Portal.js b/src/addons/Portal/Portal.js import _ from 'lodash'\nimport PropTypes from 'prop-types'\n-import { Children, cloneElement } from 'react'\n+import React, { Children, cloneElement } from 'react'\nimport ReactDOM from 'react-dom'\nimport {\n@@ -11,6 +11,7 @@ import {\nmakeDebugger,\nMETA,\n} from '../../lib'\n+import Ref from '../Ref'\nconst debug = makeDebugger('portal')\n@@ -414,24 +415,23 @@ class Portal extends Component {\n_.invoke(this.props, 'onUnmount', null, this.props)\n}\n- handleRef = (c) => {\n- // TODO: Replace findDOMNode with Ref component when it will be merged\n- this.triggerNode = ReactDOM.findDOMNode(c) // eslint-disable-line react/no-find-dom-node\n- }\n+ handleRef = c => (this.triggerNode = c)\nrender() {\nconst { trigger } = this.props\nif (!trigger) return null\n-\n- return cloneElement(trigger, {\n- ref: this.handleRef,\n+ return (\n+ <Ref innerRef={this.handleRef}>\n+ {cloneElement(trigger, {\nonBlur: this.handleTriggerBlur,\nonClick: this.handleTriggerClick,\nonFocus: this.handleTriggerFocus,\nonMouseLeave: this.handleTriggerMouseLeave,\nonMouseEnter: this.handleTriggerMouseEnter,\n- })\n+ })}\n+ </Ref>\n+ )\n}\n}\n",
+        "human": "feat(Portal): use Ref for handling trigger refs",
+        "race": "Use Ref component for portal trigger",
+        "zeroshot": "Refactor Portal component to use Ref component for handling DOM nodes",
+        "rag": "refactor: replace findDOMNode with Ref component in Portal component",
+        "classified_rag": "fix: replace findDOMNode with Ref component",
+        "nngen": "refactor: withDrawerState implement with useIsDrawerOpen for simplicity",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/src/common/actions/layout/index.js b/src/common/actions/layout/index.js @@ -18,6 +18,13 @@ export const WINDOW_RESIZE = (innerWidth: number) => ({\n}\n})\n+// See reducers/layout for an additional info:\n+// export const ADD_STYLES_TO_ELEMENT = (element\n+// ) => (styles) => ({\n+// element,\n+// styles\n+// })\n+\nexport type UI_OPEN_SIDEBAR_TYPE = {type: 'UI_OPEN_SIDEBAR'}\nexport type UI_CLOSE_SIDEBAR_TYPE = {type: 'UI_CLOSE_SIDEBAR'}\nexport type UI_WINDOW_RESIZE_TYPE = {\n",
+        "human": "chore(actions/layout): add commented ADD_STYLES_TO_ELEMENT action\nchore(actions/layout): add commented ADD_STYLES_TO_ELEMENT action",
+        "race": "Add a comment about adding styles to element reducers",
+        "zeroshot": "Add ADD_STYLES_TO_ELEMENT action to layout actions",
+        "rag": "refactor(layout): remove commented out code and add type definitions",
+        "classified_rag": "feat(layout): add ADD_STYLES_TO_ELEMENT action creator",
+        "nngen": "refactor: raname models",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/src/elements/Button/index.d.ts b/src/elements/Button/index.d.ts @@ -89,7 +89,7 @@ export interface ButtonProps {\nsize?: SemanticSIZES;\n/** A button can receive focus. */\n- tabIndex: number | string;\n+ tabIndex?: number | string;\n/** A button can be formatted to toggle on and off. */\ntoggle?: boolean;\n",
+        "human": "fix(Button): fix `tabIndex` in typings",
+        "race": "fix(Button): tabIndex is optional",
+        "zeroshot": "Fix optional tabIndex prop in Button component",
+        "rag": "fix: make tabIndex optional in ButtonProps interface",
+        "classified_rag": "chore(elements/button): update tabIndex prop to be optional in ButtonProps",
+        "nngen": "feat(index.d.ts): add typings to Asset details",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"babel-plugin-__coverage__\": \"^11.0.0\",\n\"babel-plugin-lodash\": \"^3.2.10\",\n\"babel-plugin-react-transform\": \"^2.0.2\",\n- \"babel-plugin-transform-react-constant-elements\": \"^6.9.1\",\n\"babel-plugin-transform-react-handled-props\": \"^0.2.1\",\n\"babel-plugin-transform-react-remove-prop-types\": \"^0.2.10\",\n\"babel-plugin-transform-runtime\": \"^6.15.0\",\n",
+        "human": "chore(package): remove transform-react-constant-elements",
+        "race": "Remove constant elements from diff",
+        "zeroshot": "Remove babel-plugin-transform-react-constant-elements from dependencies",
+        "rag": "chore(package): update babel-plugin-transform-react-constant-elements to version 6.9.1",
+        "classified_rag": "chore(package): remove babel-plugin-transform-react-constant-elements",
+        "nngen": "chore(package): update babel-loader to version 7.1.1\\nCloses",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/package.json b/package.json \"rimraf\": \"^2.6.1\",\n\"script-ext-html-webpack-plugin\": \"^1.8.0\",\n\"simplehttp2server\": \"^1.0.0\",\n- \"sw-precache-webpack-plugin\": \"^0.11.0\",\n+ \"sw-precache-webpack-plugin\": \"^0.11.2\",\n\"tmp\": \"0.0.31\",\n\"unfetch\": \"^2.1.2\",\n\"url-loader\": \"^0.5.8\",\n",
+        "human": "chore: update sw-precache-webpack-plugin to 0.11.2",
+        "race": "Update sw-precache-webpack-plugin",
+        "zeroshot": "Update sw-precache-webpack-plugin to version 0.11.2",
+        "rag": "build(dev-deps): update sw-precache-webpack-plugin version to 0.11.2",
+        "classified_rag": "chore(sw-precache-webpack-plugin): update to version 0.11.2",
+        "nngen": "chore(package): update webpack to version 4.12.1\\nCloses",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/build/Dockerfile b/build/Dockerfile # Copyright 2021 - Offen Authors <hioffen@posteo.de>\n# SPDX-License-Identifier: Apache-2.0\n-FROM alpine:3.14\n+FROM alpine:3.15\nLABEL maintainer=\"offen <hioffen@posteo.de>\"\nRUN addgroup -g 10001 -S offen \\\n",
+        "human": "build: update base docker image to alpine 3.15",
+        "race": "Update alpine to 3.15",
+        "zeroshot": "Update Alpine base image version to 3.15 and update maintainer label in Dockerfile",
+        "rag": "chore(build): update Alpine base image version to 3.15",
+        "classified_rag": "chore: update Alpine base image version to 3.15",
+        "nngen": "build(jenkins): Load config to workspace if script exists.",
+        "type": "build"
+    },
+    {
+        "diff": "diff --git a/webpack_config/config.js b/webpack_config/config.js -'use strict'\n+/**\n+ * @file for config stuff that's used for webpack configuration, but isn't passed to webpack compiler\n+ */\n+\nconst path = require('path')\nconst rootPath = path.join(__dirname, '../') // = \"/\"\nconst distPath = path.join(rootPath, './dist') // = \"/dist\"\n@@ -32,7 +35,8 @@ module.exports = {\n},\n// text for WebpackBannerPlugin,\n// this plugin just adds text banner to the beginning of your file\n- banner: 'MIT License. Copyright (c) 2017 Vladimir Metnew All Rights Reserved. Repo: https://github.com/Metnew/react-semantic.ui-starter',\n+ banner:\n+ 'MIT License. Copyright (c) 2017 Vladimir Metnew All Rights Reserved. Repo: https://github.com/Metnew/react-semantic.ui-starter',\n// your manifest.json\nmanifest: {\nname: 'React-Semantic.UI-Starter',\n",
+        "human": "style(webpack_config): resolve eslint issues",
+        "race": "docs: add comments to webpack config files",
+        "zeroshot": "Refactor webpack config file and update banner text",
+        "rag": "style(Webpack): update comments and formatting in config.js file",
+        "classified_rag": "chore: Update webpack config comments and formatting",
+        "nngen": "docs(vuepress): add nav with home and github link",
+        "type": "style"
+    },
+    {
+        "diff": "diff --git a/README.md b/README.md @@ -44,6 +44,9 @@ See the [Documentation][2] for an introduction, usage information, and extensive\nThis is a listing of example projects and guides that will help you integrate Semantic UI React into your new or existing projects.\n+### [react-semantic.ui-starter][102]\n+Production-ready, performance-first, optimized, robust, fully-featured boilerplate/example for your new Progressive Web App.\n+\n### [semantic-ui-react-todos][100]\nThis example modifies the well-known [react-redux Todo List][101] to use Semantic UI components. There is also a write-up on the process in the project README.\n@@ -206,3 +209,4 @@ Big thanks to our [contributors][20], especially:\n<!-- Examples -->\n[100]: https://github.com/wyc/semantic-ui-react-todos\n[101]: https://github.com/reactjs/redux/tree/master/examples/todos\n+[102]: https://github.com/Metnew/react-semantic.ui-starter\n",
+        "human": "docs(README): add React-Semantic.UI-Starter",
+        "race": "Add react-semantic.ui-starter to the README",
+        "zeroshot": "Add production-ready boilerplate/example for Progressive Web App.",
+        "rag": "docs(readme): add link to react-semantic.ui-starter project in example projects section",
+        "classified_rag": "docs(readme): add link to react-semantic.ui-starter project",
+        "nngen": "docs: added some start up docs and feature info to README",
+        "type": "docs"
+    },
+    {
+        "diff": "diff --git a/packages/veui/src/managers/rule.js b/packages/veui/src/managers/rule.js @@ -5,6 +5,7 @@ import max from './rules/max'\nimport min from './rules/min'\nimport numeric from './rules/numeric'\nimport pattern from './rules/pattern'\n+import type from './type'\nimport { isObject, isFunction } from 'lodash'\n/**\n@@ -31,15 +32,16 @@ export class Rule {\n}\n}\n- validate (val, rules, formData) {\n+ validate (val, rules, context) {\nif (!rules || !rules.length) {\nreturn true\n}\nrules = Array.isArray(rules) ? rules : [rules]\n+ let contextData = type.clone(context)\nlet results = rules.map(rule => {\nlet validator = this.ruleValidators[rule.name]\n- if (!validator.validate(val, rule.value, formData)) {\n+ if (!validator.validate(val, rule.value, contextData)) {\nlet realMessage = rule.message || validator.message\nreturn {\nname: rule.name,\n",
+        "human": "refactor: use more semantic variable names, update changelog",
+        "race": "fix: rule validator now accepts context as parameter",
+        "zeroshot": "Add type validation to rule manager and update context parameter in validate method",
+        "rag": "refactor: update validate method to use contextData instead of formData",
+        "classified_rag": "refactor(veui): update validate method parameters in Rule class",
+        "nngen": "feat: apply www rule to root domain and root domain rule to www",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/packages/putout/ChangeLog b/packages/putout/ChangeLog +2022.08.24, v27.3.1\n+\n+fix:\n+- putout: exit codes\n+\n2022.08.24, v27.3.0\nfix:\n",
+        "human": "chore: package: v27.3.1",
+        "race": "putout: exit codes",
+        "zeroshot": "Fix putout exit codes",
+        "rag": "fix(putout): fix exit codes in v27.3.1",
+        "classified_rag": "fix(putout): fix exit codes",
+        "nngen": "chore: revert updating Lerna packages config",
+        "type": "chore"
+    },
+    {
+        "diff": "diff --git a/packages/babel-preset-razzle/package.json b/packages/babel-preset-razzle/package.json \"@babel/plugin-syntax-bigint\": \"7.8.3\",\n\"@babel/plugin-syntax-dynamic-import\": \"^7.8.3\",\n\"@babel/plugin-transform-modules-commonjs\": \"7.10.4\",\n- \"@babel/plugin-transform-react-jsx-source\": \"^7.9.0\",\n\"@babel/plugin-transform-runtime\": \"^7.9.0\",\n\"@babel/preset-env\": \"^7.9.5\",\n\"@babel/preset-react\": \"^7.9.4\",\n\"@babel/preset-typescript\": \"^7.9.0\",\n\"@babel/runtime\": \"^7.9.2\",\n- \"babel-plugin-dynamic-import-node\": \"2.3.3\",\n\"babel-plugin-syntax-jsx\": \"^6.18.0\",\n\"babel-plugin-transform-react-remove-prop-types\": \"0.4.24\",\n\"chalk\": \"^4.1.0\"\n",
+        "human": "fix(babel-preset-razzle): remove unused deps",
+        "race": "Remove unused dependencies from diff",
+        "zeroshot": "Remove \"@babel/plugin-transform-react-jsx-source\" and \"babel-plugin-dynamic-import-node\" from babel-preset-razzle package.json",
+        "rag": "chore(babel-preset-razzle): update dependencies and remove unused plugin",
+        "classified_rag": "chore(package): update @babel/preset-env to version 7.9.5",
+        "nngen": "feat(babel-preset-app): pin new deps",
+        "type": "fix"
+    },
+    {
+        "diff": "diff --git a/packages/chakra-ui-core/src/CDivider/tests/CDivider.test.js b/packages/chakra-ui-core/src/CDivider/tests/CDivider.test.js import CDivider from '..'\n-import { render } from '@/tests/test-utils'\n+import { render, screen } from '@/tests/test-utils'\nconst renderComponent = (props) => {\nconst inlineAttrs = (props && props.inlineAttrs) || ''\n@@ -26,9 +26,9 @@ it('should change orientation', () => {\nit('should have corresponding aria-orientation attribute', () => {\nconst inlineAttrs = 'orientation=\"horizontal\"'\n- const { asFragment, getByTestId } = renderComponent({ inlineAttrs })\n+ const { asFragment } = renderComponent({ inlineAttrs })\n- const divider = getByTestId('divider')\n+ const divider = screen.getByTestId('divider')\nexpect(divider).toHaveAttribute('aria-orientation', 'horizontal')\nexpect(asFragment()).toMatchSnapshot()\n})\n",
+        "human": "test(divider): refactor use screen",
+        "race": "fix: fix test for aria-orientation",
+        "zeroshot": "Refactor CDivider.test.js to use screen instead of getByTestId",
+        "rag": "refactor(chakra-ui-core): Update CDivider.test.js to use screen utility for getting divider element",
+        "classified_rag": "test(cdivider): update test to use screen utility for better readability",
+        "nngen": "test(Root): add MoleculeModal tests",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/src/system/pair.js b/src/system/pair.js @@ -14,10 +14,23 @@ class Pair {\nthis.cdr = cdr;\n}\n- caar(){ return this.car.car; }\n- cadr(){ return this.cdr.car; }\n- cdar(){ return this.cdr.car; }\n- cddr(){ return this.cdr.cdr; }\n+ // Returns `this.car.car`. If `err` is given and `this.car` is not a pair,\n+ // throws `err`.\n+ caar(err){ return this._get([\"car\", \"car\"], err) }\n+ cadr(err){ return this._get([\"cdr\", \"car\"], err) }\n+ cdar(err){ return this._get([\"cdr\", \"car\"], err) }\n+ cddr(err){ return this._get([\"cdr\", \"cdr\"], err) }\n+ _get(props, err) {\n+ let x = this;\n+ props.forEach(p => {\n+ if (x.hasOwnProperty(p)) {\n+ return x[p];\n+ } else if (err) {\n+ throw err;\n+ }\n+ });\n+ return x;\n+ }\nfirst(){ return this.car; }\nsecond(){ return this.cdr.car; }\n",
+        "human": "feat: Add optional argument to cxxr",
+        "race": "Add `_get` method to `Pair`",
+        "zeroshot": "Refactor Pair class methods to handle error cases and improve code readability",
+        "rag": "refactor: Refactor Pair class methods to use a generic getter function",
+        "classified_rag": "refactor: Improve error handling in Pair class methods",
+        "nngen": "test(query): fix tests re:",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/src/__tests__/Collapse.spec.js b/src/__tests__/Collapse.spec.js @@ -32,6 +32,13 @@ describe('Collapse', () => {\nexpect(wrapper.find('p').text()).toBe('hello');\n});\n+ it('works with strict mode', () => {\n+ const spy = jest.spyOn(console, 'error');\n+ wrapper = mount(<React.StrictMode><Collapse/></React.StrictMode>);\n+ expect(wrapper.instance()).toBeTruthy();\n+ expect(spy).not.toHaveBeenCalled();\n+ })\n+\nit('should have default isOpen value', () => {\nwrapper = shallow(<Collapse />);\nexpect(wrapper.instance().props.isOpen).toEqual(false);\n",
+        "human": "test: Add a test for strict mode with `Collapse`",
+        "race": "Add strict mode test",
+        "zeroshot": "Add test for strict mode in Collapse component",
+        "rag": "test(collapse): add test for strict mode functionality",
+        "classified_rag": "test(collapse): add test for strict mode compatibility",
+        "nngen": "test(accordion): adds test case for new content-spacing prop",
+        "type": "test"
+    },
+    {
+        "diff": "diff --git a/src/cli.js b/src/cli.js @@ -481,10 +481,6 @@ function create ([_, dir, id, name], args) {\n);\n}\n- // Resolve tilda\n- // TODO: move to create and use sindresorhus/untildify\n- if (customWww.substr(0, 1) === '~') { customWww = path.join(process.env.HOME, customWww.substr(1)); }\n-\n// Template config\ncfg.lib = {};\ncfg.lib.www = {\n",
+        "human": "refactor(create): do not expand ~ to $HOME anymore\nExpanding ~ is a shell feature and should not be done by us.",
+        "race": "Remove tilda resolution",
+        "zeroshot": "Remove tilda resolution in create function",
+        "rag": "refactor(cli): remove unnecessary tilda resolution logic",
+        "classified_rag": "refactor: remove unnecessary code for resolving tilda in create function",
+        "nngen": "chore: Removed unused data from blog page",
+        "type": "refactor"
+    },
+    {
+        "diff": "diff --git a/src/common/api/LocalStorageCookiesSvc/index.js b/src/common/api/LocalStorageCookiesSvc/index.js // @flow\nimport * as store from 'store2'\nimport Cookies from 'js-cookie'\n+import decodeJWT from 'jwt-decode'\nexport const JWT_TOKEN = 'JWT_TOKEN'\n@@ -18,4 +19,9 @@ export function setLocalToken (token: string) {\nCookies.set(JWT_TOKEN, token, {expires: 365})\n}\n+export function getInfoFromJWT () {\n+ const token = getLocalToken()\n+ return decodeJWT(token)\n+}\n+\nexport const isLoggedIn = () => !!getLocalToken()\n",
+        "human": "feat(LocalStorageCookiesSvc): add `getInfoFromJWT `\nfeat(LocalStorageCookiesSvc): add `getInfoFromJWT ` (jwt decode)",
+        "race": "Add getInfoFromJWT",
+        "zeroshot": "Add function to decode JWT token from local storage",
+        "rag": "feat: add getInfoFromJWT function to retrieve information from JWT token",
+        "classified_rag": "feat: add getInfoFromJWT function to retrieve information from JWT token",
+        "nngen": "feat: use js-cookie to get/set cookies",
+        "type": "feat"
+    },
+    {
+        "diff": "diff --git a/README.md b/README.md -# :warning: Doc Site Interruptions :warning:\n-Our doc site DNS and CDN providers are having issues at the moment.\n-\n-**Please use https://semantic-org.github.io/Semantic-UI-React as a short-term fix.**\n-Images will not load with this link, however, the majority of the docs will be usable.\n-\n-Thanks for your patience and help while we resolve these issues:\n-- [CDN Issue #1404](https://github.com/Semantic-Org/Semantic-UI-React/issues/1404)\n-- [DNS Issue #1429](https://github.com/Semantic-Org/Semantic-UI-React/issues/1429)\n-\n-***\n<!-- Logo -->\n<p align=\"center\">\n<a href=\"http://react.semantic-ui.com\">\n@@ -18,7 +7,7 @@ Thanks for your patience and help while we resolve these issues:\n<!-- Name -->\n<h1 align=\"center\">\n- <a href=\"https://semantic-org.github.io/Semantic-UI-React\">Semantic UI React</a>\n+ <a href=\"http://react.semantic-ui.com/\">Semantic UI React</a>\n</h1>\n<!-- Badges -->\n@@ -164,7 +153,7 @@ Big thanks to our [contributors][20], especially:\n- @layershifter for bringing momentum and continual support\n[1]: https://github.com/Semantic-Org/Semantic-UI-React/blob/master/.github/CONTRIBUTING.md\n-[2]: https://semantic-org.github.io/Semantic-UI-React\n+[2]: http://react.semantic-ui.com/\n[3]: https://facebook.github.io/react/\n[4]: https://github.com/Semantic-Org/Semantic-UI-React/labels/help%20wanted\n[5]: http://semantic-ui.com/\n",
+        "human": "docs(readme): remove temporary doc warning",
+        "race": "docs: update docs site links",
+        "zeroshot": "Update doc site URL to http://react.semantic-ui.com/",
+        "rag": "docs(readme): update link to Semantic UI React website",
+        "classified_rag": "docs: update homepage link to use HTTPS\nUpdate the homepage link in the README.md file to use HTTPS instead of HTTP for Semantic UI React.",
+        "nngen": "chore(package): refactor field positions and add info",
+        "type": "docs"
+    }
+]
