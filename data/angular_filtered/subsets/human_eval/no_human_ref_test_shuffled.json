@@ -1,352 +1,302 @@
 [
     {
         "diff": "diff --git a/README.md b/README.md -# :warning: Doc Site Interruptions :warning:\n-Our doc site DNS and CDN providers are having issues at the moment.\n-\n-**Please use https://semantic-org.github.io/Semantic-UI-React as a short-term fix.**\n-Images will not load with this link, however, the majority of the docs will be usable.\n-\n-Thanks for your patience and help while we resolve these issues:\n-- [CDN Issue #1404](https://github.com/Semantic-Org/Semantic-UI-React/issues/1404)\n-- [DNS Issue #1429](https://github.com/Semantic-Org/Semantic-UI-React/issues/1429)\n-\n-***\n<!-- Logo -->\n<p align=\"center\">\n<a href=\"http://react.semantic-ui.com\">\n@@ -18,7 +7,7 @@ Thanks for your patience and help while we resolve these issues:\n<!-- Name -->\n<h1 align=\"center\">\n- <a href=\"https://semantic-org.github.io/Semantic-UI-React\">Semantic UI React</a>\n+ <a href=\"http://react.semantic-ui.com/\">Semantic UI React</a>\n</h1>\n<!-- Badges -->\n@@ -164,7 +153,7 @@ Big thanks to our [contributors][20], especially:\n- @layershifter for bringing momentum and continual support\n[1]: https://github.com/Semantic-Org/Semantic-UI-React/blob/master/.github/CONTRIBUTING.md\n-[2]: https://semantic-org.github.io/Semantic-UI-React\n+[2]: http://react.semantic-ui.com/\n[3]: https://facebook.github.io/react/\n[4]: https://github.com/Semantic-Org/Semantic-UI-React/labels/help%20wanted\n[5]: http://semantic-ui.com/\n",
-        "human": "docs(readme): remove temporary doc warning",
-        "race": "docs: update docs site links",
-        "classified_rag": "docs: update homepage link to use HTTPS\nUpdate the homepage link in the README.md file to use HTTPS instead of HTTP for Semantic UI React.",
-        "type": "docs"
+        "1": "docs: update docs site links",
+        "2": "docs: update homepage link to use HTTPS\nUpdate the homepage link in the README.md file to use HTTPS instead of HTTP for Semantic UI React.",
+        "3": "docs(readme): remove temporary doc warning"
     },
     {
         "diff": "diff --git a/src/lib/isEmail.js b/src/lib/isEmail.js @@ -14,7 +14,7 @@ const default_email_options = {\n/* eslint-disable max-len */\n/* eslint-disable no-control-regex */\n-const displayName = /^[a-z\\d!#\\$%&'\\*\\+\\-\\/=\\?\\^_`{\\|}~\\.\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF]+[a-z\\d!#\\$%&'\\*\\+\\-\\/=\\?\\^_`{\\|}~\\,\\.\\u00A0-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFEF\\s]*<(.+)>$/i;\n+const splitNameAddress = /^([^\\x00-\\x1F\\x7F-\\x9F\\cX]+)<(.+)>$/i;\nconst emailUserPart = /^[a-z\\d!#\\$%&'\\*\\+\\-\\/=\\?\\^_`{\\|}~]+$/i;\nconst gmailUserPart = /^[a-z\\d]+$/;\nconst quotedEmailUser = /^([\\s\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f\\x21\\x23-\\x5b\\x5d-\\x7e]|(\\\\[\\x01-\\x09\\x0b\\x0c\\x0d-\\x7f]))*$/i;\n@@ -23,14 +23,60 @@ const quotedEmailUserUtf8 = /^([\\s\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f\\x21\\x23-\\x5b\\x5\n/* eslint-enable max-len */\n/* eslint-enable no-control-regex */\n+/**\n+ * Validate display name according to the RFC2822: https://tools.ietf.org/html/rfc2822#appendix-A.1.2\n+ * @param {String} display_name\n+ */\n+function validateDisplayName(display_name) {\n+ const trim_quotes = display_name.match(/^\"(.+)\"$/i);\n+ const display_name_without_quotes = trim_quotes ? trim_quotes[1] : display_name;\n+\n+ // display name with only spaces is not valid\n+ if (!display_name_without_quotes.trim()) {\n+ return false;\n+ }\n+\n+ // check whether display name contains illegal character\n+ const contains_illegal = /[\\.\";<>]/.test(display_name_without_quotes);\n+ if (contains_illegal) {\n+ // if contains illegal characters,\n+ // must to be enclosed in double-quotes, otherwise it's not a valid display name\n+ if (!trim_quotes) {\n+ return false;\n+ }\n+\n+ // the quotes in display name must start with character symbol \\\n+ const all_start_with_back_slash =\n+ display_name_without_quotes.split('\"').length === display_name_without_quotes.split('\\\\\"').length;\n+ if (!all_start_with_back_slash) {\n+ return false;\n+ }\n+ }\n+\n+ return true;\n+}\n+\n+\nexport default function isEmail(str, options) {\nassertString(str);\noptions = merge(options, default_email_options);\nif (options.require_display_name || options.allow_display_name) {\n- const display_email = str.match(displayName);\n+ const display_email = str.match(splitNameAddress);\nif (display_email) {\n- str = display_email[1];\n+ let display_name;\n+ [, display_name, str] = display_email;\n+ // sometimes need to trim the last space to get the display name\n+ // because there may be a space between display name and email address\n+ // eg. myname <address@gmail.com>\n+ // the display name is `myname` instead of `myname `, so need to trim the last space\n+ if (display_name.endsWith(' ')) {\n+ display_name = display_name.substr(0, display_name.length - 1);\n+ }\n+\n+ if (!validateDisplayName(display_name)) {\n+ return false;\n+ }\n} else if (options.require_display_name) {\nreturn false;\n}\n",
-        "human": "feat(isEmail): validate display name according to RFC2822",
-        "race": "Validate display name",
-        "classified_rag": "fix: update display name validation regex and logic",
-        "type": "feat"
+        "1": "Validate display name",
+        "2": "fix: update display name validation regex and logic",
+        "3": "feat(isEmail): validate display name according to RFC2822"
     },
     {
         "diff": "diff --git a/packages/preact-iso/package.json b/packages/preact-iso/package.json \"main\": \"./index.js\",\n\"module\": \"./index.js\",\n\"types\": \"./index.d.ts\",\n+ \"type\": \"module\",\n\"exports\": {\n\".\": \"./index.js\",\n\"./router\": \"./router.js\",\n\"devDependencies\": {\n\"preact\": \"^10.5.7\",\n\"preact-render-to-string\": \"^5.1.12\"\n+ },\n+ \"peerDependencies\": {\n+ \"preact\": \">=10\",\n+ \"preact-render-to-string\": \">=5\"\n}\n}\n\\ No newline at end of file\n",
-        "human": "fix: Adding peerDeps & correcting module type",
-        "race": "Add peerDependencies to preact-iso",
-        "classified_rag": "chore: add peer dependencies and type module to package configuration",
-        "type": "fix"
+        "1": "Add peerDependencies to preact-iso",
+        "2": "chore: add peer dependencies and type module to package configuration",
+        "3": "fix: Adding peerDeps & correcting module type"
     },
     {
         "diff": "diff --git a/docs/src/examples/elements/Label/Types/LabelExampleImageColored.js b/docs/src/examples/elements/Label/Types/LabelExampleImageColored.js @@ -10,12 +10,12 @@ const LabelExampleImage = () => (\n</Label>\n<Label as='a' color='teal' image>\n<img src='/images/avatar/small/jenny.jpg' />\n- Veronika\n+ Jenny\n<Label.Detail>Friend</Label.Detail>\n</Label>\n<Label as='a' color='yellow' image>\n<img src='/images/avatar/small/christian.jpg' />\n- Helen\n+ Christian\n<Label.Detail>Co-worker</Label.Detail>\n</Label>\n</div>\n",
-        "human": "docs(LabelExampleImageColored): Update example\nReplace Veronika with jenny due to image name",
-        "race": "Fix typos in label example",
-        "classified_rag": "docs: Update LabelExampleImageColored.js with corrected names",
-        "type": "docs"
+        "1": "docs: Update LabelExampleImageColored.js with corrected names",
+        "2": "Fix typos in label example",
+        "3": "docs(LabelExampleImageColored): Update example\nReplace Veronika with jenny due to image name"
     },
     {
         "diff": "diff --git a/src/features/tooltip/Tooltip.js b/src/features/tooltip/Tooltip.js @@ -146,18 +146,18 @@ class TooltipControls extends React.Component {\n<div style={style}>\n{this.props.data && !this.props.data.fieldValue &&\n<div>\n- <h4><b>UID: </b>{this.props.data.uid} </h4>\n- <h4><b>MAC: </b>{this.props.data.mac} </h4>\n- <h4><b>rDNS_host: </b>{this.props.data.rDNS_host} </h4>\n- <h4><b>Subnet: </b>{this.props.data.subnet} </h4>\n- <h4><b>IP: </b>{this.props.data.IP} </h4>\n- <h4><b>Record Source: </b>{this.props.data.record.source} </h4>\n- <h4><b>Record Timestamp: </b>{this.props.data.record.timestamp} </h4>\n- <h4><b>Role: </b>{this.props.data.role.role} </h4>\n- <h4><b>rDNS_domain: </b>{this.props.data.rDNS_domain} </h4>\n- <h4><b>OS: </b>{this.props.data.os.os} </h4>\n- <h4><b>OS Confidence: </b>{this.props.data.os.confidence} </h4>\n- <h4><b>Vendor: </b>{this.props.data.vendor} </h4>\n+ <p><b>UID: </b>{this.props.data.uid} </p>\n+ <p><b>MAC: </b>{this.props.data.mac} </p>\n+ <p><b>rDNS_host: </b>{this.props.data.rDNS_host} </p>\n+ <p><b>Subnet: </b>{this.props.data.subnet} </p>\n+ <p><b>IP: </b>{this.props.data.IP} </p>\n+ <p><b>Record Source: </b>{this.props.data.record.source} </p>\n+ <p><b>Record Timestamp: </b>{this.props.data.record.timestamp} </p>\n+ <p><b>Role: </b>{this.props.data.role.role} </p>\n+ <p><b>rDNS_domain: </b>{this.props.data.rDNS_domain} </p>\n+ <p><b>OS: </b>{this.props.data.os.os} </p>\n+ <p><b>OS Confidence: </b>{this.props.data.os.confidence} </p>\n+ <p><b>Vendor: </b>{this.props.data.vendor} </p>\n</div>\n}\n{this.props.data && this.props.data.fieldValue &&\n",
-        "human": "fix(tooltip): overlap between d3 sliding dataset and notetip",
-        "race": "Fix tooltip text",
-        "classified_rag": "style: change h4 tags to p tags for better readability in TooltipControls component",
-        "type": "fix"
+        "1": "Fix tooltip text",
+        "2": "style: change h4 tags to p tags for better readability in TooltipControls component",
+        "3": "fix(tooltip): overlap between d3 sliding dataset and notetip"
     },
     {
         "diff": "diff --git a/package.json b/package.json \"@babel/plugin-transform-modules-commonjs\": \"^7.7.4\",\n\"@babel/plugin-transform-parameters\": \"^7.7.4\",\n\"@babel/preset-env\": \"^7.9.5\",\n- \"@chakra-ui/vue\": \"^0.5.2\",\n+ \"@chakra-ui/vue\": \"^0.5.3\",\n\"@commitlint/cli\": \"^8.2.0\",\n\"@commitlint/config-conventional\": \"^8.2.0\",\n\"@fortawesome/free-brands-svg-icons\": \"^5.12.0\",\n",
-        "human": "build: resolve chakra ui dep version",
-        "race": "chore: update chakra-ui vue",
-        "classified_rag": "chore: update version of @chakra-ui/vue to 0.5.3",
-        "type": "build"
+        "1": "build: resolve chakra ui dep version",
+        "2": "chore: update version of @chakra-ui/vue to 0.5.3",
+        "3": "chore: update chakra-ui vue"
     },
     {
         "diff": "diff --git a/karma.conf.js b/karma.conf.js @@ -70,6 +70,7 @@ module.exports = function (config) {\nwebpack: {\nplugins: [defaultsPlugin],\ndevtool: 'inline-source-map',\n+ performance: { hints: false },\nmodule: {\nrules: [\n{\n",
-        "human": "chore: don't show perf warnings for test scripts",
-        "race": "Disable performance hints",
-        "classified_rag": "chore: disable webpack performance hints in karma configuration",
-        "type": "chore"
+        "1": "Disable performance hints",
+        "2": "chore: disable webpack performance hints in karma configuration",
+        "3": "chore: don't show perf warnings for test scripts"
     },
     {
         "diff": "diff --git a/webpack_config/server/webpack.prod.babel.js b/webpack_config/server/webpack.prod.babel.js @@ -17,7 +17,7 @@ const plugins = [\nsourceMap: true,\ncompress: {\nwarnings: false\n- // This option removes console log in production\n+ // This option removes console.log in production\n// drop_console: true\n},\noutput: {\n",
-        "human": "style(webpack_config/server): formatting\nstyle(webpack_config/server): formatting",
-        "race": "Fix typo in comment\nFix typo in comment",
-        "classified_rag": "build(webpack): update compress option to remove console.log in production",
-        "type": "style"
+        "1": "style(webpack_config/server): formatting\nstyle(webpack_config/server): formatting",
+        "2": "Fix typo in comment\nFix typo in comment",
+        "3": "build(webpack): update compress option to remove console.log in production"
     },
     {
         "diff": "diff --git a/package.json b/package.json \"jsnext:main\": \"dist/es/index.js\",\n\"main\": \"dist/commonjs/index.js\",\n\"module\": \"dist/es/index.js\",\n- \"browser\": \"dist/umd/semantic-ui-react.min.js\",\n\"types\": \"index.d.ts\",\n+ \"unpkg\": \"dist/umd/semantic-ui-react.min.js\",\n\"files\": [\n\"src\",\n\"dist\",\n",
-        "human": "chore(package): remove `browser` field\n* chore(package): remove `browser` field\nReverts changes introduced in fixes\n* Update package.json",
-        "race": "chore: rename browser to unpkg",
-        "classified_rag": "chore: update unpkg in package.json",
-        "type": "chore"
+        "1": "chore: update unpkg in package.json",
+        "2": "chore: rename browser to unpkg",
+        "3": "chore(package): remove `browser` field\n* chore(package): remove `browser` field\nReverts changes introduced in fixes\n* Update package.json"
     },
     {
         "diff": "diff --git a/python/pycandela/pycandela/__init__.py b/python/pycandela/pycandela/__init__.py @@ -99,11 +99,13 @@ class Component(object):\ndef display(self):\ndisplay(self)\n+\ndef load(filename):\nwith open(filename) as f:\nc = json.load(f)\nreturn Component(c['name'], **c['options'])\n+\nclass ComponentAccessor(object):\ndef __dir__(self):\nreturn _component_list\n",
-        "human": "style(pycandela): fix flake8 issues",
-        "race": "fixing style issues",
-        "classified_rag": "feat: add load method to Component class\n\nAdded a new load method to the Component class for loading components from a file.",
-        "type": "style"
+        "1": "feat: add load method to Component class\n\nAdded a new load method to the Component class for loading components from a file.",
+        "2": "style(pycandela): fix flake8 issues",
+        "3": "fixing style issues"
     },
     {
         "diff": "diff --git a/demo/repl.html b/demo/repl.html </td></tr></table>\n</div>\n-<script type=\"text/javascript\" src=\"../src/development_initializer.js\"></script>\n-<script type=\"text/javascript\">\n+<script type=\"module\" src=\"../src/main-browser.js\"></script>\n+<script type=\"module\">\nvar on_error = function(e){\nBiwaScheme.Port.current_error.put_string(e.message);\nthrow(e);\n};\nvar biwascheme = new BiwaScheme.Interpreter(on_error);\n-function bs_eval(){\n+window.bs_eval = function(){\n$(\"#bs-console\").empty();\nvar str = $(\"#bs-input\").val();\n",
-        "human": "feat: Esmfy repl.html",
-        "race": "Fix for browser.js",
-        "classified_rag": "refactor: Update script source in repl.html to use ES6 modules",
-        "type": "feat"
+        "1": "Fix for browser.js",
+        "2": "refactor: Update script source in repl.html to use ES6 modules",
+        "3": "feat: Esmfy repl.html"
     },
     {
         "diff": "diff --git a/CHANGELOG.md b/CHANGELOG.md All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.\n-<a name=\"0.1.1\"></a>\n-## [0.1.1](https://github.com/Metnew/react-semantic.ui-starter/compare/v0.1.0...v0.1.1) (2017-10-16)\n-\n-\n-\n<a name=\"0.1.0\"></a>\n# [0.1.0](https://github.com/Metnew/react-semantic.ui-starter/compare/v0.1.0-alpha.0...v0.1.0) (2017-10-16)\n",
-        "human": "chore(CHANGELOG): remove 0.1.1 version\nchore(CHANGELOG): remove 0.1.1 version",
-        "race": "chore(release): 0.1.1",
-        "classified_rag": "docs(changelog): remove redundant heading for version 0.1.1",
-        "type": "chore"
+        "1": "chore(CHANGELOG): remove 0.1.1 version\nchore(CHANGELOG): remove 0.1.1 version",
+        "2": "chore(release): 0.1.1",
+        "3": "docs(changelog): remove redundant heading for version 0.1.1"
     },
     {
         "diff": "diff --git a/packages/razzle/config/createConfigAsync.js b/packages/razzle/config/createConfigAsync.js @@ -902,7 +902,12 @@ module.exports = (\nnew webpack.optimize.AggressiveMergingPlugin(),\nnew CopyPlugin({\npatterns: [\n- { from: 'public/*.*', to: paths.appBuild, noErrorOnMissing: true, context: paths.appPath },\n+ {\n+ from: paths.appPublic + '/**/*',\n+ to: paths.appBuild,\n+ context: paths.appPath,\n+ noErrorOnMissing: true\n+ },\n],\n}),\n];\n",
-        "human": "fix(razzle): use paths",
-        "race": "Fix copy plugin",
-        "classified_rag": "refactor(razzle): update CopyPlugin patterns to use paths.appPublic instead of 'public/*.*'",
-        "type": "fix"
+        "1": "fix(razzle): use paths",
+        "2": "refactor(razzle): update CopyPlugin patterns to use paths.appPublic instead of 'public/*.*'",
+        "3": "Fix copy plugin"
     },
     {
         "diff": "diff --git a/test/cli/export-globals.test.js b/test/cli/export-globals.test.js @@ -51,4 +51,26 @@ describe('--export-globals', function () {\ndone();\n});\n});\n+\n+ it('`newman run` should override exported globals with those provided via --global-var', function (done) {\n+ // eslint-disable-next-line max-len\n+ exec('node ./bin/newman.js run test/fixtures/run/single-request-failing.json -g test/fixtures/run/simple-variables.json --global-var foo=bar --export-globals out/test-globals.json', function (code) {\n+ var globals;\n+\n+ try { globals = JSON.parse(fs.readFileSync(exportedGlobalsPath).toString()); }\n+ catch (e) { console.error(e); }\n+\n+ expect(code).not.be(0);\n+ expect(globals).be.ok();\n+ expect(globals).have.property('_postman_exported_at');\n+ expect(globals).have.property('values');\n+ expect(globals.values).eql([\n+ { key: 'var-1', value: 'value-1', type: 'any' },\n+ { key: 'var-2', value: 'value-2', type: 'any' },\n+ { key: 'foo', value: 'bar', type: 'any' }\n+ ]);\n+ expect(globals).have.property('_postman_variable_scope', 'globals');\n+ done();\n+ });\n+ });\n});\n",
-        "human": "test(cli): Added CLI unit test for interaction between --global-var and --export-globals",
-        "race": "Add test for --global-var",
-        "classified_rag": "test(cli): add test case for overriding exported globals with --global-var values",
-        "type": "test"
+        "1": "test(cli): Added CLI unit test for interaction between --global-var and --export-globals",
+        "2": "test(cli): add test case for overriding exported globals with --global-var values",
+        "3": "Add test for --global-var"
     },
     {
         "diff": "diff --git a/packages/plugin-split-nested-destructuring/README.md b/packages/plugin-split-nested-destructuring/README.md [NPMIMGURL]: https://img.shields.io/npm/v/@putout/plugin-split-nested-destructuring.svg?style=flat&longCache=true\n[NPMURL]: https://npmjs.org/package/@putout/plugin-split-nested-destructuring \"npm\"\n-> - Don't use nested destructuring on data that comes from any external data sources (such as REST APIs, GraphQL endpoints or files).\n+> - Don't use nested destructuring on data that comes from any external data sources (such as `REST API`s, `GraphQL` endpoints or files).\n> - Don't use nested destructuring on function arguments that have long or complicated signatures.\n>\n> (c) [Destructuring in JavaScript: the not so good parts](https://goodguydaniel.com/blog/destructuring-not-so-good-parts)\n",
-        "human": "docs: add backticks",
-        "race": "docs: add backticks to docs",
-        "classified_rag": "docs(plugin-split-nested-destructuring): update README with deprecation warning on nested destructuring usage",
-        "type": "docs"
+        "1": "docs: add backticks to docs",
+        "2": "docs: add backticks",
+        "3": "docs(plugin-split-nested-destructuring): update README with deprecation warning on nested destructuring usage"
     },
     {
         "diff": "diff --git a/packages/razzle/config/createConfigAsync.js b/packages/razzle/config/createConfigAsync.js @@ -382,8 +382,8 @@ module.exports = (\nisServer: IS_NODE,\ncwd: paths.appPath,\ncache: true,\n- babelPresetPlugins: razzleOptions.babelPresetPlugins || [],\n- hasModern: !!razzleOptions.modern,\n+ babelPresetPlugins: [],\n+ hasModern: false,\ndevelopment: IS_DEV,\nhasReactRefresh: shouldUseReactRefresh,\n},\n",
-        "human": "fix: no defaults, just use plugins to modify",
-        "race": "fix: update diff task",
-        "classified_rag": "refactor(razzle): Update babel preset plugins and modern flag to default values",
-        "type": "fix"
+        "1": "fix: update diff task",
+        "2": "fix: no defaults, just use plugins to modify",
+        "3": "refactor(razzle): Update babel preset plugins and modern flag to default values"
     },
     {
         "diff": "diff --git a/package.json b/package.json {\n\"name\": \"reactstrap\",\n- \"version\": \"8.0.1\",\n+ \"version\": \"8.1.0\",\n\"description\": \"React Bootstrap 4 components\",\n\"main\": \"lib/index.js\",\n\"jsnext:main\": \"es/index.js\",\n",
-        "human": "chore(release): add 8.1.0",
-        "race": "Bump version to 8.1.0",
-        "classified_rag": "chore: update version to 8.1.0 in package.json",
-        "type": "chore"
+        "1": "chore: update version to 8.1.0 in package.json",
+        "2": "Bump version to 8.1.0",
+        "3": "chore(release): add 8.1.0"
     },
     {
         "diff": "diff --git a/website/pages/docs/customization.md b/website/pages/docs/customization.md @@ -411,7 +411,7 @@ import 'react-app-polyfill/ie11'; // For IE 11 support\nIf you need to transpile external modules with arrow functions etc.\n-Make sure the modules are added to the babelRule.\n+Make sure the modules are not externalized and are added to the babelRule include.\n```js\n// razzle.config.js\n@@ -427,12 +427,13 @@ module.exports = {\nwebpackOptions, // the default options that will be used to configure webpack/ webpack loaders and plugins\n}\n}) {\n- if (target === 'web') {\n+ webpackOptions.notNodeExternalResMatch = (request, context) => {\n+ return /themodule|anothermodule/.test(request)\n+ };\nwebpackOptions.babelRule.include = webpackOptions.babelRule.include.concat([\n/themodule/,\n/anothermodule/\n- ])\n- }\n+ ]);\nreturn webpackOptions;\n}\n};\n",
-        "human": "docs: transpilation of external modules",
-        "race": "fix: add notNodeExternalResMatch to webpackOptions",
-        "classified_rag": "docs: updated babelRule configuration for external modules",
-        "type": "docs"
+        "1": "docs: transpilation of external modules",
+        "2": "fix: add notNodeExternalResMatch to webpackOptions",
+        "3": "docs: updated babelRule configuration for external modules"
     },
     {
         "diff": "diff --git a/.circleci/config.yml b/.circleci/config.yml @@ -6,22 +6,10 @@ general:\njobs:\nbuild:\ndocker:\n- - image: circleci/node:8\n+ - image: circleci/node:8-browsers\nenvironment:\nTZ: \"/usr/share/zoneinfo/America/Los_Angeles\"\nsteps:\n- # Chrome HeadlessBrowser is missing deps on Debian, see:\n- # https://github.com/GoogleChrome/puppeteer/issues/290\n- - run:\n- name: Update Puppeteer Dependencies\n- command: |\n- sudo apt-get update\n- sudo apt-get install --yes --quiet gconf-service libasound2 libatk1.0-0 libc6 \\\n- libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 \\\n- libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 \\\n- libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 \\\n- libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation \\\n- libappindicator1 libnss3 lsb-release xdg-utils wget\n- run:\nname: Update yarn\ncommand: |\n",
-        "human": "chore(CI): use prebuilt image",
-        "race": "Update node version and remove unnecessary steps",
-        "classified_rag": "chore: Update CircleCI Node image to include browsers and remove unnecessary Puppeteer dependencies installation steps",
-        "type": "chore"
+        "1": "Update node version and remove unnecessary steps",
+        "2": "chore: Update CircleCI Node image to include browsers and remove unnecessary Puppeteer dependencies installation steps",
+        "3": "chore(CI): use prebuilt image"
     },
     {
         "diff": "diff --git a/src/lib/webpack/proxy-loader.js b/src/lib/webpack/proxy-loader.js @@ -4,14 +4,15 @@ var requireRelative = require('require-relative');\nfunction proxyLader(source, map) {\nvar options = utils.getOptions(this);\n- // First loader run store passed options & remove proxy-loader specific\n+ // First run proxy-loader run\nif (!this.query.__proxy_loader__) {\n+ // Store passed options for future calls to proxy-loader with same loaderContext (this)\n+ // e.g. calls via 'this.addDependency' from actual loader\nthis.query.__proxy_loader__ = { loader: options.loader, cwd: options.cwd };\n- // remove proxy-loader options and make this.query act as requested loader query\n- swapOptions(this, options);\n+ // Remove proxy-loader options and make this.query act as requested loader query\n+ swapOptions(this, options.options);\n}\n- // Save it for future calls that use this loader (via this.addDependency)\nvar proxyOptions = this.query.__proxy_loader__;\nvar loader;\n@@ -21,22 +22,24 @@ function proxyLader(source, map) {\nloader = require(proxyOptions.loader);\n}\n- // run loader\n- return loader.bind(this)(source, map);\n+ // Run actual loader\n+ return loader.call(this, source, map);\n}\nfunction swapOptions(loaderContext, newOptions) {\nvar copy = {};\nvar key = '';\n- for (key in loaderContext.options) {\n+ for (key in newOptions) {\ncopy[key] = newOptions[key];\n}\n+ // Delete all existing loader options\ndelete loaderContext.query.options;\ndelete loaderContext.query.loader;\ndelete loaderContext.query.cwd;\n+ // Add new options\nfor (key in copy) {\nloaderContext.query[key] = copy[key];\n}\n",
-        "human": "refactor: Proxy Loader",
-        "race": "fix proxy-loader options",
-        "classified_rag": "refactor: improve proxy-loader logic and options handling",
-        "type": "refactor"
+        "1": "fix proxy-loader options",
+        "2": "refactor: improve proxy-loader logic and options handling",
+        "3": "refactor: Proxy Loader"
     },
     {
         "diff": "diff --git a/webpack_config/webpack.prod.js b/webpack_config/webpack.prod.js process.env.NODE_ENV = 'production'\n+\nconst exec = require('child_process').execSync\nconst webpack = require('webpack')\nconst ExtractTextPlugin = require('extract-text-webpack-plugin')\n@@ -7,14 +8,14 @@ const SriPlugin = require('webpack-subresource-integrity')\nconst I18nPlugin = require('i18n-webpack-plugin')\nconst CompressionPlugin = require('compression-webpack-plugin')\nconst OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')\n-const BabiliPlugin = require('babili-webpack-plugin')\n+// const BabiliPlugin = require('babili-webpack-plugin')\nconst ProgressPlugin = require('webpack/lib/ProgressPlugin')\nconst ManifestPlugin = require('webpack-manifest-plugin')\nconst OfflinePlugin = require('offline-plugin')\nconst PreloadWebpackPlugin = require('preload-webpack-plugin')\nconst FaviconsWebpackPlugin = require('favicons-webpack-plugin')\n-// See comments about ShakePlugin below:\n-// const ShakePlugin = require('webpack-common-shake').Plugin\n+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')\n+const ShakePlugin = require('webpack-common-shake').Plugin\n// const git = require('git-rev-sync')\nlet languages = require('../i18n')\n@@ -34,6 +35,7 @@ exec('rm -rf dist/')\n// use hash filename to support long-term caching\nbase.output.filename = '[name].[chunkhash:8].js'\n+base.output.crossOriginLoading = 'anonymous'\nbase.devtool = 'cheap-source-map'\nbase.module.rules.push(\n{\n@@ -77,11 +79,7 @@ base.plugins.push(\nallChunks: true\n}),\nnew webpack.optimize.ModuleConcatenationPlugin(),\n- //\n- // FIXME: I'm getting error from this issue https://github.com/indutny/webpack-common-shake/issues/7\n- // Probably. it's a problem of a plugin, so it's temporarily commented\n- // new ShakePlugin(),\n- //\n+ new ShakePlugin(),\nnew OptimizeCssAssetsPlugin(),\n// NOTE: Prepack currently in alpha, be carefull with it\n// new PrepackWebpackPlugin(),\n@@ -105,8 +103,7 @@ base.plugins.push(\nname: 'manifest'\n}),\nnew webpack.BannerPlugin({\n- banner:\n- 'hash:[hash], chunkhash:[chunkhash], name:[name], filebase:[filebase], query:[query], file:[file]'\n+ banner: 'React-Semantic.UI-Starter. MIT License. Copyright (c) 2017 Copyright Vladimir Metnew. All Rights Reserved. https://github.com/Metnew/react-semantic.ui-starter'\n}),\n// XXX: this plugin is cool, but there is a one big issue:\n// It sets invalid url to browserconfig.xml and manifest.json in index.html.\n@@ -115,7 +112,7 @@ base.plugins.push(\nnew FaviconsWebpackPlugin({\n// add theme-color property\nbackground: config.manifest.theme,\n- prefix: `icons`,\n+ prefix: `icons/`,\nlogo: path.resolve(__dirname, '../static/images/logo.png'),\ntitle: config.title,\n// Inject the html into the html-webpack-plugin\n@@ -134,32 +131,24 @@ base.plugins.push(\nwindows: true\n}\n}),\n- new BabiliPlugin(),\n- // XXX: https://github.com/webpack-contrib/uglifyjs-webpack-plugin\n- // XXX: uglify-js 3.* doesn't working with es6 currently!\n- // new UglifyJsPlugin({\n- // sourceMap: true,\n- // compress: {\n- // warnings: false\n- // },\n- // output: {\n- // comments: false\n- // }\n- // }),\n- //\n- //\n- // NOTE: you can uncomment this option.\n- // I think it's unnecessary for small app, because it slows page finish loading.\n- // new PreloadWebpackPlugin({\n- // rel: 'preload',\n- // as: 'script',\n- // include: 'asyncChunks'\n- // }),\n- //\n- //\n+ // NOTE: temporarily comment babiliplugin, because it breaks build on Linux Alpine\n+ // new BabiliPlugin(),\n+ new UglifyJSPlugin({\n+ sourceMap: true,\n+ compress: {\n+ warnings: false\n+ },\n+ output: {\n+ comments: false\n+ }\n+ }),\n+ new PreloadWebpackPlugin({\n+ rel: 'preload',\n+ as: 'script',\n+ include: 'asyncChunks'\n+ }),\n// create manifest.json\nnew ManifestPlugin({fileName: 'manifest.json', cache: config.manifest}),\n- //\n// AppCache + ServiceWorkers\nnew OfflinePlugin({\nsafeToUseOptionalCaches: true,\n@@ -177,13 +166,13 @@ base.plugins.push(\n}),\nnew CompressionPlugin({\nalgorithm: 'gzip'\n- })\n+ }),\n// https://caniuse.com/#feat=subresource-integrity\n// NOTE: please, read about SRI before using it!\n- // new SriPlugin({\n- // hashFuncNames: ['sha256', 'sha384'],\n- // enabled: process.env.NODE_ENV === 'production'\n- // })\n+ new SriPlugin({\n+ hashFuncNames: ['sha256', 'sha384'],\n+ enabled: process.env.NODE_ENV === 'production'\n+ })\n)\n// minimize webpack output\n",
-        "human": "feat(webpack.prod.js): add webpack-sri, replace babili-webpack with uglifyjs, uncomment preloadWebpackPlugin, add ShakePlugin",
-        "race": "chore: re-enable babili-webpack-plugin",
-        "classified_rag": "build(feat): add UglifyJSPlugin for minification and PreloadWebpackPlugin for async chunk loading",
-        "type": "feat"
+        "1": "feat(webpack.prod.js): add webpack-sri, replace babili-webpack with uglifyjs, uncomment preloadWebpackPlugin, add ShakePlugin",
+        "2": "chore: re-enable babili-webpack-plugin",
+        "3": "build(feat): add UglifyJSPlugin for minification and PreloadWebpackPlugin for async chunk loading"
     },
     {
         "diff": "diff --git a/packages/chakra-ui-core/src/CButton/utils/button.props.js b/packages/chakra-ui-core/src/CButton/utils/button.props.js @@ -33,7 +33,7 @@ export const buttonProps = {\nsize: {\ntype: String,\ndefault: 'md',\n- validator: value => value.match(/^(sm|md|lg)$/)\n+ validator: value => value.match(/^(xs|sm|md|lg)$/)\n},\nloadingText: {\ntype: String,\n",
-        "human": "chore: Fixes props validator issue with CBotton component, when size set to \"xs\".",
-        "race": "Add xs to size prop validator",
-        "classified_rag": "feat(CButton): update size validator to include xs size",
-        "type": "chore"
+        "1": "feat(CButton): update size validator to include xs size",
+        "2": "Add xs to size prop validator",
+        "3": "chore: Fixes props validator issue with CBotton component, when size set to \"xs\"."
     },
     {
         "diff": "diff --git a/src/common/containers/Users/components/index.jsx b/src/common/containers/Users/components/index.jsx // @flow\n-import React, {PureComponent} from 'react'\n+import React, {Component} from 'react'\nimport PropTypes from 'prop-types'\nimport {Item, Grid} from 'semantic-ui-react'\nimport _ from 'lodash'\n@@ -12,19 +12,9 @@ type Props = {\nisUsersLoaded: boolean,\nusersCount: number\n}\n-\n-class UsersComponent extends PureComponent {\n- props: Props\n-\n- // ShouldComponentUpdate (nextProps) {\n- // const {users} = this.props\n- // const nextUsers = nextProps.users\n- // return !_.isEqual(users, nextUsers)\n- // }\n-\n- render () {\n+// <FormattedMessage\n+const UsersComponent = ({users, isUsersLoaded, usersCount}: Props) => {\n// IsUsersLoading\n- const {users, isUsersLoaded, usersCount} = this.props\nconst noUsers = isUsersLoaded && usersCount === 0\nreturn (\n@@ -41,6 +31,5 @@ class UsersComponent extends PureComponent {\n</Grid>\n)\n}\n-}\nexport default UsersComponent\n",
-        "human": "refactor(Users): use func component instead of PureComponent\nrefactor(Users): use func component instead of PureComponent",
-        "race": "refactor: use React.Component instead of PureComponent",
-        "classified_rag": "refactor(users): Refactor UsersComponent to functional component\nRefactored UsersComponent from a class component to a functional component for better readability and maintainability.",
-        "type": "refactor"
+        "1": "refactor(users): Refactor UsersComponent to functional component\nRefactored UsersComponent from a class component to a functional component for better readability and maintainability.",
+        "2": "refactor: use React.Component instead of PureComponent",
+        "3": "refactor(Users): use func component instead of PureComponent\nrefactor(Users): use func component instead of PureComponent"
     },
     {
         "diff": "diff --git a/lib/plugins/main.js b/lib/plugins/main.js @@ -56,13 +56,11 @@ export default async (ctx, inject) => {\n<% for (service of serverServices) { %>\n<% const serviceName = serviceNames[service] %>\n- let <%= serviceName %>Ready = false\nfire.<%= serviceName %> = null\nfire.<%= serviceName %>Ready = async () => {\n- if (!<%= serviceName %>Ready) {\n+ if (!fire.<%= serviceName %>) {\nawait fire.appReady()\nfire.<%= serviceName %> = await <%= `${service}Service(session, firebase)` %>\n- <%= serviceName %>Ready = true\n}\nreturn fire.<%= serviceName %>\n@@ -72,13 +70,11 @@ export default async (ctx, inject) => {\nif (process.client) {\n<% for (service of clientServices) { %>\n<% const serviceName = serviceNames[service] %>\n- let <%= serviceName %>Ready = false\nfire.<%= serviceName %> = null\nfire.<%= serviceName %>Ready = async () => {\n- if (!<%= serviceName %>Ready) {\n+ if (!fire.<%= serviceName %>) {\nawait fire.appReady()\nfire.<%= serviceName %> = await <%= `${service}Service(session, firebase)` %>\n- <%= serviceName %>Ready = true\n}\nreturn fire.<%= serviceName %>\n",
-        "human": "refactor: remove serviceReady vars, check service directly",
-        "race": "fix: remove unnecessary `Ready` variable",
-        "classified_rag": "refactor: simplify service initialization logic in main plugin",
-        "type": "refactor"
+        "1": "refactor: simplify service initialization logic in main plugin",
+        "2": "refactor: remove serviceReady vars, check service directly",
+        "3": "fix: remove unnecessary `Ready` variable"
     },
     {
         "diff": "diff --git a/docs/lib/Components/ModalsPage.js b/docs/lib/Components/ModalsPage.js @@ -104,7 +104,9 @@ const ModalsPage = () => {\nmodalTransition: PropTypes.shape(Fade.propTypes),\ninnerRef: PropTypes.object,\n// if modal should be destructed/removed from DOM after closing\n- unmountOnClose: PropTypes.bool // defaults to true\n+ unmountOnClose: PropTypes.bool, // defaults to true\n+ // if the element which triggered the modal to open should focused after the modal closes (see example somewhere below)\n+ returnFocusAfterClose: PropTypes.bool // defaults to true\n}`}\n</PrismCode>\n</pre>\n",
-        "human": "docs(Modal): returnFocusAfterClose to props list",
-        "race": "Add returnFocusAfterClose prop to ModalsPage",
-        "classified_rag": "docs(ModalsPage): Added `returnFocusAfterClose` prop",
-        "type": "docs"
+        "1": "docs(ModalsPage): Added `returnFocusAfterClose` prop",
+        "2": "Add returnFocusAfterClose prop to ModalsPage",
+        "3": "docs(Modal): returnFocusAfterClose to props list"
     },
     {
         "diff": "diff --git a/docs/src/examples/modules/Dropdown/Usage/index.js b/docs/src/examples/modules/Dropdown/Usage/index.js @@ -98,7 +98,7 @@ const DropdownUsageExamples = () => (\nexamplePath='modules/Dropdown/Usage/DropdownExampleSearchQuery'\n>\n<Message info>\n- This example also shows how to override default bevahiour of the search query and keep\n+ This example also shows how to override default behaviour of the search query and keep\nentered value after selection.\n</Message>\n</ComponentExample>\n",
-        "human": "docs(Dropdown): fix typo in message",
-        "race": "Fix typo in dropdown example",
-        "classified_rag": "docs: fix typo in default behaviour description",
-        "type": "docs"
+        "1": "Fix typo in dropdown example",
+        "2": "docs(Dropdown): fix typo in message",
+        "3": "docs: fix typo in default behaviour description"
     },
     {
         "diff": "diff --git a/src/common/actions/layout/index.js b/src/common/actions/layout/index.js // @flow\n-export const UI_OPEN_SIDEBAR = 'UI_OPEN_SIDEBAR'\n-export const UI_CLOSE_SIDEBAR = 'UI_CLOSE_SIDEBAR'\n+export const UI_TOGGLE_SIDEBAR = 'UI_TOGGLE_SIDEBAR'\nexport const UI_WINDOW_RESIZE = 'UI_WINDOW_RESIZE'\n-export const CLOSE_SIDEBAR = () => ({\n- type: UI_CLOSE_SIDEBAR\n-})\n-\n-export const OPEN_SIDEBAR = () => ({\n- type: UI_OPEN_SIDEBAR\n+export const TOGGLE_SIDEBAR = () => ({\n+ type: UI_TOGGLE_SIDEBAR\n})\nexport const WINDOW_RESIZE = (innerWidth: number) => ({\n@@ -18,8 +13,7 @@ export const WINDOW_RESIZE = (innerWidth: number) => ({\n}\n})\n-export type UI_OPEN_SIDEBAR_TYPE = {type: 'UI_OPEN_SIDEBAR'}\n-export type UI_CLOSE_SIDEBAR_TYPE = {type: 'UI_CLOSE_SIDEBAR'}\n+export type UI_TOGGLE_SIDEBAR_TYPE = {type: 'UI_TOGGLE_SIDEBAR'}\nexport type UI_WINDOW_RESIZE_TYPE = {\ntype: 'UI_WINDOW_RESIZE',\npayload: {innerWidth: number}\n",
-        "human": "feat(actions): layout - OPEN/CLOSE_SIDEBAR -> TOGGLE_SIDEBAR\nfeat(actions): layout - OPEN/CLOSE_SIDEBAR -> TOGGLE_SIDEBAR",
-        "race": "fix: rename sidebars",
-        "classified_rag": "fix(layout): refactor sidebar actions to use toggle functionality",
-        "type": "feat"
+        "1": "fix: rename sidebars",
+        "2": "fix(layout): refactor sidebar actions to use toggle functionality",
+        "3": "feat(actions): layout - OPEN/CLOSE_SIDEBAR -> TOGGLE_SIDEBAR\nfeat(actions): layout - OPEN/CLOSE_SIDEBAR -> TOGGLE_SIDEBAR"
     },
     {
         "diff": "diff --git a/test/spec.html b/test/spec.html <script type=\"text/javascript\">// <![CDATA[\nvar loader_development = function(){\n- document.write(\"<script src='../src/development_initializer.js'><\\/script>\" +\n+ document.write(\"<script type='module' src='../src/main.js'><\\/script>\" +\n\"<script type='text/javascript'>\"+\n\"if(console) console.log('BiwaScheme '+BiwaScheme.VERSION);\" +\n\"BiwaScheme.register_tests();\" +\n",
-        "human": "test: Load main.js",
-        "race": "Fix loader_development",
-        "classified_rag": "test : updated loader script to use ES6 modules",
-        "type": "test"
+        "1": "Fix loader_development",
+        "2": "test : updated loader script to use ES6 modules",
+        "3": "test: Load main.js"
     },
     {
         "diff": "diff --git a/docs/src/examples/collections/Table/Variations/TableExampleSortable.js b/docs/src/examples/collections/Table/Variations/TableExampleSortable.js @@ -15,7 +15,7 @@ function exampleReducer(state, action) {\nif (state.column === action.column) {\nreturn {\n...state,\n- data: state.data.reverse(),\n+ data: state.data.slice().reverse(),\ndirection:\nstate.direction === 'ascending' ? 'descending' : 'ascending',\n}\n",
-        "human": "docs(Table): fix sort issue in TableExampleSortable",
-        "race": "fix(table): fix table example sortable",
-        "classified_rag": "docs(table): update data reverse logic in exampleReducer",
-        "type": "docs"
+        "1": "docs(table): update data reverse logic in exampleReducer",
+        "2": "fix(table): fix table example sortable",
+        "3": "docs(Table): fix sort issue in TableExampleSortable"
     },
     {
         "diff": "diff --git a/.github/workflows/release.yml b/.github/workflows/release.yml @@ -30,7 +30,7 @@ jobs:\nls ~/.npmrc >/dev/null 2>&1 && \\\n[[ $(git describe --exact-match 2> /dev/null || :) =~ -canary ]]; \\\nthen\n- yarn run lerna publish from-git --npm-tag canary --yes\n+ yarn run lerna publish from-git --no-verify-access --npm-tag canary --yes\nelse\necho \"Did not publish canary\"\nfi\n@@ -42,7 +42,7 @@ jobs:\nls ~/.npmrc >/dev/null 2>&1 && \\\n[[ ! $(git describe --exact-match 2> /dev/null || :) =~ -canary ]]; \\\nthen\n- yarn run lerna publish from-git --yes\n+ yarn run lerna publish from-git --no-verify-access --yes\nelse\necho \"Did not publish\"\nfi\n",
-        "human": "fix: fix release workflow",
-        "race": "Add no-verify-access to lerna publish",
-        "classified_rag": "ci(actions): update lerna publish command options for canary releases",
-        "type": "fix"
+        "1": "fix: fix release workflow",
+        "2": "ci(actions): update lerna publish command options for canary releases",
+        "3": "Add no-verify-access to lerna publish"
     },
     {
         "diff": "diff --git a/index.d.ts b/index.d.ts @@ -18,6 +18,7 @@ declare class Rollbar {\npublic warning(...args: Rollbar.LogArgument[]): Rollbar.LogResult;\npublic error(...args: Rollbar.LogArgument[]): Rollbar.LogResult;\npublic critical(...args: Rollbar.LogArgument[]): Rollbar.LogResult;\n+ public wait(callback: () => void): void;\npublic captureEvent(metadata: object, level: Rollbar.Level): Rollbar.TelemetryEvent;\n",
-        "human": "chore: Add wait type def",
-        "race": "docs: add wait() to docs",
-        "classified_rag": "fix(typescript): Add missing definition for wait method",
-        "type": "chore"
+        "1": "fix(typescript): Add missing definition for wait method",
+        "2": "docs: add wait() to docs",
+        "3": "chore: Add wait type def"
     },
     {
         "diff": "diff --git a/test/notifier.test.js b/test/notifier.test.js @@ -172,8 +172,9 @@ describe('log', function() {\nvar notifier = new Notifier(queue, options);\nvar initialItem = {a: 123, b: 'a string'};\n+ var error = new Error('fizz buzz');\nnotifier.addTransform(function(i, o, cb) {\n- cb(new Error('fizz buzz'), null);\n+ cb(error, null);\n}).addTransform(function(i, o, cb) {\nexpect(false).to.be.ok(); // assert this is not called\ncb(null, {a: 42, b: i.b});\n@@ -182,7 +183,7 @@ describe('log', function() {\nnotifier.log(initialItem, spy);\nexpect(spy.called).to.be.ok();\n- expect(spy.calledWithExactly(new Error('fizz buzz'), null)).to.be.ok();\n+ expect(spy.calledWithExactly(error, null)).to.be.ok();\nexpect(queue.items.length).to.eql(0);\ndone();\n",
-        "human": "test: newer sinon requires the same object when using calledWithExactly()",
-        "race": "Fix notifier test",
-        "classified_rag": "test(notifier): update error object in log test",
-        "type": "test"
+        "1": "Fix notifier test",
+        "2": "test(notifier): update error object in log test",
+        "3": "test: newer sinon requires the same object when using calledWithExactly()"
     },
     {
         "diff": "diff --git a/.github/workflows/release-please.yml b/.github/workflows/release-please.yml @@ -7,6 +7,8 @@ jobs:\nrelease-pr:\nruns-on: ubuntu-latest\nsteps:\n+ - uses: actions/checkout@v2\n+ - run: git tag -d $(git tag -l | grep -) # workaround for a bug with prerelease tags on the first run of release-please\n- uses: GoogleCloudPlatform/release-please-action@v2\nid: release-please\nwith:\n",
-        "human": "chore: workaround release please initial release bug",
-        "race": "fix: workaround for prerelease tags on the first run of release-please",
-        "classified_rag": "chore: update release-please-action to v2 (workaround for prerelease tag bug)",
-        "type": "chore"
+        "1": "chore: update release-please-action to v2 (workaround for prerelease tag bug)",
+        "2": "chore: workaround release please initial release bug",
+        "3": "fix: workaround for prerelease tags on the first run of release-please"
     },
     {
         "diff": "diff --git a/packages/razzle/config/createConfigAsync.js b/packages/razzle/config/createConfigAsync.js @@ -454,8 +454,8 @@ module.exports = (\nlet config = {\n// Set webpack mode:\nmode: IS_DEV ? 'development' : 'production',\n- // Set webpack context to the current command's directory\n- context: process.cwd(),\n+ // Set webpack context to the current apps directory\n+ context: paths.appPath,\n// Specify target (either 'node' or 'web')\ntarget: target,\n// Controversially, decide on sourcemaps.\n",
-        "human": "fix(razzle): make webpack context paths.appPath",
-        "race": "Fix webpack context",
-        "classified_rag": "refactor(razzle): update webpack context to use app directory path",
-        "type": "fix"
+        "1": "fix(razzle): make webpack context paths.appPath",
+        "2": "refactor(razzle): update webpack context to use app directory path",
+        "3": "Fix webpack context"
     },
     {
         "diff": "diff --git a/CHANGELOG.md b/CHANGELOG.md +# [8.10.0](https://github.com/reactstrap/reactstrap/compare/8.9.0...8.10.0) (2021-09-02)\n+\n+\n+### Features\n+\n+* **Dropdown:** add support for listbox or menu role ([#2077](https://github.com/reactstrap/reactstrap/issues/2077)) ([fd9e988](https://github.com/reactstrap/reactstrap/commit/fd9e9888b7712905a85684f7822fc75fde38c069))\n+\n+\n+\n# [8.9.0](https://github.com/reactstrap/reactstrap/compare/8.8.1...8.9.0) (2021-01-19)\n",
-        "human": "chore(release): adding 8.10.0",
-        "race": "Release version 8.10.0",
-        "classified_rag": "docs(changelog): add feature for Dropdown in version 8.10.0",
-        "type": "chore"
+        "1": "chore(release): adding 8.10.0",
+        "2": "docs(changelog): add feature for Dropdown in version 8.10.0",
+        "3": "Release version 8.10.0"
     },
     {
         "diff": "diff --git a/packages/kiwi-core/rollup.config.js b/packages/kiwi-core/rollup.config.js @@ -66,14 +66,14 @@ const commons = {\n]\n}\n-// const bannerTxt = `/*! Chakra-Vui v${pkg.version} | MIT License | github.com/codebender828/kiwi-ui */`\n+const bannerTxt = `/*! Chakra-Vui v${pkg.version} | MIT License | github.com/codebender828/kiwi-ui */`\nconst baseFolder = './src/'\n-// const capitalize = (s) => {\n-// if (typeof s !== 'string') return ''\n-// return s.charAt(0).toUpperCase() + s.slice(1)\n-// }\n+const capitalize = (s) => {\n+ if (typeof s !== 'string') return ''\n+ return s.charAt(0).toUpperCase() + s.slice(1)\n+}\nconst components = fs.readdirSync(baseFolder)\n.filter((f) => fs.statSync(path.join(baseFolder, f)).isDirectory())\n@@ -90,23 +90,23 @@ const entries = {\n* Configurations\n*/\nexport default () => {\n- // const mapComponent = (name) => {\n- // return [{\n- // input: baseFolder + `${name}/index.js`,\n- // external: externals,\n- // output: {\n- // format: 'umd',\n- // name: capitalize(name),\n- // file: `dist/components/${name}/index.js`,\n- // banner: bannerTxt,\n- // exports: 'named',\n- // globals: {\n- // vue: 'Vue'\n- // }\n- // },\n- // ...commons\n- // }]\n- // }\n+ const mapComponent = (name) => {\n+ return [{\n+ input: baseFolder + `${name}/index.js`,\n+ external: externals,\n+ output: {\n+ format: 'umd',\n+ name: capitalize(name),\n+ file: `dist/components/${name}/index.js`,\n+ banner: bannerTxt,\n+ exports: 'named',\n+ globals: {\n+ vue: 'Vue'\n+ }\n+ },\n+ ...commons\n+ }]\n+ }\nlet config = [{\ninput: entries,\n@@ -115,62 +115,62 @@ export default () => {\nformat: 'esm'\n},\n...commons\n+ },\n+ {\n+ input: entries,\n+ output: {\n+ dir: `dist/es/`,\n+ format: 'es'\n+ },\n+ ...commons\n+ },\n+ {\n+ input: entries,\n+ output: {\n+ dir: `dist/cjs/`,\n+ format: 'cjs',\n+ exports: 'named'\n+ },\n+ ...commons\n+ },\n+ {\n+ input: './src/index.js',\n+ output: {\n+ file: `dist/umd/index.js/`,\n+ name: capitalize('chakra'),\n+ format: 'umd',\n+ exports: 'named',\n+ banner: bannerTxt,\n+ globals: {\n+ vue: 'Vue'\n}\n- // {\n- // input: entries,\n- // output: {\n- // dir: `dist/es/`,\n- // format: 'es'\n- // },\n- // ...commons\n- // },\n- // {\n- // input: entries,\n- // output: {\n- // dir: `dist/cjs/`,\n- // format: 'cjs',\n- // exports: 'named'\n- // },\n- // ...commons\n- // },\n- // {\n- // input: './src/index.js',\n- // output: {\n- // file: `dist/umd/index.js/`,\n- // name: capitalize('chakra'),\n- // format: 'umd',\n- // exports: 'named',\n- // banner: bannerTxt,\n- // globals: {\n- // vue: 'Vue'\n- // }\n- // },\n- // ...commons\n- // },\n- // {\n- // input: './src/index.js',\n- // output: {\n- // file: 'dist/chakra-vui.esm.js',\n- // name: capitalize('chakra'),\n- // format: 'esm',\n- // exports: 'named',\n- // banner: bannerTxt\n- // },\n- // ...commons\n- // }\n+ },\n+ ...commons\n+ },\n+ {\n+ input: './src/index.js',\n+ output: {\n+ file: 'dist/chakra-vui.esm.js',\n+ name: capitalize('chakra'),\n+ format: 'esm',\n+ exports: 'named',\n+ banner: bannerTxt\n+ },\n+ ...commons\n+ },\n// Individual components\n- // ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), [])\n+ ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), [])\n]\n- // if (process.env.MINIFY === 'true') {\n- // config = config.filter((c) => !!c.output.file)\n- // config.forEach((c) => {\n- // c.output.file = c.output.file.replace(/\\.js/g, '.min.js')\n- // c.plugins.push(terser({\n- // output: {\n- // comments: '/^!/'\n- // }\n- // }))\n- // })\n- // }\n+ if (process.env.MINIFY === 'true') {\n+ config = config.filter((c) => !!c.output.file)\n+ config.forEach((c) => {\n+ c.output.file = c.output.file.replace(/\\.js/g, '.min.js')\n+ c.plugins.push(terser({\n+ output: {\n+ comments: '/^!/'\n+ }\n+ }))\n+ })\n+ }\nreturn config\n}\n",
-        "human": "build: added image to core",
-        "race": "chore: re-enable build",
-        "classified_rag": "chore: Refactor banner text variable assignment and capitalize function in rollup config file",
-        "type": "build"
+        "1": "build: added image to core",
+        "2": "chore: Refactor banner text variable assignment and capitalize function in rollup config file",
+        "3": "chore: re-enable build"
     },
     {
         "diff": "diff --git a/src/lib/author.svelte b/src/lib/author.svelte <a href={data.html_url} target=\"_blank\" rel=\"noopener\">\n<div class=\"text-sm\">\n<p class=\"text-lg font-bold tracking-widest\">{data.name}</p>\n- <p>{data.bio}</p>\n+ <p>{data.bio || ``}</p>\n</div>\n</a>\n</div>\n",
-        "human": "refactor: :recycle: empty string for no bio",
-        "race": "fix: add fallback for bio",
-        "classified_rag": "chore: Update author component to handle missing bio field",
-        "type": "refactor"
+        "1": "fix: add fallback for bio",
+        "2": "chore: Update author component to handle missing bio field",
+        "3": "refactor: :recycle: empty string for no bio"
     },
     {
         "diff": "diff --git a/webpack_config/webpack.isomorphic.js b/webpack_config/webpack.isomorphic.js @@ -25,6 +25,7 @@ export default {\n// Aliases that both server and client use\n// Probably, it's a bad example, because here we defined only client's aliases.\nalias: {\n+ i18n: `${srcCommonPath}/i18n/`,\nactions: `${srcCommonPath}/actions/`,\napi: `${srcCommonPath}/api/`,\ncomponents: `${srcCommonPath}/components/`,\n",
-        "human": "feat(webpack.isomorphic): add i18n folder to aliases\nfeat(webpack.isomorphic): add i18n folder to aliases",
-        "race": "Add i18n alias",
-        "classified_rag": "refactor(webpack): added i18n alias for internationalization support",
-        "type": "feat"
+        "1": "refactor(webpack): added i18n alias for internationalization support",
+        "2": "feat(webpack.isomorphic): add i18n folder to aliases\nfeat(webpack.isomorphic): add i18n folder to aliases",
+        "3": "Add i18n alias"
     },
     {
         "diff": "diff --git a/website/pages/circularprogress.mdx b/website/pages/circularprogress.mdx -import SEO from \"../components/SEO\";\n-\n-<SEO title=\"Circular Progress\" description=\"Circular Progress is used to indicates the progress for determinate and indeterminate processes.\" />\n-\n-\n+import SEO from '../components/SEO'\n+<SEO\n+ title=\"Circular Progress\"\n+ description=\"Circular Progress is used to indicates the progress for determinate and indeterminate processes.\"\n+/>\n# Circular Progress\n+\nThe Circular Progress component is used to indicates the progress for both determinate and indeterminate processes.\n- Determinate progress fills the circular track with color, as the indicator\n@@ -13,33 +14,28 @@ The Circular Progress component is used to indicates the progress for both deter\n- Indeterminate progress grows and shrinks the indicator while moving along the\ncircular track.\n-\n-See `CCircularProgress`'s <a target=\"_blank\" href=\"https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCircularProgress/accesibility.md\">accessibility report</a>\n-\n+See `CCircularProgress`'s <a target=\"_blank\" href=\"https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CCircularProgress/accessibility.md\">accessibility report</a>\n<carbon-ad />\n## Import\n```js\n-import { CCircularProgress, CCircularProgressLabel } from \"@chakra-ui/vue\";\n+import { CCircularProgress, CCircularProgressLabel } from '@chakra-ui/vue'\n```\n-\n## Usage\n```vue live=true\n<c-circular-progress :value=\"80\" />\n```\n-\n### Changing the size\nYou can add `size` prop to the progress bar to add a custom size.\n```vue live=true\n-// Change the size to 120px\n-<c-circular-progress :value=\"30\" size=\"120px\" />\n+// Change the size to 120px <c-circular-progress :value=\"30\" size=\"120px\" />\n```\n### Changing the thickness\n@@ -91,7 +87,7 @@ Setting the progress to indeterminate means you're not able to determine the\n## Props\n| Name | Type | Default | Description |\n-| --------------- | ----------------- | ------- | ---------------------------------------------------------------------------------------------------------------- |\n+| --------------- | --------- | ------- | ------------------------------------------------------------------------------------- |\n| size | `string` | `48px` | The size of the circular progress in CSS units |\n| max | `number` | `100` | Maximum value defining 100% progress made (must be higher than 'min') |\n| min | `number` | `0` | Minimum value defining 'no progress' (must be lower than 'max') |\n@@ -103,6 +99,7 @@ Setting the progress to indeterminate means you're not able to determine the\n| color | `string` | `blue` | The color of the progress indicator. Use a color key in the theme object |\n## Slots\n+\n| Name | Description |\n-| ---------- | --------------------------------------------------------------------------------- |\n+| ------- | -------------------------------------------------------------------------------- |\n| default | Used for the `CCircularProgressLabel` to display the current progress percentage |\n",
-        "human": "fix(docs): fix typo in link",
-        "race": "fix: linting and formatting",
-        "classified_rag": "docs: update Circular Progress page with SEO component import and usage instructions",
-        "type": "fix"
+        "1": "fix: linting and formatting",
+        "2": "docs: update Circular Progress page with SEO component import and usage instructions",
+        "3": "fix(docs): fix typo in link"
     },
     {
         "diff": "diff --git a/.github/workflows/node.js.yml b/.github/workflows/node.js.yml @@ -24,6 +24,7 @@ jobs:\n- name: Use Node.js ${{ matrix.node-version }}\nuses: actions/setup-node@v2\nwith:\n+ cache: npm\nnode-version: ${{ matrix.node-version }}\n- run: npm ci\n- run: npm run build --if-present\n",
-        "human": "ci(node.js): workflow uses 'npm' cache\n[skip ci]",
-        "race": "Cache npm cache",
-        "classified_rag": "ci: update npm cache configuration in node.js workflow",
-        "type": "ci"
+        "1": "ci(node.js): workflow uses 'npm' cache\n[skip ci]",
+        "2": "Cache npm cache",
+        "3": "ci: update npm cache configuration in node.js workflow"
     },
     {
         "diff": "diff --git a/README.md b/README.md @@ -51,6 +51,7 @@ These great products are built on Semantic-UI-React. Add yours [here][22].\n- https://edabit.com\n- https://blackship.com\n- http://www.brewhousesolutions.com\n+- https://www.lifebot.fr\n## Voice Your Opinion :speech_balloon:\n",
-        "human": "docs(readme): restore lifebot.fr built with entry",
-        "race": "Add lifebot.fr to the list of products",
-        "classified_rag": "docs: Add Lifebot website to list of great products built on Semantic-UI-React",
-        "type": "docs"
+        "1": "Add lifebot.fr to the list of products",
+        "2": "docs: Add Lifebot website to list of great products built on Semantic-UI-React",
+        "3": "docs(readme): restore lifebot.fr built with entry"
     },
     {
         "diff": "diff --git a/package.json b/package.json {\n\"name\": \"@nuxtjs/firebase\",\n- \"version\": \"5.2.0\",\n+ \"version\": \"6.0.0\",\n\"description\": \"Intergrate Firebase into your Nuxt project.\",\n\"keywords\": [\n\"firebase\",\n",
-        "human": "chore(release): 6.0.0",
-        "race": "chore(release): 6.0.0",
-        "classified_rag": "chore: update @nuxtjs/firebase version to 6.0.0",
-        "type": "chore"
+        "1": "chore(release): 6.0.0",
+        "2": "chore(release): 6.0.0",
+        "3": "chore: update @nuxtjs/firebase version to 6.0.0"
     },
     {
         "diff": "diff --git a/src/server/middlewares/index.js b/src/server/middlewares/index.js @@ -9,9 +9,16 @@ import cookieParser from 'cookie-parser'\nimport bodyParser from 'body-parser'\nimport morgan from 'morgan'\nimport useragent from 'express-useragent'\n+import Raven from 'raven'\nimport authMiddleware from './auth'\nexport default (app: express$Application): express$Application => {\n+ // Must configure Raven before doing anything else with it\n+ Raven.config(process.env.SENTRY_DSN).install()\n+ // The request handler must be the first middleware on the app\n+ app.use(Raven.requestHandler())\n+ // remove x-powered-by\n+ app.disable('x-powered-by')\n// Add express stuff\napp.use(helmet())\napp.use(compression())\n@@ -25,6 +32,23 @@ export default (app: express$Application): express$Application => {\napp.use(bodyParser.json())\napp.use(useragent.express())\napp.use(authMiddleware)\n+ // The error handler must be before any other error middleware\n+ app.use(Raven.errorHandler())\n+ // Optional fallthrough error handler\n+ // eslint-disable-next-line\n+ app.use(function onError(\n+ err,\n+ req: express$Request,\n+ res: express$Response,\n+ next: express$NextFunction\n+ ) {\n+ // NOTE: @Metnew: line disabled by ESlint, because err is already handled by sentry\n+ //\n+ // The error id is attached to `res.sentry` to be returned\n+ // and optionally displayed to the user for support.\n+ res.statusCode = 500\n+ res.end(res.sentry + '\\n')\n+ })\nreturn app\n}\n",
-        "human": "feat(server): add Raven, disable x-powered-by",
-        "race": "Add sentry middleware",
-        "classified_rag": "feat(middleware): integrate Raven for error handling and reporting in middleware configuration",
-        "type": "feat"
+        "1": "Add sentry middleware",
+        "2": "feat(server): add Raven, disable x-powered-by",
+        "3": "feat(middleware): integrate Raven for error handling and reporting in middleware configuration"
     },
     {
         "diff": "diff --git a/bin/newman.js b/bin/newman.js @@ -85,7 +85,7 @@ program\nprogram.on('--help', function () {\nconsole.info('\\nTo get available options for a command:');\n- console.info(' newman [command] -h');\n+ console.info(' newman <command> -h');\n});\n// Warn on invalid command and then exits.\n",
-        "human": "chore: fix usage information",
-        "race": "Fix help message for newman",
-        "classified_rag": "chore: update help message to use angle brackets for command (bin)",
-        "type": "chore"
+        "1": "Fix help message for newman",
+        "2": "chore: update help message to use angle brackets for command (bin)",
+        "3": "chore: fix usage information"
     },
     {
         "diff": "diff --git a/packages/chakra-ui-docs/package.json b/packages/chakra-ui-docs/package.json \"sass-loader\": \"^8.0.2\",\n\"vue\": \"^2.6.11\",\n\"vue-live\": \"^1.5.1\",\n+ \"vue-lorem-ipsum\": \"^0.0.1\",\n\"vue-meta\": \"^2.3.3\",\n\"vue-prism-editor\": \"^0.5.1\",\n\"vue-router\": \"^3.1.5\"\n",
-        "human": "chore: add lorem-ipsum to docs deps",
-        "race": "add vue-lorem-ipsum",
-        "classified_rag": "feat(chakra-ui-docs): Add Vue Lorem Ipsum v0.0.1 10943",
-        "type": "chore"
+        "1": "add vue-lorem-ipsum",
+        "2": "feat(chakra-ui-docs): Add Vue Lorem Ipsum v0.0.1 10943",
+        "3": "chore: add lorem-ipsum to docs deps"
     },
     {
         "diff": "diff --git a/src/bundler.js b/src/bundler.js @@ -35,7 +35,7 @@ const pathToPosix = p => p.split(sep).join(posix.sep);\n* @property {string} [publicDir = '']\n* @property {string} [out = '.cache']\n* @property {boolean} [sourcemap]\n- * @property {boolean} [minify]\n+ * @property {boolean} [minify = true]\n* @property {Record<string, string>} [aliases] module aliases\n* @property {boolean} [profile] Enable bundler performance profiling\n* @property {Record<string, string>} [env]\n@@ -138,9 +138,7 @@ export async function bundleProd({\nreturn fileName;\n},\nhoistTransitiveImports: true,\n- plugins: [\n- minify && terser({ compress: true, sourcemap })\n- ],\n+ plugins: [minify && terser({ compress: true, sourcemap })],\nsourcemap,\nsourcemapPathTransform(p, mapPath) {\nlet url = pathToPosix(relative(cwd, resolve(dirname(mapPath), p)));\n",
-        "human": "chore: fix linter",
-        "race": "minify default",
-        "classified_rag": "refactor(bundler): Set default value for minify option in bundleProd function",
-        "type": "chore"
+        "1": "minify default",
+        "2": "chore: fix linter",
+        "3": "refactor(bundler): Set default value for minify option in bundleProd function"
     },
     {
         "diff": "diff --git a/webpack_config/client/webpack.prod.babel.js b/webpack_config/client/webpack.prod.babel.js @@ -88,7 +88,7 @@ base.plugins.push(\n// NOTE: ModuleConcatenationPlugin doesn't work on linux alpine,\n// I got an error trying to deploy this app to zeit's `now` when i use this plugin\n// Maybe, I got this error because of certain memory limit in `now` instance\n- // new webpack.optimize.ModuleConcatenationPlugin(),\n+ new webpack.optimize.ModuleConcatenationPlugin(),\nnew ShakePlugin(),\n// NOTE: you can use BabiliPlugin as an alternative to UglifyJSPlugin\n// new BabiliPlugin(),\n",
-        "human": "feat(webpack_config/client): uncomment moduleconcatenationplugin",
-        "race": "Enable ModuleConcatenationPlugin",
-        "classified_rag": "build(webpack): enable ModuleConcatenationPlugin for production build",
-        "type": "feat"
+        "1": "Enable ModuleConcatenationPlugin",
+        "2": "feat(webpack_config/client): uncomment moduleconcatenationplugin",
+        "3": "build(webpack): enable ModuleConcatenationPlugin for production build"
     },
     {
         "diff": "diff --git a/website/pages/docs/single-page-applications.md b/website/pages/docs/single-page-applications.md -# [Single Page Applications](https://github.com/jaredpalmer/razzle/blob/master/examples/basic-spa/)\n+# Single Page Applications\nIn addition to universal/isomorphic applications, Razzle can build single page (or client-only) applications. To do this, remove `index.js` and `server.js` from the src folder, and create an `index.html` file inside the public folder with the following template:\n-```\n+```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n",
-        "human": "feat: update Single Page Applications section",
-        "race": "Fix single page applications diff",
-        "classified_rag": "docs: update single-page-applications.md",
-        "type": "feat"
+        "1": "docs: update single-page-applications.md",
+        "2": "feat: update Single Page Applications section",
+        "3": "Fix single page applications diff"
     },
     {
         "diff": "diff --git a/faq.md b/faq.md @@ -153,7 +153,7 @@ sudo ln -s /usr/bin/nodejs /usr/local/bin/node\nAlternatively the `--exec nodejs` option can be used.\n-Fedora and Ubuntu pakage node as nodejs, because node.dpkg is\n+Fedora and Ubuntu package node as nodejs, because node.dpkg is\n> Description-en: Amateur Packet Radio Node program\n> The node program accepts TCP/IP and packet radio network connections and\n",
-        "human": "docs: Fix typo in faq.md\nOnly fixed a small typo (pa**c**kage) in the `faq.md` file.",
-        "race": "Fix typo in FAQ\npakage -> package",
-        "classified_rag": "docs: fix typo in node package installation instructions",
-        "type": "docs"
+        "1": "Fix typo in FAQ\npakage -> package",
+        "2": "docs: Fix typo in faq.md\nOnly fixed a small typo (pa**c**kage) in the `faq.md` file.",
+        "3": "docs: fix typo in node package installation instructions"
     },
     {
         "diff": "diff --git a/packages/razzle-plugin-eslint/index.js b/packages/razzle-plugin-eslint/index.js @@ -9,13 +9,6 @@ module.exports = {\nconst mainEslintOptions = {\nbaseConfig: {\nextends: [require.resolve('eslint-config-react-app')],\n- // This setting can be removed once this commit is released:\n- // https://github.com/facebook/create-react-app/commit/005ee5b9525d476d2eb2dfb5b8afcd15b65dd5d2\n- settings: {\n- react: {\n- version: 'detect',\n- },\n- },\n},\nformatter: eslintFormatter,\neslintPath: require.resolve('eslint'),\n@@ -33,7 +26,6 @@ module.exports = {\n},\n...config.module.rules,\n];\n-\nreturn config;\n},\n};\n",
-        "human": "feat: update eslint plugin config",
-        "race": "Remove react version detection from eslint config",
-        "classified_rag": "chore: remove unnecessary eslint settings in razzle-plugin-eslint configuration",
-        "type": "feat"
+        "1": "Remove react version detection from eslint config",
+        "2": "feat: update eslint plugin config",
+        "3": "chore: remove unnecessary eslint settings in razzle-plugin-eslint configuration"
     }
 ]
