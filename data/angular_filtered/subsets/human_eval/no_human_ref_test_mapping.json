@@ -1,252 +1,202 @@
 {
     "Object-1": {
         "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "2": "classified_rag"
     },
     "Object-2": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-3": {
         "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "2": "classified_rag"
     },
     "Object-4": {
-        "1": "classified_rag",
-        "2": "race",
-        "3": "human"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-5": {
         "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "2": "classified_rag"
     },
     "Object-6": {
-        "1": "human",
-        "2": "classified_rag",
-        "3": "race"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-7": {
         "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "2": "classified_rag"
     },
     "Object-8": {
-        "1": "human",
-        "2": "race",
-        "3": "classified_rag"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-9": {
-        "1": "classified_rag",
-        "2": "race",
-        "3": "human"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-10": {
         "1": "classified_rag",
-        "2": "human",
-        "3": "race"
+        "2": "race"
     },
     "Object-11": {
         "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "2": "classified_rag"
     },
     "Object-12": {
-        "1": "human",
-        "2": "race",
-        "3": "classified_rag"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-13": {
-        "1": "human",
-        "2": "classified_rag",
-        "3": "race"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-14": {
-        "1": "human",
-        "2": "classified_rag",
-        "3": "race"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-15": {
-        "1": "race",
-        "2": "human",
-        "3": "classified_rag"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-16": {
-        "1": "race",
-        "2": "human",
-        "3": "classified_rag"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-17": {
-        "1": "classified_rag",
-        "2": "race",
-        "3": "human"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-18": {
-        "1": "human",
-        "2": "race",
-        "3": "classified_rag"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-19": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-20": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-21": {
-        "1": "human",
-        "2": "race",
-        "3": "classified_rag"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-22": {
-        "1": "classified_rag",
-        "2": "race",
-        "3": "human"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-23": {
-        "1": "classified_rag",
-        "2": "race",
-        "3": "human"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-24": {
-        "1": "classified_rag",
-        "2": "human",
-        "3": "race"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-25": {
         "1": "classified_rag",
-        "2": "race",
-        "3": "human"
+        "2": "race"
     },
     "Object-26": {
         "1": "race",
-        "2": "human",
-        "3": "classified_rag"
+        "2": "classified_rag"
     },
     "Object-27": {
         "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "2": "classified_rag"
     },
     "Object-28": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-29": {
-        "1": "classified_rag",
-        "2": "race",
-        "3": "human"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-30": {
-        "1": "human",
-        "2": "classified_rag",
-        "3": "race"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-31": {
         "1": "classified_rag",
-        "2": "race",
-        "3": "human"
+        "2": "race"
     },
     "Object-32": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-33": {
         "1": "classified_rag",
-        "2": "human",
-        "3": "race"
+        "2": "race"
     },
     "Object-34": {
-        "1": "human",
-        "2": "classified_rag",
-        "3": "race"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-35": {
-        "1": "human",
-        "2": "classified_rag",
-        "3": "race"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-36": {
-        "1": "human",
-        "2": "classified_rag",
-        "3": "race"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-37": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-38": {
-        "1": "classified_rag",
-        "2": "human",
-        "3": "race"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-39": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-40": {
-        "1": "human",
-        "2": "race",
-        "3": "classified_rag"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-41": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-42": {
-        "1": "human",
-        "2": "race",
-        "3": "classified_rag"
+        "1": "race",
+        "2": "classified_rag"
     },
     "Object-43": {
         "1": "race",
-        "2": "human",
-        "3": "classified_rag"
+        "2": "classified_rag"
     },
     "Object-44": {
         "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "2": "classified_rag"
     },
     "Object-45": {
-        "1": "race",
-        "2": "classified_rag",
-        "3": "human"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-46": {
-        "1": "race",
-        "2": "human",
-        "3": "classified_rag"
+        "1": "classified_rag",
+        "2": "race"
     },
     "Object-47": {
         "1": "race",
-        "2": "human",
-        "3": "classified_rag"
+        "2": "classified_rag"
     },
     "Object-48": {
         "1": "classified_rag",
-        "2": "human",
-        "3": "race"
+        "2": "race"
     },
     "Object-49": {
         "1": "race",
-        "2": "human",
-        "3": "classified_rag"
+        "2": "classified_rag"
     },
     "Object-50": {
         "1": "race",
-        "2": "human",
-        "3": "classified_rag"
+        "2": "classified_rag"
     }
 }
