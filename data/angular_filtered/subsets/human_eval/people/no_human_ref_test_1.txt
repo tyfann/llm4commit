@@ -143,14 +143,14 @@ Best description number:2
 ---
 
 item13-message1:
-Expressiveness:
-Informativeness:
+Expressiveness:4
+Informativeness:2
 
 item13-message2:
-Expressiveness:
-Informativeness:
+Expressiveness:3
+Informativeness:3
 
-Best description number:
+Best description number:2
 
 ---
 
@@ -174,7 +174,7 @@ item15-message2:
 Expressiveness:4
 Informativeness:2
 
-Best description number:
+Best description number:1
 
 ---
 
