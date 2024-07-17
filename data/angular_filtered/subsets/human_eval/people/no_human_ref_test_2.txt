@@ -92,7 +92,7 @@ Informativeness: 0
 item12-message2:
 Expressiveness: 3
 Informativeness: 3
-Best description number: 3
+Best description number: 2
 ---
 item13-message1: 
 Expressiveness: 3
