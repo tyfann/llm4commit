@@ -135,7 +135,7 @@ Expressiveness:2
 Informativeness:2
 
 item12-message2:
-Expressiveness：3
+Expressiveness:3
 Informativeness:3
 
 Best description number:item12-message2

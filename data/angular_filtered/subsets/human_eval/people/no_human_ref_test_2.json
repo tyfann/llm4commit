@@ -1,0 +1,402 @@
+[
+    {
+        "Item_number": 1,
+        "Expressiveness1": 3,
+        "Informativeness1": 1,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 2,
+        "Expressiveness1": 2,
+        "Informativeness1": 4,
+        "Expressiveness2": 3,
+        "Informativeness2": 2,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 3,
+        "Expressiveness1": 3,
+        "Informativeness1": 2,
+        "Expressiveness2": 4,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 4,
+        "Expressiveness1": 4,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 5,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 6,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 3,
+        "Informativeness2": 2,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 7,
+        "Expressiveness1": 3,
+        "Informativeness1": 1,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 8,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 3,
+        "Informativeness2": 0,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 9,
+        "Expressiveness1": 1,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 10,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 2,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 11,
+        "Expressiveness1": 2,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 12,
+        "Expressiveness1": 1,
+        "Informativeness1": 0,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 3
+    },
+    {
+        "Item_number": 13,
+        "Expressiveness1": 3,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 2,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 14,
+        "Expressiveness1": 2,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 15,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 3,
+        "Informativeness2": 2,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 16,
+        "Expressiveness1": 2,
+        "Informativeness1": 3,
+        "Expressiveness2": 2,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 17,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 18,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 3,
+        "Informativeness2": 2,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 19,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 2,
+        "Informativeness2": 3,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 20,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 2,
+        "Informativeness2": 3,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 21,
+        "Expressiveness1": 0,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 22,
+        "Expressiveness1": 2,
+        "Informativeness1": 3,
+        "Expressiveness2": 4,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 23,
+        "Expressiveness1": 2,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 24,
+        "Expressiveness1": 0,
+        "Informativeness1": 1,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 25,
+        "Expressiveness1": 3,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 26,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 1,
+        "Informativeness2": 2,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 27,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 2,
+        "Informativeness2": 4,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 28,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 2,
+        "Informativeness2": 2,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 29,
+        "Expressiveness1": 4,
+        "Informativeness1": 4,
+        "Expressiveness2": 4,
+        "Informativeness2": 4,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 30,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 3,
+        "Informativeness2": 0,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 31,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 32,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 2,
+        "Informativeness2": 3,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 33,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 1,
+        "Informativeness2": 0,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 34,
+        "Expressiveness1": 2,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 35,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 36,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 2,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 37,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 2,
+        "Informativeness2": 2,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 38,
+        "Expressiveness1": 2,
+        "Informativeness1": 1,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 39,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 0,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 40,
+        "Expressiveness1": 3,
+        "Informativeness1": 4,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 41,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 2,
+        "Informativeness2": 1,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 42,
+        "Expressiveness1": 3,
+        "Informativeness1": 3,
+        "Expressiveness2": 2,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 43,
+        "Expressiveness1": 1,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 44,
+        "Expressiveness1": 1,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 45,
+        "Expressiveness1": 2,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 1,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 46,
+        "Expressiveness1": 4,
+        "Informativeness1": 3,
+        "Expressiveness2": 3,
+        "Informativeness2": 1,
+        "Best_description_number": 1
+    },
+    {
+        "Item_number": 47,
+        "Expressiveness1": 2,
+        "Informativeness1": 3,
+        "Expressiveness2": 2,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 48,
+        "Expressiveness1": 3,
+        "Informativeness1": 2,
+        "Expressiveness2": 2,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 49,
+        "Expressiveness1": 3,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 4,
+        "Best_description_number": 2
+    },
+    {
+        "Item_number": 50,
+        "Expressiveness1": 1,
+        "Informativeness1": 2,
+        "Expressiveness2": 3,
+        "Informativeness2": 3,
+        "Best_description_number": 2
+    }
+]
