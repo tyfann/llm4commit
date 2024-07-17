@@ -5,7 +5,8 @@
         "Informativeness1": 1,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 2,
@@ -13,7 +14,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 0
     },
     {
         "Item_number": 3,
@@ -21,7 +23,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 4,
@@ -29,7 +32,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 5,
@@ -37,7 +41,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 4,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 0
     },
     {
         "Item_number": 6,
@@ -45,7 +50,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 7,
@@ -53,7 +59,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 8,
@@ -61,7 +68,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 0
     },
     {
         "Item_number": 9,
@@ -69,7 +77,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 10,
@@ -77,7 +86,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 11,
@@ -85,7 +95,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 12,
@@ -93,7 +104,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 13,
@@ -101,7 +113,8 @@
         "Informativeness1": 2,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 0
     },
     {
         "Item_number": 14,
@@ -109,7 +122,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 15,
@@ -117,7 +131,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 16,
@@ -125,7 +140,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 0
     },
     {
         "Item_number": 17,
@@ -133,7 +149,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 18,
@@ -141,7 +158,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 19,
@@ -149,7 +167,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 0
     },
     {
         "Item_number": 20,
@@ -157,7 +176,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 21,
@@ -165,7 +185,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 0
     },
     {
         "Item_number": 22,
@@ -173,7 +194,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 0
     },
     {
         "Item_number": 23,
@@ -181,7 +203,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 0
     },
     {
         "Item_number": 24,
@@ -189,7 +212,8 @@
         "Informativeness1": 2,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 25,
@@ -197,7 +221,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 2,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 26,
@@ -205,7 +230,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 27,
@@ -213,7 +239,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 2,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 0
     },
     {
         "Item_number": 28,
@@ -221,7 +248,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 4,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 29,
@@ -229,7 +257,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 30,
@@ -237,7 +266,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 4,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 31,
@@ -245,7 +275,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 3,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 32,
@@ -253,7 +284,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 33,
@@ -261,7 +293,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 34,
@@ -269,7 +302,8 @@
         "Informativeness1": 2,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 35,
@@ -277,7 +311,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 36,
@@ -285,7 +320,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 37,
@@ -293,7 +329,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 38,
@@ -301,7 +338,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 39,
@@ -309,7 +347,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 40,
@@ -317,7 +356,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 0
     },
     {
         "Item_number": 41,
@@ -325,7 +365,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 2,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 42,
@@ -333,7 +374,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 43,
@@ -341,7 +383,8 @@
         "Informativeness1": 2,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 44,
@@ -349,7 +392,8 @@
         "Informativeness1": 2,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 45,
@@ -357,7 +401,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 46,
@@ -365,7 +410,8 @@
         "Informativeness1": 4,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 47,
@@ -373,7 +419,8 @@
         "Informativeness1": 2,
         "Expressiveness2": 4,
         "Informativeness2": 3,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 48,
@@ -381,7 +428,8 @@
         "Informativeness1": 3,
         "Expressiveness2": 3,
         "Informativeness2": 3,
-        "Best_description_number": 1
+        "Best_description_number": 1,
+        "mapping_id": 1
     },
     {
         "Item_number": 49,
@@ -389,7 +437,8 @@
         "Informativeness1": 2,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     },
     {
         "Item_number": 50,
@@ -397,6 +446,7 @@
         "Informativeness1": 3,
         "Expressiveness2": 4,
         "Informativeness2": 4,
-        "Best_description_number": 2
+        "Best_description_number": 2,
+        "mapping_id": 1
     }
 ]
