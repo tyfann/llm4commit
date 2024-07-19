@@ -13,7 +13,7 @@ def get_bleu_moses(ref_path, gen_path):
 
 if __name__ == '__main__':
     ref_path = "../data/angular_filtered/subsets/generation/test_ref.txt"
-    gen_path = "../data/angular_filtered/subsets/generation/test_gpt35_golden_classified_rag.txt"
+    gen_path = "../data/angular_filtered/subsets/generation/test_race_v1.txt"
 
     if os.path.exists(ref_path) and os.path.exists(gen_path):
         print(get_bleu_moses(ref_path, gen_path))

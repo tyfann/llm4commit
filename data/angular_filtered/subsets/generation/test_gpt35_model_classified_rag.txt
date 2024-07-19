@@ -1,0 +1,1995 @@
+feat(kiwi-core): add emotion to peerDependencies for compatibility with vue-styled-components
+chore: Refactor banner text variable assignment and capitalize function in rollup config file
+chore(deps): update devDependencies to dependencies in package.json
+chore: Update release and prepublish scripts in package.json
+chore: Update "@chakra-ui/vue" package to version 0.4.2 and its dependencies
+feat: add MIXPANEL_TOKEN to environment variables in now.json
+chore: update version of @chakra-ui/vue to 0.5.3
+chore(package.json): update build script to include yarn build-static and yarn export commands
+chore: Update ipywidgets version in init_jupyter.sh script
+chore(release): update conventional-changelog command in release script;
+refactor: remove unnecessary configuration options and globals from rollup.config.js
+chore: add missing React Transition Group dependency in package.json
+ci(travis): update secure keys for deployment
+chore(deps): update husky version to ^4.2.5
+chore: update compile script in Dockerfile
+build: Update Dockerfile to copy only package.json and package-lock.json to /code/deps/ directory.
+chore(create_notice): normalize_row: fix regex pattern for versioned Go modules
+chore(tooling): improve readability of docker-compose commands in Makefile
+chore: refactor test_node_app script and update dependencies
+chore: switch to python3 for gyp in Dockerfile build steps
+chore: update Python version to python3 in Dockerfile messages
+ci: update base branch to use github ref in extract_strings workflow
+ci: update create-pull-request action configuration in extract_strings workflow
+chore: update Alpine base image version to 3.15
+chore: update fonts in Dockerfile
+chore(circleci): update Docker build command in config.yml\nCloses #1234
+chore(circleci): update Docker build command in config.yml\nCloses #1234
+chore(build): update Go version to 1.19.5 in Dockerfile
+chore: update dependencies and adapt code to use conventional commit types
+fix(Webpack): fix typo in variable name and add logic to exclude loaders from base paths
+refactor(loader exclusion): improve handling of loader exclude property
+chore: bump ver
+chore: update docs script in package.json to serve docs using http-server
+chore(dependencies): remove d3 from package.json
+chore(package): update onset dependency\nUpdated onset dependency to the latest version for compatibility with other packages.
+chore: updated semistandard ignore paths in package.json
+chore: updates d3 to version 3.5.17
+chore: update `webpack` version and add build script
+chore: Update .npmignore with new configuration files and directories
+ci: update npm cache configuration in node.js workflow
+ci: update Node.js setup to v2 and add npm caching
+ci: Update linting and testing scripts for wmr and preact-iso packages
+ci: add environment variables for Sauce Labs testing
+chore: update workflow name to Release
+ci: update PR workflow configuration and commands
+ci: update yarn install command and git user email address
+chore(changeset): Update changeset config schema and changelog provider
+chore: update release workflow with bootstrap step
+chore: version packages before release
+ci: Update test workflow with separate linting step
+ci: add pull_request event trigger and conditional check for external PRs
+ci(gh-actions): update yarn cache handling in test workflow
+ci(test): Update workflow to trigger tests only on push to master branch
+chore(deps): update MySQL version to 5.7.32 in circleci/mysql dependency
+chore: add deprecated flag for docker build process
+chore(ci): Update circleCI configuration with browser tools orb and remove unnecessary steps
+chore(deps): update circleci/docker orb version to 2.1.4
+chore(ci): update PostgreSQL and MySQL versions\nCloses #1234
+chore(ci): Remove MINIO_STORAGE configuration from CircleCI config
+chore: add condition-circle to release verifyConditions in package.json
+chore(circle): updating build and test scripts in circle.yml
+chore(circle): updating build process in circle.yml
+chore: added debug flag to semantic-release script
+chore: update Lerna version to 2.10.2 and adjust test scripts for unit and coverage testing
+chore: update Lerna installation method
+chore: update build and test scripts to use bash instead of sh
+chore(build): update build steps in circle.yml file
+chore: update build:coverage script to use npm instead of bash script
+chore(build): add build step for big bundle on circle config
+build: Update build scripts for Candela\nUpdated build scripts to use production builds for Candela and the bundle to ensure optimized performance.
+ci: update caching strategy for gittar and yarn cache directories
+ci: add test for cli paths using yarn test:cli
+ci: Update Node.js versions to "8" and "9". Update npm install command.
+ci(main): add pre deploy test step
+ci(main): update main.yml for linting, unit testing, and pre-build steps
+chore(build): update build:ci script to use webpack instead of webpack-dev-server
+ci(main): switch from yarn to npm for installing modules
+chore: update commit message validation logic
+chore: fix merge regex in verifyCommit script
+CI: Update workflow to run lint job before unit tests
+ci(GA): update test command to run only once
+ci(GA): update unit test and type check job steps in workflow
+ci(azure): Update Node.js installation and testing commands in pipeline
+chore: Update postinstall script in package.json
+ci: update travis config to cache npm and cypress binary folders
+ci: remove redundant npm installation steps
+docs: Fix typo in ERC1155 README
+docs: update import path for ERC1155Holder in MyContract
+docs(readme): add design principles section
+docs: fix typo in README.md
+docs: added solution for nodemon watch errors
+docs: update README with information on using npx nodemon
+docs: updated nodemon watch error fix for mac users
+docs: remove sponsor link from README
+docs: updated nodemon watch error troubleshooting steps for Mac and Linux
+docs: update sponsorship badge in README
+docs(FAQ): update information about nodemon and nodejs installation on Ubuntu
+docs: update link to Angular commit guidelines in CONTRIBUTING.md
+docs(faq): Update workaround for Fedora and Ubuntu package naming\nUpdate the workaround to include an alternative option using the `--exec nodejs` flag.
+docs: remove codesponsor link from README
+docs: update installation instructions for nodemon in README
+docs: fix broken link to Mixmax in sponsor section
+doc: update nodemon.json ext configuration
+docs: update nodemon installation instructions and configuration details\nClarify installation steps and provide examples for configuring nodemon to monitor different file extensions.
+docs: update faq.md with additional workarounds and resources
+docs(readme): update nodemon description and usage instructions
+docs: fix typo in faq.md regarding filesystem
+docs(faq): added instructions on how to clear the console on restart
+docs: added explanation for nodemon not restarting on .env change
+docs: add example of handling SIGHUP signal for graceful reloading
+docs: update faq.md with note on Windows scroll buffer clearing
+docs: update design principles for better readability
+docs: update nodemon usage instructions in README
+docs(readme): update nodemon usage instructions
+website: update sponsor logos
+docs: remove unnecessary sponsor logos from README file
+docs(README): fix delay value format in nodemonConfig
+docs: update installation instructions in README
+docs: fix typo in node package installation instructions
+docs: fix typo in faq.md file
+docs: add instructions for watching all file types in a folder
+doc: update sample nodemon.json configuration
+chore: update bug_report.md template for consistency
+website: update number of projects depending on Nodemon
+docs: update nodemon documentation to include unix globbing support
+docs: Update ignore patterns in config file\nUpdated the README to reflect the correct ignore patterns for `ignore` key in the config file, using `**` for wild card glob patterns. Added a note on using full absolute paths for ignore rules.
+docs: Add link to nodemon website for logo image
+docs: add workaround for handling --inspect flag and old process restarts
+docs: Add instructions for using `preact/compat` with WMR
+docs: add version badges for packages in README.md
+docs: update package descriptions in README.md
+refactor: Remove unused code and provide theme using Kiwi plugin in main.js
+docs: Add JSDoc comments for parseFAIcons function and parseFAIcon function
+docs: enable List component in components list
+docs: updated serve command to dev and ongoing documentation site task in project TODOs
+docs: update link to open issues in contribution section
+feat: add file-contributors and sass-loader
+feat(theme-provider): adding default $colorMode value in ThemeProvider
+style: Update blockquote styles in default layout to include rounded corners and hidden overflow
+docs(button): fix typos and update button sizing documentation
+docs: update Vue component imports and usage in alert documentation
+docs(META): add accordion components documentation to CAccordion.vue file
+docs: add new Gridsome project Chakra UI demo
+docs: update `AlertDialog` component to use `CModal` and `initialFocusRef` instead of `Modal` and `leastDestructiveRef`
+docs: add CBox component documentation
+feat(tooltip): add tooltip component with Chakra UI Vue integration
+docs(alertdialog): remove unnecessary Vue imports and update code block syntax in documentation
+docs(CloseButton): update import statement for CloseButton component
+docs(Tag): Add SEO component and usage examples\nAdded SEO component for better search engine optimization and included usage examples for Tag component with left icon, right icon, close button, custom element, and props documentation.
+docs(spinner): add SEO component and usage examples\nCode diff type: docs
+docs: add documentation for Stat component with usage examples and props information
+docs(chakra-ui-docs): Add SEO component to Switch documentation
+docs(Stack): add documentation for Stack component props and slots
+docs: update SimpleGrid documentation with usage examples and props details
+docs(select): add SEO component and usage examples
+docs: add information about Slider component props and events
+docs(chakra-ui): Updated documentation for Textarea component
+docs(chakra-ui): update component names in tabs documentation
+docs(getting-started): add section on installing Chakra UI with Vue CLI plugin
+docs(typo): fix typo in accessibility.mdx
+feat(docs): Add Contributors link to footer\nCode diff type: feat
+chore: update @chakra-ui/vue to version 0.5.4
+feat: Add link to Chakra UI React in Navbar component
+fix: correct typo in Hero.vue external link
+docs: add section on stacking HTML elements
+feat(plugins): add feGithub icon to Chakra UI plugin
+chore: update @nuxtjs/emotion version to 0.1.0
+docs: update Chakra import in color-mode.mdx file
+docs: update Chakra component usage instructions in README
+feat(buttonGroup): add role attribute for accessibility
+website(layouts): update default layout styling
+docs: added theme config documentation with cssVarPrefix and initialColorMode properties
+docs(responsive-styles): add documentation for customizing breakpoints and using object syntax
+docs: update target check from 'server' to 'node' in customization.md
+docs(with-single-exposed-port): update README with reverse nginx proxy configuration example
+docs(README): update example code for configuring devServer behind a reverse nginx proxy
+docs: update README with link to typescript example project
+docs: update customization.md with information on options and future additions
+docs(readme): update now.json configuration in README for with-now-v2 example
+docs: update webpackOptions description in customization.md
+docs(website): update debugging instructions with inspector agent options
+docs: update customization.md with Razzle 4.0 changes
+docs(babel-preset-razzle): update link to preset file in customization.md\nThe link to the preset file in the customization.md has been updated to point to the correct location.
+docs: add information about enabling experimental features for Razzle 4.0
+docs(badge): reorder badges in README.md for consistency
+docs(badge): add Spectrum community badge to README.md
+docs: reference aliased paths/modules in Jest unit test configuration
+docs: update dependencies installation instructions in getting-started page
+docs(website): update debugging instructions with npm and yarn start options
+docs: add razzle config and create web.config for Azure deployment [skip ci]
+docs: Update AWS deployment options and dependencies
+website(deployment-options): improve readability and formatting of Azure deployment commands
+docs: add instructions for deploying Razzle on Plesk
+docs: add deployment steps for Razzle on AWS
+docs: update paths in aws deployment options
+docs: update commands for adding examples in CONTRIBUTING.md
+docs: remove backticks from folder name for consistency
+docs: fix broken link formatting in contributing guidelines
+docs: update npm export instructions for static site generation
+docs: update contributing\n\nAdded the following sections:\n* Workflow for working on razzle core with examples\n* Updating your fork
+docs(getting-started): Typo fix\n`nont` => `don't`
+docs(getting-started): add troubleshooting section for postcss resolving issues
+chore: update console message with link to common problems in razzlejs.org
+docs: Add examples section to the Razzle README.md
+docs: update/add instructions for Razzle peerDependencies
+docs(getting-started): update common issues section and add fix for node module css error
+docs(getting-started): add note about resolutions in package.json
+docs: remove experimental.newExternals usage in webpackOptions
+docs(getting-started): remove note about npm resolutions in package.json
+docs: update buildType options in customization.md
+docs(razzle-plugin-typescript): update link to typescript example project in README
+docs: add htmlWebpackPlugin tags to single-page-applications.md
+docs: update Razzle 3 docs link in index page
+docs(website): add instructions to make razzle more verbose for debugging purposes
+docs: added section on transpilation of external modules
+docs: update webpackOptions include patterns for customization
+docs: update sassOptions and modules configuration in README
+docs: updated babelRule configuration for external modules
+sheets: Updated instructions for upgrading packages in the "Winget" sheet\nImproved clarity and added additional details to the instructions for upgrading packages in the Windows Package Manager (Winget) sheet.
+docs: update git.md with instructions on adding downstream repo for PRs
+fix(docs): correct typo in DropdownExampleOpenOnFocus component\nCode diff type: fix
+docs: add section on using propTypes
+docs: update `Popup` component propTypes descriptions
+docs: update Semantic UI React link in README.md\nUpdate the link to Semantic UI React in the README.md file to use the correct URL.
+docs(core-grid): update Grid container prop description
+docs(changelog): update and tidy v0.66.0 release with implemented enhancements and bug fixes
+docs: update the changelog generation process
+docs: Add new link to brewhousesolutions.com
+docs: update homepage link to use HTTPS\nUpdate the homepage link in the README.md file to use HTTPS instead of HTTP for Semantic UI React.
+docs: Add Lifebot website to list of great products built on Semantic-UI-React
+docs(readme): add examples and tutorials section with semantic-ui-react-todos project reference
+docs(Usage): add instructions for including minified CSS file
+docs(Container): fix typo in proptypes documentation
+docs: Add Netflix's Edge Developer Experience team's internal apps link
+docs(readme): add link to react-semantic.ui-starter project
+chore: Fix typo in Introduction component
+style(button/group): remove unnecessary 'attached' prop in vertical Button.Group.
+fix: Update max rating in RatingHTML to 5
+docs(IconSearch): fixed input selection in componentDidMount
+refactor: Update Image import in ItemExampleFloated to use semantic-ui-react Image instead of ImageComponent
+fix(ui-kit): update sorting logic in TableExampleSortable to fix sorting functionality
+docs: add href attribute to menu item link in Introduction view
+fix(ComponentProps): fix bug in filtering object properties in paramSignature
+docs: Add new product link to README
+style(iconsearch): center align grid column and add header and message text
+style(ComponentExample): set width to 100% for code block display
+docs: add client-side redirect to HTTPS in index.ejs
+docs: Add appfollow.io to list of great products built on Semantic UI React
+docs: fix typo in gitter chat link and circleci badge URL
+feat(layout): add sticky menu functionality with overlay option
+docs: Add new link to according.to.localsourc.es in README
+docs(readme): update dependency status badges in README.md
+fix: update handleSearchChange method parameter to object for DropdownExampleSearchQuery
+fix(DropdownExampleRemote): fix handleSearchChange function parameter destructuring error
+docs: Update link for seeuletter website
+refactor(PortalExampleControlled): simplify state initialization and Portal component usage
+docs(readme): update 'Good First Contribution' to 'Good First Issue' label in README.md
+feat(ButtonExampleGroupLabeledIcon): update Button.Group style to vertical with icons
+fix(form): correct placeholder text for last name input in FormExampleSubcomponentId
+docs: update prop-types and react-dom script urls to include minified version based on production status
+feat(accordion): fix placeholder in AccordionExampleForm for Last Name input
+docs: update link to building CSS with Meteor in README.md
+docs: Add new example project link
+docs: update installation instructions to use Yarn instead of NPM
+style(advertisement): Update test attribute value in AdvertisementExampleBannerTop component
+docs(readme): update project references to SUIcrux starter
+docs: Add new example project link
+docs: Update description for passing Subheader content to Header subheader prop
+docs(readme): add Bailfacile link to list of great products built on Semantic UI React
+fix: corrected icon prop name in StepExampleEvenlyDivided
+docs: Add moneytracker.cc to example projects
+docs: Add new example project link
+feat(docs): add sibling range option for pagination customization
+fix(docs): update chevron icon names in TableExamplePagination
+refactor(ComponentExample): improve default export capture logic in ComponentExample class
+docs(app/Layouts): fix typo in StickyLayout comments
+fix(docs): fix typo in ResponsiveExampleFireOnMount component
+style(CarbonAd): increase minHeight to 199px for better ad display
+docs: Update GridLayout.js to fix grammar error
+fix(docs): update description for floated list element in ListContentVariations
+chore(docs): update title to 'Variations' in ListVariations section
+docs: add releasing section\nAdded a new section on how to release changes using npm on the latest clean master branch.
+docs(readme): update built with section and add accessibility information
+fix: corrected icon name in ModalExampleScrollingContent
+fix(form): correct prop declaration in Form.Group example
+docs: Fix import paths for LayoutsLayout and LayoutsRoot\nUpdated import paths to match correct casing for components
+docs(Usage): Update Semantic UI React version requirements for SUI 2.2 and 2.3
+docs: fix button animated icon name in example
+fix: adjust responsive layout for tablet and mobile devices
+docs(icons): update icon name in IconExampleIconGroup
+docs(icons): update loading icon in IconExampleLoadingGroup
+docs(Icon): update IconExampleFitted component to demonstrate fitted and non-fitted icons usage
+docs(ComponentExample): update Grid structure in ComponentExample for better layout\nCode diff type: docs
+docs: update CircleCI badge URL to use github organization name
+docs: add gender select field to form in examples
+docs(sandbox): change grid variations description to split the available height evenly
+docs: update CDN links to use HTTPS protocol
+docs(readme): add CSS setup instructions in the FAQ section
+feat(docs): add SearchExampleStandard and SearchExampleCategory imports for easy reference
+docs: update Semantic UI CSS package link to use cdn.jsdelivr.net
+docs(addons-text-area): add info message about wrapping TextArea with Form component
+chore: update footer layout and styling in FixedMenuLayout
+docs(formatCode): update prettier plugins based on environment
+docs: update formatCode function for browser compatibility
+docs: update Checkbox component onChange prop in ComponentProps component
+docs(Placeholder): remove unnecessary div in PlaceholderExampleLineLengthWithHeader
+docs: update ResponsiveExampleMaxWidth to include 'and lower' for clarity
+chore(package.json): update build:changelog script in package.json
+docs: update modal description to contain one or more paragraphs
+style: update class name for DropdownExampleFloating component to improve consistency
+style: update event handler syntax in DropdownExampleRemote\nCode diff type: style
+refactor(ComponentDoc): update lifecycle methods
+refactor: update ComponentProps component to use static getDerivedStateFromProps instead of componentWillReceiveProps
+docs: fix typo in default behaviour description
+fix(buttons): correct tabindex attribute to tabIndex in BootstrapMigrationLayout
+docs(usage): update reference to create-react-app in documentation
+fix(embed): update URL to use HTTPS protocol
+docs: update craco installation instructions\nUpdate installation instructions for @craco/craco and @semantic-ui-react/craco-less to add LESS support and avoid eject.
+docs(menu): update handleItemClick function in MenuExampleHeaderVertical
+docs: update contributing guidelines to recommend using yarn for contributions
+docs(visibility): fix typo in checkbox label
+docs: update custom Icons usage instructions in README
+docs(readme): update installation & usage section
+docs: Update LabelExampleImageColored.js with corrected names
+docs(examples): refactor TableExampleSortable to use functional component and hooks
+docs(tab): update Tab grid prop description
+refactor(search): optimize search functionality and state management
+refactor(search): refactor SearchExampleStandard component to use functional component and hooks
+style: fix typo in Placeholder component comment
+docs(contributing): add section for visual testing
+docs(table): update data reverse logic in exampleReducer
+docs(changelog): update release notes for v2.0.2\ncode diff type: docs
+fix(docs): update link to ModernAutoControlledComponent in Introduction page
+docs(menu): update alt attribute in MenuExampleStackable
+docs(textarea): fix typo in message about autoHeight support\nclose
+docs: corrected typo in Confirm modal description
+docs: update CONTRIBUTING.md for visual testing and event handlers
+docs(readme): Add documentation for specifying global variables via command line
+docs: update global variable format in README to use quotes for clarity
+docs: add description for timeout-script option in README
+docs: add envVar and globalVar options to newman.run configuration
+docs: update data source file format in README
+docs: update submodule pull command in README-dev\ncloses
+docs(jss-syntax): add documentation for basic at rules in JSS syntax
+docs: update style-loader options attribute to attributes
+docs(core-label): class name update in useButtonStyles
+chore: update transform-regenerator configuration in babel-preset-react-app
+docs: update jest-enzyme setup instructions in README
+docs(react-scripts): update Flow documentation link in README\nCode diff type: docs
+docs: update deployment guide for staging environment
+docs: Add tip for using imported SVG React Component
+docs(readme): remove @putout/plugin-remove-empty-pattern from list of plugins\nRemove @putout/plugin-remove-empty-pattern from the list of plugins to streamline the information presented.
+docs: [skip ci] update rule implementation to use require for plugin creation
+docs: update lint function parameter name in README
+docs: remove unused `removeDebugger` import from eslint package
+feat: add createPlugin function to eslint documentation
+docs: update putout-script.md with additional information on __args template value
+docs: updated linked template value explanation in putout-script.md
+docs: update template values in putout-script.md
+docs: capitalize title in the book of AST
+docs: update console log output in traverse function
+docs: update export statement in README
+docs(readme): reorganize external processors section and update installation instructions
+README: apply await import for fs/promises in code block
+docs(plugin-nodejs): fix typo in README.md
+docs(plugin-split-nested-destructuring): update README with deprecation warning on nested destructuring usage
+docs: update Magic Properties section in README
+docs(README): add Event reference link for x-on directive in README
+docs(Components): Update name to 'Breadcrumbs' in index.js
+docs(readme): add CoreUI-Free-Bootstrap-Admin-Template to list of organizations and projects using `reactstrap`
+docs: fix typo in variable width content description
+docs(buttons): Fix missing semicolon in ButtonOutline import statement
+docs: update Table propTypes in TablesPage
+docs: update onDismiss method definition in AlertDismiss example
+docs(ButtonDropdownPage): fix typo in color value "Darning" to "Danger"
+docs: update CDN information in README.md
+docs: update CDN links for reactstrap library
+docs: update npm install command in Home index file
+docs(FormPage): add properties section to FormPage documentation
+feat: add prop types for DropdownItem component
+fix(README): updated version of react-popper to 0.7.4
+docs(docs/lib/examples): add closeAll functionality to ModalNested demo
+docs: add unique key to CarouselItem in CarouselCustomTag example
+docs: fix typo in PropTypes for striped prop in ProgressPage component
+docs: update example App.js link in README
+docs: update InputGroupAddon component to include InputGroupText in examples
+docs: update Bootstrap CSS import to use minified version
+docs(readme): update Reactstrap CDN links to version 5.0.0 in README under Versions
+docs: update `ModalsPage` PropTypes definition
+docs: refactor toggle method to use prevState in Dropdown example
+docs: update installation instructions for reactstrap and Bootstrap
+docs: add UncontrolledCollapseExample component and source code to CollapsePage\nCode diff type: docs
+docs: fix PropTypes syntax in CarouselPage component
+docs(readme): update create-react-app instructions link
+docs: add description to the FormPage properties
+docs(CollapsePage): add note about Transition component usage
+docs: update installation instructions for reactstrap and Bootstrap in README.md
+docs(core-breadcrumbs): add listTag prop to Breadcrumb component
+docs: update PropTypes comment in ModalsPage.js
+feat(Input): add innerRef prop and deprecate state prop usage
+docs(AlertsPage.js): fix typo in disable fade option说明
+docs(ButtonsPage): update PropTypes and defaultProps
+docs: added fade prop documentation
+docs(Input): update input group example with min and max attributes
+docs: sort items alphabetically in sidebar
+docs: update maxHeight style value to '100px'
+docs: updated InputGroupAddon to InputGroupText in InputGroupOverview.js for better clarity
+docs(ModalsPage): Added `returnFocusAfterClose` prop
+docs: add reactstrap-scrollspy to list of projects using reactstrap
+fix: update image source in CardGroups example
+refactor: update Collapse component to use isOpen and setIsOpen instead of collapse and setCollapse
+docs(examples): remove unnecessary onClick event handler from DropdownToggle in CustomDropdown example
+docs: updated InputGroupAddon usage in InputGroupOverview.js to include InputGroupText component
+scripts: Update deploy condition in docs script\nChanged the condition to deploy documentation based on the TRAVIS_TAG instead of TRAVIS_BRANCH.
+docs: add options to select inputs in FormGrid examples
+docs: update maxHeight style value to '100px' in DropdownItempropTypes
+docs: update default show/hide delay in TooltipsPage\nCode diff type: docs
+docs: update installation instructions for reactstrap and Bootstrap in README.md
+docs(ButtonDropdownPage): change DropdownToggle prop from caret to split
+docs(CollapsePage): add defaultOpen prop
+docs: add className prop to Dropdown componentPropTypes
+docs(InlineCheckboxes): update checkbox input and label structure in examples
+docs: update Alert component in storybook to remove dismiss prop
+docs(cssmodule): explain how to use cssModule to change default CSS className
+docs: add instructions for npm install of Nuxt and Firebase
+docs: Add settings section to Firebase initialization in README
+docs: Update Firestore settings to work only in SPA mode
+docs: add local persistence option for auth service
+docs: update session persistence warning in Firebase client SDK login guide
+docs: Update warning message for programmatic server implementation
+docs: add algolia search configuration
+docs: update formatting in getting started guide
+docs: update disclaimer in Firebase setup guide
+docs: update analytics and remoteConfig initialization in options guide
+docs: update server user object documentation with idToken information
+docs(guide/options): update settings usage in Universal mode
+docs(options): update Firebase Analytics initialization guide
+docs: update experimental-alert component to use custom alert tag
+docs(firebase): remove disclaimer section from index page
+docs(docs): add Algolia search configuration
+docs: Add note about Firebase authentication limitations on the server side
+docs: add info on using namespaces for store actions/mutations and how to unsubscribe from listener
+docs: added instructions for adding Firebase polyfills and using module in SSR mode with Strapi
+docs: update defaultConfig option in RemoteConfig instructions
+docs(changelog): sync from main branch with new features and bug fixes for version 7.0.0
+chore(git): update `.gitignore` to include new patterns and remove unnecessary ones
+docs(general): update CONTRIBUTING to include branch naming convention for issue fixes
+refactor(mixins): update parentName logic to include one more level in route hierarchy
+refactor: Update default Algolia credentials in environment config
+refactor: Update default Algolia credentials in environment config
+refactor(nodemon): improve handling of stdin input and restart functionality
+feat: add message event listener for child process communication
+feat(build): add functionality to remove output directory before building
+feat: add yarn option for package manager
+fix: update processGlobalPlugin to correctly stringify processObj
+fix: allow await outside function in acorn-traverse
+refactor: remove unnecessary console.log statement in onRefresh method
+feat(tooltip): add note functionality and save feature
+refactor(Tooltip): update Tooltip component to clone VNode with additional data properties
+fix: Add hasArrow prop to Tooltip component in App.vue to display arrow for better UI/UX
+feat: handle selection on keydown event in MenuOptionGroup
+feat(popover): add event emitters for open, close, and toggle
+feat: add Icon component to Customized Slider示
+docs: update storybook configuration to load stories from kiwi-core package
+chore: update storybook theme and story sorting logic
+test(test-utils): update asFragment method to accept innerHTML parameter
+feat(Drawer): add closeOnEsc prop to Drawer component
+docs: add Drawer component to UI stories
+test: add waitMs function for testing purposes
+docs(chakra-ui-core): update AlertDialog component documentation
+refactor(avatar): remove unnecessary attrs in CAvatarBadge, CAvatarName, and CDefaultAvatar
+docs: update CBox component description
+docs(chakra-ui-core): add documentation for CBreadcrumb component
+refactor(CBreadcrumb): removed unnecessary imports and comments
+feat(checkbox): add documentation and accessibility links to CCheckbox component
+fix: change mounted to created lifecycle hook in CReset component
+fix: update class names in CCircularProgress test snapshots
+docs(chakra-ui-core): update control box doc with new link references
+feat: Add CEditable components\nImplement CEditable, CEditablePreview, and CEditableInput components for inline text editing\nAdd data-chakra-component attribute for accessibility and styling purposes
+feat: Add CInputLeftElement and CInputRightElement components\nImplement components to allow addition of an icon or button inside the input component\nAdd data-chakra-component attribute for accessibility
+feat: include data-chakra-component attribute on CInputGroup component
+feat(CMenu): add ability to customize menu item element type
+chore: Updated storybook script to use cross-env
+fix: update imageProps to include srcset in CImage render function
+feat(chakra-ui-core): add ChakraIcons type definition and color mode functionality to Vue interface
+refactor: add process.env.PORT_DEV option for dev server port calculation
+fix: add missing semicolons in createConfig.js file
+fix: update file and chunk names to use content hash instead of chunk hash
+feat(razzle): generate assets-manifest.json with all files and entrypoints
+test(util): Refactor getWorkspaceDirs function and add getWorkspacePackages function
+docs: update single-page-applications.md
+docs: update SSR instructions and add additional info on static export file destinations
+chore: update eslint loader test pattern
+chore: remove unnecessary eslint settings in razzle-plugin-eslint configuration
+chore: update appDirectory resolution logic in paths.js
+refactor(razzle): update webpack watchIgnorePaths configuration logic
+feat: add support for not released plugins
+feat(TDP-1712): updated webpack options for file and url loaders
+refactor: update webpackOptions.notNodeExternalResMatch to accept context parameter
+feat: add TerserPlugin for minification in production mode
+feat: add debug logging for webpack options and config
+refactor: remove supportsStaticESM option from babel loader config
+feat: add option to disable nullNodeCss in webpackOptions\nallowing for more control over Node.js css behavior
+refactor: update production environment check in build script
+chore: update build script to check for CI environment before prompting
+refactor: update stdio handling in install script
+fix(razzle): Fix webpack mode configuration to use development mode when NODE_ENV is set to 'development'
+feat: add onMount function for headings in [slug] page
+feat: Added external script for enhanced functionality
+sheets(javascript): add credit for optional chaining explanation
+feat(docs): add functionality to display enums in ComponentProps table
+feat(elements/Input): add autoCapitalize prop to htmlInputPropNames
+fix(lib): update htmlInputAttrs with corrected htmlInputPropsUtils properties
+feat: Export all generics from commonjs folder
+fix: replace findDOMNode with Ref component
+fix(customPropTypes): update as prop type validation logic
+fix: Added StrictTextAreaProps to export for TextArea component
+feat(cli): added support for specifying global variables via command line in key=value format
+style: update logo font-family and link styling
+fix: improve search functionality for RecipeFind component
+test(Favorites): Added test for empty state message in Favorites component
+fix: add missing WHERE clause in Postgres query
+feat: add functionality to exclude specific public keys from metrics calculation
+refactor(frontend/leaderboard): Improve logging in Points.re file for better debugging [skip ci]
+fix(cli): use eprintf instead of printf for error message in generate_keypair function
+refactor: update network type definition in TSTypes.ts file
+fix($frontend): Update memo assignment logic using nullish coalescing operator
+fix(validUntil): simplify validUntil assignment in MinaSDK
+docs: updated README.md for Mina Signer SDK to Mina Signer with additional functionalities
+fix: fixed network validation and assignment logic
+fix(MinaSigner): Fix error handling for invalid specified network in constructor.
+feat: add public key field deriver for unified input in Snapps fields derivers module
+feat: Add `TEXT_DECORATION_THICKNESS` default unit
+style: updated button alignment and text in cube_samplepack view
+feat(header): add to_set method to BiwaScheme.nil object
+fix(browser): prevent error in dump_closure method if cls is null
+feat(parser): add symbol import and error handling improvements
+chore: update build process in Makefile for BiwaScheme
+chore: add banner to output files and update terser plugin configuration
+refactor: Update script source in repl.html to use ES6 modules
+refactor(tracer): update script source and functions in tracer.html
+refactor: Update error message initialization logic
+feat: add mapList method to Pair class
+refactor: add forEach method to iterate over Pair elements
+test(tracer): adjusting float property for left div in tracer.html
+test(tracer.html): add event listener for keydown to control dump movement
+refactor: Improve error handling in Pair class methods
+feat: updated pagination and refresh icons in bootstrap table configuration
+refactor: export all interfaces in index.d.ts for better accessibility
+chore(Static): Add new URL to sitemap_test.xml
+chore: update precommit script to include sitemap generation and git add for test changes
+fix(Form): Fix an issue where the current step number was not displayed correctly in the MultiStepForm component.
+test(scripts/createComponent): refactor test file for ${componentName} component
+feat(SocialLoginGroup): improve Github button styling
+feat: add partner type constants and update partner types in partners list
+feat(ReusableSections): Update SponsorsSection component with Container and Heading components
+refactor: update donation form script integration
+feat: add ability to access tab scope by key
+refactor(component): pass $el to saferEval function for better data evaluation
+refactor: Make Modal toggle function optional to prevent errors
+feat: added warnOnce and deprecated functions for logging and deprecating properties in components
+fix(modal): update toggle function to pass event parameter
+chore: add sideEffects false in package.json
+feat(input): add ref functionality to Input component
+feat(form): Convert Form component to class component for better functionality
+refactor(utils): improve code readability and structure
+fix: handle error when setting triggering element in modal initialization
+feat: add innerRef prop to Badge component and spread it to the wrapper element
+feat(card): add innerRef prop to CardBody component for better control
+refactor: Update PopperContent component to include outOfBoundaries prop in div attributes
+feat: Added Firestore settings configuration
+fix(lib): Add idToken to user object in SSR authentication module
+feat(analytics): add support for Firebase Analytics initialization on client side
+docs(ts): update arc mark configuration types in vega-typings
+feat: add temporal formatting options to scale caption
+docs: update color scheme types in RangeConfig
+feat(view): Added background configuration option to View class
+refactor: update View constructor and options structure
+feat(vega-typings): adding opacity, fillOpacity, stroke, strokeWidth, strokeOpacity, and cornerRadius options to SceneRect and fillOpacity, stroke, strokeWidth, and strokeOpacity options to SceneSymbol
+refactor: use default values for Tizen certificate names and paths
+feat: add task validation and autocomplete functionality
+feat(xcode): update excluded architectures with object keys and values
+feat(plugins): added react-native-carplay plugin
+feat: add target option to build command in buildLightningProject function
+feat(rnv): Update lightning project configuration logic
+feat(lightning): Update sdk-lightning with additional CLI constants and package generation logic
+refactor: reorganize import order in electron sdk index file
+feat: add xcodebuildArgs parameter with custom arguments
+fix: update condition for adding -destination parameter in buildXcodeProject function
+feat: added support for parsing integer values in plist files
+refactor: update d3 import and add node attribute and edge attribute parameters in Glo constructor
+feat(VisComponent): Add render, update, and destroy methods to VisComponent class.
+feat: add update and destroy methods to VegaChart mixin
+feat(vega/ScatterPlot): add support for custom x and y scales
+feat(vega): add x and y axis customization (ScatterPlot)
+chore: Add npm token injection to environment
+refactor(src): improve plugin filtering logic in production build process
+refactor(webpack): improve error handling and display in build scripts
+refactor(webpack): update alias configuration in webpack base config
+feat: add VR status strings for timer, players, CPU, online, and devices
+fix: update JWT regex pattern
+fix: update display name validation regex and logic
+docs(validator): update isAlpha and isAlphanumeric locale list in README
+docs(Validator): updated locale list for isAlpha and isAlphanumeric functions
+docs(README): updated isAlpha and isAlphanumeric descriptions
+fix: update symbol regex in isStrongPassword validation
+docs(README): update isAlpha and isAlphanumeric locales
+docs(README): update isAlpha and isAlphanumeric descriptions
+feat: add RollbarProxy integration for sending JSON payloads in _proxyRequest function
+fix: disable wrapping of global event handlers in Rollbar configuration
+chore: refactor start script to use npm run dev for consistency
+build(feat): add UglifyJSPlugin for minification and PreloadWebpackPlugin for async chunk loading
+chore: update build script to separate client and server builds
+build: update file-loader configuration for images to use url-loader and img-loader
+feat(server): add environment variables `BASE_API` and `PORT` to set default values in `index.js`
+refactor: update server.js to use environment variables for port and base API URL
+feat: implement auth-related middleware for checking user login status
+refactor(server): update comments and variable names in SSR index file
+feat(webpack): add proxy for api requests in webpack server
+chore(babel): remove unused plugins and update development config
+chore: update eslint config plugins and globals
+feat: Implemented JWT token generation for user authentication
+refactor: update global i18n and fetch functions
+refactor(Server): Update server.js to use chalk for console logs\nThis commit refactors the server.js file to use chalk for colorful console logs, improving readability and user experience.
+chore: add console logs for lazy loading and access control
+build(webpack): Update OptimizeCssAssetsPlugin options and remove deprecated plugin\nCode diff type: build
+chore: update dev script to use concurrently with color-coded output
+build(client): update environment variables definition
+fix: update comments and add eslint disable/enable block for whyDidYouUpdate package
+build(webpack): enable ModuleConcatenationPlugin for production build
+build: update dist path in webpack prod config
+webpack_config: Update BundleAnalyzerPlugin configuration to use static analyzer mode
+build(feat): add url-loader for images with limit and img-loader for webpack base config
+build: update offline plugin configuration for better caching
+build(server): replace css/sass/less/scss module loading with node-noop
+refactor(App): remove routes import and use props instead\nref: \ncode diff type: refactor
+refactor: updated App component props to include routes
+build: add .sass extension to resolve.extensions in webpack config
+refactor(common): improve lazy loading logic in routing index
+chore: add webpack alias plugin configuration for development and test environments
+chore: update eslint config with additional plugins and rule adjustments
+refactor: update variable assignment logic in config file
+build: Remove unnecessary plugins and update devtool configuration
+chore: update babel plugins for test environment to include dynamic-import-node and module-resolver with specific aliases
+test(reducer): handle LOCATION_CHANGE to own path in reducer
+refactor: update webpack server configuration and add new middlewares
+test(auth): Add a test to check that LOGIN_AUTH_FAIL action is dispatched when LOGIN_AUTH was unsuccessful
+build(webpack): update dev webpack config with WriteFilePlugin and entry client array
+build(webpack_config): update CLIENT_DIST_PATH and add isProduction flag based on NODE_ENV
+refactor: update webpack config and server setup logic
+refactor: improve requestWrapper function and add request decoration logic
+chore: update babel presets to include flow for better type checking
+chore: update eslint config with flowtype plugin
+refactor: Update imports and configuration in client index file
+refactor(users): convert Users component to functional component with flow types
+refactor(RoutingWrapper): convert class component to functional component with flow types
+feat: refactor RouteAuth component to use flow types and functional component
+feat: add type definition for RouteItem in routing index file
+feat(server): add flow annotations and improve server startup message
+refactor(server): restructure server setup and add global middlewares
+chore: update project dependencies
+style(api): add type annotation for count variable in normalizeArrayOfItems function
+feat: add flow types for GlobalState in reducers index file
+refactor(webpack): added i18n alias for internationalization support
+build: add webpack-assets and favicons-assets aliases in webpack base config
+refactor: update SSR index.js to use React Node type and import IndexHTMLComponent
+build(webpack): update plugins in baseBuild configuration
+build(webpack): Remove unused plugins and optimize build configuration
+fix(Root): Add innerWidth payload to APPLICATION_INIT dispatch call
+fix: replace I18nextProvider with IntlProvider in Root component
+feat: added FormattedMessage and FormattedDate components to Header Popup content
+fix(src): update file imports and fix rendering logic in SSR index file
+chore: add styles and images folders
+build(webpack): refactor nodeModules filter and add locals alias
+test(jest): update moduleNameMapper for file and style mocks
+test: add snapshot test for Header component with props
+test: add snapshot test for Footer component
+test: add snapshot test for Sidebar component on mobile screen with open state
+fix: Update lazy loading components in Routing.js
+fix: pass userId parameter to getPostsAPI in GET_POSTS action
+refactor(RouteAuth): update test cases and use routing data
+fix(IndexHTMLComponent): add translation object to initial state for i18n support
+fix: add lang property to req.user in auth middleware
+fix(server): Add language translation support in SSR mode
+refactor: Remove unnecessary import and update Logo component in Sidebar index file
+fix(auth): add language support to user data object
+refactor(server): update webpack base config with ssl path for server config
+refactor(ssr): update translation to i18n in IndexHTMLComponent
+fix(login): add language to payload before dispatching LOGIN_AUTH
+refactor(app): Simplify configureRootComponent function and enable hot module replacement for reducers
+fix(server): update API base path to use environment variable
+chore: add raven and reselect dependencies
+refactor(server): update server configuration for HTTPS and HTTP servers
+refactor: Update lazy loading configuration for better performance
+refactor(SSR): Update server-side rendering logic\nImport chalk for colored console logs\nUpdate useragent and language handling\nUse getI18nData function for i18n data retrieval
+feat: add useragent middleware for detecting user agents
+feat: add getInfoFromJWT function to retrieve information from JWT token
+refactor: updated children prop type to React$Node in App component
+fix: optimize imports and add fetch and lodash dependencies
+style: removed unnecessary position fixed and z-index properties from header style
+refactor: remove unnecessary token handling in auth reducer
+fix(layout): Remove unused import APPLICATION_INIT and refactor UI_WINDOW_RESIZE to use computed mobile states.
+fix: use serialize-javascript for state and i18n serialization
+fix: update type annotations in i18n index file for better type safety
+feat(i18nconfigobject): add i18n configuration object with messages, localeData, and locale properties
+chore: update babelrc presets and plugins
+style(client): separate imports for specific Semantic UI components to reduce bundle size.
+refactor: update key generation logic in Root component
+refactor(app): Initialize Google Analytics using ReactGA.
+refactor: converted Header component to class component and added language dropdown in the header
+feat(webpack_config): add support for ANALYZE_BUNDLE in config
+fix(server): update renderToString method to async/await syntax
+refactor(ssr): optimize asset loading and tag generation in HtmlComponent
+refactor: Update server ports and implement HTTP server
+chore: enable polyfill in babelrc for regenerator and helpers
+refactor: replaced renderToString with renderToNodeStream for server-side rendering
+refactor(ssr): update HtmlComponent structure and sort assets for injection
+refactor(header): remove language dropdown from header component
+feat: set user language in JWT token for efficient i18n handling
+feat: add new Dashboard.Text key in en.json
+refactor: update port configuration in webpack config file
+feat: Update text content in English localization file
+fix: update semantic-ui list component import in client index file
+refactor: remove unused imports and add div container for app rendering
+feat(i18n): implement dynamic translation updates in development mode
+refactor: update SSL configuration for development mode
+refactor(types): update PostItem and UserItem to LinkItem\nUpdated the types for PostItem and UserItem to be more descriptive and renamed them to LinkItem.
+refactor: removed unused styled component and added Spacer styled component
+refactor(styles): updated grid and media queries in utils file
+fix: separate sidebar routes and app routes, update Links route icon to bookmark, use Dashboard and Links components directly in routes
+refactor: update reducers to include EntitiesLinksState in global state
+refactor(dashboard): simplify Dashboard component structure and remove unnecessary code
+refactor: update DashboardComponent layout and content
+docs(server): Update links.json descriptions for clarity and consistency
+jest_config: configure enzyme adapter for unit tests
+refactor: convert Header component to functional component with hooks
+test(RouteAuth): update test descriptions and assertions
+refactor: remove store2 usage and update comments in LocalStorageCookiesSvc
+test(src-common-actions-auth): ensure correct action is dispatched when LOGIN_AUTH fails
+test(links): update links actions test cases and assertions
+fix: include finallyAction and beforePending in awral configuration
+chore(deps): update awral to v1.2.0\nUpdate Awral to the latest version for improved functionality and features.
+fix(SSR): fix lazy loading route logic in server-side rendering
+feat(middleware): integrate Raven for error handling and reporting in middleware configuration
+fix: lazy load Dashboard and Login components in routes configuration
+refactor: improve route rendering logic in RoutingWrapper component. Remove unnecessary lazy loading feature and simplify route filtering and rendering logic.
+fix: Update lazy loading components in routes.js to use asyncComponentCreator instead of loadLazyComponentFnConstructor
+chore(deps): add form-data package
+refactor(configure_app): update routes import and initialization
+refactor: improve rendering logic in RoutingWrapper component
+fix: add count property to links reducer state
+style: Adjust layout heights and margins in App container
+refactor: add loading and error components to asyncComponentCreator function
+refactor(links): add check for links loaded status before fetching links data\nCode diff type: refactor
+refactor: add async component provider and async bootstrapper
+style(styles): update global styles for better readability
+feat(ssr): Implement async bootstrapping for server-side rendering\nImplemented async bootstrapping using react-async-bootstrapper to ensure\nproper rendering of components with asynchronous data fetching\nCloses #issueNumber
+feat(stats): Load assets and faviconsAssets globally for better memory consumption
+refactor(ssr): Improve file reading logic in stats.js for better performance and readability
+refactor: change Links component lifecycle methods to async/await syntax
+build(webpack): update BASE_API endpoint for development environment
+fix(server): update API prefix in server configuration
+refactor: update selectors and add new selector for mobile statuses
+refactor(links): update Links component to use Grid and List components for better layout and rendering
+fix: include meta in success function parameters in awralLogin action
+fix(layout): refactor sidebar actions to use toggle functionality
+refactor: update sidebar toggle action name in Header component
+refactor: replace renderToNodeStream with renderToString in SSR index file
+feat: add isomorphic-fetch for simple fetch wrapper and requestWrapper function for GET and POST methods
+fix: ensure APPLICATION_INIT is dispatched only once in Root component
+fix(routing): add missing properties to route meta data
+feat: add react helmet and helmet rendering\nAdd react helmet and render helmet statically\nUpdate code to include helmet rendering in server-side rendering function
+style(NotFound): Update icon and text in NotFound page
+feat(Webpack): add static files copy plugin for client build
+fix(popup-manager): handle ESC key and focus inside popup when shown to prevent unexpected behavior
+refactor: Update defaultActive handling in menu component
+test(jest): update moduleNameMapper in jest config for element-ui and main files
+feat: implement useResizeEvent hook for adding and removing resize listeners
+test(use): add test case for component destruction
+chore(package): update build and release scripts in package.json
+test(dropdown): added jest-dom library and updated timer handling in Dropdown.spec.js
+refactor(src): update handler function parameters in useEmitter module
+refactor(src): update handler function in useEmitter
+refactor(src): remove unused emit function from useEmitter
+feat(entry): add ElBacktop component\nCode diff type: feat
+refactor(global): extract setupGlobalOptions function for setting global properties
+refactor(message-box): update variable names with prefix '$'
+fix(types): update Icon component to use interface instead of class
+feat(exports): export ElButtonGroup in entry.js
+feat(switch): add test case for handling click event on Switch component
+feat: provide table instance and auto-generate rows in Table component
+feat: added href property to Link component
+refactor(button): update round prop to boolean and add plain prop
+test: improve test for button component features
+refactor: fix casing in import statement for ElButton in index.ts
+style(variables): updated table dark color to white for better contrast
+style: added margin variable for hr element\nCode diff type: style
+feat(grid): add conditional for row columns in grid mixins
+fix: ensure first breakpoint starts at zero in _assert-starts-at-zero function
+refactor(functions): update color-contrast function with min-contrast-ratio parameter
+style(theming): updated dark theme color to gray-900
+refactor(scss): update breakpoint-before function for better readability
+feat(util.scss): Add border color and width utility classes
+feat(scss): generate CSS Variable if specified in utility map\n...to allow for more flexible styling options.
+style(scss): update secondary color and text emphasis colors
+refactor: update font size mixin to use CSS variables
+feat(util.scss): Add font weight and color utility classes
+refactor(utils): update border utility values to use CSS variables for border color
+feat(scss): add function for contrast ratio correction based on background color and scale
+feat(utilities): Implement support for generating only CSS variables
+feat(forms): Update form-validation-state-selector mixin to include ng- prefix for state classes
+feat(react): add new payment type "top up" to paymentTypeParser function
+fix(veui): improve keyboard navigation and focus handling in Schedule component
+refactor(veui): Update slot names and props in Tree component for better clarity and consistency
+fix: Add role attribute to Toast component for accessibility improvements
+fix: Update resize directive to handle leading option and isEqual method from lodash
+docs: fix typo in implementation comment
+chore(truffle-config): update mnemonic fallback in providerWithMnemonic function
+refactor: change mapping visibility to private in RBAC contract
+test: fix syntax error in TokenDestructible.test.js
+chore(solium): update rules in soliumrc.json
+chore: update connect-src in content security policy
+refactor: utilize Inflector in class route for better readability
+fix: correct parameter retrieval method in route handling\nUse `paramsFor` instead of `pasramsFor` to retrieve module and namespace names in route handling logic
+chore: update search input placeholder text
+fix(components/search-input): Uncomment code to hide and not run query when there is no search query.
+refactor: remove unnecessary capitalize function in dropdown.js
+docs: update link to Ember.js codebase in README.md
+test(datagrid): add tests for multiselect functionality and sorting in datagrid
+fix(searchfield): update return value to true when button close is focused
+feat: :sparkles: improved alignment for large searchfield search icon
+ci: remove TLS_SECRET from environment variables
+refactor: Update event handler in HtmlLegend class for better compatibility with d3
+refactor(config): use const instead of var
+fix: Update the logic for checking if a file is required in electron.js engine
+fix: set stdout blocking in help function to prevent premature exit
+fix: add process exit on config parse error
+refactor: Remove unnecessary quotes from executable variable
+refactor: update extension handling in exec function
+doc: add signal option to help.txt
+chore(package): update package.json for node version and update-notifier dependency
+docs(cli): update help.txt with new signal option\nCode diff type: docs
+ci: Update npm authentication logic in before_install block
+refactor: update condition to check Node version before forking process
+refactor: improve condition for forking in run function
+fix: check for empty cmd.args[0] before indexOf('-') to avoid errors
+feat: enable://config.options.execOptions.script in filterAndRestart function
+feat: add cwd variable to improve path resolution in match function
+refactor: update stdio configuration in run function
+refactor(nodemon): Implement conditional check for package version before update notifier notification
+refactor: improve argument handling in run function
+refactor(monitor): improve process spawning logic and error handling
+refactor(config-load): update function parameters and logic in loadLegacyIgnore function
+chore: add exit 0 to postinstall script to prevent errors
+feat: add ignorePermissionErrors option to watch function
+fix: handle unsupported node.js version in monitor/run.js
+fix: ensure compatibility with Windows for executable paths
+refactor: change const declarations to var declarations in run.js
+refactor(monitor): refactor lib/monitor/watch.js to use ES2015 syntax and features
+fix(config): add default value for options.args in load function
+refactor(utils): Simplify condition in utils index.js\nUpdated condition to check for truthiness of p.filename instead of strict comparison in utils index.js.
+refactor(nodemon): improve handling of stdin input and restart functionality
+refactor: handle arguments with spaces
+chore: update fork condition logic in run.js
+refactor(monitor): Update exit event emission in run function
+feat: Update log message to include watching directories in nodemon settings
+style: change log level to info for watching extensions in nodemon
+refactor: add function to wait for subprocesses to finish
+chore(package): add funding information for opencollective nodemon
+fix(bin): add CI environment variable check in postinstall script
+fix: set stdout to blocking mode only if it is a TTY
+refactor(monitor): update path to windows-kill executable for better clarity and consistency
+fix: handle SIGKILL signal for Windows OS versions below 10
+refactor: update osRelease parsing logic
+refactor(spawn): improve handling of command execution on Windows and add environment variable FILENAME to spawn options
+refactor: handle additional POSIX signals for process termination
+refactor: update PATH environment variable concatenation logic
+refactor: use @polka/url for parsing URL in server.js
+refactor: update sirv middleware options in server configuration
+fix: update type definitions for CSS modules and import prefixes
+fix(prerender): fix import path in prerender script
+refactor: update publicPathPlugin resolveFileUrl logic
+fix(prerender): add publicPath parameter to prerender function
+fix(plugins): Update publicPathPlugin to handle both full and relative URLs properly.
+refactor: optimize public path handling in ChunkGraph class
+refactor(optimize-graph-plugin): improve code readability and add missing comment
+chore(cli): Remove unnecessary minify option from build command
+test(production): fix typo in publicPath test
+refactor: add conditional check for importing URLs in optimize-graph-plugin
+fix: update JSX namespace for RoutableProps in router.d.ts
+chore: add peer dependencies and type module to package configuration
+feat(preact-iso): add Router, LocationProvider, useLoc, useLocation, lazy, ErrorBoundary, hydrate exports
+fix: handle directory check and force flag in create-wmr script
+feat: handle existing directory error in `create-wmr` package
+feat(create-wmr): update tsconfig to include wmr index.d.ts
+chore: updated tsconfig.json for create-wmr package
+refactor: add type property to normalized object
+fix: ignore .d.ts files in copyAssetsPlugin and improve file filtering logic
+refactor: update options in cli.js for build and start commands
+fix: update format condition to handle null pkg values
+fix: Correct order of file extensions in normalizeOptions
+refactor(optimize-graph-plugin): initialize DEBUG variable with hasDebugFlag() function call in optimizeGraphPlugin function
+fix: handle pendingStatus in writeHead call
+feat(wmr): Add functionality to remove debug service worker installed by Preact-CLI
+fix: improved whitespace handling in acorn-traverse
+fix(prerender): fix script tag matching logic to ignore external URLs
+refactor(wmr): improve handling of output directory creation in normalizeOptions function
+fix(wmr): Add global fetch polyfill for server-side rendering\nAdded a global fetch polyfill to enable server-side rendering to fetch files correctly.\nCode diff type: fix
+test(production): improve cleanup of unnecessary directories
+chore: update git config in dockerfile
+test(epic): removes unnecessary import from epic test
+fix(DatasetControls): Update port number and url handling in DatasetControls component.
+fix: update default port number to 80
+fix(App): adjust height property in App module CSS
+feat(DatasetControls): handle null refreshInterval in render method
+refactor: remove redundant code in DatasetControls component
+refactor(epics): Refactor index-dataset-epic.js to use 'CRVIZ_SEARCH_REF' as the reference key instead of 'id' for better clarity and consistency.
+fix(App): Disable Ok button when no file is selected for import
+refactor: Adjusting font scaling and trimming logic for label width in D3 visualization.
+chore(visualization): Improved animation duration for delta, plus, and minus animations
+fix(App): fix issue with uploading dataset without selected file
+refactor(annotations): optimize setupAnnotations logic
+chore(visualization): Improved animation delay in Visualization module CSS
+chore: remove duplicate snyk-protect script in package.json
+refactor: improve logic for setting end UUID in DatasetSlider
+style: remove viewBox attribute from svg element
+fix: update dataset count condition in App.js
+style(features/visualization): Update styling for dark theme in Visualization module
+test(domain-controls): adds datum property to controls object
+style: change h4 tags to p tags for better readability in TooltipControls component
+feat: add ability to show note in tooltip
+feat(domain): Add action and reducer for setting hovered note ID
+style(tooltipcontrols): refactor save and remove note buttons for better UX
+fix(peer): update error messages for track operations
+test(vue): update Badge component test to use ThemeProvider and test theme and colorMode properties
+refactor: Remove unnecessary commented-out code and console.log statements
+fix: filter out non-element nodes in Accordion component rendering
+fix(Popover): Filter out non-element children in PopoverTrigger render function
+refactor(ButtonGroup): filter out non-element children in render function
+refactor(MenuOption): filter out non-element children in MenuOptionGroup
+fix: Filter out non-element nodes in Stack component children
+fix: filter out non-tag elements in default slot children
+fix(avatar-group): filter out non-tag slot nodes in AvatarGroup render function
+fix: filter out non-element children in InputGroup component
+chore(eslint): update eslint configuration to include additional test directories
+docs(switch): update switch story with action method for change event
+refactor(toast): add color mode observer for theme and icons\ncode diff type: refactor
+chore(storybook): update package path in storybook config
+refactor: add Box component and update layout in Progress story
+fix(chakra-ui-core): add cleanChildren utility function to handle child elements in RadioButtonGroup
+feat(chakra-ui-radio): remove defaultChecked property and add aria-invalid attribute
+docs: update Chakra-UI import to use Vue version in README
+fix(modal component): remove event listener for keydown when modal is closed
+refactor: Simplify blur event handling in EditableInput\nRemove onCancel function call and update onSubmit logic to use && operator for submitOnBlur condition in blur event handler.
+fix: changed event handler from 'change' to 'input' in EditableInput
+fix: correct aria-disabled attribute typo in EditableInput
+feat: add new Switch component with customizable sizes and styles
+feat(router): add scrollBehavior to router configuration
+style(chakra-ui-docs): improve code formatting for list items
+feat(CAvatar): improved accessibility by allowing custom 'alt' attribute for CAvatar component
+docs: update CTooltip child handling and add slots and events section
+chore: update docs:build script and dependencies in package.json
+fix(CDivider): remove unnecessary comma in props spread
+feat(chakra-ui-core/ctooltip): add aria-describedby attribute when tooltip is open
+docs(storybook): add story for CImage with fallback src
+docs(stat): update StatLabel, StatHelpText, and StatNumber to compose CText component
+docs(stat): updating Stat component prop names to match Chakra UI convention
+docs(switch): update docs to specify that children prop should be of type Vue.VNode
+docs(switch): update switch documentation to include information about slots
+docs(text): remove unnecessary slot section
+docs(chakra-ui-docs): update Tabs component names to match Chakra UI Vue naming conventions
+docs: update event description in tabs documentation
+fix(core/CPopper): fix arrow rotation logic and add chakra component data attribute
+docs(canvas): update import path for CColorModeProvider in Canvas.vue
+feat(CPopover): Add computedId for popover identification
+fix: correct typo in CCollapse startingHeight parameter name
+docs(collapse): update easing prop description in documentation
+refactor: update mixpanel token configuration to use environment variable
+feat(chakra-ui): update components props to use `boxProps` instead of `baseProps`
+refactor: Remove default value for inputId in CNumberInput
+chore: update yarn lock file with package version changes
+fix(alertdialog): fix import statement for baseProps in CAlertDialog
+chore: update lint script to target specific package
+test(CButton): fix click event test case
+docs(pages): fix typo in select component closing tag
+docs(chakra-ui): update icon color in icon.mdx file
+feat(core): update CList mixins and CListItem render method
+docs: updated import path for MDXCodeBlock in playground.stories.js
+fix(chakra-ui-nuxt): remove unnecessary iconPack parameter from parsePackIcons function
+refactor(CPopper): extract mergeModifiers function for merging arrays
+feat(CBox): add image and text content to Box component
+feat(CButton): add unstyled variant to buttonProps
+fix(CMenuOption): set innerValue to defaultValue if provided to prevent null reference error
+refactor(chakra-ui-theme): update initialColorMode and cssVarPrefix
+docs(CTextarea): add basic usage with event示
+feat(utils): add parseFontAwesomeIcon function for FontAwesome icon path parsing
+refactor(icons): update icon creation function to use prefix instead of pack name
+fix(chakra-ui-core): Fix issue with event listeners in CInputGroup.
+feat(theme): update breakpoints to object format with additional 2xl breakpoint
+storybook: update Canvas component layout styling\nCode diff type: storybook
+docs: update Circular Progress page with SEO component import and usage instructions
+feat(chakra-ui-core): allow menu to be opened programmatically with openMenu method
+fix(webpack): Update ErrorOverlay editor handler to use synchronous fetch. Fixes #123
+refactor(razzle): use IS_WEB variable for emitFile option in file-loader configuration
+chore: Update error handling to log error details
+chore(circleci): update yarn install command to ignore engines for CI stability
+ci: Update package installation command in workflow
+chore(deps): update repository and bugs URLs in package.json
+docs(razzle): fix typo in PUBLIC_PATH description
+chore(razzle-plugin-scss): update mini-css-extract-plugin dependency to version 0.9.0
+test(razzle-plugin-scss): Update loader tests for postcss-loader, resolve-url-loader, and sass-loader
+fix: remove unnecessary 'locals' option from css-loader
+refactor(razzle): update logger import to use package path
+docs(razzle-plugin-typescript): update README to reflect deprecated status and recommend using built-in support
+docs(razzle): update path resolving for SCSS prepend file
+chore(razzle): Add setupTestsFile variable in createJestConfig.js
+chore: Fix stroke width attribute in search component
+docs: update favicon link in index.html
+feat: add unique cache identifier generation for babel options
+refactor(plugin handling): simplify plugin and modify function calls in createConfigAsync file
+test(razzle-start): remove unnecessary console.log statements
+fix: update razzle package version logic in create-razzle-app
+feat: add check for @babel/plugin-transform-runtime "helpers: true" option in createConfigAsync
+chore: add check for existence of public directory before copying
+refactor(server): improve script loading logic in server.js
+refactor(razzle): update CopyPlugin patterns to use paths.appPublic instead of 'public/*.*'
+refactor(copy plugin): update syntax to use array instead of object for patterns
+refactor: remove redundant code in create-razzle-app lib index
+chore: update razzle bin path to point to razzle.js file
+ci: increase network timeout for yarn install
+workflow: update node version matrix
+refactor: remove unnecessary async/await in setPorts.js
+feat: add option to suppress verbose output during server start\nref: \ncode diff type: feat
+test(razzle-start): update condition to include !outputTest in Server-side HMR check
+refactor: improve loader finder logic
+chore(deps): update jest-message-util to v26.3.0\nUpdate Jest Message Util to the latest version for improved functionality.
+refactor(createJestConfig): simplify Jest configuration setup, remove deprecated options
+refactor(razzle): update condition for setting externals based on build type
+fix: update razzleDevUtilsPkg package name in create-razzle-app lib index
+refactor(razzle): Update babel preset plugins and modern flag to default values
+refactor: update file existence check in createConfigAsync.js
+refactor: update file existence check in createConfigAsync to include multiple file extensions
+refactor: change const to let for Jest config object for potential Windows compatibility.
+refactor: change const to let in createJestConfig.js for better flexibility and reassignment.
+feat: add custom babel loader options for razzle config
+refactor(Razzle): update CopyPlugin configuration
+chore(razzle): fix path separator in CopyPlugin config
+docs: grammar and additional info links, update SSR to SRR and rephrased sentences for clarity
+chore(package): update babel-preset-razzle to latest version
+refactor(server): extract cssLinksFromAssets and jsScriptTagsFromAssets functions for better code organization
+refactor(env): use relative path for RAZZLE_PUBLIC_DIR in production mode
+chore(package): update razzle-start-server-webpack-plugin to version 4.0.0-canary.4
+refactor: update verbose option in StartServerPlugin
+refactor: improve support for not released plugins without options
+fix(webpack): correct typo in fileLoaderExclude variable name\nThe variable was misspelled as fileLoaderExlude, should be fileLoaderExclude.
+chore(with-typescript): remove error handling in server listen\ncloses
+chore: update appDirectory resolution logic in paths.js
+refactor(razzle): pass verbose flag to compile function for better logging
+chore(razzle-plugin-scss): remove obsolete dependency
+refactor: simplify externalization logic in createConfigAsync
+chore: update modifyWebpackConfig to modifyWebpackOptions in razzle.config.js
+docs: update example with devcert-https configuration
+refactor(start-script): update quiet option to use verbose flag.
+chore: refactor modifyWebpackOptions to use modifyOptions for better clarity
+refactor: move setupEnvironment call to the top of the function
+refactor: Update publicPath in devServer config to use clientPublicPath variable in development mode
+chore(Examples): Update start scripts to use cross-env for environment variables
+refactor(Razzle): update webpack configuration logic for HtmlWebpackPlugin integration
+refactor(razzle): remove unnecessary comma in localIdentName definition
+refactor(razzle): update babel preset options in razzle-babel-loader
+chore(razzle): add missing ; in babelTransform.js
+refactor: update webpack configuration for razzle package
+refactor(env variables): update logic for defining environment variables
+refactor: improve plugin name handling
+feat: add _handleWebpackExit method to handle SIGINT signal for worker process
+feat: Add signal handlers to close clientDevServer on SIGINT and SIGTERM signals
+refactor: simplify postcss plugins assignment in razzle-plugin-scss
+refactor: update postcss plugins assignment in razzle-plugin-less
+refactor(razzle): remove unnecessary console.log...
+fix: add error handling for promise rejections in createRazzleApp function
+chore: update webpack and webpackbar versions
+chore: update webpack version and webpackbar range
+chore: updated tsconfig.json with new compiler options
+chore: Update Babel config with TypeScript metadata support
+refactor: fix typo in options variable name
+refactor(razzle): remove supportsStaticESM option from babel loader config
+refactor(razzle): update webpack context to use app directory path
+feat: enable passthrough of --inspect and --inspect-brk flags with optional [host:port] value to node
+refactor: update options handling for preset-typescript and parameter-decorator in babel-preset-razzle package
+refactor: improve error message formatting
+chore(babel-plugin-parameter-decorator): Removing babel-plugin-parameter-decorator dependency
+refactor: update commonjsPlugin export to include api, options, and dirname parameters
+refactor: update check for scoped plugin name
+chore: update error handling in build script
+feat(Razzle): add CssMinimizerPlugin for minifying CSS with source map support
+chore(less): remove unnecessary sourceMapContents option
+refactor(razzle): update mode handling based on watch flag
+refactor: update formatWebpackMessages import in webpackHotDevClient
+chore(deps): update dependencies in create-razzle-app\nUpdate dependencies including commander, cross-spawn, mkdirp-then, and mz to their latest versions.
+chore(package): update @babel/preset-env to version 7.9.5
+refactor(create-razzle-app): Add dot option to copy function parameters
+chore: Upgrade 'commander' to v5
+refactor: add -W flag to yarn install command
+feat: add verbose option for installation with message factory
+ci(actions): update lerna publish command options for canary releases
+chore: add html-webpack-plugin in devDependencies
+refactor: improve SIGINT handling and add verbose logging support
+refactor(razzle): simplify debug logging...
+feat(Razzle): add app assets manifest path configuration
+refactor(webpackbar): change logic to disable webpackbar based on razzleOptions
+chore: filter out .env.local for test environment
+chore(razzle): refactor packageJson declaration in getPublicUrl function
+chore: update loadable babel plugin version to fix compatibility issues
+fix(razzle): ensure optimization key exists in webpack config
+fix(razzle): ensure optimization key exists in config object
+refactor(razzle): update RAZZLE_ASSETS_MANIFEST handling based on environment
+fix: rearrange import order in server.tsx file
+chore(razzle-plugin-manifest): update webpack config for chunks manifest
+refactor(create-razzle-app): improve error handling in createRazzleApp function
+fix: correct StaticRouter import
+fix: Update routing in App.js to use Switch component\n* Update routing in App.js to use Switch component for better functionality and performance.
+chore(create-razzle-app): update Route component in App.js
+feat: add modifyWebpackConfig hook for serverless build type
+chore: update build script options
+style: :lipstick: Update heading font size and margin-bottom in [slug] page\nclose\ncode diff type: style
+fix(lib): fix query parameter separator in ogImageUrl function
+fix(lib): fix query parameter separator in ogImageUrl function
+docs: update section on checking for `window`
+fix: update dimmer prop to be optional in ImageProps interface
+feat(Search): Add custom input prop to Search component
+fix(types): fix mountNode casing in ModalProps
+refactor(docs): update babel presets in ComponentExample\nCode diff type: refactor
+feat(dropdown): Add option to format dropdown as a Menu item
+chore(elements/button): update tabIndex prop to be optional in ButtonProps
+fix(Icon): rename Content to Group in IconComponent interface
+docs(app/index.ejs): update setTimeout function
+fix: make the 'sorted' prop optional in TableHeaderCellProps
+feat: add alignment option for button groups
+fix(docs/editor): update prop completion logic to use handledProps instead of propTypes
+refactor: extend RadioProps from CheckboxProps
+fix(Popup): correct PropTypes for wide prop
+fix(types): Added link property to CardProps interface
+feat(elements/Input): add multiple prop to htmlInputPropNames
+refactor(search): make onBlur, onFocus, onMouseDown, onResultSelect, onSearchChange optional in SearchProps
+fix(Portal): Fix portal rendering logic and event listeners handling
+refactor: update required prop definition in FormField component
+fix: update renderLabel prop type in Dropdown component
+style: Update activeItem comparison in MenuExampleNameProp component
+fix(AutoControlledComponent): Prevent crash when both defaultProp and prop are specified.
+style(docs): corrected spelling mistake in confirmation message
+feat(MenuExampleText): update activeItem values for mostComments and mostPopular items
+feat(utils): add mathSign function and update scrollToAnchor logic
+fix: handle blur event logic and prevent dropdown from closing on certain conditions
+fix(htmlInputPropsUtils): corrected min attribute handling\nFixes:\nCloses:
+fix(Search): prevent default behavior on key press event to avoid unexpected actions
+fix(accordion): changed type of "inverted" prop to boolean\nChanged the type of the "inverted" prop in Accordion component from string to boolean. Fixes issue with prop type mismatch.
+fix(Dropdown): fix search query width calculation display issue
+docs: update credit section in README
+fix(types): change Input component declaration to React.ComponentClass
+feat(tab): update TabPane children prop type to PropTypes.node
+fix: Update animated prop type in Button component to allow boolean values
+fix(Progress): updated type for inverted property
+fix: Update type of `inverted` prop in Statistic componentPropTypes
+refactor: remove unnecessary comma in StepGroup component parameters
+fix(modules/tab): Remove loading prop from TabPane component
+chore: Update compiler_public_path in config.js to fix path issue
+fix(TextArea): corrected type declaration for TextArea component
+refactor: update wrapped propType in Image component
+fix: Add event listener removal in handlePortalUnmount in Popup module
+docs: update PropTypes definition in Visibility behavior
+chore: update release and prerelease tasks in package.json
+chore(docs): add changelog generation and deployment tasks
+refactor: update condition for handling disabled options in Dropdown component
+fix: Update type declaration for AccordionAccordion component
+feat(Responsive): set initial width state based on browser compatibility.
+fix: adjust overflowY property in TextArea component to prevent unnecessary scrolling
+fix(Modal): use _.invoke() to safely call event handlers in Modal component
+docs: fix prop-types script url in index.ejs
+refactor(Portal): Update eventPool handling in Portal component
+fix: set safe state in responsive component to prevent memory leaks
+feat(Accordion): Update PropTypes for AccordionTitle index to allow string or number values
+refactor(Accordion): update onTitleClick parameter type
+fix(ComponentPropsComponents): fix return statement condition in ComponentPropsComponents
+fix(Responsive): update type for width property in ResponsiveOnUpdateData
+refactor: update sidebar pusher click handler in mobile layout
+fix(htmlPropsUtils): add 'accept' attribute to limited HTML props
+fix: update error message in createShorthand function
+fix: update setDimmerNodeStyle method to use current ref for dimmer display property to avoid potential null reference error
+refactor(lib): convert validISO31661Alpha3CountriesCodes to Set for better performance
+fix: update regular expression pattern for script tag in file content parsing
+fix(Metadata): assign encoded iOS version to variable before returning
+refactor(WebSocketPlus): simplify URL handling and WebSocket creation logic
+feat(viewer): added error handling for WebGL context creation, provided upgrade message for old browser versions
+refactor(measurements): optimize bounding box calculations and transformations
+refactor: optimize vertex uniqueness in toEdges function
+fix(web): prevent unnecessary worker recreation during task execution
+fix: remove unnecessary attributes and elements
+fix: normalize base64url encoding in base64url.ts
+refactor(model): update error handling logic and initialization of errors hash
+feat(uploader): update delete button position and style in index.less file
+feat(uploader): add delete button styles\nCode diff type: feat
+chore(sticky): add condition to update data in scroll event handler
+fix(swipe-cell): close other items with non-zero offset\nFixes a bug where other swipe items with a non-zero offset were not being closed when opening a new item.
+refactor(picker.toolbar): optimize toolbar template structure
+refactor: remove unnecessary comment in dropdown component
+refactor: remove redundant variable declaration in exec function
+chore: update support message in postinstall script
+refactor: remove unnecessary premove argument in build function
+chore: updated preact and wmr to latest versions in create-wmr template
+refactor: improve output folder clearing logic in build process
+fix(wmr): update error message for missing prerender function
+test(core-controls): updates assertion for hierarchyConfig in Controls reducer test
+refactor(tooltip): remove unnecessary code and clean up setupTooltip function
+refactor(Visualization): improve data sending logic in d3Viz function
+style(tooltip): Update tooltip control styling and add note functionality
+test(vue): updates Badge component tests for Vue instance and theme access
+feat(app): implement AlertDialog component for deleting customer in App.vue
+refactor: Remove unnecessary check for server-side environment in Tooltip component.
+fix: remove inheritAttrs property from CButton component
+refactor(CProgress):\nupdate CProgressLabel and CProgressTrack to functional components\ncode diff type: refactor
+refactor(chakra-ui-core): convert CStat, CStatGroup, CStatArrow, CStatNumber, CStatHelperText, and CStatLabel components to functional components
+docs: remove unnecessary image tag and update contributors display layout.
+refactor(chakra-ui-core): Simplify event listener assignment in CInputGroup.
+feat(client): Fetch and display author details in a styled component
+feat: added alias for $lib path in resolve section of svelte.config.js
+sheets: update code formatting and add author component
+chore: Update author component to handle missing bio field
+feat(svelte): add dynamic url to Head component
+chore(docs): update changelog generation logic and release scripts
+fix(frontend): remove redundant variable assignment in parseBlocks function
+refactor(frontend): Remove unnecessary variable assignment in Block module
+fix(BiwaScheme): Fix index calculation in interpreter functions
+refactor: fix index_set function in interpreter
+refactor(interpreter): rename continuation to capture_continuation
+refactor: improve arity handling in compiler for call/cc function
+fix(system): fix argument formatting in compiler
+fix: use truncate function for obj.toSource in to_write function
+fix(browser): improve user program execution and error handling
+refactor: update default_ports.js to use modern DOM manipulation methods
+refactor: reorganize core expander functions and fix lambda expansion logic
+chore(create-react-app): Remove unnecessary semver coercion in template version check
+fix(ProgressIndicator): remove unnecessary spaces in progress indicator percentage display
+refactor: improve variable naming in getFiles function
+refactor(alpinejs): remove unused import and reorganize imports
+refactor(Carousel): update activeIndex in state based on nextProps and prevState\ncode diff type: refactor
+refactor: improve config validation logic in nuxtFire function
+refactor: Convert ES6 import to CommonJS require in createServerMiddleware file
+refactor: simplify service initialization logic in main plugin
+fix: update firebase import to use compat version
+refactor: Refactored font baseline calculation logic in text.js for better readability and consistency with different browsers. (text.js)
+refactor(vega-parser): reorganize default configuration values
+refactor(vega-force): convert var declarations to const and refactor prototype methods in Force.js
+refactor(Label): Update transform function implementation
+refactor(vega-voronoi): update transform method in Voronoi class
+refactor: Refactor Wordcloud transform function to use ES6 syntax and improve readability
+fix: Update util.js to use const instead of var for date variable declaration
+refactor(projections): update variable declarations to use const instead of var
+fix: replace var with let in number.js file
+refactor: update variable declarations to use 'let' and 'const' in event-selector.js
+refactor(vega-scenegraph): Remove unnecessary null check in sceneEqual function
+fix(loader): ensure baseURL ends with a slash before appending uri
+chore: update `react-native-windows/cli` to use RNV source
+fix: update node size calculation in SimilarityGraph component
+fix(SimilarityGraph): Updates the default values for size and threshold in the SimilarityGraph component.
+fix(SimilarityGraph): Clear top-level div before constructing SVG element
+fix(SimilarityGraph): use getBoundingClientRect() instead of getBBox() for accurate width and height calculations
+fix: call d3 in SimilarityGraph component
+refactor: replace d3 with d3-selection in vega/index.js
+fix: update d3 import to use named import - BR
+feat(tree-heatmap): update TreeHeatmap component configuration
+feat: add options for data, id, text, and count in SentenTree component
+refactor: remove all elements before rendering SentenTree component
+fix: add type string to text field in SentenTree component
+refactor: convert string to number in TreeHeatmap component
+refactor(components): remove unused chart components\nCode diff type: refactor
+chore(webpack): update output path for examples to '../build/examples'
+refactor(BoxPlot): Update encoding structure for better readability
+refactor: remove unused import createBabelConfig from webpack-config
+fix(run-webpack): fix serverAddr protocol logic\nref:
+refactor(create): reorganize dev dependencies installation logic in create command
+refactor: improve proxy-loader logic and options handling
+refactor(fs functions): use mkdtempSync instead of mkdirSync for creating temporary directory
+refactor: improve error message in assertString function
+refactor: simplify isIP function logic for IPv4 and IPv6 validation
+refactor: define paths in a single file for better organization and reusability
+refactor(webpack_config): update proxy request handling in server.js
+refactor: update SSR index.js to use chalk for console logging and improve error handling
+refactor(cleanup): Remove unused path and expressHelmet from the server express setup
+refactor: updated environment check for browser compatibility
+refactor(Sidebar): improve props handling for menu items
+feat(root): Dynamically select Router component based on environment\nUpdated Root component to dynamically select the Router component based on the environment (browser or server-side rendering). This allows for better compatibility and flexibility.\nCloses #1234
+refactor: add i18n configuration to webpack config file
+fix(views.root): Update routes prop type and wrap in App component\nUpdated the prop type of routes from func to array and wrapped the routes in the App component for better organization.\nRef: #1234\nCode diff type: fix
+fix(routing): update import of routes in configureRootComponent function
+refactor: optimize routing configuration and component imports
+refactor(app): update import for routes in App component\nref:\ncode diff type: refactor
+build(webpack): remove unnecessary ServiceWorker configuration and update AppCache option in webpack.prod configuration
+webpack_config: Update compress option in production build
+build(server): remove unused SENTRY_PUBLIC_DSN variable
+feat(webpack-config): implement ternary function for environment variables usage
+refactor: updated import statement for RouteAuth component
+refactor(api): refactor requestWrapper function and add domain check
+refactor: Remove duplication in layout reducer and handle sidebar state changes more efficiently. Fix issue with sidebar not closing on location change.
+build(webpack): update server webpack config entry and output filenames
+refactor(jest): update moduleNameMapper in jest config
+refactor: update headers in xhr_wrapper to use params object
+refactor(middlewares): Update global middleware initialization function signature and use app instead of this
+refactor(Login): Refactor Login component to use functional component syntax.
+refactor(users): Refactor UsersComponent to functional component\nRefactored UsersComponent from a class component to a functional component for better readability and maintainability.
+refactor(layout): simplify UI_WINDOW_RESIZE case in layout reducer
+refactor(LazyLoad): move component loading logic to separate function for better readability
+refactor: simplify save and production flag assignment in CLI script
+refactor: remove unnecessary code for resolving tilda in create function
+docs: update Tipe.io description in index.tpl
+refactor(link): update component to use Composition API
+chore(alert): remove unnecessary props and refactor code structure
+refactor(tag): updates script setup syntax, improves code structure and event handling
+fix(input): update useTextarea and useInput functions to include watch for modelValue changes
+refactor(carousel): adjusting Carousel exports and install function
+feat(backtop): adjust target prop to accept object with default value
+refactor(src): improve readability in src/use/emitter
+feat(useEmitter): add off method to remove event listeners
+test(radio): fix missing semicolon in radio group test
+refactor(emitter): Refactor broadcast function to use optional chaining for childComponent type check.
+test(use): add test case for component instance with template and innerHTML verification
+feat(header): Refactor header component to use Composition API
+test: Remove redundant code and update event trigger for confirm and cancel events in Popconfirm spec test
+refactor(emitter): update useEmitter function to use mitt for event handling
+refactor(emitter): replace string literals with constants for event types
+fix(collapse): Refactor collapse-item component to use Composition API
+refactor: Remove unnecessary import in Menu.vue
+refactor(pagination): adjusting Pagination exports and component installation
+refactor: rename Avatar component to ElAvatar in index.js
+refactor(badge): rename Badge component to ElBadge and update install method
+refactor(index): rename TabPane to ElTabPane and export as default
+fix(Dialog): import paths for popup and emitter modules
+refactor(tooltip): rename Tooltip component to ElTooltip and update install function
+refactor(card): adjusting Card component exports and installation logic
+fix: Import correct path for useResizeEvent in Carousel.vue
+fix(Cascader): fixed import path for resize-event utility for better organization
+refactor(main): Update import paths for types and dom utils in main.js
+fix(date-util): import paths corrected for fecha and t modules
+docs(upload): minor improvements in upload.md
+refactor(button): remove script setup and useGlobalOptions for button component
+test: update Message component import and alias usage
+fix(divider): use includes method for validator function in contentPosition prop
+fix(button): refactor size and type validators to use includes method
+refactor(tag): optimize tag component setup logic
+fix(Avatar): update style based on size prop instead of props object to prevent unnecessary re-renders
+refactor(button): remove script setup and use defineComponent
+fix(element3-radio-button): fix style update logic for checked state
+refactor(generateCssFile): improve code readability and structure by extracting component paths and updating CSS generation logic
+chore(input): update condition for adding 'is-exceed' class
+chore: update useClass function in Input component
+fix: import statement for ElProgress in upload-list.vue
+fix: Update import path for ElProgress in upload-list.vue
+refactor(sidebar): destructure all props in the root element and add reflow and typeCheckConfig functions
+refactor(scss/avatar): replace border-radius with @include border-radius for consistency
+style(refactor): update header-divider styling in _header.scss
+refactor: :lipstick: update icon class names and adjust vertical alignment for better positioning
+style(tables): Comment out border color between thead, tbody, and tfoot for now
+refactor: update CSS Variables documentation shortcode logic
+refactor(scss): improve variable naming for button modifiers
+style(variables): updated sidebar width to use rem units
+refactor(avatar): adjust margin calculation for avatar widths
+feat(sidebar): add close functionality\nCode diff type: feat
+feat(design): set subheader min-height for containers
+refactor(sidebar): change method name from _sidebarInterface to sidebarInterface
+feat(table): added custom properties for table color and border color styling
+refactor(scss): update alert background variable name to match map key convention
+style: :lipstick: update primary dark color and disable RTL support
+refactor: adjust styling of progress group icon and text in scss file
+style(scss): Updated CSS variable generation logic in utilities mixin
+feat(Dropdown): add method to select menu item with keyboard navigation
+style: comment out unused class manipulation in sidebar component
+refactor(scss): update color scheme mixin logic for better readability and maintainability
+refactor: remove commented out code and unused method in Sidebar class
+refactor(variables): updated primary color variable name
+docs(forms): added documentation for file input variables
+refactor(sidebar): clean up Default and DefaultType objects in sidebar.js
+style: :lipstick: Customize scrollbar styles for Firefox and Chrome/Edge
+scss: fix input types to stay LTR
+refactor: remove unnecessary code and optimize event handling in Sidebar class
+refactor: adjust sidebar layout for mobile breakpoints
+style(tables): Comment out unnecessary border-top styling between thead, tbody, and tfoot
+fix: update DATA_KEY to coreui.focustrap
+fix: updated dismiss trigger data attribute name
+fix: handle visibility of details element when closed
+feat(mixins): Implement string reflection for ltr-rtl value conversion
+refactor: improve variable usage in offcanvas styles
+refactor: remove redundant UI type values in AlertBox config
+fix(veui-theme-one): rename state to status in progress component styles
+fix(Pagination): fix incorrect parameter passing in redirect event emission
+style: update transition classes in uploader component CSS
+refactor(directive): remove unnecessary context parameter from parseParams and refresh functions
+refactor(veui): Update validate method signature to include formData parameter
+refactor(veui): update validate method parameters in Rule class
+fix(veui): handle unknown key in ui mixin props
+refactor: Update file size validation method in Uploader.vue to use parse function from 'bytes' package
+refactor: Remove unnecessary variable assignment in debounce function in FilterPanel.vue
+refactor(Link): Simplify logic for determining when to use router link
+refactor: Remove focusClass prop from Autocomplete component
+refactor: Simplify icon functions in NumberInput component
+refactor: Remove unnecessary template elements in Fieldset component
+refactor: Improved error message handling in Uploader component
+feat: Add functional rendering and uiTypes property to veui-span component
+test: update Anchor component test for handling scroll correctly with window or falsy container
+fix(Table): fix incorrect check for expanded rows causing display issues
+test(NumberInput): update test case for handling decimalPlace prop and change event
+refactor(KeySelectMixin): Simplify close method call in key select mixin by directly setting expandedKey to false
+style: Remove unused styles for uploader preview dialog media
+refactor: improve shadow width calculation in Table component
+refactor: improved slot handling in Uploader component
+refactor(Uploader): improve file upload logic for autoupload mode
+refactor(veui): use arrow function in computed property for better readability
+fix(Dialog): Fix drag functionality and tabindex issue
+fix: Handle edge case where input element is not available in Textarea component
+style: Update style property in CheckButtonGroup component to include stable UI option
+fix(veui): update default page size to 20 in Pagination component
+fix(veui/dom): rename getScrollportOffset to getScrollContainerOffset
+refactor(veui-loader): improve arrow function syntax and add missing parentheses
+test: optimize wait time in Drawer.spec.js test case
+fix(Cascader): Use the correct user provided load function for data loading
+feat(generator): add example code option and update ignore list on project update
+refactor: update user agent spoofing logic\nto allow for future workarounds and intercept requests to accounts.google.com
+refactor(NativeScript): improve handling of vector sizes in ExtVectorTypeInstance
+style(NativeScript): update formatting for stack trace message in setStackTrace function
+fix(debugging): handle failure to find __onLiveSync method during refresh操作
+test(conversation): remove unnecessary logic from conversation tests
+fix: replace Object.values with lodash values in Connection class
+refactor: simplify browserFilter function and remove unnecessary filters
+fix(primitives2d): refactor variable declarations and object property access in 2D primitives functions
+fix(modeling/color): fix rgb2hsl function parameter handling
+style: fix code formatting and remove unnecessary comments
+fix(modeling): improve object type check in clone function
+fix: update comparison operator in group.js for CAG instances
+refactor: remove unnecessary console.log and eval statements in includeJscadSync function
+refactor: improve promise handling in replaceIncludes function
+refactor(replaceIncludes): Rename parameter text to source for clarity.
+refactor: update CSGToStlb parameters in convertToBlob function
+refactor(io): refactor prepareOutput.js to use specific serializers for output formats
+refactor: update deserialization methods in conversionWorker
+refactor: convert binary file to text before resolving
+refactor: improve iteration logic in serializeBinary function
+fix: Remove unnecessary params from conversionTable function call
+style(fab): update colors for fab hexagon and plus icon\ncode diff type: style
+refactor: remove unnecessary import 'vars' in tooltips.scss
+feat(inline-left-navscss): updated colors in inline left navigation scss
+feat(visualization): updated dark theme styles for change icon container
+style(visualization): adjust text positioning in setupAnnotations\ncode diff type: style
+feat(Visualization): add dark theme styles for visualization labels
+style(Visualization): add cross-browser fade-in animation for ring menu
+refactor: use self instead of this in Peer class methods
+feat: add hover effect to post titles in index page
+fix: update table of contents styling
+style: added margin-bottom and grid layout to search results in index page
+style: update author component layout styling
+feat(embed): Add children prop for primary content.
+chore: fix typo in Form/Shorthand index.js file
+static.webpack: Update comments for manual transpilation of modules
+chore(layout): add cursor pointer to ClearButton and adjust padding in SearchInput
+refactor(r6rs-lib): remove unnecessary comments in r6rs_lib.js
+refactor: updated the Badge component to use the 'Tag' prop instead of 'Component' for better clarity and consistency
+refactor: import logger and createServerMiddleware in a more organized way
+refactor: update Firebase Realtime DB to Firebase Performance
+refactor(firebase): fix missing semicolons and update code formatting in firebase-auth-sw.js
+fix(SimilarityGraph): add missing semicolon to y2 attribute definition
+fix(TreeHeatmap): Resolve syntax issues and improve code readability
+test(components): TreeHeatmap\nfix async
+test: update TreeHeatmap component tests
+chore(deps): update devDependencies and add UpSet library
+chore: Update showComponent call in treeheatmap example
+chore: Add missing semicolon in components assignment
+feat: add load method to Component class\n\nAdded a new load method to the Component class for loading components from a file.
+fix: remove unnecessary comma after 'box-plot' mark definition
+chore: update esdoc excludes list
+chore: Update webpack config comments and formatting
+build(server): Update webpack base config for server-side rendering restrictions
+build(webpack): update compress option to remove console.log in production
+refactor: optimize import statements in auth actions file
+test: update file paths for ReentrancyMock and ReentrancyAttack
+chore(ci): update localBrowsers array in testem configuration
+test: comment out quit event test in complete.test.js
+ci: Update npmrc generation logic based on branch condition
+ci: Update syntax for branch comparison in Travis config
+ci: Update condition for setting npm auth token in .npmrc
+test(watcher): add async handling to afterEach hook in match rule parser test
+test: remove only from nodemon slurp test
+test: run mac-only test on darwin platform only
+packages(wmr): Update prerender function to include script tag in the generated HTML\n## Description\nUpdated the prerender function to include a script tag with type "isodata" in the generated HTML output. This change ensures that the script tag is included in the prerendered content.\n![image](image_url)
+feat: add position property to controls reducer
+test: fix broken URL in getConfig function
+test: update comments in trickle.js\nUpdated comments to include link to Webkit bug report for Safari and iOS reliability.
+test: update getConfig function with warning message
+test(peer): add error detection for RTCPeerConstructor throw case
+test: skip on Chrome and Edge which hide local IPs with mDNS\nAdjusts test to skip on both Chrome and Edge browsers to account for mDNS behavior.
+chore: update testing scripts for browser testing
+test(core-breadcrumb): update renderComponent function in Breadcrumb.test.js
+test(Alert): add test for role=alert in Alert component
+test(chakra-ui-core): add test for rendering number avatar showing count of truncated avatars
+test(breadcrumb): added test for proper aria-attributes
+test: update snapshots for AlertDialog component test
+test: update snapshots for AlertDialog component role attribute
+test(themeprovider): add test for color mode injection in ChildComponent
+test(chakraui): remove unnecessary mock in CAlert test file
+test(CAvatarGroup): remove unnecessary mock in CAvatarGroup test file
+test(CBadge): remove unnecessary mock in CBadge test file
+test(CButton): remove unnecessary mock in CButton test file
+test(CFormControl): remove unnecessary mock in CFormControl test file
+refactor CAlertDialog test suite
+refactor: remove unused imports and mock implementations in CDrawer test file
+test(chakra-ui-core): remove unnecessary mock in CEditable test
+test(chakra-ui-core): update mock imports in CModal test file
+refactor(CStat): update internal icons import logic
+test(CTag): update CTag test file to remove defaultProviders and $chakraIcons usage
+test(CIcon): update test file to remove unnecessary imports and refactor renderComponent function
+test(CStat): update test setup in CStat.test.js
+chore(nuxt-chakra): remove '@nuxtjs/emotion' module from build configuration
+test(CAspectRatioBox): update test cases for correct styles and rendering
+test(CAlertDialog): refactor to use testing library utils
+test(CBreadcrumb): update test to use screen from testing library
+test(cbutton): update test to use screen utility for better readability
+test(CButtonGroup): update test utils in CButtonGroup.test.js
+test(chakra-ui-core): refactor CAvatar test suite
+test: update jest snapshot for CBadge
+test(chakra-ui-core): add shift+tab focus navigation test in CAccordion test suite
+test: remove display children test from CBadge test suite
+test(CBox): update test case to use screen instead of getByTestId
+test(chakra-ui-core): update CCheckboxGroup tests
+test(chakra-ui-core): update CCircularProgress test to use screen utility
+test: add more test cases for CloseButton component
+test(chakra-ui-core): Update test to use screen utility for better readability
+test(chakra-ui-core/CControlBox): update test file with screen utility from test-utils
+test(chakra-ui-core): refactor test utils and add screen utility for testing
+test(CFlex): update test case for style changes
+test(CIconButton): add test to display spinner and hide the icon
+test(chakra-ui-core): refactor test suite for CButtonGroup component
+test(cdivider): update test to use screen utility for better readability
+test(CFormControl): update renderComponent function and use screen utility for getByTestId
+test(CModal): add tests for CModal component
+test(CProgress): update test to use screen from test-utils for better readability and consistency
+test(core-pseudobox): update test for screen utility in CPseudoBox test
+test(core-radio): update test for screen utility in CRadio.test.js
+test(core-radio): update test to use screen instead of getByText and getByTestId
+test(chakra-ui-core): updates test-utils import in CStack.test.js
+test(CStat): update renderComponent test to use screen utility from test-utils
+test(CTag): update CTag test to use screen utility from test-utils
+test: update CText.test.js to use screen utility instead of getByTestId
+test(CAvatar): update test case for rendering Default Avatar on src failure
+test(snapshots): update CStack snapshot
+test(e2e): add tests for custom config validation in build process
+test(AutoControlledComponent): update makeProps function to return specific props values
+test(commonTests): ensure propTypes order matches typings in hasValidTypings test
+test(Dropdown): Add search functionality to Dropdown component
+test(core-checkbox): refactor event handling logic in Checkbox-test.js
+test: add a test for handling a multitude of responses in Newman run options
+test(cli): add test for handling invalid collection URLs
+test: adds test for handling invalid collection URLs in Newman run options
+test: Add tests for --global-var flag in CLI parser
+test(cli): add test for global variable overrides with --global-var option
+test(cli): add test case for overriding exported globals with --global-var values
+test : updated loader script to use ES6 modules
+test: Update test case to use typeof operator for function check
+test(spec): update script loading logic in spec.html
+test: refactor test iteration to use for...in loop
+test(snapshot): update snapshot for SocialLoginButtons test with GitHub login button
+test(engine-runner): added test case for replacing jsx attribute
+test(bind): fix multiple classes test logic
+test(UncontrolledCarousel): autoPlay ride setting
+test(utils): add tests for getTarget and setGlobalCssModule functions
+test(DropdownMenu): Render down when direction is unknown on the context
+test(InputGroupAddon): added test-cases for rendering children and string in child InputGroupText
+test: ensure focus behavior in modal component
+test: remove console.log from PopperContent.spec.js test case
+test(collapse): add test for strict mode compatibility
+fix: corrected signal value in width property
+test(events): update Events mixin for VisComponent test
+refactor(chart): update data method to accept data object and trigger chart update
+tests(webpack): update to new options interface (`options.entry`, `options.devtool`, `options.node`, `options.output`, `options.module`)
+chore: update devtool value in webpackConfig for tests
+chore: update description in package.json for Candela unit/coverage/image tests
+refactor: update test image script to search in plugins directory
+test: update LineUp component initialization to use createElement and setAttribute
+test: update structureTests function to handle default flag correctly
+test: updated test plan for BarChart component to include new element count and SVG element check
+chore(examples): update examples package.json for improved test script
+test: update TreeHeatmap component styles in unit test
+chore: update babel presets to target current node version in test webpack config
+LineUp: update LineUp component test with stacked and animation changes
+test(histogramspec): update histogram test for correct number of bin marks
+chore(scripts): update test:unit script with concurrency option
+test(build): increase timeout for preact build test
+fix(chrome): handle page load timeout gracefully
+test(validators): added luhn number validation test
+test(notifier): update error object in log test
+chore: update eslint rules for no-use-before-define
+chore: update webpack preprocessor pattern in karma.conf.js
+test: Update server variable scope in universalBrowser test file
+test: add test case for minimizing Angular change detection events
+test(rollbar): test direct call to onerror for browser js install verification
+test: handle different Chrome versions in webpack test error message assertion
+chore(angular): update Rollbar configuration to prevent exiting on uncaught exceptions
+test: add telemetry events for xhr and fetch calls
+test: adds test case for ignoredMessages regex match in messageIsIgnored function
+test: Add tests for ignoredMessages regex matching in messageIsIgnored function
+test: update webpack test for Travis Chrome version 62 handling
+test(cli): update config set and delete tests for new behavior
+test(cli): update logger.warn calls to use allArgs() instead of argsFor()
+test(DatePicker): update default value test case with new date value
+test: updates event listener for date picker input focus and click action
+test(unit): update change event tests in InputNumber spec
+fix issue with date picker test clicking on incorrect element
+test: added test for highlighting first item in autocomplete component
+test: fix repeatClick directive import path
+test(jest): update roots in config for additional directories
+test(emitter): add tests for off method in useEmitter hook
+test: add tests for placeholder and error slots in Image component
+fix: Remove currentElement from DOM after leave animation
+test: improve test for ImageViewer.vue with dynamic image URLs
+refactor: update mount function in Image.spec.js to use async/await syntax
+test(image): update image tests with TODO comments for previewSrcList and zIndex logic
+test(Image): add test case for error event and preview-src-list event
+chore(deps): update `vue-jest` dependency
+test: update showClose prop in Dialog.spec.js test case
+feat: add facet filters to search object
+fix(web): serve fonts on https
+docs: removed io.js usage instructions
+chore: update node versions from oldest to newest in .travis.yml
+refactor(lib/utils/index.js): Refactor code structure and improve argument serialization logic
+refactor: update signal constants to use object notation
+ci: Fix npmrc generation logic
+refactor: improve rule handling in monitor module
+chore: update oliver bot reply threshold\nUpdated oliver bot reply threshold to always reply if issue was closed in more than 5 days
+chore(probot-oliver): update daysClosedIn value to 100
+chore: adjust stalebot settings\nAdjusted stalebot settings for faster detection of stale issues
+chore: update stale bot label to 'stale'
+chore: update pstree.remy to 1.1.2
+chore: add 'not-stale' label to exemptLabels in stale.yml
+chore: update GitHub Sponsors username in funding file
+refactor: remove unnecessary stdio.pop() and stdio.push() statements
+chore(travis): update Node.js version to 14 and remove unsupported versions
+chore: update semantic-release version to ^17.4.4
+ci: Update stale workflow to mark issues and pull requests as stale and close them after inactivity\nThe workflow now runs on a schedule and includes steps to mark issues and pull requests as stale after a certain number of days of inactivity. If no further activity occurs, they will be automatically closed. Thank you for contributing!
+ci: stale: Update exempt-issue-labels in workflow\nExempt certain labels from automatic issue closure to prevent unintended actions. Thank you for contributing <3.
+ci(release): update node version to 14
+docs: add padlet as a static contributor on homepage
+docs: add new casino link and instagram followers link to homepage
+docs: update sponsor logos in README.md
+refactor: update imports in server.js
+chore(dependencies): update sirv to version 1.0.0
+docs(README): update comment for `middleware` usage
+docs: Update README.md to clarify configuration export options
+refactor(bundler): Set default value for minify option in bundleProd function
+refactor: optimize code for pushing preloads array items
+refactor: update toImport function signature and usage in optimize-graph-plugin
+refactor: :recycle: update cache path format for npm modules
+refactor: improve error handling and exception logging in CLI script
+refactor: optimize lazy loading logic with client-side check
+test(polkompress): prefer arrow functions
+fix: create moduleGraph entry if not exist
+chore(package.json): update eslintIgnore pattern for test fixtures
+chore: set 'process.env.BROWSERSLIST_IGNORE_OLD_DATA' to true in rollup config
+docs(changelog): add release notes for version 0.1.2
+ci: add docker build commands to .travis.yml
+chore: updates issue template with clearer sections
+chore(feature_request): update feature request template formatting
+test(DatasetSelector): update onChange function and add test case for selection change
+feat(header): update logo link to Cyber Reboot website in Header component
+feat(controls): add ability to set selected datum in controls state
+feat(DESIGN/note-selector): add dark theme support for tags
+style(Accessibility): updated styling for focus to improve accessibility, adjusted project TODO list in README file
+docs(Dev): added build-vsc script for Vue styled components
+refactor(ui): remove Mortezas button component from Button stories file
+fix(Portal): remove console.log statement from created lifecycle hook
+refactor(kiwi-core): remove unused cloneVNode function and update BreadcrumbItem setup logic
+feat(formcontrol): added form helper text and form validation message components to form control stories
+feat: add Box component to Popover stories for customizing the Popover
+docs: add Icon component to Menu components
+fix(radio): filter out non-element children in render method
+test(Switch): Refactor change event handling in switch test.
+test(CloseButton): Refactor renderComponent function to remove unnecessary template prop usage
+docs: update components.js note for alphabetical arrangement
+chore(babel): remove body-scroll-lock
+chore: remove vue dependency and update package.json
+chore: remove unnecessary dependency vue-template-compiler
+docs(radio-button): remove unnecessary button and change event handler in RadioGroup story
+feat(chakra-ui-docs): Upgrade @chakra-ui/vue to v0.2.6 10943
+docs: update link to open issues for contributing
+test(Editable): Add test for aria attributes when disabled
+docs: move Input in storybook to forms and update variant stories with custom focus and error border colors
+feat(components): enabling Stat component in components list
+docs: update component extensions in CAccordionPanel and CAccordionIcon descriptions
+refactor(Props): remove flexShrink property from baseProps configuration
+chore: reduce loading time in CButton stories
+feat: add names to CAlertDialog components
+chore(chakra-ui-docs): add mdx-vue and mdx-vue-loader dependencies
+feat(CCircularProgress): add CCircularProgressLabel component to indicate progress for determinate and indeterminate processes
+feat(CCircularProgress): add data attribute for component identification
+docs(core-controlbox): update accessibility information in ControlBox component
+feat(CDivider): add support for css prop
+feat(CDivider): add data-chakra-component attribute for accessibility
+refactor(sw): remove unnecessary workbox configurations and precaching logic
+fix(radio): remove defaultIsChecked prop from CRadio component in stories
+feat(chakra-ui-docs): Add Vue Lorem Ipsum v0.0.1 10943
+test: add chakra-ui/theme-vue to moduleNameMapper
+docs: update Vuesax link in README.md
+ci: update yarn install and bootstrap commands in workflow file
+refactor(router): removed commented out code
+feat: allow mixpanel token to be specified from environment variables
+refactor(layout): remove console.log from watch method
+refactor: enable FileContributors component in DefaultLayout
+chore: update @chakra-ui/vue to version 0.5.2
+chore(nuxt-chakra): Remove lint command from test script
+fix(chakra): remove duplicate imports and organize imports
+chore: update postinstall script in package.json
+docs: add Flex and Icon components to Stack stories
+test: remove unnecessary comments and update module.spec.js structure
+test(CAspectRatioBox): update styles test case syntax and remove async keyword
+test: remove unnecessary import in CButtonGroup test
+test(chakra-ui-core): remove unnecessary line in CAccordion test\nCode diff type: test
+test: enable snapshot testing for rendering in CAspectRatioBox
+fix(CImage): remove commented out code and unnecessary domProps
+chore: update eslint rules for indentation and template curly spacing
+feat(CButton): update size validator to include xs size
+docs(Flex): update Flex grow example with correct width and height values
+chore(chakra-ui-core): fix missing style props for border-radius and flex-grow declarations
+docs: update chakra-ui/vue version to 0.6.5
+feat(chakra-ui-core): remove known-css-properties dependency
+chore: remove known-css-properties package and update last-call-webpack-plugin to version 3.0.0
+style(creset): Remove unused fontFamily property in CReset component. Running prettier.
+docs(storybook-config): remove font customization and update icon pack to 'fa'
+docs: update chakra-ui/vue version to 0.6.6
+chore: update fontawesome packages in yarn lock file
+chore: update @chakra-ui/vue version to ^0.7.0-next.2
+chore(deps): add @chakra-ui/vue as a dependency
+chore(chakra-ui-nuxt): update @chakra-ui/vue dependency to latest version
+chore: update publish-ci script to use changeset command
+refactor(chakra-ui-nuxt): update icons configuration logic
+chore: update release script to use yarn for changeset publishing
+test(CImage): add unit test for srcset attribute functionality
+test: update import in CThemeProvider test file
+chore(ci): update packages list in ci.json
+chore(website): remove unnecessary dep
+website(build): add @babel/plugin-proposal-private-property-in-object with loose option
+refactor: update icon parsing logic and structure
+docs(CTextarea): add change event handler to test story
+test: enable silent mode for shell configuration in razzle-start test file
+chore: update Lerna publish config to allow publishing from 'next' branch
+chore(format): Update prettier format command in package.json\nUpdated the prettier format command in package.json to remove the trailing comma es5 option.
+chore: remove git add from lint-staged configuration
+chore: Update changeset config to use GitHub changelog for Razzle repository
+build: update babel-loader options to disable babelrc and add specific plugins and presets
+chore: add custom words to cSpell dictionary in vscode settings
+chore(deps): npm audit fix - package-lock
+feat(__layout): update main tag to div for better structure
+fix: update GitHub edit link to main branch
+chore(config): update content path configuration in Tailwind config file
+chore(svelte): add workaround for Tailwind JIT in SvelteKit
+mdsvex: remove smartypants configuration
+refactor: remove unnecessary async function from onMount in __layout.svelte
+feat: added new words to cSpell dictionary
+feat: add Vite server configuration for serving files from project root
+chore(package): remove babel-plugin-transform-react-constant-elements
+chore: update prerelease script to include tsd:lint step
+docs: update eslint rules for jsx-a11y accessibility guidelines
+chore: updated build:docs-toc command in package.json
+chore(package): update babel-plugin-transform-react-handled-props to version 0.2.3
+docs: update Faker library CDN link
+chore(package): update satisfied to version 1.1.0
+chore(package): update enzyme to version 2.8.2
+build: Use dynamic content hash type for library name
+build: Update output filename and library name in webpack.dll.js
+fix: Update compiler_public_path for Semantic-UI-React CDN URL
+fix: Update webpackUMDConfig import in build:umd:webpack task
+chore: update prerelease script to include tsd:test step
+chore(ci): Update Puppeteer Dependencies
+chore(repo): fix lint:fix script command in package.json
+chore: switch browser from ChromeHeadless to puppeteer and add disable-setuid-sandbox and no-sandbox flags.
+build: update preset-env configuration for build-es module option
+chore(package.json): remove deploy:changelog script and postdeploy:docs script
+feat(deploy): add automated changelog deployment process
+chore: update CarbonAd script source URL
+chore: Update CircleCI Node image to include browsers and remove unnecessary Puppeteer dependencies installation steps
+refactor(docs): use path module to get relative path for deploying docs
+chore: update clean:dist task to remove all files in dist directory
+chore: update yarn cache key and dependencies installation in circleci
+chore: update postdeploy script to use yarn for deploying changelog
+chore: remove server configuration from config file
+refactor(Sidebar): optimize event handling logic and remove unnecessary code
+chore: Updated build:changelog script with new parameters
+chore: update mocha reporter output in karma config
+fix(modal): use `createRef()` instead of `ref` for creating refs in Modal component
+refactor: update Button component to use createRef for ref handling
+chore: update unpkg in package.json
+chore(package.json): update husky pre-commit hook and add post-commit hook
+refactor: update lifecycle methods to use componentDidUpdate and componentWillUnmount for better code organization
+refactor(Sticky): Improve handling of active state and scrollContext in Sticky component
+chore: update build and deploy scripts for documentation and changelog deployment
+chore(lint-staged): update eslint fix in package.json
+chore: update help message to use angle brackets for command (bin)
+refactor: update url parsing in util.js
+chore: remove nan package and update dependencies in lock file
+src(mina-signer): update parameter syntax in methods
+chore: Refactor parsePath function to use typed return value
+feat(sort): add card types to sort options in Sort.js
+feat(utils/Sort): refactor getLabelsRaw function to simplify 'Types-Multicolor' sorting logic
+chore(react-dev-utils): update deployment link to create-react-app documentation
+docs: Update contributing guidelines for CI testing with private packages
+test: update snapshot for UpdateProfileForm with ProgressIndicator component
+style: update Github button styling in SocialLoginGroup component
+ci(nodejs): update workflow to include typos check with typos-cli installation
+chore: update CHANGELOG for version 27.3.0\nAdded description for @putout/plugin-madrun\nAdded new feature remove-duplicates for @putout/plugin-logical-expressions\nUpdated version to 4.0.0 for @putout/plugin-simplify-logical-expressions\nMerged @putout/plugin-remove-duplicates-from-logical-expressions into @putout/plugin-simplify-logical-expressions
+fix(putout): fix exit codes
+chore(@putout/engine-runner): bump version to 14.0.1
+ci(nodejs): check if typos-cli is already installed before installing
+chore(putout): @putout/eslint: add package @putout/eslint v1.0.0
+chore(nyc): update nycrc.json to include eslint.config.js files
+refactor: update IIFE function names in replace method
+feat(putout): disable typescript/remove-unused-types rule for *.md files
+chore(release): bump version to 6.2.0
+chore(release): bump version to 6.3.0
+chore(release): bump version to 6.4.0
+chore: update ChangeLog for version 27.12.0 with new features and fixes
+feat(putout): add .git to ignore
+chore(release): bump version to 6.4.1
+feat: add new features and update packages in ChangeLog
+chore: Updated version to 2.0.0 in package.json for @putout/cli-match package
+fix(compare): update variable name from __children to __jsx_children
+chore(package.json): update version to 7.1.2
+chore(release): bump @putout/engine-processor to version 6.4.2
+chore(putout): changelog: update features for v28.3.0版本
+chore: update changelog with fix for @putout/plugin-apply-is-array and feature additions for cosmiconfig v8.0.0 and @putout/plugin-apply-flat-map
+fix(@putout/plugin-regexp): remove-useless-group: report after transform, feat(@putout/plugin-apply-maybe): add, feat(@putout/plugin-regexp): apply-literal-notation: report message, feat(@putout/plugin-regexp): apply-literal-notation: improve support of @putout/plugin-remove-useless-escape, feat(@putout/plugin-regexp): remove-useless-group: improve support of apply-literal-notation
+fix: update resolve and locals assignment in compiler service function
+docs: update readme with call for maintainers and transition message
+test(DropdownMenu): update custom tag rendering test with context prop for isOpen
+chore: update React and Rollup plugins versions in package.json
+chore: update main path in package.json
+docs: update installation instructions for reactstrap and Bootstrap in README.md
+chore: use cross-env in start and prebuild scripts
+docs: updates contributors on LICENSE
+docs(lib): update ModalNested.js with nested modal functionality
+docs(*): update form layout and styling
+refactor: replace NavDropdown with UncontrolledDropdown in UncontrolledNavDropdown component
+docs(examples): update ButtonGroup layout in documentation
+docs: added Admin dashboard example app built with reactstrap to list of organizations and projects using `reactstrap`
+docs(Example): Update Navbar color prop value in documentation
+refactor(DropdownMenu): add persist prop to props and fix conditional statement syntax
+docs: added DevExtreme React Grid to list of projects using `reactstrap`
+docs(CollapsePage): remove unnecessary callback prop mention
+docs(Home): Updated npm installation instructions
+docs(lib): update button text for Github and Components links
+docs: fix typo in GitHub link in Nav component
+docs: Update link to example App.js in Home/index.js
+chore: add esnext directory to package.json
+chore: update import method in ISSUE_TEMPLATE.md
+refactor(Tooltip): update event listeners to use show and hide methods directly
+docs: update modal transition timeouts in `ModalCustomTimeout.js` example
+docs(FormFeedback.js): add validation for checkboxes
+ci(travis): update email format in deploy configuration
+docs(README): add create-react-app quick start guide
+docs(Utilities): add space for clarity in clearfix class usage
+docs(Layout): update column classes for responsive design
+docs: add avangate email to app.js
+docs(components): adjust sidebar to include collapse section
+chore: update peerDependencies for react and react-dom to "^16.3.0"
+chore: update version to 8.0.0 in package.json
+chore: update version to 8.0.1 in package.json
+docs(lib): Updated link to be consistent with other buttons in NotFound page
+chore: update version to 8.1.0 in package.json
+ci(travis): update npm email secure token
+chore: update version to 8.3.0 in package.json
+ci: Add deploy stage for node 12\nAdded a new deploy stage for node 12 in the Travis configuration file.
+ci(travis): update deploy stage conditions for tag presence
+chore: update npm version to 6
+ci: update node_js versions to include 10, 11, and 12, and adjust after_script for deploy stage
+docs: update documentation publishing message with tag information
+chore: update version to 8.5.0 in package.json
+chore: update peerDependencies for react and react-dom
+docs: update chore checkbox description in PR template\n[skip ci]
+docs: add PIXINVENT creator and Vuexy admin template to PremiumThemes collection
+docs(changelog): add feature for Dropdown in version 8.10.0
+docs: Update git push command in documentation script
+docs: Update documentation publishing process with new tag creation logic
+scripts(docs): update remote origin URL and push changes to repository
+docs: update git config for Github Actions
+chore: update GITHUB_TOKEN value for docs publishing task
+ci(docs): update environment variables for docs publishing task
+docs: remove availity-reactstrap-validation from list of organizations and projects using reactstrap
+chore: update release-please-action to v2 (workaround for prerelease tag bug)
+ci: update release-please workflow configuration
+chore: update version to 8.10.1 in package.json
+refactor(stories/examples): Refactor PopoverUncontrolled component to use named export instead of default export
+docs(changelog): update and add new features for version 9.0.0-2
+docs: Update Bootstrap version to 5 in README
+docs(Index): update Reactstrap compatibility information
+fix: updated getMenuCtrl method to use getToggle instead of toggleRef current
+refactor(collapse): update nodeRef assignment logic in Collapse component
+chore(deps): downgrade jsdom version to 19.0.0
+chore: update package.json with new dependencies and configurations
+chore: :wrench: update Firebase version to 7.11.0
+chore: update question.md template for better clarity.
+chore: update @nuxtjs/firebase version to 6.0.0
+fix(types/index.d.ts): Remove redundant types
+feat(types): add Firebase v7+ compatibility.
+refactor: update firebase module configuration types
+feat(types): add emulatorPort and emulatorHost options to AuthServiceConfig and FunctionsServiceConfig
+fix(sw-templates): update firebase hosting load condition
+refactor(module): Change let to const for missingKey variable assignment
+docs: Update link in module.js file
+refactor: improve binding handling and operator listener logic in View.js
+chore: enable d3-array and d3-scale dependencies in rollup config (#1056)
+docs(marks): Fix typo in image.md file
+docs: update copyright year in LICENSE
+chore: Remove unused dependencies and fix formatting\nClean up package.json by removing unused dependencies and fixing formatting.
+refactor(Vega): Expose version in a common way
+ci: update CI workflow to ensure apt-get is updated and install dependencies
+chore(workspaces): update nohoist configuration for @lightningjs/sdk and @lightningjs/cli
+fix: update electron-builder command to include package flag for electron-builder package installation
+chore: update platform versions and bundle IDs in wdio.conf.js
+feat: add report generation and opening scripts for e2e tests
+chore: update e2e scripts with template flag for Renative deployment
+refactor: Update navigation imports and components in index.js
+refactor: remove unnecessary console logs in configureProject function
+chore: Removed git from buildInputs in shell.nix.
+webpack: Remove 'tag' property from js loader configuration
+refactor(webpack): improve path resolution in webpack configuration
+refactor(webpack): update loader configuration logic for Webpack 2 support
+chore: update examples in index.json
+chore: update pycandela version to 0.4.0
+chore(sw-precache-webpack-plugin): update to version 0.11.2
+ci: add before_script to check google-chrome and google-chrome-stable paths
+fix(chrome): handle errors when setting up chrome launcher
+chore: add `--stream` flag to test script
+chore: update devDependencies in package.json
+ci: update changesets/action to use yarn release for npm publishing
+ci(git): add git clone and configuration for PnP test
+chore: add development and production script shortcuts
+build: update asset handling configuration in webpack config
+ci(GA): add lint step
+chore(csproj): update CefSharp package versions to 92.0.260
+chore: upgrade dependency json5 in html package
+chore(csproj): update CefSharp package versions to 110.0.250
+docs: updated isCurrency method description with note on digits_after_decimal
+test(validators): address code review comments
+docs(validation): add docs coverage for ValidatorError.reason
+ci(GA): update Node.js test versions and naming conventions
+docs: update wording in README for string validation and sanitization
+docs(readme): add Gitter chat badge
+chore(github): update pull_request_template.md with descriptive title textbox and checklist items
+docs: add ezkemboi and tux-tn to collaborators
+chore: add references checklist item to PR template
+fix(typescript): Add missing definition for wait method
+chore: disable webpack performance hints in karma configuration
+build: remove i18n plugin and language translation logic from webpack config
+docs: add sponsorship badge to README.md
+refactor: remove console.log statements from UserItem component
+chore: update manifest.json with new project name and description
+refactor(reducers): remove unnecessary console.log from users reducer
+feat: add status response field to return object in parseJSON function
+refactor: reorganize imports in configure_app.js file
+fix(auth): update import path for JWT_TOKEN in auth middleware
+build: remove i18n import from config file
+test(routeauth): update tests for access control logic
+fix: comment out unnecessary console logs in xhr_wrapper
+fix(api/AuthSvc): add optional language field to LoginDataType
+feat: add pseudossl import for quick SSL prototyping
+refactor(webpack_config): update CLIENT_DIST_PATH variable assignment
+chore: update build scripts to separate frontend and server builds
+fix(common/api/AuthSvc): remove language parameter from LoginDataType
+refactor: updated import type in RoutingWrapper component to use types instead of routing
+styles(global): remove unnecessary scrollbar styles
+fix: update type definitions for PostItem and RouteItem in index.js file
+feat: updated primary and accent colors in the theme styling
+fix: update footer background color to primaryColorLight
+chore: update optional dependencies and build scripts
+build: update alias for Preact in webpack config
+chore: add global variables for i18n, Raven, and ga + update environment settings
+refactor(common.sidebar): remove duplicate export default statement in SidebarComponent
+refactor: update componentWillReceiveProps method signature and remove unnecessary comments
+fix: updated user id label in UsersItemComponent
+chore(deps): update dependencies in package.json for improved functionality
+docs: update Awral documentation in utils actions
+refactor: Update text content in Dashboard section
+fix: set user language in jwt token
+feat: update links in api documentation; add missing links and descriptions
+fix: add missing comment delimiter in routes configuration
+chore(Build): Update devDependencies\nUpdated devDependencies to latest versions
+feat(layout): add ADD_STYLES_TO_ELEMENT action creator
+feat(layout): add commented out code for applying styles
+docs(changelog): remove redundant heading for version 0.1.1
+refactor(common): update Awral usage notes
+refactor: improve authCheck method documentation and suggest alternative implementation
+refactor: enabled lazy loading for Links component in routes configuration
+chore: add polyfill for IE 11

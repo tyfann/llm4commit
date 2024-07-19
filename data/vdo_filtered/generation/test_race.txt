@@ -1,0 +1,1992 @@
+Add link to easy issues
+Add comments to TransferableToken
+add MintFinished event
+Add check for approve amount
+add tests for revokable/burnable tokens
+add documentation to VestedToken
+MultisigWallet: add docs
+add test for daily limit
+Add docs to ECRecovery
+assert fail
+fix: linting
+Check if testrpc is running before killing it
+Update SimpleToken.sol to use standard token
+fix modifier syntax
+add test for finishMinting
+Add comment about SafeMath.sub
+add previousOwner to OwnershipTransferred event
+add approve, increaseApproval, decreaseApproval
+make public functions public
+add tests for transferFrom and decreaseApproval
+Fixing typos and formatting
+fix: vestedAmount
+add require statements to TokenVesting
+add test descriptions for vesting
+add getTokenAmount
+Fix linting error in ECRecovery.test.js
+Add docs to SafeMath
+Add test for owner
+Add note about semantic versioning
+add await to setUserCap
+change uint to uint256
+Add next tag to npm publish
+add test for pause/unpause events
+Add link to openzeppelin-solidity release notes
+fix: address in balanceOf
+Add build directory to release notes
+Add comments to PublicRole.behavior.js
+Update changelog for v2.1.2
+Add link to MiniMeToken
+Add dev tag to snapshot
+Add docs for snapshot functions
+Add links to PRs in changelog
+Add safeApprove bugfix
+Update changelog for v2.1.3
+Update changelog for 2.2.0
+Update changelog and add link to counters
+chore: install npm before running tests
+Add push option to release script
+Update the deprecation message
+ERC20Snapshot: switched to using _beforeTokenTransfer hook instead of overriding
+Update changelog for solc 0.7
+Add TimelockController to changelog
+Add beacon proxy to changelog
+Add CAUTION comment to SafeMath
+Fix index update
+Add tip to upgradeable docs
+Add support for ECDSA-recover with r,s,vs
+Add note about Solidity optimizer
+changelog for erc721
+Add caution to Initializable
+Add Governor and GovernorTimelockCompound
+Add note about security updates
+Fixing formatting in governance.adoc
+Deprecate Preset contracts
+Add ERC721 to the list of supported contracts
+Fix typo in GovernorTimelockControl.sol
+Add warning about proposers
+Update changelog for v4.4.2
+docs: add docs for TokenTimelock
+Add documentation for SignatureChecker
+fix: burn amount overflow
+Add documentation for double ended queue
+Add note about using the tag for a release
+Add `_getVotes` method to `_getVotes`
+Add oz-upgrades-unsafe-allow to constructor
+TimelockController upgradeability notice
+Add RoleGranted and RoleRevoked events
+Add CAUTION to ERC4626
+Add gitpoap badge
+Add changelog check
+Add security section to extending contracts docs
+Add comments to unsafeAccess
+fix: await base uri setter
+Add test for mint withdraw
+Add comment about isContract
+Ignore changelog in renovate
+Add note about function overrides
+Add pull request guidelines
+add dissociateProducer and associateProducer
+update table styles
+scroll to top after pagination
+Fix organization logo
+add purpose test
+Update past events
+add PropTypes to SearchPage
+show credit in dataset view
+Add common chunk plugin for app
+Add names to store_artifacts job
+ci: add geodatagouv to mocha-circleci-reporter
+fix: add state to dataset download list
+Set SSH user email and name
+Add changelog to gitignore
+fix error page margin
+add obsolete warning
+fix: error page
+fix: facet overflow
+Fix search page flex
+Fix search box padding
+fix: statistics layout
+add service propTypes
+fix: error page layout
+Add alt attribute to etalab image
+Add fail icon to dataset download
+Add non-geographic dataset to diff
+Add clouds class to content
+Add table and map view buttons
+Add metadata metadata
+Add error message to preview
+add endpoints for publication
+Add organization to header
+Fix dashboard layout
+Add red button style
+Update button styles
+Add meta title to Publication page
+Fix source producers link
+Add breadcrumbs to publication page
+fix: remove empty line
+fix: add es6 polyfill
+Add static cache
+fix: page styles
+Add findCandidates to catalog
+Add computeScore to catalog
+Add policeman label
+chore: add documentation to lerna.json
+Update lerna.json\nSort labels
+add subscribe button
+move atelier 9 to past events
+Hide overflow on harvesting graph
+Add dependencies to diff
+Fix fullscreen dialog card padding
+Fix MaterialSkin plugin
+Add some more notes about plugins
+add skip_previous and skip_next buttons
+diff - add more notes
+Add some logging to player menu
+add repeat/shuffle buttons
+fix img margin
+Add stop button to manage-players
+Add support for safe-area-inset-bottom
+fix text alignment on mobile
+Fix missing controls in landscape
+Fix lms-browse
+Fix player status polling
+Add empty item to browse response
+Fix sleep item text overflow
+Add donations section
+Fix browse-resp.js
+Added library avatar
+Add divider to tbar actions
+Add cache section to README
+Added speaker icon to move queue dialog
+Add svg support to browse page
+Fix add fav folder action
+fix nowplaying page
+add digital volume control
+Pin top items
+Add Russian translation - thanks to sky418.
+add revision to classic skin mods css link
+Add help button to information page
+Add Italian translation, thanks to franz159
+Fixes for the new API
+Fix dialog border color
+Add blue skin to diff
+fix: check for empty array
+Update ChangeLog for 1.5.0
+Add PLAY_ALL_ACTION
+Update native status on player status change
+Fix add-all/play-all/add-all from trackinfo
+Add more trackinfo to NO_ADD_ALL
+Add squeezeplayer icon
+log RESP data
+Add list item border color
+Fix notification dispatch
+Add support for sending notifications from perl to webapp.
+Fixes for media cover
+Add $LANG to custom actions
+Add Pandora to track-sources.json
+Update track-sources.json
+Add icon to restart server button
+Fix queue page
+fix: add padding to slider buttons
+Add documentation for browse modes
+Add iframe hooks
+Add phantomjs-prebuilt to yarn override
+Fix amount input
+Add meta tags to codecorps.org
+Add link to typeform
+Load ember-exam in test-helper
+Add comments to router.js
+Update API_HOST
+Add Travis build badge
+Add module and namespace routes
+Add link to next set of issues we're seeing
+Add link to CONTRIBUTING.md
+Add data-test-file attribute to class field description
+Add test for showing only local method implementation when duplicates
+fix: add https to cdnUrl
+Add test for module version greater than 2.16
+add function description
+Add algolia-index-update-scripts to the API docs site
+Add test for reset scroll on transitions when transition between 2.16 and 2.15
+Add module link to class field description
+Add Glimmer to the list of components
+Add tracking to project-version spec
+silence this-property-fallback
+add version 1.4 to docs
+Add types for responseErrorCodes
+Add nodejs 10 to build.yaml
+Remove dse-6.8 from build.yaml
+Update nodejs versions to 12
+Fix Firefox by default to not allow keyboard focus on links
+Fix hoverable/selectable setting
+add remask.mask event
+fix popupmenu.js
+add processOnBlur option
+Add js-uglify grunt task
+Fix listview overflow
+Fix validation.js
+fix: popupmenu.js
+fix: toolbar menu button options test
+fix dropdown multiple
+Fix datagrid serialization
+Add tests for formatNumber
+add tabindex to datagrid buttons
+fix: focus on icon
+fix: toolbar width
+add option to initialize content before opening
+Fix expand-collapse-splitter
+fix slider value
+remove removeAttribute
+Added menu button styles
+update dataset
+Fixes for IE11
+Exclude step-process.html and step-process-markup.html from directory listing
+fix popupmenu
+fix: fileupload keypress.fileupload
+Fix column width calculation for header row
+Remove xButton when closing searchfield
+Fix datagrid uniqueid generation
+Fix for Safari datagrid reorder
+Fixes to columns loading
+Fix svg icons
+fix: toggle row activation when row is empty
+Do not allow upper case in french
+Fix datagrid expandable row
+Fix datagrid height for paginated panes
+Fix datagrid and tab panels
+Fixed RTL chart color
+fix: popupmenu.js
+Add a grid functional test
+Add container element to header-tabs
+Fix Address.isContract link
+Fix typo in comment\nFix typo in comment
+Fix ERC1155 TIP
+Fix typo in erc20 supply docs
+Fix PRs in changelog
+Fix link to supply mechanisms
+fix: missing component key
+fix: import Filter from common
+update facet styles
+Fix dataset page margin
+fix: header margin
+Update light active svg
+Fix CSS file replacement
+Fix some issues with the new style
+Fixes for shuffling
+Fixing the build script
+fix: function module
+Fix method tab
+Fixing search field margin
+Fix tabs.js
+Fix vertical tabs not being overflowed
+fix: trigger update handler after opening toolbar
+Fix icon size
+Fixes for standalone toolbar
+Fix tabs diff
+Fix IE bug where contents of all tab panels are shown.
+Fix title area
+Fix top border on Module Tabs
+fix: autocomplete keydown
+fix: autocomplete not working when list is open
+Update tabs-with-button.html
+Fix selected tab border color
+Fix popupmenu.js
+fix: check if last visible button exists before focusing
+Update the number of records per page
+Fix icon alignment
+Remove "More Tabs" icon when link is clicked
+Fix vertical tabs
+Add page container after application menu
+Fix expand on mobile
+Fixes - Autocomplete list closes popup
+Fixes for the datagrid
+Fix accordion example link
+Update example-alternate-style.html
+fix shift F10
+Fixes for directory listing
+fix: compositeform tab height
+highlight search rows when paging is disabled
+Fix undefined error in chart.js
+Fix date unit test
+Add support for HH and H
+fix(masked-input): Fixes for negative symbol
+Add backColor button state
+Fix dateMask
+fix(mask): remove #0 from decimal limit
+Add beforeOpen option to popupmenu
+fix: dropdown search padding
+Fix tooltip placement on CAP
+Fix dateMask for HH
+Fixes for rich categories
+Fix datagrid count text
+fix: use var instead of const
+fix: slider step and decrement by
+fix: return after listopen
+fix: listview dataset length check
+fix: toolbar-flex
+Fix accordion example
+Fix toolbar settings merge
+fix: step process example
+fix targetWidthProp
+Fixing docs build
+fix(toolbar-flex): fix focusable item placement
+Fix applicationmenu.js
+fix: add valid keys for tab selection
+Fix component name generation
+fix dataRowIndex for treeGrid
+add attachToBody to colorpicker
+fix(searchfield): fix popup opening when collapsible
+fix: check for undefined cal
+docs: fix heading level
+Fix link to change log
+add doReset parameter to callSource
+Fix toolbar title
+fix: remove tab key from month year picker
+fix: paging bar button
+test(tabs): fix href tabs test
+fix: do not show active button when field is open
+Update DEVELOPER.md\nFix typo
+docs: fix wizard docs
+fix: no icons
+test(bar): fix test names
+Fix icon rendering in dropdown
+add custom color for Azure01
+Fix bar chart text values for grouped charts
+fix(searchfield): fix searchfield height
+fix: listview test
+Close dismissible tabs on click
+fix datepicker test
+Add delay to test
+test: increase sleep time
+test: fix timezone test
+Add specific paddings for non-Blink-based browsers
+test: increase sleep time
+fix: datagrid test
+fix: datagrid test
+Fix datepicker test
+fix: number mask label with thousands
+Add clean script for app
+fix: header events
+Fix group size tests
+docs: fix typo in expandablearea readme
+Fix setTheme
+Fix create-svg-html.js
+fix: datagrid body height
+Update example-index.html
+Fixed multiselect dropdown unchecking Select All was not getting cleared after close list with Safari browser
+Add trigger class to application menu defaults
+Update browserstack badge
+fix: add browserstack badge
+cleanup listbuilder
+Added personalization color pickers
+test(toolbar-flex): increase timeout
+fix: datagrid primary button position
+Fix personalize diff
+fix(searchfield): RTL styles
+Fixing some linting errors
+fix: add deferred to locale
+Fix datagrid clone
+Adjust Filter Text
+Fix bug with CTRL and CTRL pressed keys
+Fix left click activation
+fix: fix line chart e2e tests
+Add hideable property to Datagrid
+fix: fix datagrid tests
+test: remove test for example-hide-legend
+fix: add contentArea check
+fix: tooltip contentArea
+fix: tooltip contentArea undefined
+Fix dataRowIdx to rowIdx
+Fix typo in color utils
+Fix typo in changelog
+fix: add wait for calendar popup
+fix: fix datagrid filter lookup click function test
+fix: add sleep to test
+test: update multiselect e2e tests
+Release v4.21.0-dev
+fix: check if changeObserver exists before disconnecting
+Fixes modal tabbing
+fix: sleep for ar-sa test
+fix: check if modalApi.overlay exists before removing
+fix datepicker test
+fix datepicker test
+fix datepicker insertDate
+Fix highlight tests
+fix datagrid test
+fix: datagrid filter load data test
+Fix datagrid test
+chore: update release-it and grunt-chokidar
+fix: add sleep short to toast test
+remove unused modal button ids
+test: update icon test name
+Update base url for enterprise demo
+fix: update dropdown styles
+fix locale setting
+test: add test for errors
+fix: inline buttons test
+fix: remove margin-right from monthview
+fix: remove currentDate
+Add some more JSDoc
+fix: remove test for event count
+Fix rowNodes
+Fix datagrid header rendering
+Fix toast unique id
+fix: toast uniqueid
+fix datagrid bug
+fix: moreMenuSettings is not defined
+trim search input
+Update badge colors
+chore: linting fix
+fix: lookup-wrapper padding
+Fix `searchfield.updated`
+fix timepicker
+Fix datagrid test
+fix: datepicker test
+Fix validation button
+fix: remove arrow functions
+fix: datepicker - use currentDate as last value
+Remove _selected from dataset when unselecting row
+Add isPlainObject utility
+test: add test for opening error page on click
+fix datepicker
+fix: fix searchfield test
+fix: add tab key to accordion test
+fix: slider tooltip position test
+Fix Swaplist item selection text
+docs: fix link to changelog
+test(spinbox): update tests
+Added a clear (x icon) button to clear the field
+fix: splitter overlay color
+fix(tabs): add tab button is undefined
+add test for disableRowDeselection
+Fix typo in changelog and typo in accordion fix
+Add Da-DK to karma.conf.js
+Fix datagrid tooltip placement
+Fix day-container data-id
+fix: add sleep to allow one pane test
+Fix locale test
+Fix typo in Breadcrumb example
+Fix RTL tablist width
+fix empty message
+Fixes - Autocomplete - Fixes lastTerm not being set after requeststart
+fix(tests): sleepLonger
+Fix date format test
+Fix toolbar searchfield outline
+test: fix breadcrumb test
+test: fix broken test on IE
+align large searchfield search icon
+fix(searchfield): fix close icon position
+fix: datagrid border-left
+fix: click event handler
+Fix monthview test
+fix datagrid maskOptions
+Fix typo in locale test
+fix: remove init and automationId data on teardown
+add comment for last column
+fix: tooltip spacing
+chore: remove chrome version from webdriver update script
+Remove style from example-index.html
+fix bar swatch
+Fix axis labels
+skip count in select all current page setting test
+Fix popdown tests
+fix(searchfield): hide close icon when hovered
+fix(bubble-chart): fix test
+Fix dynamic data addition spec
+Fix url regex
+fix multiple filter
+test(sunburst): add radius test
+test(color-spec): fix linearColors test
+docs: update source link
+Fix link to examples source
+Update batchManagement README.md
+Add optional parameters for Hive Job submission
+fix: ignore slashes in npm plugin id
+Add publicPath option to prerender
+fix(wmr): fix error overlay
+fix(wmr): ignore script tags
+Fix peer stats being called twice
+Fix typo in diff README
+fix: remove unnecessary Promise.resolve
+chore: update webpack and webpackbar versions
+Fix socketUrl not being used in dev server
+Update comment in start.js
+fix: remove comma from comment
+docs: fix typo in customization docs
+fix: merge targets
+Fix modal grow prop
+Fix audio-effects tests
+Fix trim button width
+Add react-intl to browser-modal
+fix: update toolbox comment
+Remove console.log statements
+Remove Solidity assert
+fix: return statement
+Remove return type from pause and unpause
+Update README.md\nRemove beta from npm install command
+Remove main field from package.json
+remove onlyPayloadSize
+Remove coveralls from diff
+Update FinalizableCrowdsale.sol\nRemove default value from comment
+change burn event type
+Remove unused day variable
+remove FinalizableCrowdsale constructor
+Remove unnecessary comment.
+Update README.md\nUpdate README.md\nUpdate README.md\n
+Remove mention of rebase
+Update contributing docs to reflect master branch
+Remove onlyOwnerOf and canTransfer
+Remove require statement from burnFrom
+fix: remove success return from increase/decrease allowance methods
+Remove TODO that requires SLACK WEBHOOK
+Update changelog for 2.4.0
+Update changelog for 2.4.0
+Remove solhint-disable-previous-line
+Remove comment that was accidentally added
+Remove outdated link to TokenVesting
+Update README.md\nFix typo
+Remove test for UINT256_MAX
+Update changelog for 3.3.0
+Fix context subindex
+Remove IBeacon from BadBeaconNotContract
+Remove ERC777 from changelog
+Remove uneeded this
+Fix upgrade to implementation
+Move flash mint to Wrapper
+Remove audited link
+Remove duplicate entry in changelog
+remove hashLeaves option from getHexProof
+Update changelog for 4.4.1
+Update ERC2981.sol\nRemove outdated comment
+[doc] _setupRole -> _grantRole
+Remove EIP712 from the list of deprecated contracts
+ci: remove prefer-offline
+Remove note about view functions
+Use Promise.all instead of Promise.map
+Remove verbose config
+Remove development.host and port from project.config.js
+Use env var for inspire api url
+remove injectReducer
+Fix contact list title
+fix: warning render
+fix import of dataGouvChecks
+Use react-document-title for HomePage
+Ignore gh-pages branch
+fix emoji margin
+Remove media queries
+Remove text-align: center from counter
+Remove language prop from Header
+Remove opacity from catalog preview
+fix: add moment locale replacement
+fix: remove query.p from query.query
+fix: only render paging if count > 0
+fix: linting error
+fix: fix statistics height
+Remove padding from box
+Fix thumbnail list
+Hide thumbnail block if spatial extent is not available
+Fix contact address margin
+Remove no-xs-scroll class on unmount
+fix: no-scroll
+fix: add missing comma to img alt tag
+Fix discussions form
+fix: clear session
+Use new tracker API
+fix(search): fix margin on search result
+Remove flyToOptions
+Remove head from preview table
+Fix loading state
+Use producer object instead of name
+Remove datagouv from service
+Remove links prop from diff
+Fix search query
+Fix search page
+Remove UNSAFE_componentWillReceiveProps
+Remove __elastic from search query
+Fix queue page
+Remove i18n filter
+Fix typo in diff
+remove divider from nowplaying page
+Update nowplaying page diff
+Remove icons from browse-resp
+Remove unnecessary opacity
+remove SlimBrowse method
+Fixing some issues with the browse page
+fix nowplaying page
+fix skip next button
+Fix image size for lms-browse
+Remove remote libraries from serverTop
+Fix browse-resp.js
+Remove 'No Album' bug
+Remove comment, fix diff
+remove onTransportException
+Fix diff for image-grid-text
+Fix typo in diff
+Fix image grid spacing
+Fix searchLib
+fix log messages
+Fix css minification
+Fix card text padding
+Remove arrow drop down icon
+Remove duplicate server push
+fix iframe dialog
+Fix title in standardheader
+Remove length limit from nowplaying page
+fix: layout detection
+Fix landscape detection
+Fixing backdrop cover
+replace spaces with spaces in date
+fix diff script
+Update image grid styles
+Fix updatesAvailable
+Remove diactrics from browse response keys
+Fix player list padding
+Remove unused variable in diff
+Fix icon mapping
+Fix nowplaying page
+Remove threeLines from nowplaying page
+Fix menu not being reset when clicking on mymusic
+Update icon-map.json
+Fix album rating
+Fix artist info
+Remove console.log from track-sources.js
+Fix custom actions
+Remove iframe alert
+Remove MSK notification from server
+trim section id
+Remove some shortcurt information when in party mode.
+remove copy functions
+Remove ignoreError from raven.js
+Remove phantomjs-prebuilt from override
+Remove model factory injections
+Remove ember-deferred-content from diff
+Remove prepend option
+Remove X-Powered-By header from static files
+fix: remove unnecessary path check
+Remove uniq from api-index-filter
+Remove heroku deploy
+added test for table code examples
+Remove meta tags
+Remove image property test
+Remove debug log from fastboot
+Remove click deprecation
+Remove old package import syntax
+Fix hasImportExample
+Fix anchor scrolling
+remove tracking from dropdown
+fix: remove unnecessary `true` flag
+Remove commented out code from homepage
+Remove link to more information hyperlink
+remove commented out code from isTabOverflowed
+tabs.js: fix tab width
+Remove N Results from modal title
+Fix tabs.js
+Remove unused options.btnNext
+Remove redundant initValue assignment
+Remove 4.2.6 from changelog
+Fix destroy button
+Remove orderDate2 from datagrid source format test
+remove data-org-style
+Update modal.html\nChange modal field to title
+Remove dontManageOptions from diff
+Fix date filter
+Removed unused jquery dependency
+fix(listbuilder): add missing select calls
+Remove touchend event
+Remove commented out code from testWidth
+Fix jshint script
+Remove unused code in diff
+Remove duplicate test modal
+remove tree depth
+Updated upstream changes
+fix: save option
+Fix searchfield select
+fix: pager click
+remove unnecessary stop propagation
+Remove padding from list items
+fix: remove commented code
+Remove unnecessary placement callback
+Remove align class
+fix: remove unused variables
+Fix datagrid tooltip placement
+Add html-loader, jasmine-core, mocha
+fix: linting error
+Remove warn flag from minify script
+fix: remove commented code
+fix: add class to default menu items
+Remove commented out code in datagrid.js
+Remove resize event
+Remove CBEBF4 from colorpicker defaults
+remove test-runner
+Remove coverage reporter
+Remove pree2e script
+chore: remove postbrowserstack script
+Use logger instead of console.error
+Release v4.6.0
+Remove dataRoute
+Fix linting errors and linting errors
+Remove prepublishOnly script
+Remove npm install instructions
+Prevent vertical scrolling in tabs
+fix: remove accordion margin
+Fix typo in diff
+chore: remove npx from release script
+fix: disable live reload for IE
+test(autocomplete): update tests
+Fix test-export-without-datagrid.html
+Remove jQuery object case
+Fix tabs.js
+Remove hasSquareFocusState
+Fix searchfield category test
+update colorpicker tests
+Update PR template to include auto-closing issues
+chore: update browserstack build ID
+docs: update changelog
+fix: remove data-validate-on from form
+docs: remove disabled form example from readme
+test(dropdown): remove sleep
+Only install chrome on lint
+remove es6Template option
+Remove console.logs from addLegend
+test: rename fit to it
+Remove commented out code in diff
+fix(searchfield): remove unused styles
+test: remove click example-activated-event tests
+Remove debugger statements
+Remove afteractivated test
+fix: change fit to it
+fix: fix test-axis-formatter
+fix(searchfield): fix scrollbars on non-collapsible toolbars
+remove popstate.modal
+Fix searchfield.js
+F!! Tree - Added comments
+fix: remove fdescribe
+Remove header from diff
+fix: remove overflow none from card-content
+fix(docs): remove .html suffix from html file name
+fix(test-multiple-context-menu-destroy): fix lint
+remove console.log from custom-icons.js
+fix: strike icon
+Fix datagrid date parsing
+Remove isSpantooltip
+Fix test for hierarchy API
+fix: wait for pager to be present before clicking
+chore: remove npx from release scripts
+Remove tooltip API
+Fix lint errors in locale tests
+Remove IE11 fix
+fix(searchfield): fix text-align
+Fix flex toolbar
+remove audible class
+test(appmenu): fix test name
+Remove timeout from tabs test
+Update README and add Truffle Beta support
+Fix import path in getting started docs
+Fix reclaimEther
+docs: fix typos in docs
+Fix typo in diff README
+Update changelog for 0.4.24
+Fix links to documentation
+Update to latest version of openzeppelin-docsite
+Update gsn.adoc\nUpdate warning to note
+Fix projectVersions computed
+Fix service worker config
+Update staging env link
+fix: hash to query
+ci: add npm 9
+Fix connection pooling docs
+drag and drop working
+Add click event messages to test if disabled states are properly suppressing this click function
+added step link to select
+Reduce svg size
+Fix dropdown init
+Fix datagrid-editable-editor.html
+fix: list with detail sections
+Add - to the percent format
+Added new features for in-page/header tabs
+Add tabs test
+Remove commented out code from listbuilder-on-updated.html
+Fix toolbar searchfield zooming on blur
+Remove data-grid options
+Update fileupload-advanced.js
+fix: remove customValidation from datepicker example
+Update test-alert-types.html
+fix: icon position
+Update cultures for new buttons
+Update example-index.html
+fix: badges
+Fix split button sort
+Fix target bar click
+Fix datagrid cell width
+Fix typo in Modal docs
+Fix JSDoc errors in locale.js
+Fix typo in variable name.
+Fix busy indicator
+fix: timepicker dropdown width
+Update release notes for 4.5.0
+Add Patterns to sitemap
+Update README.md\nMinor changes to the development project
+docs: update readme
+add shift key support
+fix deselected event
+Update e2e2 test docs
+fix: update tests for dropdown
+Update Landmark team
+fix searchExpandableRow
+Update colorpicker readme
+docs: update contributing doc
+fix: disable button click on file upload
+Fix date format for Dutch
+Update busyindicator api tests
+Fix datagrid empty condition
+Autocomplete Test: Before Open event
+fix: add short names to bar charts
+fix: image placeholder margin
+Update publish instructions
+fix: remove test for actions
+Fix test for Stacked API
+Added can commit button
+Fixes for commit mode
+Add colors dropdown
+fix firefox autocomplete
+fix: update tree test
+add selectable to single column test modal
+fix flex toolbar test
+Updated the Swedish translation for Set Time.
+Added Uplift Theme to the changelog
+chore: update eslint to v6
+fix: sync dataset with selected rows only if not groupable
+fix: border color
+fix: homepage events
+Widget: added widget event
+Added Personalize to the changelog
+fix: update test for textarea
+docs(tabs): update docs for attributes setting
+test(spinbox): update tests
+remove console.log from validation
+charts.destroy refactor
+fix multiple checkboxes
+Added Personalize component
+fix: allow tabs in toolbar
+Added toolbar flex changes
+Added formatters and editor for multiselect
+Fixing linting errors in changelog
+chore: update chrome to 94
+fix month year picker
+Add example with hitbox
+Fix typo in example-toolbar-flex-with-categories.html
+Remove fr-FR locale
+Update example-actionable.html
+Fix Spinbox Field sizes on mobile
+chore: update chrome to 100
+chore: update chrome to 101
+Fix datagrid example
+chore: update chrome to 106
+Remove django 17 from travis
+Added scrollbars example
+legend highlighting
+docs: update version info
+docs: update versioning section
+merge title before title
+chore: use https for URLs
+docs: update example site link
+Update Azure Node Essentials README
+Update readme for azure-node-essentials
+Update changelog for 0.2.3
+Bump Azure Compute Management version to 0.18.1
+chore: bump version to 1.15.6
+Bump version to 1.15.6
+Add firewall rule management
+Fixing swagger generation
+Fixing paths for composite swagger files
+npm update before install
+Updated ChangeLog for 2017.03.31
+Update ms-rest-azure to 2.0.1
+Add runtime and service packages to diff
+Add missing 'use strict'
+Update version to 2.0.0-preview
+Bump auto-rest to 1.1.0-20170704-23
+Remove Azure Intune from package_service_mapping.json
+Update API version in networkManagement2 README
+Exclude search from rollup
+Bump Azure Network Management Client Library version
+Update ms-rest dependencies
+Add support for raw request headers
+Update ms-rest-azure to 2.5.0
+Update azure-cognitiveservices
+Bump version to 3.0.0
+Fix keyVault test
+Update API version in tests
+Update sdk-tools download link
+refactor: use doExec
+Remove Node 12.18 from matrix
+Fix link to ConfigurationObject
+fix: apk cache
+Update buildx to v1.6.0
+Update docker buildx to v3
+Add Deskreen
+Add backticks to link accessibility docs
+Remove shift+F10 from CLink accessibility docs
+docs: update webpack version
+fix: library icon
+Fix toolbox not being loaded
+fix integration test for chrome
+Update scratch-vm
+Update scratch-blocks
+Update Scratch packages
+chore: rename gatsbyjs to chest sheets
+add missing fields to useSiteMetadata hook
+chore: update renovate schedule
+Remove helmet from cheat sheet template
+Update copyright year in license
+refactor: use sdk.CertificateList
+Update html-reporter-template-data.json
+Update postman-runtime and postman-collection
+feat: add support for legacy assertions
+add test for response.json().args
+Bump version to 3.6.0-beta.2
+Update newman run command
+docs: update changelog for v3.6.2
+Fix test for exclude only known set of packages
+Add globalVar option to config.get
+fix(cli): fix test
+add test for nsprc exclusion
+fix: exclude keys in nsp.check
+Add additional modifiers to newman.run.bail
+Fix test for newman run options
+Fix docker build
+Include assertion error message in failure details
+test: add script.sh tests
+Update alpine node to v8
+Add failure summary
+Add documentation for custom reporters
+fix exclusion test
+Add time field to JUnitXmlReporter
+Add time field to JUnitXmlReporter
+fix: timeout options
+Add support for alpine33
+Remove MAINTAINER rule
+fix: prettyms() for negative time
+Update docs for newman-reporter-html
+Update README.md\nUpdated postman logo
+Add newman to contributing
+Add --reporter-cli-show-timestamp and --reporter-cli-show
+Added ability to see request and responses in CLI reporter `--verbose` mode.
+Fix metric filter
+Fix metric selector
+Update README.md\nUpdate installation instructions
+Update leveldown to 2.1.1
+Update link to opendrinks.netlify.com
+Fix lemonade image
+Fix image and keywords
+recipes.js is now exported
+Update AST diff
+Rename Type to TypeSelector
+Add support for -webkit-mask-size and -font-optical-sizing
+Use data.gitHubRepoData
+fix: update ValueProp storybook video
+add testing and documenting to subtitles
+fix: add fast dev flag
+Increase block window duration
+Add error messages for proposer
+Update Coda Grants section
+Fix cache race condition
+Fix heading level in glossary
+Add Address and Port fields to GraphQL schema
+Update link to testnet challenges
+Fix gsutil path
+Increase number of parallel tests
+Add transaction verification to unsafe_apply
+Fix typo in trigger command
+Add coda_numbers to runtime_config
+Add ppx_dhall_type to diff
+Fix integration test cloud engine
+Fix icon size
+client-sdk-unit-tests: export go path
+fix: use to_field_var in assert_equal
+Update sandbox node docs
+Update debug-v1.1
+Add supercharged_coinbase_factor to Network_config
+Update send-payment command
+Update SPREADSHEET_ID
+Add --allow-unauthenticated to helm install
+Add default values for block producer
+Fix images for node operators
+Update genesis grant link
+Update commitment lengths to use new PCS
+fix: add missing ?weight
+Fix typo in block producer icons
+Update title of Bijan Shahrokhi
+Fix Team Profile order
+Fix readiness probe
+Update leaderboard sheets
+Update rosetta to v1.1.4
+Fix readiness probe
+Fix rpc_handler type
+add timeout for stream creation
+Fix preemptible affinity
+Fix readinessProbe
+Update base58 check exn
+Bump archive-node version
+Remove watchman image from diff
+Update watchman to v4.9.0
+Update watchdog image name
+Change watchdog role
+Add watchdog provider
+Fix path to artifact helper script
+Fix terraform workspace selection
+Fix watchdog command
+Fix artifact upload path
+Fix debian package list
+Get telemetry data from peers
+Get_telemetry_data query should use Mina_net2.Multiaddr
+Update archive schema
+fix token amount calculation
+fix capped crowdsale
+Add font weight to browse text
+Fixes for albums
+Fix font weight for optgroup
+Fix icon mapping
+Add select all button
+Update API_HOST
+Fix env vars
+fix fastboot cdnUrl
+Update mocha-multi to 0.11.0
+fix: use * for peers
+Fix test-helper.js unhandled rejection handling
+fix colorpicker
+Release v4.7.0-dev
+Update browserstack badge
+Add --site prod to deploy-documentation script
+fix: remove grunt from start script
+fix: datepicker test
+fix: notification colors
+Fix datagrid modal width
+chore: update chrome version to 95
+Fix code blocks in image-file-upload.html
+fix error list formatting
+Fix form validation
+chore: remove terser plugin
+Fix typo in billing management service README
+fix: import fs as fs
+fix: avoid injecting imports into process.js
+Enable tagging for htm-plugin
+fix: use toMatch instead of includes
+diff: add iceServers to config
+merge config
+Fix port handling
+create variable on prompt callback
+Add comments prop to blocks
+Fix toolbox XML loading
+Remove setToolboxSelectedItemByName
+Fix shadows in motion blocks
+Fix flyout events
+Fix sound editor
+Update scratch-vm
+fix: project loader analytics event
+update renovate config
+Add links to GraphQL SDL
+Fix docker image building for travis 8
+change notification info color
+fix: meta description
+fix: use framework from buildPathWithFramework
+fix: remove drop shadow
+Fix coinbase amount
+Fix log dir redirect
+Fix long async cycle time reporting
+Update genesis balance
+Fix artifact path for client sdk
+Update demo-node key
+Fix snark_coordinator path
+Add sponge lib
+fix seed for ledger
+fix fork config
+Fix breadcrumb builder
+Try to connect to the GraphQL client every 10s
+Fix for loop loop
+Add a job to catchup to a specific peer
+Add account hash to ledger name
+Update mina-toolchain to v1.10.0
+Fix error message for empty chain
+Fix parsing of empty string arguments
+Fix best vrf
+Fix libp2p_helper tests
+Fix num_accounts assertion
+remove valid_until from block.ml
+Fix some bugs in the sponge
+Use Map.empty instead of List.sort
+Add full_txn_commitment to Party
+Update mina image for snapps
+Fix `lt` comparison
+Move to Pickles.Backend.Tick.Field
+Fix archive schema aux files
+Fix test_unit
+remove keypair from snarkyjs.ml
+Use Types_map.typ in basic.typ
+fix: use untimed_node_a for untimed_node_b
+Fix archive schema url
+Add lookup to types.
+Add token party generation
+Add a new check for the signature
+Fix global slot project
+fix: add vk to prover and vk update states
+Add vk_hash field to account_update
+fix: onProcessStyle hook
+Add warning when memory leak
+chore: use npm token
+chore: add pretty env var
+Fix propTypes.shape
+fix: download default cards from bulk-data
+Replace deprecated bind/unbind with on/off
+fix: multiple-sort query params
+fix: remove unnecessary arrow function
+fix datepicker search
+fix card view style
+fix(editable): undefined text for undefined values
+chore: move node-sass and styled-jsx-plugin-s
+fix: import link component before page
+fix: add missing common dependencies
+Add next to commonDependencies
+Add "Manage players" menu item
+Move showPlayerConfig to android
+Fix auto-layout on iPad
+fixing progress-circular margin
+move large covers to bottom of settings
+shift down the popupmenu
+fix(autocomplete): close popup menu only if it exists
+drag example
+Fix month view bug
+Fix changelog for v4.26.0
+fix: accordion header style
+fix: popupmenu click event
+refactor: move default filter handlers to the top
+fix: edit link
+use useSiteMetadata
+move zeplin to bottom
+Remove disconnet blocks per hour alert
+Move MultipleNodeRestarted alert to the top of the rule list
+Move apply_parties_unchecked to Local_state
+fix index order
+Init account pk before checking inclusion proof
+docs(table): move locale to the bottom of the page
+fix: deploy instructions
+Move browser.search.update to settings
+Fix FAQ page
+Move redux-devtools-extension to dev dependencies
+chore: update istanbul-reports
+add job to docker
+fix add button
+build: add prepare script
+Add main field to package.json
+Fix grid alignment
+fix isometric pixel
+fix(hamjest): assertThat
+Update changelog for v9.0.1
+Update changelog for v9.1.0
+Update changelog for v9.2.0
+Update changelog for v9.3.0
+v9.4.0 changelog
+add callback to downloaded feed
+fix: search type upload
+add no/yes emoji
+Release 12.0.0-beta.2
+add composed vesting schedules test
+Fix mul()
+add mine to testrpc
+Add comment about reverting on division by zero
+fix: use String.toString() instead of Strings.toString()
+Add requirements to Pausable.sol
+Add documentation to signed math functions
+Fix ERC20Snapshot test
+chore: add npm v2 cache
+Update comment on Initializable
+Fixing formatting and formatting issues
+Update docs for Initializable
+Update support request to support requests
+docs: add link to _burn
+fix revert message
+Update UUPSUpgradeable.sol\nMinor doc fix
+docs: update safeTransferFrom warning
+Fix linting errors in MerkleProof
+add large strings test
+Update docs for default value of {decimals}
+Add error message when pushing to branch fails
+test: add missing event
+Fix search and pagination
+fix dropdown width
+add table styles
+Fix client-pool-tests
+Fix datagrid header text length
+Added tests for modal lifecycle events
+Split Button Tests
+Add a test for the new toolbar
+Add two more menu options for different ajax calls
+Add screenshots to testing docs
+test(textarea): fix test
+test(validation): fix flaky test
+fix(autocomplete): fix e2e test
+feat: prune datagrid validation test
+Fix editor api test
+fix: datagrid paging tests
+Fix expected-files.json path
+Add wordStartsWith and phraseStartsWith filter
+test: update multiselect tests
+fix datepicker tests
+fix: datepicker Gregorian SA tests
+fix: remove unnecessary wait
+Fix typo in test-more-actions-selectable.html
+Fix accordion hover color
+remove hidden class when new tag is link
+test(searchfield): fix visual regression test
+fix: message test
+fix: datagrid paging force disabled test
+fix: swaplist tests
+fix: add theme check for long title
+Fix autocomplete change event
+fix: add top padding to example color saturation
+Fix short dates with no separators or special characters
+Fix mask literal regex
+Fix app header width
+color picker fixes
+fix datagrid click on button
+Fix button positioning on touch devices
+fix: remove decimal options from test-format-number-15-decimal.html
+fix(bar): fix cursor test
+test: fix input reset test
+add table hover
+fix: filter function
+fix: avoid injecting process.env imports into commonjs modules
+docs: add docs for DISK_CACHE
+fix: remove unnecessary if
+fix: sort order
+docs(wmr): fix jsdoc
+Fix sidebar layout
+Fix local storage check
+Add hover state to buttons
+Throw error if no prerender function was exported
+Add support for running fixture from a file
+Fix error constructor
+fix error handling in diff
+Enable gzip compression of generated files.
+Add babel plugin advice
+Fix aggregation mean fetching
+Update docs for newman reporters
+Add test for query param
+fix: print request name only if request exists
+Fix docker build and push
+Add note about multiple folders
+fix: remove selected and cursor classes from queue items
+fix typos in recipe
+refactor: rename `ifStack` to `thenStack` and `elseStack`
+update snarky docs
+Add more details to daemon error message
+Update error descriptions
+Update docs for unset_parent
+add minimum nonce to error message
+Add test log to integration test
+Update integration test setup instructions
+Fix fee lower bound
+[diff] Rename length to density
+add return type to snarky_js_node.bc.js
+Rename coeff to compact
+Update contributing.md\n* Update contributing.md\n* Update contributing.
+Fix password reset error handling
+Add Autocard to PlaytestData
+fix: show status message in listview update error
+fix custom sort
+docs(table): add onLoadError to table options
+fix(bootstrap-table-copy-rows): fix copy row icon
+fix(export): disable virtual scroll when export is saved
+fix: export button
+fix(print): fix undefined value
+Add note about TableDnD
+fix ajax error by multiple request
+refactor: sortPriority cookie
+Update PR template to include type of request
+Fix directory detection
+Fix typo in diff message
+Add hover state to home button
+Update https only mode
+Add a note about how to proceed
+test: add test for hidden label
+Timeline nav styles
+chore: add docs for gtag.js
+Fix input field positioning
+fix: close animation
+Update snow score
+Fix error message for canceled tasks
+button hover animation
+add dirty state
+fix template value
+Fix section layout
+button css
+fix date picker
+Update radar_mosaic.py
+add keyboard to combo
+fix element resize detector
+fix button color
+fix log messages
+fix mosaic table
+Fix AWS instance provider
+Update sepal.sh\nChange colors
+Remove BLUE color
+fix(task): fix task cancel
+fix auth type
+add module log tail
+add group support
+Add debug log for sending message
+fix: log trace only when trace is enabled
+fix safety button props
+Add dotfiles to tooltip
+fix: log message
+fix map scale
+fix drag and drop
+fix map constructor
+fix bounds bug
+fix: filter empty args
+fix reset value
+fix mobile tooltip
+fix safety button
+fix safety button
+composite options widget
+color picker border radius
+change csv filename
+update marker after throttle
+add spacing variables
+fix map info icon
+update palette tooltip
+Fix bundle_package.sh
+Fix default date
+fix edit button
+refactor recipe list
+add look and icon
+change confirm background color
+add progress bar for asset collection
+fastList: add itemHeight and itemSpacing
+blurDetector: refactor
+Update lock/unlock message
+fix confirmation message
+Update user update message
+Fix split widget background
+test: fix selection direction test
+Add event propagation note
+Fix filtering for xattrs
+Fix tryCatch order
+fix(helpers): add error handling
+docs: fix typos in marks.md
+reorderable matrix
+Fix dataflow load
+Fix error message for invalid scenegraph path
+Fix encode diff
+Add type to error message
+Add domainMin/domainMax to scale domain
+Add resize and resize handlers
+Fix font cache
+replace abbreviated time specifier in caption
+Fix radio margin
+feat: add support for tv device
+fix(rnv): log warning when readObjectSync fails
+fix: account events are skipped when no new events were returned
+fix: filter out null values
+fix: add DOMContentLoaded event listener
+fix: show total page load time
+Fix new password input
+fix range selector
+add line numbers to grid
+fix: linting error
+Fix url-utils.js
+Add stack trace to prerenderUrls error message
+add file list control
+fix: remove pointer cursor
+Update card.md\nBlock -> Body
+Fix color level calculation
+Update display.md\nUpdated examples
+Update lint-vars.js
+Fix table responsive styles
+Ignore branches in build
+Fix search page
+Fix swiping of menu
+Fix home button
+fix touch start
+Fix favicon for PODCASTS
+Ignore status message for players that we don't know about. When deleting a group player in
+let right click pass through
+Fix eslint error in datepicker
+test: disable popupmenu test
+test(e2e): fix test
+test: disable test on personalize
+test: skip failing test
+Add support for databricks
+Add distDir option to wmr middleware
+Ignore errors when waiting for a page to be navigated
+fix(wmr): exclude node_modules from dist
+ignore chromatic for npm download count
+ignore chromatic for wave
+Fix local state diff
+Add note about network options
+Add TODO for rejecting the validation callback
+Ignore stack trace in snarky_js_bindings_lib.ml
+fix: remove previous_incomplete_zkapp_updates from scan_statement
+chore: update nodemon script
+fix: linting errors
+Fix CSV download test
+chore: add .cache to testPathIgnorePatterns
+fix(create-react-app): ignore .iml files before CRA is launched
+Ignore head.js and nav.js files in coverage
+Ignore common/config in coverage
+Ignore api-utils.js in diff
+Add test-utils to diff
+Add import/export mappers to jest config
+chore: remove index.js from coverage
+Ignore store files
+Add cookie-utils.js to jest.config.js
+chore: add condition to auto-merge successful Dependabot upgrades
+Fix facet array handling
+Fix text/textarea/search/text_item_id
+Fix grid config item conversion
+Add favourite icon
+Fix lmsListFragment
+add playerIconSet
+Fix iframe download button
+Add blissmixer to musicMix check
+Add support for browse html
+Fix project lookup for old references to ember-data API docs
+Fix personalize pageOverlay undefined error
+Fix legacy "high-contrast" to contrast
+Reset focus when clicking on iframe
+Fix about api tests
+fix maxItems
+Handle data channel event gracefully.
+fix: destroy peer if RTCPeerConnection constructor fails
+Fix port for docker images
+fix: check if projectAsset exists before setting state
+add projectId prop to ProjectLoaderHOC
+Fix initial_peers_raw
+Handle exception nicely
+Add Connection_with_state
+Add user_command_overflow logic
+Fix a bug in the transaction pool diff
+fix: skip empty fields
+Fix race condition in Process.wait.
+Fix caml_bigint_256_of_bytes
+add error message for account creation fee
+Fix child_processes.ml
+Add optional string annotations
+Fix account timing test
+Fix number of noncreatures
+fix: topcards filter
+Add BROWSER_ARGS env var
+Fix an error when no bands are selected
+add child context
+fix bug with recipes
+fix mosaic preview error
+fix notifications error message
+fix mobile widget
+Fix RadarMosaic
+Add pagination to drive
+Fix empty list in download
+fix task status description
+fix: check for keyColumn in eeTable
+monitoring tile provider
+Fix optical mosaic
+fix error response
+Add prefix support
+Fix data set ids
+Fixes AWS instance provider
+fix image form
+fix undefined userDefinedVisualizations
+fix assetSegments$
+fix planet image layer
+Fix nested mark with remaining points
+Fix geo point set
+fix: remove unnecessary promise
+run selectAccountUser concurrently
+feat: add https flag to watch command
+Fixes for eslint
+fix: error name length
+feat: add support for async lambda handlers
+fix: show error output when it is a string
+fix: add type checks for numbers
+add signatureability to modifiers
+Fix destiny tracker remove key
+Fix accented character suggestion
+Add IME composition events
+Add more files to the diff
+fix grammarForLanguageName
+refactor: use unique response channel
+fix menu merge
+Fix `observeTextEditors` handler
+fix: temp.js path
+fix autoFocus
+Normalize the origin
+handle decoding audio data
+fix: allow object as marker
+fix webaudio sound
+Added font family, font size, font style, padding
+add delayed playback
+tAMOUNT -> amount
+Fix isOperation signature
+fix: remove underscore from method name
+fix: royaltyInfo
+Update font loader limit
+Rename statusTimer to serverStatusTimer
+serverMyMusic -> myMusic
+Rename "Alt" keyboard shortcuts to "Option" for macOS.
+fix timerDelay
+Update banner text
+rename initTooltip to setTooltip
+fix: remove top padding from card header
+fix(listview): fix empty message test
+fix: fix form compact mode test
+chore: update diff for button api
+fix: fix datagrid frozen column card test
+Rename djng_forms_module to djngModule
+fix form validation
+innerError -> innererror
+Add new sound to the project
+change default message for add camera costume
+Rename cacheAsset to createVMAsset
+rename knownReporters to knownReporterErrorMessages
+Rename SecureFs to SecureFS
+rename operator to matcher
+Rename old_pods to misassigned_pods
+Rename protocol_amounts to genesis_constants
+fix error log
+Fix typo in Plonk_verification_evals
+rename dispatch_cleanup_PARTIAL to f_dispatch_cleanup
+Add restart helper
+Add static peers to seed peers
+[codanet] Add trusted peer filter
+Fix `register_process`
+Change DUNE_PROFILE to mainnet
+Fix rest-server flag
+Rename parties to snapp_txns
+Fix typo in Opening_proof_of_backend
+fix: fix diff
+fix: global_slot
+Update staged ledger diff
+fix precondition_type
+Rename public to public_
+chore: rename plugins
+rename cardImg to cardImageUrl
+fix: email type -> meth
+Update meta tags
+Fix filter function
+rename calcPreviewBars to resampleBars
+Rename component script
+Rename ArticleItem to ArticleGroup
+Fix HeroBanner story
+Rename Github logo circle
+Update Zeit to Vercel
+fix homepage field
+Update helper content docs
+Add sidenav to navbar
+fix cloud cover
+fix fusion table
+typology button
+Fix select scene label
+Fix title of sections
+Fix typo in monit template
+fix: useOnly option
+docs: update Firebase services to Firebase products
+docs: fix typo in Firebase Product table
+fix: inject firePerf
+docs: fix typo in static docs
+Update u-district-cuisine.md
+Rename ImageLoader.Config to ImageLoader.Options
+Add rangeStep scale option
+Fix expression-test
+Fix typings for nice
+Fix CandelaWidget.js
+Fix girder plugin name
+rename ctx to dt
+Rename API.$* to API.*
+Rename isVIP to isModerator
+Update config list
+fix: telemeter events
+Rename scrub to scrubFn
+chore: update diff script
+docs: fix layout heading
+fix: fix saucelabs-unit-test.js
+Fix navbar-brand-padding-y
+Update update-deps script
+Rename dropdown-shadow to dropdown-box-shadow
+fix doubleClickZoom prop
+Button: add href prop
+Add subtitle to box
+fix queue page
+fix play/pause button
+Fix player name not being set in local storage
+Fix mobile.css
+Fix some issues with the browse page
+Fix home menu height
+Fix info-dialog keyboard handling
+Fix cometd message logging
+Fix open in new button
+Close chosen genres when selecting a new item
+Fix icon mapping
+Allow sub-titles in dialogs to span multiple lines
+handle pluginListResponse event
+Fix version check
+Add data-index attribute to autocomplete
+fix: datagrid condition values
+Fix focus restore
+add beforeSelectStep
+Ignore theming if the client doesn't accept HTML
+fix: images border
+fix toolbar flex item type
+chore: remove chrome version from webdriver update script
+fix tree badge
+Update changelog and add missing fix
+Add allowed hosts to server settings
+fix digestUploadScope
+add module to ENV_KEYS
+Add testResultsProcessor to supportedKeys
+Add modulePaths to supportedKeys
+Add watchPlugins to supportedKeys
+Add children prop to GUI
+Add branch to deploy
+add fullscreen and player to url validation
+Fix url validation
+Wait for target update to propagate before tab switching
+Add audio/xxx support
+add props to addon list
+remove confirmation from mailing list
+add props to video
+add props to Release
+Fix search length
+Update apollo port
+Fix versioned.ml
+Add account_data_of_yojson
+Fix to_peer for dns4 and dns6
+Add seed_peer_list_url to user error
+fix cliff time
+Add coda prefix to custom child process
+Add support for specifying both public and private keys for the uptime submitter
+allow threads to be created
+fix: use full predicate type for signed and unsigned
+Fix Zkapp account precondition
+allow for reversed field order
+add network state to apply_parties_transaction
+Fix inline_test_quiet_logs
+fix(jss): add comment to InsertionPoint type
+Fix cube compare
+Add banned legalities to updatecards.js
+add cmc toughness
+Fix alphaNumericValue
+add maxShortId and maxDate params
+fix ref for integer
+fix: filter custom search
+Fix package name matching
+chore: reduce ecma level
+Add syntax support for import()
+fix(react-scripts): extend gracefully if object type is passed to config
+Fix login token
+add instanceId prop to react select
+Add custom data attributes to Container
+Fix select input field
+fix: check if google tokens are present before revoke
+Fix windows build error
+add setInitialValues
+add className prop to input
+pass props to input
+fix button children propTypes
+fix form buttons
+add float prop
+Add sudoers to docker image
+add additional policy
+fix activatable id
+fix list scrollable
+fix escape button
+fix objectLike check
+Fix missing auxiliaryImagery
+Fix tooltip prop type
+Fix viewport resize detector
+add module clean
+add admin role to user
+Allow ANSI color sequences
+fix close tab
+fix tag filter
+Fix busyMessage prop type
+fix date picker
+Fix label children propTypes
+add file select widget
+legend value range
+fix: fix mosaic diff
+blur detector fix
+fix legend builder
+add histogramMaxPixels
+fix auxiliary imagery
+fix band error
+fix min confidence
+fix label in button select
+Fix haproxy docker-compose
+fix: r-proxy version regex
+fix: i18n locale
+fix: set status code on error
+Initialize Next.js configuration with empty values.
+Add a bit of padding to screenshots
+Add item title to playlist add command
+Fix list size
+Fix volume volume not updating
+Fix dark cover background color
+Fix audio pause
+Fix key-field for RecycleScroller
+Add error message when too many items
+Fix background image for cover
+Fix browse-resp
+Add font-weight to all elements
+add info shortcut
+Fix player volume update
+fix splitter min width
+Fix autoScrollRequired
+Fix scrollbar size
+Increase LMS_MAX_NON_SCROLLER_ITEMS
+Increase LMS_MAX_NON_SCROLLER_ITEMS
+Fix drag and drop of pmgr images
+Fix stopDebounce
+Fix icon-id not being set
+Fix bandgenres init
+fix iframe dialog for tech info
+Fix page not being set when clicking on a page
+Update icon links
+Add meta tag for mobile app title
+add window title
+add type to text-field
+Fix search param type
+Fix SSN Last 4 length
+fix: class route template path
+Add cache-control header to static assets
+chore: update yarn version
+Set browserstack timezone to new_york
+Set TZ to New_York
+Fix tab selection
+Release v4.23.0-dev
+move editing to default
+fix: checkboxes position
+fix decimal separator
+fix: iOS device
+chore: update chrome to98
+Set DJANGO_STATIC_ROOT to /web/production/managed/djangular
+Fix initial value for ChoiceField
+Add password validation
+fix: set dataset configuration
+Set selected category on extension added
+add aria-hidden to sprite info images
+Add s3 provider to travis
+Fix smoke test
+Add WSL2 default version
+Update mocha reporter
+Rename prepublish to prepublishOnly
+Set NODE_ENV=production for storybook and build-storybook
+Change target size of validation service lint job to small
+Disable ssl verification for diff jobs
+Fix CODA_VERSION variable
+set parent_id if null
+Disable local charts by default
+Fix testnet artifact upload
+Add default archive servers
+Add coda images
+fix(metrics): use GREATEST to calculate max block height
+fix: mark blocks as canonical if the chain is below the highest canonical block
+Add permissions to Zkapp_account
+Make Stable.V2.t private
+ignore valid while
+add addedTmsp to cube
+add generatePack test
+Fix filter state
+Fix draft_formats propTypes
+fix: export button
+fix searchFormatter
+fix: filterStrictSearch is false when filterControl is select
+fix: filter default value
+Update launch.json userDataDir
+fix: fix typescript build
+fix(react-scripts): prevent conflicts when multiple Webpack runtimes are used on the
+Add browser and module to main fields
+fix(react-scripts): set globalObject to 'this'
+Change workspace root to work around backtracking errors
+Add lang attribute to html
+fix: set cookie options only for prod
+Use cookies programatically in all HTTP requests
+fix default props
+Add initial overflow to reveal
+Add SEPAL env var to /etc/environment
+Add LC_* to environment file
+Fix vrt data type
+fix login handler
+Set hazeScore to 1
+update diff for preview
+fix simple layout
+fix mosaic scene count
+Set disk size to 64GB
+Fix look colors
+Change log level from INFO to DEBUG
+Fix VRT build
+Set logging level to warning
+Fix defaultDate
+Fix default date
+fixing apt-get
+fix: encoding
+add cache-control header
+Fix jupyter notebook
+Add PROJ_LIB to /etc/environment
+add padding default value
+fix search box value
+Fix docker docker
+add shm size to docker instance provisioner
+Add label to kernel
+fix minZoom
+fix min zoom
+Add tracebacks to jupyter
+Set z-index dirty flag as needed
+Update vega-typings to 0.6.2
+feat: add projectFolder option
+fix: add engine to tvos renative
+add admin level to setup
+Set image tag only if tag is set
+add alias for host
+Use AppDomain.CurrentDomain.BaseDirectory for cache path
+Update vested token contract
+fix: update grid breakpoints
+fix: highlight table style
+Update colorpicker defaults
+fix: focus style
+fix: add missing semicolon
+fix: modal on top
+docs: add missing settings.disable
+Fix overflow tabs test
+fix: expandable area title font size
+fix: datagrid width
+Fix `path.sep` usage in `getFileName`
+Remove unused script tag
+Remove unnecessary clear of selectedRows in lookup
+skip some tests
+Remove chrome version from webdriver update script
+fix: datagrid cell editing outline
+Fix datagrid tests
+test: re-enable card tests
+Adjust line chart width
+Update grunt packages
+Add demo:prod script
+fix(create-wmr): add glob to tsconfig.json
+chore: enable debug for start script
+Increase font size for annotations
+fix(test): fix rtcConfig url
+fix: mouse down
+Fix library item name
+Fix sensing of object menu
+Fix features layout
+Remove BUILDKITE_AGENT_META_DATA_SIZE from trigger command
+Use medium target for fast lints
+Fix coda automation location
+Add error to ledger download error message
+fix: remove debug lines
+Fix seed script
+change data directory
+Fix block_time
+fix description of Persisted_frontier_loaded
+Add --continue-on-error to replayer
+increase soft slots
+Move prover_to_json to the Paml Pasta Prover example
+Boxed all kimchi_types.ml
+Add changelog entry for regression
+Fix Supertype sorting
+Fix transferFrom
+Update events styles
+Use env var for images
+show updatedAt label if not present
+fix: Markdown wrapper
+fix dropdown margin
+Fix stopMediaSession
+Fix theme key
+Fix $HOST in custom actions
+Remove yarn from travis
+Update Long constructor link
+add color-default
+Add default contrast to all colors
+Remove color-primary from core config
+personalize example updates
+fix: modal colors
+fix pie chart
+Fix lookup enable
+test(heatmap): fix tests
+Fixing nodejs readme path
+fix: serialize mapper
+Remove CSS Modules
+remove _onError
+Fix interval handling
+Add tests for track event
+Update backdrop1 asset
+Add remove vowels from string
+expose url match pattern constant
+Fixes for CLI
+chore: add nyc to diff
+chore: update table2 to table3
+fix: use cli-table3
+fix: check for finite numbers
+Update Chromatic intro video
+Update Coda URL
+Update pin-external-packages.sh
+Use PR branch name in diff jobs
+Fix diff --git
+Fix txn_state_view
+Update key file header to include commit date
+Fix merge order in helm.tf
+Remove verification key from ledger helper
+Update stubs README
+Update links to point to new branch
+Add comment about get_variable
+Add warning to plonk_constraint_system
+add inductive_rule
+Fix js_util.ml
+Remove H4.Map
+fail with error when no domains were given
+use cardIsLegal
+Update README.md\nBower -> Yarn
+Fix webRoot in launch.json
+fix(react-scripts): ReactComponent type
+Update updater.bat\nRemove PING -n from updateb
+Fix single backup
+fix: remove extra characters from logo source
+Use Content component for history
+Fix link button alignment
+Update photo caption
+Fix backup bucket path
+fix delete action
+fix process redirect
+fix surface reflectance label
+fix storage quota
+tabs style
+slider decimals
+Fix dollarsPerHour and dollarsPerMonth
+fix scene areas
+band selection
+fix year selection
+fix label in recipe section
+fix pointer events shield
+Replaced defer with from_callable
+fix super button
+add task module
+refactor(ee): use promise$ instead of fromPromise
+Use URL instead of parse
+fix type select
+chore: add xmlhttprequest dependency
+Update provision.yml\nUpdate provision.yml\nUpdate provision.yml\nUpdate provision.
+Remove VgSort type
+fix: build app on arm64
+fix(rnv): fix external package resolution
+feat(rnv): add APP_VERSION to tizen project
+fix(rnv): fix path replacement for external packages
+Fix auto cowork
+Fix route reload
+Fix progress bar color
+Fix friend status
+Add peerDependencies badge
+fix: button-size variables
+Update carousel.md\nFix typo
+Update IRC channel name
+Update text-truncation.md
+fix: remove style prop from dropdowns
+Fixes for budget fields

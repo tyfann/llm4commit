@@ -1,0 +1,1992 @@
+add link to easy tasks for collaboration
+update transferableTokens function to limit token transferability based on specific logic and time restrictions
+Add event for finishing minting.
+fix approve function logic and add race condition mitigation.
+add tests for different types of token grants and revocation
+refactor comments in VestedToken.sol for clarity
+update function comments and add missing parameter descriptions
+fix bug in DayLimit contract, added timer helper function to handle time-based tests
+Update ECRecovery library to include a new function to recover signer address from a message using signature
+fix transferOwnership test case bug
+Add missing semicolon
+fix a bug in the cleanup function in test.sh The script now checks if the testrpc instance is still running before attempting to kill it.
+update decimals to be uint256 constant
+update whenPaused modifier to include parentheses
+Refactor MintableToken test to use expectThrow helper function instead of assertJump.
+allow safe transfer of tokens with balance check.
+update OwnershipTransferred event to include previous owner in Ownable contract
+allow token approval functions to be called only when not paused
+update visibility and add 'public' keyword to increaseApproval and decreaseApproval functions
+add transferFrom error handling and allowance decrease tests
+fix typo in code comments and add missing period
+allow vested amount to be the total balance if the vesting period has ended.
+Add input parameter validations to TokenVesting constructor for beneficiary address, cliff timestamp, and end timestamp
+add test cases for revoking token vesting by owner and linear token release during vesting period
+Override getTokenAmount function for periodization logic
+Update test message in ECRecovery.test.js
+update SafeMath library functions to include documentation and error handling
+Improve SimpleSavingsWallet tests with payment handling and owner fund transfer functionality
+Update OpenZeppelin installation instructions in README
+Update setUserCap calls to be asynchronous in IndividuallyCappedCrowdsale test
+update data types to uint256 in increaseApproval and decreaseApproval functions
+improve doc for releases and npm publishing
+update Pause and Unpause event logging in Pausable test
+Add installation instructions for OpenZeppelin 2.0.
+remove unnecessary 'this' keyword
+fix typo in RELEASING.md regarding directories to delete
+Refactor PublicRole behavior tests to comply with standard role interface
+prepare changelog for 2.2.0
+Update inspiration source for ERC20Snapshot.sol.
+Update ERC20Snapshot.sol to add @dev tag for clarity
+update snapshot documentation for account balance access
+prepare 2.2.0
+Fix safeApprove zero allowance check in SafeERC20
+Backport `SafeERC20.safeApprove` bugfix to version 2.1.3
+Update changelog for version 2.2.0
+Update breaking changes section in drafts: renamed TokenMetadata to ERC20Metadata and improved Counter library to Counters. See example in ERC721.
+refactor npm dependency installation logic into reusable script
+add logic to push and publish next branch on push command
+update internal function deprecation message
+add ERC20Snapshot breaking changes for `_beforeTokenTransfer` hook usage
+Prepare changelog for 3.2.1-solc-0.7
+add TimelockController Adding TimelockController contract to augment access control schemes with a delay.
+Add beacon proxy. (#2411) Adding beacon proxy information
+Add caution note for SafeMath usage with Solidity 0.8 or later
+fix incorrect index update logic in EnumerableSet library
+Add a tip about OpenZeppelin tools for deploying and securing upgradeable smart contracts
+remove redundant signature length check in ECDSA library.
+Add note about enabling Solidity optimizer in GovernorCompatibilityBravo
+update ERC721 `_approve` function to be internal
+improve cautionary notes on contract initialization
+update GovernorTimelockCompound to fix ability to use Ether stored in the Timelock contract
+Add note about Solidity language security updates in SECURITY.md
+update votingPeriod parameter in governance configuration
+add Contracts Wizard deprecating Preset contracts in favor of Contracts Wizard
+fix contract inheritance and import statements
+Fix typo in GovernorTimelockControl.sol regarding executor roles.
+add warning about potential DoS attack in GovernorTimelockControl
+update ERC20 allowance reduction logic
+Refactor TokenTimelock contract comments for clarity
+update SignatureChecker library to support both EOA and ERC1271 signatures
+refactor ERC1155Supply contract to handle burn amounts safely
+update error handling for DoubleEndedQueue functions
+improve documentation about alternative installation method and specifying release tag for OpenZeppelin Contracts
+update changelog for new features and improvements
+remove redundant constructor address type cast
+upgrade TimelockController Upgradeability notice with action needed
+Improve event emission handling for role management functions.
+Add caution message about deposits and withdrawals in ERC4626 contract
+add gitpoap badge for OpenZeppelin's contracts
+add changelog check job to checks workflow
+Improve security documentation for extending contracts
+Improve code layout for unsafeAccess function in Arrays.sol.
+fix setBaseURI function call in ERC1155URIStorage test case
+fix: Add SafeCast import for ERC4626 test file
+improve isContract function in Address.sol
+Remove packageRules and enable ignore-changelog label.
+update documentation regarding function stability in OpenZeppelin Contracts
+update guidelines for pull requests in the repository
+add dissociateProducer and associateProducer functions
+Update table padding and pagination styles
+scroll to the top of the page when updating state in Datasets component
+handle case where organization logo is not available by using a default image URL
+fix test to display purpose in DatasetSection.
+fix the links for past events in Events page
+Update SearchPage component to use PureComponent and add PropTypes validation for props.
+handle missing credit information in dataset view
+Add webpack optimization for common chunks
+add a step to store build report artifacts in the workflow
+update test:ci output filename to match project name
+Add state initialization in DatasetDownloadList component
+update SSH user email and name for deployment bot
+add CHANGELOG.md to ignore list
+update margin in ErrorPage component styling
+Add warning icon for obsolete catalogs in CatalogPreview component
+Refactor statusCode to code in ErrorPage component\nCode diff type: refactor
+Refactor Facet component to use flex display and adjust styles for title and value elements.
+Add flex property to search div in SearchPage component
+update padding for better visual balance
+refactor Statistics component layout and remove redundant code.
+fix missing sync pending prop validation in Table componentPropTypes
+add Box component to ErrorPage for better layout styling
+Add alt attribute to Etalab logo in the footer.
+add FailIcon to <DatasetDownload /> component
+Add non-geographic dataset to dataTypes enum
+refactor main tag to include clouds class based on prop value
+Add functionality to switch between map and table view in dataset preview.
+allow multiple image thumbnails in dataset metadata.
+Handle error state in Preview component and display error message if there is an error during data fetching.
+Add routes for publication datasets, producers, and organization with dynamic oid parameter
+Add organization details to the header component
+improve grid layout for publication page
+Add red color option to Button componentPropTypes
+improve Button component styles
+Add Meta component for title in PublicationPage render method
+update link path for organization producers page in publication section
+Replace h3 tag with Breadcrumbs component in PublicationPage.
+remove unused import statement.
+update polyfill script to include ES6 support
+set static files cache to 15 days
+improve global styles and link appearance
+add findCandidates function to catalog test suite
+add computeScore function to calculate catalog score based on metrics and update frequency
+add security label to lerna.json
+add documentation section to lerna.json for better project organization
+update `changelog` configuration in `lerna.json` file\ncode diff type: update
+Add subscription button for event registration, if available, instead of download link. Fix conditional rendering logic.
+remove nextEvent binding code
+fix overflow issue in harvests component
+add dependencies section to package.json
+adjust padding for fullscreen dialog cards in settings-list
+Refactor file path handling in MaterialSkin plugin initialization > improve readability and maintainability
+Improve scrolling behavior in browse and queue lists
+add previous and next track functionality in player management
+improve desktop UI layout and structure in separate files
+update player menu logic in browse page script
+update now playing page translations and button titles
+update image styling in style.css for browse-text, np-info-text, and np-info-text-full classes
+add stop button functionality and method to manage players.
+fix issue with safe area inset bottom padding in mobile navigation bar
+update mobile.css for landscape view styling
+fix issues with volume buttons and command restoration, improve layout and navbar styling
+Add showRatingButton property to lmsBrowse component
+refactor player status update logic in server.js
+handle empty response items in browse response data
+fix styling issue with sleep-item class and add max-height to 48px
+add donation section with PayPal link
+Add logic to update jumplist with key and index for browse response items
+improve library selection UI styling
+add vertical divider based on conditions in browse page script
+add cache clearing instructions in README
+Add avatar icon for player in movequeue dialog list item
+Add SVG support for list items in browse page
+fix an issue with dynamically setting the title in the favorite folder dialog in browse-page.js
+Add conditional rendering logic for hiding element when info.show is false
+Add digital volume control to playerStatus in toolbar.js
+add logic to pin top items in browse page
+Add Russian translation - thanks to sky418.
+update cssLink href to include material revision number
+Add user guide link to information dialog in toolbar for easy access
+Add Italian translation to ChangeLog
+fix image URL generation in browse response parsing
+Update dialog toolbar color and border style for dialog, menu, and toast components
+Add blue theme stylesheet to standard header\n\nAdded a new blue theme stylesheet to the standard header for a different visual style option.
+update logic for displaying player avatar in toolbar item
+update version number and add feature for multi-CD album display
+update itemAction method to handle PLAY_ALL_ACTION in browse-page Vue component
+add updateNative function to server.js for player status update
+Allow add-all/play-all from 'trackinfo' as needed for Spotty's 'Top Titles' access via 'More'
+Update NO_ADD_ALL set in browse-page.js to include additional sources
+fix player icon for SqueezePlayer model
+Add logging for response data in browse-page.js
+fix border styling issue in list items for better visual consistency
+fix a bug that caused incorrect dispatch parameters for 'material-skin' notifications in the CLI initialization
+add support for sending notifications from perl to webapp
+update media session artwork based on cover image size and format
+Add LANG to ACTION_KEYS for custom actions
+add Pandora to track sources in JSON file
+update track sources json with new URL mappings for Deezer and Tidal
+Update button icon for server restart in information dialog
+fix bug in dragEnd method in queue-page.js
+Update player settings plugin layout styling
+update browse modes and virtual libraries information in index.html
+add iframe browsing functionality and track info display in iframe dialog
+update dependencies and add phantomjs-prebuilt to global yarn packages
+update custom amount input field to include min and step attributes
+improve meta tags and social sharing for Code Corps website
+add project submission link to navigation menu
+add loadEmberExam to test-helper.js
+add tracking for page views and GitHub OAuth redirection route rancher/rancher#18130
+fix Update API_HOST to include json-docs in URL
+add build status badge to README file
+Fix missing break statement in switch case block
+add call to action for contributors in README
+Update the README.md with correct links and information for contributing to the Ember api docs project. Fix the broken link and provide clear instructions for getting started on the project.
+Add data-test-file attribute to github-link span
+add local method implementation display logic and test
+Update cdnUrl to use FASTLY_CDN_URL as a template string
+add test for switching module versions greater than 2.16
+Update afterModel hook to set headData description with createExcerpt if model fn description exists
+update README to include new piece for Ember API docs site
+add test case for resetting scroll position on transitions between Ember versions 2.16 and 2.15
+Add module attribute to class field description component
+Update documentation to include Classic and Glimmer components
+update link text for @glimmer/tracking in commonly searched-for documentation.
+silence additional deprecation warnings
+Add version 1.4 link to Npm in docs.yaml
+Add detailed server error codes documentation in types file
+update build.yaml to only build with latest for node 4.x and 10.x
+remove dse-6.8 from cassandra versions for nightly job
+Remove Node.js 12 from excluded matrix and include DSE 5.1 and DSE 6.7 in the matrix.
+Fix Firefox default behavior to allow keyboard focus on links in pager bar
+Fix an issue with hover and selection behavior in listview.
+add custom event for remasking input field
+fix menu trigger data removal bug
+allow remasking of input field on blur event
+Add task for JS uglification.uglify JS files after concatenation.
+fix issue with setting overflow style on parent element of listview.
+fix logic in validation.js for handling dropdown input fields and data validation/validate attributes
+Fix wrapper style and position in popup menu
+update toolbar title and button text translations
+Fix issue with dropdown selection when input is empty and not multiple. Fixes an error where the search input was not being updated correctly.
+Update coerceValue function in datagrid to include row and cell parameters for better serialization into the dataset.
+fix number formatting bugs in common.js unit tests
+improve accessibility by adding tabindex to buttons in datagrid.js
+fix selector in datagrid.js to include .btn-icon class for focusable elements. Update conditional check to include .btn-icon class.
+Remove explicit width setting for buttonset and title elements
+initialize content before opening if initializeContent setting is true
+add standalone toolbar and panel-header to splitter on the right
+set default value if value is empty
+Remove disabled attribute from popup menu items
+Update button styles for menu buttons in _buttons.scss file
+update dataset handling logic and improve event handling in swaplist module
+fix modal content appending issue
+add ability to exclude specific files from directory listing
+fix menu style reset bug
+allow file input to trigger click event on keypress or spacebar press
+fix issue with column width calculation in datagrid.js Fixing an issue with column width calculation when auto width is bigger than the percent width.
+fix issue with removing xButton element.
+fix issue with generating unique IDs in datagrid
+improve row reordering behavior on datagrid with Safari support
+Refactor column restoration logic to handle hidden columns and missing functions/objects
+remove width and height attributes from svg tag
+Fix row activation logic in mixed selection mode
+Disallow uppercase in French language buttons
+update cellNode function to exclude expandable rows from row selection
+adjust height for paginated datagrid container
+update styling for paginated datagrid containers and toolbars.
+update color range in chart.js
+fix close behavior for nested popup menus
+add grid functional test for row click functionality
+add data options to tab container in header-tabs for better functionality
+fix typo in utilities documentation
+update comment in isContract function
+Fix typo in ERC1155 documentation.
+fix typo in ERC20 supply documentation.
+Fix error in the encoding of calldata for GovernorCompatibilityBravo proposals
+fix broken link in ERC20.sol documentation.
+update i18n key for DatasetDataGouvPublication component
+fix import path for Filter component
+improve facet styling for responsiveness
+Reorder styling for dataset page at smaller screen sizes.
+Update margin-right value in Header component for better spacing
+update LMS_DARK_ACTIVE_SVG color value in constants.js
+Fix classis skin mods file paths to use minified versions for HTML/CSS files.
+Refactor CSS to hide outdated add/play/fav and next-page images.
+Update style.css: remove unnecessary padding and margin properties
+Update API_HOST references in esw-cache-first patterns
+fix variable name in function.js for better clarity
+fix bug in rendering methods tab in class template
+adjust padding and margin values for better alignment and spacing
+allow jQuery-wrapped element or string content for createTabPanel
+fix tab overflow check for vertical tabs
+fix triggerHandler call order in toolbar.js
+improve icon size and spacing for better user interaction.
+fix display issue with overflowed toolbar buttons and adjust text alignment for standalone buttons
+update panel visibility check logic
+fix IE bug with tab panel contents display.
+Update toolbar title from "Buttonset" to "Title" in resize-favoring.html
+fix tablist positioning for module tabs with top border compensation
+improve list visibility check in autocomplete handleEvents
+fix autocomplete list focus bug
+update grid configuration to display as a list.
+update tab focus indicator style in vertical tabs.
+fix close behavior for other menus with 'is-open' class
+fix focus issue on last visible button in toolbar
+update display of total pages and records per page in pager component.
+update padding for selectable items in popup menu
+link tab to more tabs menu option and remove onclick methods from popup li
+adjust vertical tab panel layout for better spacing.
+detect and move existing tab-panel containers in key areas
+update toolbarsearchfield to expand if not collapsible and not full width
+fix issue with closing the autocomplete list and popup in the UI
+Refactor grid columns to remove specific width settings.
+rename /components/accordion/example-accordion to /components/accordion/example-index
+Update toolbar searchfield example with alternate style and label for better user experience.
+allow popup menu trigger to be set via click event instead of key press
+Remove unnecessary test route duplication and update directory paths in app.js
+refactor tab container styles for better scrollability and layout improvements
+Add logic to highlight search rows if paging is disabled
+fix Handle undefined settings.xAxis in formatText logic
+fix bug in date parsing logic
+allow user to add additional time format options for date mask
+Update masked input settings to handle decimal parts and set decimal limit.
+Set button states for toolbar buttons and implement colorpicker button state logic for foreColor and backColor options in editor.
+Improve condition for adding digit regex in dateMask function
+allow only numeric characters in decimal limit calculation
+add condition to check before opening popup menu
+Update dropdown and multiselect styles in _dropdown.scss
+Fix tooltip placement logic when tooltip data place is not defined.
+Refactor dateMask function to handle uppercase 'HH' condition in mask generation
+improve category button markup in searchfield test page
+fix resultsText calculation for filtered count in datagrid.
+fix issue with finding editors values in TrackDirty component
+Refactor increment and decrement logic in slider code
+Add return statement in Autocomplete component
+Fix incorrect conditional logic in ListView component.
+Refactor toolbar-flex styles for better readability and alignment
+Remove expanded class from accordion pane
+update default settings in toolbar component
+Refactor createHTML function in example-index.html to improve readability
+fix dynamic width calculation for search field with categories
+refactor logTaskAction function to support verbose flag
+fix navigation issue in ToolbarFlex component and store original direction for later reference
+fix header children selector in ApplicationMenu
+refactor key event handling logic in tabs component
+improve deriveComponentName function and add removeTrailingSlash function
+allow conditional row index calculation based on treeGrid setting
+add attachToBody option to ColorPicker component
+improve handlePopupBeforeOpen logic for collapsible search field
+fix cal.conversions null check in Locale component
+Update heading level for Official, Tagged Releases section in PUBLISH.md [skip ci]
+update IDS NG (Angular) Change Log link in Npm Package section
+Refactor callSource method to handle reset source calls
+fix an issue where the 'more' button title was not being properly translated
+Remove unnecessary TAB key presses in datepicker e2e tests.
+Refactor paging bar button tests to use 'next' and 'prev' instead of 'last' and 'first' respectively.
+fix tab click selector in e2e test for href tabs
+Add logic to check if field can be activated before setting it as active or inactive
+refactor component initialization instructions in DEVELOPER.md
+update event names and documentation for Wizard component
+fix issue with icon display in dropdown list items
+Remove unnecessary todo comments and update test descriptions in bar-stacked.e2e-spec.js
+handle dropdown items with no icon
+Update colorpicker configuration to include Azure01 and improve color options display.
+fix an issue with setting text values in Bar component
+add height to search field
+fix test for deselecting items on click in listview example singleselect
+Allow closing multiple dismissible tabs with submenu in Tabs component
+fix datepicker timeformat test to use dynamic values for comparison
+update tab selection and focus test with setTimeout for animation verification
+update sleep time in datagrid timezone test for visual regression fix
+update test description for consistency.
+improve css for non-Blink-based browsers [IssueNumber]
+increase sleep time for better stability in datagrid paging test
+update element selector in datagrid.e2e-spec.js for better targeting
+fix datagrid element selector in e2e test
+fix datepicker timeformat test to check if the test date is within the range of date variances
+refactor number localization logic in test-number-mask-gauntlet.html
+improve clean script and update dependencies
+update event binding logic in header component
+Update Locale API tests to handle group size properly.
+remove testability section from expandable area readme
+fix theme class naming inconsistency.
+refactor createSvgHtml function to use promises for cleaning files and creating HTML files
+adjust datagrid body height for better alignment
+update slider regular tooltip configuration
+fix an issue with multiselect dropdown unchecking "Select All" not clearing after list close in Safari browser.
+update triggers to include application menu trigger
+update BrowserStack badge in README.md
+update BrowserStack badge link in README file
+cleanup listbuilder elements in afterEach test block\ncode diff type: replace
+update personalization color to a darker turquoise and add default option to color pickers
+Increase timeout for test to prevent intermittent failures
+adjust position of primary button in data grid row to align with design requirements
+replace Object.assign with utils.extend for settings copying
+improve searchfield padding for RTL styles
+fix hierarchy chart id naming convention
+fix: correct locale assignment in locale component
+Fix bug in Datagrid component for editorOptions cloning
+adjust filter text and row links styling
+Allow selection veto with Control or Meta key press.
+refactor left-click activation logic in PopupMenu
+rename donut to line in e2e tests.
+update column settings to make them hideable
+Add error checking in datagrid tests
+remove redundant test for hiding legend in Bar Chart example.
+fix logic to check if contentArea exists before accessing it
+Fix tooltip display issue when contentArea is not present
+fix tooltip arrow display issue in the tooltip component
+Fix data retrieval issue in Datagrid * Fixed data retrieval issue in Datagrid component * Updated data retrieval logic for consistency.
+fix typo in function name for getContrastColor in colorUtils
+fix the Sort Function in the datagrid column to allow the value to be formatted for the sort
+fix describe block for specific month tests
+fix an issue with the custom click function in Datagrid filter lookup tests
+fix datagrid filter lookup custom click function test timing issue
+Improve multiselect functionality and update test descriptions
+Update version to 4.21.0-dev in package.json
+add logic to disconnect changeObserver in destroy method to prevent memory leaks
+fix formatting issue with modal tabbing in IE 11
+fix: update test description for Datepicker Gregorian SA Tests
+update modal overlay removal logic to ensure proper cleanup
+fix datepicker test assertion
+fix: update assertion in Datepicker Gregorian SA Tests to include additional value lengths
+remove unnecessary date insertion logic
+improve highlight function for lorem ipsum content Use a more structured HTML format for better readability and organization
+update datagrid API test for increased time threshold
+update test to fix count assertion for datagrid rows
+fix button click target in datagrid test The button click target was incorrect, updated to target the correct button for expanding/collapsing rows.
+update grunt-chokidar and release-it versions
+add a sleep function to improve test reliability
+remove unnecessary comments and fn bind calls
+update test description for clarity
+update base URL to point to master-enterprise demo site
+Refactor dropdown styles for improved icon alignment and padding
+fix: add condition to setLocale method in calendar component
+fix page path in modal test file
+fix typo in button id in modal component
+Remove unnecessary margin-right style from calendar-monthview.
+Refactor toolbar initialization in WeekView component.
+remove unnecessary event listeners in searchfield component
+remove unnecessary assertion in Calendar WeekView settings tests
+Improve rowNodes method for better handling of row parameter
+refactor activateFirstCell method and set active node to first cell
+use generateUniqueId method for unique id generation in toast component
+Fix uniqueId generation logic in Toast component Fix uniqueId generation logic to handle cases where s.uniqueid is not defined.
+Handle adding a default column if none exist and fix event listener for column selection in modal.
+allow action buttons to have more menu settings if available
+fix trimming of text in search input value assignment.
+improve uplift contrast theme
+remove redundant describe block in slider.e2e-spec.js
+update padding and alignment in datagrid component
+fix missing collapseSize property check in updated method
+fix: update setTime method condition in datepicker
+fix column width in test-two-columns.html for better display
+fix missing default value for date field in specific language test
+fix incorrect element access in modal component.
+improve card interaction functionality with drag and drop feature
+fix an issue with handling date values in datepicker component
+fix unselectRow function to remove _selected property from dataset rows * fix unselectRow function to remove _selected property from dataset rows * remove _selected property from dataset rows in unselectRow function
+refactor `extend` function in Utils module
+add tests for error page opening on click
+fix two digit year handling in datepicker
+fix image comparison method calls in searchfield e2e tests
+fix tab navigation in Accordion adding headers dynamically tests
+remove layout query parameter from slider tooltip position test
+improve item content template in swaplist
+update Change Log reference in contributing guide
+update spinbox settings logic
+fix formatting in changelog entries
+Increase opacity of splitter overlay to improve visibility and enhance user experience.
+remove addTabButton when removing tab panel inputs
+allow row deselection in datagrid settings
+fix typo in CHANGELOG.md Fixing a typo in CHANGELOG.md
+add support for Danish language culture file in karma configuration
+refactor tooltip event handling in datagrid component
+fix issue with eventHead loop in Calendar component * fix issue with eventHead loop in Calendar component * update loop logic in Calendar component to fix bug
+Add delay before checking element visibility in calendar.e2e-spec.js
+update date format test in locale.func-spec.js
+fix typo in class name
+refactor tablist scrolling logic
+fix: handle optional chaining in setEmptyMessage function
+Set lastTerm to buffer in Autocomplete.prototype requeststart event, remove unnecessary assignment in Autocomplete.prototype request.done event.
+update sleep duration in homepage e2e tests to be longer for better stability
+fix Update test date in locale.func-spec.js to prevent test failure
+fix some bugs and improve functionality in various components
+Update Breadcrumb test to include async keyword in describe block
+fix accessibility test for breadcrumb component
+align large searchfield search icon for better display
+Adjust position of close icon in application menu with search field
+fix border-left style for hidden table cells in datagrid
+refactor click event handling in popupmenu component
+refactor monthview API initialization and destruction
+fix strict equality check for maskOptions in Datagrid component
+fix translation for 'Columns' to use correct plural form
+Remove unnecessary data attributes from element in WeekView component.
+fix an issue with Data Grid stretchColumn functionality. 'last' used to work, see #6063.
+Refactor tooltip component to remove unnecessary white space characters
+Remove unnecessary version specification for Chrome in webdriver:update command.
+remove unnecessary styles from modal example index
+fix a bug in bar component for calculating total values - fixes
+improve axis label positioning and adjustment in bar component
+improve test for count in select all current page setting
+refactor popdown puppeteer tests, update keyboard press delay
+fix close icon display logic in searchfield toolbar
+reorder bubble locations for appropriate rendering
+Update ordering function for dynamically generated labels in pie chart slices
+fix URL parsing issue in custom matchers
+allow cbox menu to handle filters with false values
+fix radius test case in sunburst-chart-spec.js
+update linear color scale behavior for d3 pre-5.8 and 5.8+ versions
+fix incorrect source code link in header.js
+fix a broken source link in examples list
+update method call from client.account.list to client.batchAccountOperations.list
+allow either "execute" or "file" to be required parameters
+allow npm package imports with absolute paths in addition to relative paths
+add publicPath option to prerender function参数
+fix bug when spreading lines in code frame
+fix: update while loop condition to ignore external urls in workerCode
+Handle getStats error as non-fatal\nCode diff type: error handling
+update README with duplex stream information
+refactor createConfigAsync.js to improve plugin handling
+update webpack and webpackbar versions
+refactor webpackHotDevClient.js to use createSocketUrl for socketUrl creation
+refactor start script to remove explicit host and port usage
+avoid warning for HRM plugin in webpack v4 when hot is true
+fix missing comma in customization.md file
+fix reducer logic to correctly maintain target order
+Set the grow property of the Box component to a number value instead of a string in ModalComponent
+improve Audio Effects unit tests
+Refactor button image styling in sound editor component
+Add internationalization support to browser modal component
+improve comment about toolbox refresh functionality
+Remove console.log statements and unnecessary comments from timer.js
+comment out unnecessary assert statements.
+remove unnecessary return statements in transfer functions
+Refactor pause and unpause functions in Pausable.sol
+update truffle installation command
+remove truffle.js from main configuration
+remove unnecessary onlyPayloadSize check in increaseApproval and decreaseApproval functions.
+remove coveralls NPM script
+fix small bug, remove unnecessary comment in FinalizableCrowdsale contract.
+update the Burn event signature to use uint256 instead of uint
+remove unused variable 'day'.
+Remove unnecessary FinalizableCrowdsale() constructor call
+remove unnecessary null sender check in transfer function.
+update contribution guidelines and collaborating organizations
+update CONTRIBUTING.md to remove outdated instruction on using rebase instead of merge
+update branch name in CONTRIBUTING.md
+reorder token transfer logic in ERC721BasicToken contract
+remove allowance check in _burnFrom function.
+update allowance functions return type in ERC20Pausable contract
+update workflow configuration
+Update version to 2.4.0 (unreleased) and add Address.toPayable helper function
+Update version to 2.4.0 (unreleased) and add Address.toPayable helper function
+remove unnecessary linter directive and comment.
+remove unnecessary comment and assertion in div function
+remove unnecessary comment and whitespace
+rename contract name to MyCollectible and token symbol to MCO
+remove unnecessary code related to casting UINT256_MAX in SafeCast.test.js
+prepare 3.3.0
+Fix formatting issue in contract documentation template.
+remove unnecessary interface implementation.
+Remove optional reception acquirement in `_mint` for `ERC777` (#2552)
+Remove unnecessary state mutability warning silencer in _msgData function.
+refactor upgrade logic in ERC1967Upgrade contract
+Remove duplicate entry for {ERC20FlashMint} and update README.adoc\nCode diff type: update
+remove outdated audit information from overview section
+Fix hierarchy inconsistencies between `contracts` and `test` introduced during the 4.0 repo refactor.
+remove unnecessary options from getHexProof method
+Update changelog for version 4.4.1
+Remove redundant requirement for `tokenId` being already minted
+update access-control documentation to use _grantRole instead of _setupRole for role assignment
+Remove Court prefix from EIP712 in utils/cryptography/EIP712.sol
+Remove unnecessary --prefer-offline flag from npm ci command.
+Remove note about `view` functions not being `virtual` and add links to the document.
+fix promise mapping in withResolver helper function
+Remove verbose logging option from project configuration
+refactor development object to separate port variable
+fix bug in API URL construction in search execute function
+Remove unnecessary reducer injection in Search route file. The reducer is no longer needed for the search functionality.
+Update DatasetView component to use single quotes for consistency.
+handle empty display in Warning component
+fix import path for ACCEPTED_LICENSES in CheckLicense component
+replace componentDidMount with DocumentTitle in HomePage component
+ignore gh-pages branch for filters in workflows
+Remove .emoji class from LanguageSelection.scss
+remove media queries for container width and padding
+remove text alignment styling in Counter component.
+Remove language prop from Header component and its propTypes.
+Remove unnecessary opacity style from catalog preview title.
+add webpack plugin to only include French locale for moment.js [#<issue_number>]
+remove unnecessary query parameter 'p' from facet component
+handle paging display based on search results count
+Refactor Harvests component to use arrow function syntax
+Update responsive styling for statistics component to adjust height for smaller screens.
+update padding in Box component for responsive design
+improve thumbnail uniqueness handling
+handle thumbnails display conditionally based on metadata\nCode diff type: handle
+Improve styling for address in Contact component
+add componentWillUnmount method to remove 'no-xs-scroll' class from body in SearchPage component
+remove unnecessary body styles and media query for overflow:hidden
+fix alt attribute value in avatar image tag
+Disable resizing of discussion form textarea.
+Refactor clearSession method in Header component to use session.clear directly in onClick event handler
+Update Piwik tracker initialization to use getTracker method and remove redundant setTrackerUrl and setSiteId calls
+Refactor margin styling in search result component
+Remove flyToOptions from Map component in CenteredMap component
+Remove unnecessary Head component and inline styling in PreviewTable component
+remove unnecessary download bytes initialization
+Refactor Producer component to accept producer object as prop and remove withFetch hoc.
+allow display of Datagouv component based on metadata type.
+Remove links prop from DatasetPage component parameters
+update search query handling in SearchInput component
+Add event listeners for route change start and remove them on component unmount
+Remove UNSAFE_componentWillReceiveProps method from SearchInput component. It is no longer needed as the functionality is handled elsewhere.
+remove __elastic parameter from API request
+update dialog title rendering logic in queue-page.js
+remove i18n filter from Vue main.js
+fix Remove extra character in queue-page.js
+Remove unnecessary divider in now playing page
+fix undefined text in tabs in nowplaying-page.js
+comment out unnecessary icon assignments
+Remove opacity styling from footer buttons in MaterialSkin theme.
+disable SlimBrowse method in browse-page.js - update command and params
+update browse-page - refactor id constants
+Refactor now playing page text display logic
+Remove unnecessary v-flex element from now playing page.
+fix bug in setBgndCover function to correctly handle image sizes
+remove unnecessary early-return statement
+fix bug in setting item_id in browse response data
+fix bug in parseBrowseResp function.
+remove unnecessary comment in browse-resp.js.
+Remove unused onTransportException method in server.js
+Update width of image-grid-text in CSS styling
+fix close method typo in manage-players script
+improve image grid table styling in MaterialSkin HTML
+fix duplicate id key in fetchItems function in browse-page script
+Remove unnecessary string interpolation in log messages
+Update minifyCss function to handle additional CSS formatting characters
+update padding for v-card text in style.css
+remove unnecessary arrow icon from toolbar title.
+Remove unnecessary server.push in information.js.
+fix hideClassicSkinElems function parameter to conditionally hide elements
+fix title tag in standard header HTML file
+fix undefined comparison logic in nowplaying-page.js
+update layout detection logic in index.html
+update isLandscape() function to calculate landscape mode accurately.
+fix background cover logic for now playing page
+fix date format in screensaver component.
+Fix script tag formatting in index.html file
+Update image grid emblem styles
+fix unnecessary true condition in updatesAvailable function
+refactor text key handling in browse response parsing
+style: add padding to player list in manage-players.js
+Remove unnecessary 'icon' variable declaration in lmsServer component.
+fix object property deletion in getMiscJson function
+Remove unnecessary line break in the now playing page.
+Remove unnecessary code related to 'threeLines' in nowplaying-page.js
+update logic for top menu items in browse page
+Remove unnecessary BBC Sounds icons and update Times Radio icon in icon-map.
+Refactor browseHandleListResponse function in browse-functions.js
+Fix typo in nowplayingFetchArtistInfo function
+remove console.log statement in getTrackSource function
+refactor custom actions to support dynamic action keys
+remove unnecessary alert function in iframe-dialog.js
+Remove material skin subscription from cometd messages
+Refactor code to trim section IDs before retrieving elements
+Remove shortcut information in party mode
+remove unnecessary functions for copying images and elements
+remove error filtering logic in Raven service
+remove phantomjs-prebuilt from dependencies
+remove MODEL_FACTORY_INJECTIONS configuration
+remove unnecessary dev dependency for ember-deferred-content.
+remove unused production configuration
+remove X-Powered-By header in express static middleware
+Remove unnecessary conditional check for pathName in hash-to-query module.
+Refactor api-index-filter to remove lodash.uniq and update sorting logic rancher/rancher#21892
+update deploy provider to heroku with buildpack URL
+improve createExcerpt test assertions
+Remove og:image meta tags from head template
+Remove image property and width/height assignment in open graph tags test
+remove unnecessary console.log statement
+Remove deprecated handler from deprecation workflow configuration.
+remove extra header for package imports
+fix incorrect property access in ClassFieldDescription component
+remove unnecessary fallback logic for qpVal in _scrollToElemPosition method
+remove tracked results property from dropdown component
+use buffer.writeUInt32BE without specifying endianness in time-uuid.js
+Remove unnecessary margin styles from homepage searchfield-wrapper.
+remove extra line breaks and hyperlink in dropdown view
+Remove unused commented out code for checking tab overflow in tabs.js.
+fix bug with date, add two more useful links and improve tab functionality
+fix an issue with modal title result count display in lookup.js
+Allow empty content to be displayed in tab panels
+remove sidebar and step panel scrolling options from step process configuration
+remove unnecessary code for setting initial value
+Remove unused download build assets and demo site URLs from CHANGELOG.md
+remove duplicate type attribute from destroy button in toolbar search field view
+remove unused date format configuration
+remove unnecessary code for setting orgStyle and container style in destroy method
+update modal input field to use title instead of upper
+Remove dontManageOptions option.
+remove unnecessary data-options attribute from date filter input
+remove unnecessary comments and code for date formatting
+Fix selection logic in test-on-selected.html file
+Remove touchendInterceptor function and touchend event listeners from accordion.js
+remove unnecessary code in testWidth function
+Refactor jshint script to remove unnecessary files from linting
+Remove commented out row button styles from datagrid.
+Remove duplicate test for modal functionality in colorpicker documentation
+Omit unnecessary function call to setTreeDepth.
+remove label for email field in example form
+fix save option in splitter configuration
+Fix issue with selecting search field in contextual action panel when ctrl key is pressed. Updated code to select search field using jQuery instead of directly accessing element by ID.
+Refactor pager button click and touch event handling in pager component
+remove commented out code and unnecessary event.stopPropagation in modal keyup event handler
+Remove padding adjustments in dropdown component.
+uncomment code to handle minutes in timepicker
+Remove autocompletePlaceCallback function and related logic
+Remove unused column alignment logic
+remove focus box-shadow from autocomplete component.
+Remove offset option from tooltip initialization in datagrid.
+add rollup script and new dependencies
+remove unnecessary line.
+update minify script to remove unnecessary warning flag
+Remove commented out code for container and element children in datagrid.js.
+Refactor toolbar method to remove unnecessary condition
+remove commented out code and unnecessary assignment
+Remove resize event listener in toolbar-flex component
+Remove redundant color option in Color Picker component
+Remove unnecessary test scripts and commands from Makefile.
+comment out coverageReporter in karma.conf.js
+remove unnecessary sleep command from e2e test setup
+Remove unnecessary postbrowserstack:functional command.
+improve error handling for file type validation in is() function
+Revert version to 4.6.0
+remove unused dataRoute from app.js.
+Update variable declarations to use const in app.js\n\nUpdated variable declarations in app.js to use const instead of let for improved code readability and consistency.
+Remove unnecessary prepublishOnly command.
+Remove npm install and npm run install-globals instructions from readme
+prevent vertical scrolling in tab list container
+Remove margin from searchfield-wrapper in application menu.
+Remove focus on fdescribe for Autocomplete API (select) testing
+fix release script command in package.json.
+remove unnecessary check for IE in option handler middleware
+refactor the metadata retrieval in autocomplete-select.func-spec test
+fix export file name in excel export function.
+remove unnecessary code for handling object type in Tabs prototype
+fix cloning logic in Tabs component
+Remove square focus state logic in tabs component
+Refactor category selection logic in searchfield.e2e-spec.js
+Refactor ColorPicker Methods test suite to remove unnecessary setTimeout calls and improve readability
+Improve spacing and comment formatting in pull request template
+update browserstackBuildID logic in protractor.ci.bs.conf.js
+fix broken links in CHANGELOG.md
+fix bug in datagrid test form validation logic
+remove disabled form example from validation readme
+remove unnecessary sleep command in dropdown e2e test.
+Conditionally download and install Google Chrome only if not running the lint test suite
+Remove es6Template option and related logic from hierarchy component
+remove unnecessary console logs and improve code readability
+fix typo in test function name and update comment style in dropdown e2e spec test
+Remove html markup from formatted value in Datagrid.
+Remove unnecessary styling for searchfield toolbar.
+Remove redundant tests for Tabs click example-activated-event.
+remove debugger statements from custom-route-options.js to improve code cleanliness
+rename describe block to fdescribe block
+fix test case description for moving to a specific page in datagrid.
+remove unnecessary abbreviation and short name fields from dataset.
+Simplify adjustment logic for non-collapsible Toolbar Flex searchfields.
+Remove unnecessary popstate event listener in modal component
+refactor searchfield click listener logic
+Update node decoration logic in Tree component
+Rename test suite for `Datagrid Lookup Editor`.
+Remove commented out code for header layout in custom route options
+remove overflow property from card content and widget content
+fix logTaskAction message in writeHtmlFile function
+fix event handler function to use regular function syntax
+remove unnecessary console.log statement
+improve alignment and spacing in editor component styles
+handle empty date values in datagrid editors
+Remove isSpantooltip method from Accordion component
+Remove unnecessary DOM element removal in hierarchy API test.
+Refactor Lookup paging tests to focus on paging functionality.
+Revert the release-it commands in package.json to fix the issue with pre-releases and GitHub releases.
+refactor pager component: remove tooltip functionality
+refactor timezone display functionality in Locale API tests
+refactor IE11 fix implementation in CompositeForm component.
+fix alignment issue in searchfield toolbar.
+Refactor build method in Header component for improved readability
+Remove audible span from lookup component
+refactor test case to use 'it' instead of 'fit'
+Remove unnecessary setTimeout in Tabs API test.
+update Truffle installation command and library import paths
+Update import path for Ownable.sol from zeppelin to zeppelin-solidity/contracts.
+Fix transfer function to use address(this).balance instead of this.balance.
+update function and parameter names
+fix typo in README.md
+Prepare 2.1.0 (unreleased) with new features for Solidity compilers targeting 0.5.x line, WhitelistCrowdsale, RefundablePostDeliveryCrowdsale, and PausableCrowdsale.
+Fix the links in the DOCUMENTATION.md file to remove unnecessary branch references.
+update npm package-lock.json and dependencies
+Update warning message to indicate feature availability in current version.
+update computed property dependency to include nested projectVersions array in model
+update service worker configuration for production environment
+update staging environment URL with fastly CDN link
+clear hash and set search parameters in hash-to-query module
+update npm version to 9 in GitHub Actions workflow
+fix: Correct syntax for defining coreConnectionsPerHost distances in connection pooling configuration
+improve drag and drop functionality in tree view with right mouse button support
+Add click event messages for testing disabled states suppression
+fix step selection logic in step-process markup
+update svg pattern sizes to 1500x1500
+fix issue with IE detection in Dropdown component
+remove singleline option from comment column in datagrid-editable-editor
+Remove toolbar from My Assets page and add paging functionality
+Update mask values for percent columns in datagrid-format-percent.html
+add release notes about vertical tabs changes in v44
+Update tabs layout and styling for better user experience
+Remove commented out code for selecting items in listbuilder-on-updated.html
+enable zoom on blur for iOS devices in toolbar search field to prevent zooming issues
+Remove initial page state handling logic from example-paging-indeterminate.html.
+add new features: isDisabled, isBrowse, send method to FileUploadAdvanced component
+fix customValidation option in datepicker input configuration
+Update alert message for empty value validation in test-alert-types.html
+improve styling for tabs with popup menu
+update tooltips for movable items in listbuilder
+update label for field to better reflect its purpose
+fix badge style assignment logic in tree component
+Refactor split button sorting functionality for better readability.
+add target bar selection logic for positive-negative column chart
+fix tooltip display issue in datagrid.js Fixing an issue with tooltip display in the datagrid component.
+update beforeShow property type to function in modal component
+update date parameter type in locale.js to lowercase
+rename len2 -> dataSetLen
+Refactor modal.js to handle beforeShow settings efficiently
+fix timepicker dropdown width and period styling
+update version numbers and branch names for new release: 4.5.0-rc to 4.6.0-rc, git tag updates, and build configuration adjustments
+Remove unnecessary pages from sitemap.yml.
+improve README by updating installation instructions and adding editor plugin recommendations
+update npm section to clarify the registry URL and name
+allow Textareas to handle shift key press for printable characters and prevent exceeding character limit
+Refactor ListView selection logic and toolbar display handling
+On-Hold visual regression test creation, SOHO-7464
+fix the clearable option in the dropdown component
+Update Landmark team information in TEAMS.md
+Refactor search functionality in datagrid to include expandable rows in search results
+rename function for clarity.
+improve format contributing section in CONTRIBUTING.md
+Update modal button click trigger logic to exclude fileupload and input elements.
+fix date format in Dutch localization file
+remove BusyIndicator initialization and related elements
+fix comparison logic for 'is-empty' condition in Datagrid
+improve readability of autocomplete templates in test-beforeopen-event
+remove unnecessary 'name' field and add 'abbrName' and 'shortName' fields for better readability.
+fix margin-left value in RTL layout for image elements
+improve doc for dev releases
+remove unnecessary assertion in hierarchy-stacked.e2e-spec.js
+fix: ensure dataset is an array in hierarchy stacked API test
+Set up button functionality for committing cell edits in data grid
+remove functionality for committing cell edits that may not be working
+Refactor dropdown example icons and colors customization
+fix manual triggering of key event in Firefox for autocomplete functionality
+update tree.e2e-spec.js with additional Ajax data node count
+fix an issue with multiple selection in test modal datagrid single column.
+update image threshold for flex toolbar test
+update Swedish translation for Timepicker Set Time
+Update Uplift Theme with improvements to Dark/Contrast variants to pass WCAG guidelines.
+Update eslint version and configuration for improved code quality and consistency
+fix the logic for syncing dataset with selected rows in datagrid * fix the logic for syncing dataset with selected rows in datagrid
+remove border color styling for card drag and resize handles
+update event listener functions to correctly handle card parameter in resize, reorder, and remove card events
+update event listeners in homepage and widget components to include component name in console log messages
+fix layout and scroll issue in Personalize section
+fix missing attributes in textarea settings object
+update Tabs API documentation to include attributes setting and clarify usage
+update spinbox settings with additional attributes
+remove console log statement
+Refactor chart destroy function to remove multiple chart classes.
+refactor multiple selection checkbox attribute addition logic in cards component
+fix bug with font color on tags in Datagrid when row is hovered over in dark mode
+Enable focus on items with allowTabs setting in ToolbarFlex
+update ToolbarFlex logic to account for AllowTabs property
+Fix the checkbox overlap issue in Datagrid and add formatters and editor for multiselect.
+disable function keys F1 to F12 in dropdown fix
+Update Chrome version to 94 and remove unnecessary chrome version 92.
+fix calculation of numberOfWeeks in MonthView Refs: #bugfix
+add checkbox examples with hitboxes for better user interaction.
+Update input id in searchfield element in header toolbar component
+update localeExemptions array with corrected locale code for Taiwan.
+update action buttons in example-actionable card component
+fix puppeteer script link for Spinbox Field sizes on mobile, resolves issue with incorrect reference number
+Remove unnecessary version specification for Chrome in webdriver:update command. Update Chrome version to 100 in package.json.
+Remove unnecessary chrome version update in webdriver:update command.
+fix headerIconTooltip position in productName column definition
+update webdriver-manager to version 106.0.5249.91 in package.json
+update Django version to 1.10 in Travis configuration
+update legend display and add scrollbars for better visualization
+improve html legend display and add selected legend highlight
+Update API reference to v3.0 in README and clarify d3.js version compatibility
+Update versioning information and CDN location in README file
+Merge box selection and transition logic in heatmap chart
+update data visualization library links\ncode diff type: update
+fix broken link in README.md.
+update Azure Node Essentials extension for Azure SDKs integration
+update README with new features and sample workflow
+Update changelog.md with bug fixes for Mac, readme updates, and generator package version check.
+Update version to 0.18.1 in compute management package.json
+Update ms-rest package.json version to 1.15.6
+Update ms-rest-azure version to 1.15.6
+update firewall rule models and operations in dataLake.Analytics and dataLake.Store.
+update default AutoRest version and change language and modeler variables to be mutable in gulpfile
+update source path in mappings for apiManagement and operationalInsights\nCode diff type: update
+update npm version in before_install script
+Update ChangeLog for version 2.0.0-preview with improved TypeScript support and added Promise support for APIs. Also, moved JavaScript code to ES6 syntax and added client libraries for various ARM services. Minimum required Node.js version is now 6.10.
+update ms-rest-azure to version 2.0.1
+update package.json sources to include both service and runtime packages
+Add license information and setup gulp tasks
+Update version to 2.0.0-preview and update package description
+update default AutoRest version to '1.1.0-20170704-2300-nightly --prerelease'
+remove azure-arm-intune from package_service_mapping.
+update Azure API version to 2017-08-01
+update regex pattern for excluded services
+Bump version to 4.0.1 and update description for Azure Network Resource Provider Management Client Library
+update ms-rest and ms-rest-azure versions
+improve response typings in ms-rest library
+update ms-rest-azure version to 2.5.0
+update service names in package_service_mapping.json.
+Update consumption management package.json version to 3.0.0
+fix token generation for test suite playback
+update API version in Key Vault Storage tests to 2018-03-01-preview
+update scriptPath for VerifyAgentOS script to correct path
+refactor exec function to improve readability
+update node version to include 12.x in matrix
+Fix typo in README.md for ConfigurationObject data type
+add curl to dependencies and set healthcheck in Dockerfile
+update Docker Buildx action to v1.6.0 with latest buildx and qemu versions
+update Docker Buildx action to v3 version
+add link to Deskreen in README file
+fix the formatting of the CLink component to ensure WAI-ARIA compliance
+remove unnecessary keyboard interaction item from accessibility.md
+update webpack version to 5.65.0 in getting started guide
+Refactor filter component animation for smoother performance
+update toolbox initialization to use prop value directly
+Refactor test.js to use loadUri function for project loading. Fixes #96708228.
+update scratch-vm version to latest prerelease version
+update scratch-blocks version
+update package.json with latest package versions
+rename GatsbyJS to Cheat Sheets in manifest options
+add additional site metadata fields to useSiteMetadata hook
+improve packagePatterns in packageRules to include specific versions and schedule updates for weekdays and weekends
+replace og:image with dynamic ogImageUrl generation
+update copyright date in license file
+use postman sdk to handle certificates in requester options
+update html-reporter-template-data.json with new timestamp and version
+update postman-runtime to the latest beta version
+add support for legacy assertions in assertion events
+add test scripts for response validation in sample-collection.json
+update version to 3.6.0-beta.2
+update Postman API endpoint URLs in README to use the correct Postman Pro API endpoint.
+Add momentjs to the sandbox and support for authorization mechanisms and IO events
+fix exclusion list in nsp test.
+handle global variables in config.get callback
+refactor globalVar handling in cli.test.js for better error handling and clarity
+update nsp test to prevent erroneous exclusions and ensure dependency versions match in package.json
+fix a bug in excluding dependencies in nsp check function.
+refactor options.bail to include additional modifiers for graceful stopping of collection run
+update error message assertion in run options test
+update docker build script to tag images with latest version and Travis tag
+include assertion error message in failure details
+improve script definitions, fix file existence check in project repository test
+Upgrade Node version to 8.11.2\nThis upgrade allows for better compatibility and performance improvements in the alpine 3.3 environment.
+update failures display logic in template-default.hbs
+Update README.md to clarify reporter export path creation logic
+remove accidental exclusion in test
+Improve JUnit reporter test cases for shallow-junit-reporter test file
+improve JUnit reporter test cases for time matching in shallow-junit-reporter.test.js
+fix timeout default values in module.exports
+set latest tag to alpine image and update docker repository name in postpublish script
+Update paramSyntaxRegex for FROM to allow hyphens in tag names
+increase precision for time measurements
+improve readme + add htmlextra reporter plugin
+Update Postman logo image link in README to use assets.getpostman.com URL
+update contributing guidelines in CONTRIBUTING.md
+Add options to show local and UTC timestamps in CLI reporter.
+Add ability to view request and responses in CLI reporter `--verbose` mode and additional meta data.
+fix parameter naming inconsistency in metric request actions.
+remove unnecessary code in metric-selector component
+update installation instructions for Ubuntu
+update package.json with leveldown to version 2.1.1
+update URL for published updates
+fix image path in lemonade recipe
+fix image path in bourbon-mule recipe
+fix import statement in getRecipes.js to correctly access recipes module
+improve AST documentation with pending changes and renaming suggestions
+refactor AST node type names for consistency
+add font-optical-sizing property to supported list
+refactor GitHubButton props in Hero component.
+Replace <video> element with <Video> component in ValueProp stories.
+update Hero component subtitle in IndexScreen
+update gatsby-config flags and add query for gatsby-plugin-sitemap
+Increase block window duration to 300000
+Handle validation failures in proposed transition in proposer module
+update Coda Grants information in contributing.md
+Fix a bug where the cache was not updated when writing to the broadcast pipe.
+Fix the header level for "Full Node" in the glossary
+allow AddrsAndPorts to be added to ConsensusConfiguration as a non-null field
+Update challenges link to point to the new challenges page.
+fix the gsutil download path
+increase unit test parallelism to improve build speed
+Add verification function for transaction in transaction pool module
+fix BUILDKITE_AGENT_META_DATA_size to BUILDKITE_AGENT_META_DATA_SIZE
+Add coda_numbers library to runtime_config dependencies
+Allow ppx_dhall_type in nonconsensus/coda_numbers/dune.
+fix missing timing field in Network_config structure
+fix size calculation logic in Icon component
+add environment variables for Go and Cargo paths in client SDK unit tests script
+Refactor equal and assert_equal functions to use to_field_var helper function
+Update Coda demo image tag in sandbox-node.mdx file
+update rosetta-cli version in README.md
+add supercharged_coinbase_factor to network config in coda automation module
+Fix receiver public key in send-payment command
+update SPREADSHEET_ID in Dockerfile to new value
+Update Dockerfile-toolchain to allow unauthenticated installation of Helm tools
+Update the Doppler documentation with installation instructions for different operating systems.
+fix image file extension in NodeOperators page
+replace Constants with i18n in grant application links
+Refactor commitment lengths computation for Dlog Plonk types
+Add optional weight parameter to log function in snarky_log module
+update text in SecuredBySection component to display "100s" instead of "XXXX"
+update title for Bijan Shahrokhi to Head of Product
+fix incorrect sorting order in Contentful API call
+refactor healthchecks to use utility function for daemon sync check
+Update leaderboard sheet names and ranges for Adversarial Testnet - Leaderboard and CurrentReleaseLeaderboard to reflect latest changes.
+update coda-rosetta image version to debug-v1.1.4 in README.md
+update readiness probe command to include peer count validation
+allow specifying cost and budget for rpc handlers
+handle context timeout for stream creation
+Refactor node selectors to use 'Exists' operator instead of 'In' for GKE preemptible instances
+update readiness probe commands for user-agent and Mina testnet bot health checks\n\nThis commit updates the readiness probe commands for the user-agent and Mina testnet bot health checks to ensure accurate synchronization and command checks.
+Update genesis transition key in gen.ml file
+Bump version to 0.4.4 for archive-node chart
+comment out watchman image, volume, mount path, and command rancher/rancher#XXXX
+Update Watchman installation in Dockerfile to use specific version v4.9.0
+rename container name and image in watchdog.yaml file to match service functionality
+rename role to watchdog
+Add provider configuration for watchdog deployment in testnet
+Remove unnecessary file path in deploy script
+improve workspace isolation logic in DeployTestnet script
+Update args in container to run watchdog.py instead of prometheus_server.py
+refactor artifact upload logic in buildkite-agent script
+Update Debian package repository URL to use the unstable branch.
+Refactor parameter name from peer_ids to peers in get_telemetry_data_from_peers function
+Update type definition in Get_telemetry_data module to use Mina_net2.Multiaddr.t list option instead of Network_peer.Peer.Id.Stable.Latest.t list option
+update mina archive schema URL in testnet zenith configuration
+Refactor token calculation to use a separate function for clarity
+fix logic in hasEnded and validPurchase functions, update order of conditions.
+Set font weight to 200 for browse text in style.css
+update playerStatus to include album information and fix media session update logic in toolbar.js
+Update font weight for better readability in classic skin mods CSS
+fix icon mapping file extension handling
+Add select all option in sync dialog and improve UI styling
+Update API_HOST to use HTTPS for secure connection
+fix ember-cli-build.js: update rootUrl variable for testing & dev PR-URL:
+fix cdnUrl interpolation in environment config
+update mocha-multi to latest version
+Remove unnecessary columns from system.peers query
+Add afterEach handler for unhandled error check in test-helper file
+Fix an issue with colorpicker where settings are not properly referenced, update to use self.settings instead. Also, add logic to destroy input mask if it exists.
+update version to 4.7.0-dev
+update BrowserStack badge URL in README file
+Update deploy documentation script to include site parameter
+update start script in package.json to remove npx usage
+update datepicker e2e test for time format and value comparison
+improve notification styles [commit_id]
+allow datagrid element width to be dynamically set based on min-width CSS property
+Update Chrome version to 95 in webdriver:update command.
+improve image-file-upload template with code examples
+Refactor TupleErrorList rendering logic to separate dirty and pristine error lists. This simplifies the code and improves readability.
+refactor form validation logic in djng-forms-set
+update rollup config to include terser plugin for umdMinConf
+rename BillingManagement to BillingManagementClient in billingManagement service
+fix import order in wmr-middleware.js
+allow process import injection for commonjs modules with whitespace flexibility
+fix variable collision issue in htm-plugin
+update production test cases to use expect().toMatch() instead of includes() for better matching
+update default iceServers configuration in Peer class
+refactor config initialization in Peer constructor
+update webpackHotDevClient.js to fix port calculation logic
+Remove unnecessary line disabling ScratchBlocks Events
+add comments prop to Blocks component defaultProps
+use the prop value for updating the toolbox
+Refactor setToolboxSelectedItemByName method to setSelectedCategoryByName for clarity and consistency with naming conventions
+update shadow types for motion blocks in toolbox XML
+Refactor workspace listener attachment and removal logic in Blocks component in JSX file\nCode diff type: refactor
+use the vm editing target to ensure the sound reference is correctly updated.
+update scratch-vm version
+update the Analytics event value to label in ProjectLoaderHOC for consistency.
+Update renovate.json configuration for reviewer assignment and version bumping.
+improve graphql sdl download instructions
+Update run.sh script to extract and compare Travis tag version correctly.
+update navi notification info background color to navi blue 500
+refactor SocialGraph component to include meta description tag for SEO optimization
+use the framework name dynamically for canonical link generation
+refactor box-shadow styling in HeroDemo component
+refactor apply_coinbase_exn to use coinbase_amount directly for reward calculation
+Update the daemon log redirection paths to use a single file for both stdout and stderr.
+Improve error handling in daemon process with long async cycle logging
+update genesis account balance to 66000\nCode diff type: update
+Update artifact_paths to use S.contains instead of S.strictlyStart
+Update demo-node private key in docker-test-start.sh
+update logging in snark worker functor module
+Refactor random oracle module and unify inputs with Pickles library.
+refactor seed generation logic in Epoch_data module
+Rename variable and fix naming convention in snark keys header module
+fix missing parent error handling in breadcrumb builder module
+refactor connection retry logic
+fix loop syntax in testnet connection script
+Handle catchup job with target hash dynamically in ledger catchup module
+allow optional other data parameter in named_filename function
+update codaToolchain version in ContainerImages.dhall;
+Refactor error handling in common_prefix.ml for chains with no common prefixes
+update code to use Core_kernel.String.Map for args in generate_loggers_and_parsers (needs manifest rebuild)
+Refactor best_vrf handling in proof_of_stake.ml to use fold instead of iteri
+update stream states in libp2p_helper tests to reflect data expectations
+Refactor num_accounts calculation to handle current location in masking merkle tree
+Remove valid_until field from block.ml struct definition and encoding logic
+Update Sponge Params mapping in random oracle module
+Refactor accumulation of terms in `accumulate_terms` function to use a map instead of a list in plonk constraint system.
+update transaction_snark to use full commitment for fee payer
+update mina images to beta1 version for test-snapps network
+Refactor comparison operators for clarity
+Use the "Pickles.Backend.Tick.Field" module for Digest instead of "Kimchi_pasta.Pasta.Fp".
+update mina archive schema URLs for token ID overhaul feature
+Update module import in snapp_payments.ml file.
+fix keypair initialization in test_executive/snarkyjs.ml file
+Refactor step_main function to use Types_map.typ for handling different types of data.
+remove unused timed account and related logic
+update mina archive schema URL generation logic
+fix: Add additional parameter to input functions in Step and Wrap modules
+refactor parties generator to handle token accounts generation
+Refactor authorization kind handling to use structured data types
+fix global slot conversion in pending_coinbase module
+update snark profiler lib to include zkapp prover and vk in update_states function parameters
+Add verification key hash field to account update creation and initialization
+fix flow type annotation in PluginsRegistry onProcessStyle method
+improve createGenerateClassName function and add memory leak warning.
+Update npm api_key configuration in Travis CI deployment
+replace expression process.env.NODE_ENV === 'development' by local variable 'pretty'
+update RegularCell prop type to PropTypes.node.
+update cardbase download logic using fetch API
+replace event binding and unbinding with on and off methods in webscheme_lib.js
+Replace window[t] with $.fn.bootstrapTable.utils.calculateObjectValue in queryParams function
+Refactor showColumn and hideColumn methods to remove unnecessary parentheses around arrow function parameter.
+improve datepicker change event handling in filter control
+Fix the card-view layout in the theme.scss file.
+Refactor column formatter to handle undefined or null values. Fixes.
+use same node-sass and styled-jsx-plugin-sass dependencies and moved them to devDependencies
+add Link component import in documentation page
+Refactor commonDependencies array to include only module names without path separators > improve readability and maintainability
+add common dependencies to commons.js bundle in next.config
+Remove unnecessary player management option from toolbar and update menu items.
+refactor UI settings component for Android compatibility
+refactor layout checking logic and remove unnecessary functions
+Update progress-circular style in information dialog
+remove duplicate code for large covers switch in UI settings.
+Shift popupmenu down if target is within masthead.
+fix issue with closing the popup menu in autocomplete feature
+Improve layout for draggable components with collision detection
+Refactor monthview.js to handle year and month selection efficiently
+fix an issue with initial selection error in Pie component
+fix hover effect on accordion header links
+Fix event listener removal in PopupMenu component
+refactor default filter handlers in base mixin class
+Update edit link onClick event in cheat-sheet-template.
+refactor PageLayout component to use variables for metadata and urls
+Remove redundant Zeplin addon item and add missing Story2sketch addon item in AddonScreen.
+remove DisconnectedBlocksPerHour alert from testnet-alert-rules template
+refactor testnet-alert-rules.yml.tpl template and add MultipleNodeRestarted alert
+Refactor apply_parties_unchecked function in transaction_logic.ml.
+fix a missing index creation for receiver_balance in blocks_internal_commands table
+initialize account's public key if it is new in parties logic module
+remove redundant locale information from table options documentation
+refactor printHostingInstructions function and improve deployment instructions
+Remove unnecessary search engine update preference.
+refactor FAQ component to use inline mapping for question rendering
+update redux-devtools-extension version.
+Update istanbul-reports version in yarn.lock cached
+allow multiple params for executeTask$ function arguments
+Added filter function to handle tab closing animation and onAdd function to handle tab addition logic
+add prepare script to package.json
+Update main file and add src and jest-preset.js to files array
+Refactor GridAlign to set position and size before aligning items
+Refactor Tile.js for isometric orientation and camera positioning
+Improve the "assertThat" function in the hamjest library to correctly handle the expected value parameter.
+bump version to v9.0.1 with performance improvements and bug fixes
+add release notes for version v9.1.0
+add `maxBlockSize` on write streams to auto chunk big blocks being written
+add new feature to feed.get method
+add v9.4.0 release notes to CHANGELOG.md
+add async callback support to downloaded method
+Set default searchType to 'upload' in search redirection logic
+Add reaction emojis for specific channels in guild ID 352896116812939264
+update changelog for Geckodriver upgrade and new wait time for geckoprofiler
+fix transferableTokens calculation and add test for composed vesting schedules
+fix multiplication by zero bug in SafeMath
+improve timer.js for testrpc integration
+update div function to revert on division by zero
+allow tokenId to be converted to string in ERC721 contract
+add requirements comments to pause and unpause functions
+Update SignedSafeMath library functions to handle signed integer operations safely
+update mint function call in ERC20Snapshot test
+use `cache` from `setup-node` instead of `actions/cache@v2`
+improve contract initialization security and clarity
+Remove unnecessary information and add bullet points for clarity
+fix wording in comments for clarity.
+update contact_links in config.yml
+Override _burn function to handle token-specific URI deletion.
+fix revert message for non-ERC1155Receiver implementer in ERC1155 contract
+improve UUPSUpgradeable.sol documentation
+improve transfer method warning message and add note about recipient capability
+refactor MerkleProof library to improve readability and consistency.
+refactor string comparison tests for large strings.
+Override default value of decimals function for ERC20 token.
+Add error handling for branch push in release workflow
+fix test case to include transfer events for both tokens
+refactor dataset fetching logic for better performance.
+improve dropdown width and position for better visibility
+improve table responsiveness and readability in article styles
+increase client pool warm-up iterations and add interval check for in-flight queries
+allow setting column header as max cell value length if bigger than all data cells
+add jasmine tests for modal events and lifecycle events on the Modal component
+Improve layout for Menu Button Test page with split button functionality
+add event listener for toolbar items in test-disabled-items-in-spillover page
+Swap out AJAX call in More Menu Adds functionality to swap out the AJAX call in the More Menu with a different one upon button click.
+improve TESTING.md by adding details about screenshot capture and comparison process
+update textarea e2e tests for responsive width validation
+improve validation behavior on readonly fields
+fix the autocomplete list container in the e2e test for the Autocomplete example-index view
+refactor test pruning logic in build script
+fix cleanup function to include modal-page-container in test Editor API
+fix datagrid paging tests - update element selector for datagridEl
+Refactor script to handle rebuild option in verify script
+Update dropdown filter types in test-filter-types.html
+Refactor multiselect.e2e-spec.js to use it instead of fit for deselecting all items and displaying an empty pseudo-element.
+add error checking and improve test coverage for Datepicker Umalqura component
+fix URL query parameter in Gregorian SA datepicker test.
+Remove unnecessary waits for element clickability in Datagrid paging serverside single select tests.
+fix bug in toolbar-flex test-more-actions-selectable
+Refactor styles for focused and expanded accordion headers in theme-uplift, fix border color and background color inconsistencies
+remove early-return for link tag settings display
+refactor searchfield.e2e-spec.js for better visual regression testing
+refactor e2e tests for message component styling and focus management
+fix bug of incorrect button selection in pager toolbar
+fix cleanup logic in swaplist test suite
+Update modal title tooltip display logic for Soho and Uplift themes
+fix issue with change event not firing when selecting from autocomplete menu
+fix bug in color saturation display
+Adjust short date formats with no separators or special characters.
+fix a bug where the mask was not applied correctly for certain characters in the input value
+increase padding for application menu trigger and adjust icon width for app header icon
+improve colorpicker input styling and trigger positioning
+fix issue with button click event handling in datagrid component.
+fix issue with undefined X/Y coordinates in Button component
+Remove group and style options from formatNumber options and update maximumFractionDigits and minimumFractionDigits to 15
+fix cursor style in 'Bar Chart' test case
+improve test efficiency by removing unnecessary error check.
+update table rendering logic in composite chart example
+fix filterHandler logic to correctly handle isFiltered function
+update process-global-plugin to handle ES module imports and exports
+improve caching of package file contents for quick access
+remove unnecessary ownerNode check in updateStyleSheet function
+refactor plugin sorting logic in normalizeOptions函数
+update mergeConfig function to use generics
+update sidebar layout width for responsiveness
+fix reference to localStorage in use-localstorage.js
+improve button hover effects and colors
+validate exported prerender function in workerCode
+improve fixture runner command validation and setup
+allow makeError function to accept error message as a string or Error object
+allow error objects to be passed as strings and nested within an error object
+Enable gzip compression and ignore node_modules in watch options for dev server.
+Update README to clarify customizing Babel config in Razzle.
+fix aggregationMean time and size retrieval logic in PostmanHTMLReporter
+improve custom reporter installation instructions in README
+add test case for validating query parameters in request chaining integration test.
+refactor Update request printing logic in CLI reporter
+set TAG variable using npm_package_version in postpublish script
+Allow multiple folders to be specified for running from a collection in newman.js
+refactor code to remove selected and cursor classes in a more efficient way The code now uses a more efficient method to remove selected and cursor classes from multiple elements.
+fix typo in description of Pear Manhattan Cocktail recipe
+Refactor variable names in internalMatch function, rename ifStack to thenStack and alternative to elseStack.
+Update README with installation instructions and code examples\n
+Improve error message for connecting to Coda daemon
+Improve error descriptions for various scenarios in rosetta_lib/errors.ml
+update documentation for unset_parent function in masking merkle tree interface module
+Update error message in user command input module
+add test log artifact generation for integration tests
+improve the environment setup for running integration tests
+Calculate lower bound fee based on party balances in parties module
+rename proof_of_stake.ml prev_sub_window_densities -> density
+update error handling in snarkyjs-node build script
+update field name 'coeff' to 'compact' in Plonk constraint system module
+Improve format of contributing section in CONTRIBUTING.md
+Handle errors and display appropriate messages during password reset process
+Add render functions for card links and percentages in PlaytestData component.
+handle error message display for failed update操作
+improve custom sorting logic in bootstrap-table
+add error handling information to table options documentation
+update copy icon configuration and improve toolbar initialization logic
+Enable virtual scroll for export functionality.
+refactor export button creation logic in BootstrapTable class
+Refactor print formatter logic in doPrint method
+update reorder-rows.md with cursor element details
+handle ajax request abort by multiple requests
+Refactor sortPriority handling in cookie extension
+improve PR template To ensure any PR makes: update in changelog add or update test to cover the new changes update documentations
+fix getDirectoryOfProcessById to correctly retrieve process directory
+update package tree verification message to include "would" for better readability
+Add hover effect to buttons in homeContainer
+enable HTTPS-Only mode in all windows Fixes
+Improve user instructions in `prefsCleaner.sh` script
+update test case for Input component to render label even if hidden
+Update TimelineNav padding for small viewports
+add flexibility to event logging in gtag.js by allowing optional parameters and enforcing required fields
+Adjust input field label positioning and animation for better user experience
+adjust drag target release threshold to 20% and close release threshold to 80%
+update snow detection criteria in first pass module
+Refactor error message handling in MonitorEarthEngineExportTask.
+improve button hover effect in button2 module
+add functionality to reset form values and track dirty state of form inputs
+fix bug in value assignment logic in actionBuilder module
+improve section layout styling
+Update button module CSS for improved responsiveness and font size adjustments.
+Refactor date handling logic in DatePicker component to improve code readability and maintainability.
+update visualization parameters for radar bands in radar_mosaic module
+add keyboard navigation functionality to Combo component
+replace resize$ with size$ in ElementResizeDetector for clarity
+improve button fill animation styling in frontend widget module
+replace concats with template literals in modules/gee/docker/src/comm/channel.js
+Update rxjs operators in EETableSection component to include distinctUntilChanged, filter, and tap
+increase retry attempts and backoff time for tagging instances in AwsInstanceProvider
+update color names and messages in sepal.sh script
+fix a bug in module status messages
+refactor cancel function to cleanup function for better clarity and readability.
+authenticate with service account and user account
+improve module log display and handling in dev-env/sepal.sh fix log command to show module log tail and handle multiple modules in do_with_modules function
+set sepal default group to dev and add sepal groups and group function
+improve message logging in sendMessage function
+fix an issue with logging in the channel module to handle trace level logging properly.
+Rename label to confirmLabel, remove chromeless, shape, and icon props, add confirmLabel, title, and skipConfirmation props.
+improve tooltip for showing dotfiles
+Refactor log messages in Pool module for better clarity
+improve map scale toolbar button styling
+allow super button to be dragged and repositioned
+refactor map.js methods for better readability and organization
+Refactor SepalMap bounds conversion methods for better handling of Google Maps LatLngBounds.
+Refactor argsJoiner to filter out nil arguments before joining
+fix an issue with resetting form values in form.js
+Allow tooltip confirmation button to render tooltip confirmation on mobile devices.
+improve function names and fix tooltip visibility logic
+rename toggleVisibility to setVisibility and add onClickHold method\nCode diff type: rename
+refactor layout structure in composite options panel
+update color picker size and border radius for improved styling
+rename legend to reference_data in the filename in TrainingData component
+update debounce time and add marker update logic in mapInfo panel.
+update spacing variables in layout module CSS
+update icon path to fix rendering issue
+improve palette tooltip in translations file
+fix issue with package bundling script to handle directory creation and file removal properly
+fix defaultFromDate calculation and toDate formatting in planetMosaicRecipe
+refactor edit button rendering logic in RecipeListData component
+refactor recipeListData.js / improve code readability and structure
+improve button appearance in recipe list data component
+Refactor confirm module styles for improved readability
+refactor exportImageToAsset function and improve logging.
+refactor item height and spacing logic in FastList
+Replace new Date().getTime() with performance.now() in BlurDetector component.
+improve lock and unlock user messages
+improve user role change confirmation message
+fix the update message bug
+update split view background styling
+preserve cursor position on selectable text input
+improve event propagation documentation in README
+refactor getXAttrs function to handle type filtering efficiently
+refactor data expression evaluation logic in component.js for better error handling
+improve movePluginBeforeInitAuthPlugin function logic and error handling
+improve role description in marks.md and fix punctuation error
+update dest signal handling in reorderable matrix chart
+handle promise rejection in loadPending function
+update error message for invalid scenegraph path
+fix bug in pulse.changed() condition in transform function in Encode.js.
+improve error message for missing required parameters in transform parser
+handle data set lookup errors in scale parser
+update event listener and signal listener handlers in View class
+update font handling logic in text measurement functions
+improve screen reader experience by replacing abbreviated time specifiers in format function
+fix styling for radio inputs in vega-bind section
+Add functions to retrieve and decide if a device is a TV, and update device type based on device properties.
+improve error handling for readObjectSync function in fileutils
+Handle NO_PENDING_EVENTS error in getOperatorEvents function
+Handle error catching in fetchOperatorEvents function
+fix an issue with vault creation not being properly handled in different document ready states
+add function to format duration and count in key metrics
+update policyMet state initialization to null for better handling of password input validation
+update range-selector styles for responsiveness
+style grid buttons for toggling different styles.
+refactor currentCountQuery to use chained query methods
+Refactor URL generation logic for different contexts.
+improve error handling in render-html-plugin
+add file list control with on-change hook function
+Remove absolute positioning and cursor styling for descendent elements
+rename 'Blocks' to 'Body' in card.md file
+fix function to correctly calculate color level, update logic for negative values
+improve styling of display utilities for better readability
+update console log messages for unused variables detection
+fix responsive table display issue at specific viewport widths
+update branch filter pattern in CircleCI config
+Refactor search page filtering logic to exclude values with specific count
+prevent swipe action when there are visible menus in the app
+fix home button functionality in browse page
+fix issue with touch event handling on now playing page to prevent unwanted behavior
+fix logic for setting favorite type in browseItemAction function
+ignore status for unknown players in lms-server component
+Allow right click to pass through on tab click event
+fix issue with date selection logic in DatePicker component
+disable visual regression test for example-selectable in Chrome CI to prevent failures in the pipeline
+Update describe block in applicationmenu.e2e-spec.js to focus on Personalization tests and fix URL in beforeEach function
+Update test to disable it instead of focusing on it
+Change active test case to pending for formatting dates with short timezones.
+add use argument to autorest command in gulpfile.js
+Add option to specify a directory to ignore watch events in
+Handle errors thrown by Puppeteer during page navigation
+ignore node_modules directory when filtering files in boot.test.js
+Add chromatic-ignore class to NpmDownloadCount component (bug XXXXXX)
+ignore chromatic aberration in Player component waves
+Refactor to_input function in local_state.ml to remove unnecessary failure_status assignment
+refactor network options handling to ignore network type
+ignore validation callback in some cases
+ignore error message in log and raise function
+Remove unnecessary assignment in scan_statement function
+Update nodemon command to ignore additional directories.
+add eslint-disable-line for unused variables in Sort.js file
+update csv download test with new header fields and data format
+ignore the yarn cache directory on Ubuntu
+Exclude IntelliJ IDEA module files from conflict check
+update coveragePathIgnorePatterns in jest config to properly ignore Next.js files and additional components.
+Properly ignore common/config in coveragePathIgnorePatterns in jest config.
+ignore common/utils/api-utils.js properly in jest config.
+add test-utils to jest config
+Add import/export mappers for components and common directories
+update collectCoverageFrom patterns in jest.config.js
+ignore store files in jest configuration
+Add cookie-utils.js to Jest configuration for testing purposes
+Update Mergify configuration to auto-merge PRs with 0 changes requested reviews.
+refactor getQueryFacets method to improve readability and efficiency
+refactor browse response parsing logic
+fix bug in store.js where boolean values are not properly converted to 'always' or 'never' for grid configuration items.
+fix bug in setting icon for favorites in browse response
+fix issue with promise resolution in lmsListFragment function
+fix the issue of updating player icon in manage-players component
+refactor dialog handling logic and improve user experience
+extend support for blissmixer command in browse response parsing\nCode diff type: extend
+Add support for rendering HTML content in player settings plugin items
+Update project model lookup logic to handle old references to ember-data API docs
+refactor fadeOut method in personalize.js to handle multiple initializations on one page
+Translate legacy "high-contrast" theme into "contrast" for redirection
+fix focus reset issue in modal component
+remove unnecessary code and cleanup in about-api test file
+Update handling of _maxItems in legend.js to check for undefined values
+handle case where data channel event is missing `channel` property
+handle RTCPeerConnection creation error with destroy method
+update webpackHotDevClient.js to dynamically determine serverPort and sockJsPort based on environment variables and window location to improve flexibility and compatibility with different deployment scenarios
+handle null responses from storage in project-loader-hoc
+allow loading projects by projectId prop from parent component
+fix initial peer connection logic and error handling in daemon process
+Handle exceptions gracefully in keypair operations
+Add a new module `Connection_with_state` to handle connection states in gossip_net module
+Update receiver_overflow handling logic in transaction_snark module
+Reset best_tip_ledger to None when frontier is None in transaction_pool\nCode diff type: reset
+refactor the genesis_ledger_from_tsv.ml file
+Improve worker handling and error handling in verifier/prod.ml
+fix error handling in bigint_256.rs deserialization
+fix account creation fee verification logic and error handling in replayer
+Handle overflow in writing to strict pipe in child_processes module
+Refactor annotation extraction to handle optional string values
+refactor error handling in account timing check test suite
+update numNonCreatures calculation in DraftView to improve clarity
+Set default filter value from query parameter in TopCards component
+allow passing browser arguments when starting the browser process in openBrowser utility.
+fix selected bands assignment logic in analyze.py
+fix issue with active state not updating correctly in Selectable component
+fix recipe unsaved check logic in ProcessMenu class
+fix error handling in mosaic preview component
+replace store imports and update error message rendering in notifications widget
+fix an issue with userAgent dimensions calculation.
+Fix issue with handling missing bands in RadarMosaic class.
+Update drive.py to include pagination for listing files and add progress tracking for downloads.
+fix a bug in download function when no files are provided
+fix an issue where status description is not properly converted to JSON format in TaskEndpoint
+fix issue with missing keyColumn check in eeTable function.
+Refactor `MonitoringTileProvider` in `modules/gui/frontend/src/app/home/map/tileProvider/monitoringTileProvider.js` to use BehaviorSubject and debounceTime operator from rxjs instead of Subject and scan. Fix the logic for adding and removing requests.
+refactor getAllVisualizations function to use selectFrom helper for better readability
+refactor error handling in SampleClassificationSection to improve readability and maintainability
+update proxyMiddleware to ignore path prefix
+fix default datasetIds assignment in getAvailableBands and groupedBandOptions functions
+Improve error handling and logging in AWSInstanceProvider
+fix loading logic in ImageForm component
+Handle empty userDefinedVisualizations array in recipeImageLayerSource component
+refactor image loading logic in loadSegments.js
+fix the selection of url template in planet image layer
+update SVGRenderer to handle nested marks with remaining points
+fix Issue with setting GeoPoint coordinates when projection fails
+Refactor launchAndroidSimulator function to return promises consistently
+Refactor findAccountUser to run concurrently without leaking goroutines.
+enable HTTPS option based on environment variable
+refactor Improve code readability by formatting function calls and object properties consistently.
+fix issue with getting name from exception in Stack function
+handle async and sync lambda handlers
+allow non-error promise rejections in CLI process handling
+fix handling of non-numeric values in addition and subtraction functions
+Allow signature abilities in ModifierHelpers class
+allow remove action on destiny tracker with meta key
+add event handlers for text input and key events
+allow composition events for accented characters and handle disabled input
+Update file blacklist to ignore additional dependencies
+update grammarForLanguageName method to handle case where grammar name is null
+Refactor response channel generation in ipc-helpers\nCode diff type: refactor
+update merge function to handle item specificity
+Fix issue with handling grammar activation in workspace module.
+allow usage of temp.js module in startup snapshot generation
+fix panel autofocus logic
+Normalize the origin coordinates in PointWithinGameObject component
+fix a regression with audio decoding error handling and parameter renaming for sound manager
+allow object as marker parameter in play function
+update WebAudioSound start and stop methods for better sound control
+refactor text padding handling in Text.js
+handle delayed playback in update method
+rename variable in PullPayment contract
+rename pending to registered in isOperation function
+Refactor setApprovalForAll function parameter name in IERC721 interface
+refactor ERC2981 contract to use tokenId and salePrice as parameter names
+update font file naming convention based on environment - closes
+Replace statusTimer with serverStatusTimer in cancelServerStatusTimer function
+refactor myMusic variable names and functions in browse-page.js
+rename "Alt" keyboard shortcuts to "Option" for macOS
+rename tmrDelay to timerDelay
+rename banner text to IDS Enterprise Components, update banner text based on selected controls
+rename initTooltip method to setTooltip in Dropdown component
+Update card-header style in listview test-remove-clear.html
+update listview empty message test for flex container layout
+fix: corrected element name in visual regression test
+update method names and descriptions in button-api.func-spec to be more descriptive and accurate
+fix typo in test file path for card frozen columns fixed row height test.
+Rename djng_forms_module to djngModule, rename djngError directive to djngError, and rename djng_forms_module.directive to djngModule.directive.
+rename formCtrl by controller in validateMultipleFields directive
+rename the innerError property to innererror in CloudError class
+remove default project changes
+update camera option text in costume tab.
+Rename cacheAsset to createVMAsset to better reflect its purpose
+rename knownReporters to knownReporterErrorMessages
+Refactor SecureFs to SecureFS for consistency and clarity
+update attribute selector to use 'matcher' instead of 'operator' to improve clarity
+rename get_old_pods to get_misassigned_pods in bridge/src/main.ml
+Rename protocol_amounts to genesis_constants for clarity and consistency in naming conventions.
+update error variable name in cleanup testnet function\nCode diff type: update
+update field names in Plonk_verification_evals module
+rename dispatch_cleanup_PARTIAL to f_dispatch_cleanup for clarity\nCode diff type: rename
+add restart functionality to libp2p module
+update seedPeers logic in helm.tf
+refactor gating state struct fields, update naming to reflect functionality
+refactor register_process function in child_processes.ml to improve readability
+Set PROJECT to "mina-dev" when DUNE_PROFILE is set to "mainnet"
+update flag creation for rest-server to include -- prefix
+update variable name in add_snapp_transactions function to be more descriptive
+Refactor opening_proof_of_backend function to handle points at infinity in plonk_dlog_proof module
+fix balance change field name in transaction_snark module
+refactor global slot variable names in processor.ml file
+Remove version V1 and update to version V2 in stable module
+Refactor table creation to use updated precondition type enum in zkapp tables.
+rename state variable to resolve naming conflict
+replace functionPlugin and observablePlugin imports with functions and observable in jss-preset-default package
+rename cardImg function to cardImageUrl
+fix email validation method key in form submission
+Update application name and description in meta tags
+Refactor variable names in ContactList component for clarity.
+Rename function calcPreviewBars to resampleBars for clarity
+rename npm script "component" to "create-common-component"
+Rename ArticleItem to ArticleGroup
+update backgroundImageSource prop key to backgroundImageSource.
+rename import correctly
+rename Zeit to Vercel in partners list
+update package.json: updated homepage URL and fixed style key in package.json
+update hiding content header and description.
+fix typo in navbar class name
+fix cloudCover method to use correct data field
+fix key naming inconsistency in transformAoi function.
+update typology button text from `TOP` to `TYP`
+fix text for scene selection label in translations file
+update titles in translations.json\ncode diff type: update
+Update alert email from sepal_operator_email to sepal_monitoring_email in monit config template
+allow specific services to be used exclusively
+improve README to document Firebase products and configuration options
+fix typo in Firebase Functions shortcut in README
+rename perf variable to firePerf variable
+fix the static option bundle path in README
+Replace joy plot with ridgeline plot in u-district-cuisine.md
+Rename loadConfig to loadOptions in ImageLoader function
+update range calculation logic for rangeStep in Scale.js
+fix incorrect type in expression-test.js file
+fix type definition for TimeInterval in scale.d.ts file
+replace d3.csv() with datalib.csv() for data loading and field renaming\nCode diff type: replace
+rename girder-plugin to girderPlugin in package.json.
+Fix date formatting function to use correct variable names and improve readability
+rename $eventHandlers to eventHandlers
+update user trust level logic to differentiate between moderators and VIPs
+rename cache_directory field in VRChatConfigList
+fix Update telemetry instrumentation to accurately capture network request start and end times. This prevents duplicate events and ensures correct timing data.
+Rename scrub to scrubFn in addScrubber function.
+remove unsupported params
+rename section title for clarity
+rename variable to improve clarity
+fix calculation for navbar brand padding-y
+update dependencies script to exclude bundlesize and improve manual update message
+fix variable naming inconsistency in dropdown styles. Update dropdown shadow variable name.
+Enable double click zoom when map is not frozen
+allow buttons to be used as links with href prop
+add subtitle prop to <Box> component
+refactor queue-page.js for improved functionality
+Refactor toolbar.js for better player status handling
+fix player selection by id or name bug
+update mobile.css height calculation to adjust for 32px difference;
+fix a bug where no player error message not displayed properly
+update height property for select options in classic skin mods CSS to ensure proper display
+fix keyboard control logic in server.js
+Refactor logging in cometd messages to improve readability
+remove unnecessary condition in toolbar.js
+fix logic in randommix dialog for displaying selected genres
+handle different icon types in icon mapping logic
+allow sub-titles in dialogs to span multiple lines in v-dialogs
+handle plugin list response in browse page JS file
+Update condition to check if version starts with "test" and add missing parentheses.
+Add data-index attribute to autocomplete result template for better item selection. Update select function to handle data-index attribute for item retrieval.
+Refactor condition checking logic in datagrid.js\nRemoved unnecessary empty string check in condition evaluation.
+improve focus restoration logic in modal close event
+refactor goToNextStep method to use self instead of this for better context clarity
+ignore theming if client doesn't accept HTML
+fix image borders to prevent jump on focus
+handle prevent default on link click in header component
+Update webdriver:update script to remove specific Chrome version.
+fix text-decoration and color in tree items and adjust badge width in tree items
+Allow beforeCommitCellEdit event to be sent for Editors.Fileupload in Datagrid
+Add ALLOWED_HOSTS configuration in settings.py
+refactor digestUploadScope function and scopePrefix assignment in djng-forms directive
+update ENV_KEYS to include 'module' for better resolution handling
+add testResultsProcessor to supported keys in jest config
+update Jest config to include modulePaths and testResultsProcessor
+add watchPlugins to supported keys in jest config.
+Add support for rendering children components in GUI component.
+update branch configuration for deployment
+allow #fullscreen and #player links in validation regex.
+Allow both http and https URLs in import modal validation
+wait for sprite update before switching to costume tab
+allow more mime types to be processed for sound uploads. Added support for audio/mpeg and additional audio/wav formats.
+allow additional props to be passed to AddonList component
+remove mailing list confirmation styling and component from CommunityHero screen
+update Video component to pass additional props
+update Release component props to pass down all props
+fix search query length condition in useAddonsSearch hook
+update graphql endpoint to localhost:3085
+prevent unused value warnings for version number in generated code
+Allow default None values for private key and delegate in account data serialization
+refactor to support multiple network protocols in to_peer function
+Allow specifying peer list URL when no initial peers are provided
+update cliff_time calculation to handle fractional slots (needs validation adjustment)
+Allow custom child processes to be started with updated naming convention.
+improve handling of uptime submitter key options for Mina delegation program.
+allow daemon to create threads before daemonizing
+Refactor authentication type handling in Parties_segment module.
+refactor account id loading in snapp command parties extraction
+allow for reversed field order in JSON parsing
+update apply_parties_transaction to include network state parameter
+Enable Inline_test_quiet_logs module in mina_lib.ml
+extend InsertionPoint type to include Comment for more flexible insertion options
+fix comparison input handling in editcube.js
+fix legalities check for Modern, Standard, and Pauper formats in convertLegalities function.
+allow partial argument descriptions for power, toughness, and cmc tokens
+allow alphanumeric characters in alphaNumericValue in values.ne
+fix the query logic for fetching decks and cubes
+allow integer keys in addition to string keys for js-ref function
+refactor isValueExpected method in BootstrapTable class
+update package name extraction logic
+update Uglify ecma version to 8 in production webpack config - enhancement
+add support for import() syntax in babel preset
+extend config gracefully for object types in jest config
+fix file upload value clearing issue
+allow setting custom instanceId for ThemedReactSelect component
+add custom data attributes to Container component
+improve select input field styling for better user experience.
+fix context issue for google token revocation in UserEndpoint
+fix calculation of disk space usage in GbUsedHandler
+Add setInitialValues method to set initial values in form widget.
+improve className handling in Input component + add className prop to Input component
+fix input props spread issue in DatePicker component
+update Button component propTypes to allow children to be either an array or an object
+fix button type and disabled logic in PanelButtons component
+allow float prop in Slider component
+update Dockerfile to allow node user to run ssh without password
+Add support for additional policy in recipe form panel configuration
+allow dynamic id generation for activatable component
+add direction prop to Scrollable component Add direction prop to Scrollable component
+Simplify logic for onEscape in FormPanelButtons component
+update _.isPlainObject to _.isObjectLike for better compatibility
+Improve handling of auxiliary_imagery in Classification module.
+allow tooltip prop to accept any type
+allow custom children in ViewportResizeDetector component This change allows for custom children to be passed into the ViewportResizeDetector component, providing more flexibility in its usage.
+Refactor clean function to handle module-specific cleaning operations
+Allow users to be created as admins if specified.
+Allow ANSI color sequences in rsyslog configuration
+Update closeTab function parameters to include nextId and modify finalizeCloseTab function accordingly.
+Update layout property value in Buttons component Update layout property value in Buttons component
+allow input to accept any type for busy message
+Allow updating date value in FormDatePicker component
+allow children prop to be of any type
+fix the decision tree file select in classifier form
+update validValue range in isValid function to include 100.
+fix issue with extracting scenes from undefined sources.
+update event listener in BlurDetector to include 'mousedown' event along with 'click' and 'focus' (allow)
+allow locked status to be specified in legendBuilder inputs
+update histogram job to use custom histogramMaxPixels value
+fix import paths for MosaicPreview and RecipeActions in AuxiliaryImagery panel
+fix validation error in inputImage panel configuration
+add decimals prop to minConfidence input in Options component
+Refactor getLabel method to handle nested buttonLabel in selectedOption
+allow customizing HTTP and HTTPS ports in haproxy configuration
+update VERSION_REGEX to allow for negative numbers in versioning
+update i18n initialization to use i18next and set moment locale to i18n language
+handle error status code in getInitialProps function
+initialize Next.js configuration with empty values
+Fix image sizes in the README.md file. Update Browse, Now Playing, and Queue images to be 270x.
+update command array to include item title in playlist command
+update list size based on fetched data count
+update current player volume value when it changes in toolbar component
+fix background color setting logic in setBgndCover function
+fix an issue with setting media session playback state in toolbar.js
+fix RecycleScroller key-field issue in queue-page
+limit the number of items displayed in browse response and show error message if exceeded
+fix issue with setting background cover image when coverUrl is undefined or ends with default values
+refactor idStart initialization in parseBrowseResp function.
+fix font weight inconsistency in style.css.
+improve tooltip functionality in toolbar.js
+fix volume update logic in toolbar.vue
+update splitter minSize to improve user experience
+fix auto-scroll issue in queue-page script
+update scrollbar thumb size
+update LMS_MAX_NON_SCROLLER_ITEMS to 75
+Update the maximum number of non-scroller items to 100 in constants.
+fix drag image issue in player management page
+Set debounceTimer to undefined when stopping debounce.
+remove unnecessary icon property assignment in browse response parsing
+fix bandgenres initialization in initPlugin function
+fix an issue with page classification in iframe-dialog.js
+fix bug in updating previous page variable in browse-page.js
+Update favicon and icon settings in standard header\n\nChanged the favicon and icon settings in the standard header to use a new icon file located in the material folder. Added a new link for apple-touch-icon with the same icon file. Updated the sizes for better display on different devices.
+update meta tags to include Logitech Media Server as web app title
+update window title and add meta tags for mobile app support
+fix text-field type binding in browse-page.js
+refactor logic for setting type in browse response parsing
+Add maxlength validation for SSN Last 4 input
+rename templateName to 'project-version/classes/class'
+Set Cache-Control header for static assets to improve caching efficiency
+update yarn installation script to specify version 1.0.1 for consistency
+set browserstack timezone to America/New_York for ci:bs e2e tests no issue
+set timezone to America/New_York
+fix issue with setting currently selected tab when closing tabs in the list
+Update version to 4.23.0-dev for IDS Enterprise.
+initialize homepage with editing set to false\nCode diff type: initialize
+fix checkbox positioning and width to prevent page jump on click
+Add logic to set decimal separator based on locale in number mask function
+Add IOS as the operating system for iPad in environment utils
+update webdriver-manager to specific Chrome version 98.0.4758.102
+set static root path for production deployment
+Set initial value for ChoiceField if widget is Select and initial is None
+Add required attribute and min length validation for password field.
+refactor fetchDatasetEpic to include dataset configuration in setDataset action
+set selected category when adding extension
+Set x and y icons to aria hidden
+set up S3 deployment configuration for AWS access keys and bucket name
+set smoke url based on the pull request branch name
+Set default WSL version to WSL2
+update test reporter to progress and coverage to min (#155)
+rename prepublish npm script to prepublishOnly.
+update storybook commands for production environment
+update lint target size to small
+fix bug of incorrect git config command placement
+update CODA_VERSION variable to use DOCKER_TAG instead of VERSION
+Set parent_id for existing blocks with null parent_id when adding a new block
+disable use_local_charts in testnet deployment
+Refactor DeployTestnet script to correctly upload testnet genesis_ledger
+refactor archive_configs logic in testnet module
+Update coda_image and coda_archive_image with specific versions for mainnet\nCode diff type: improve
+fix an issue with the query to retrieve the maximum block height, ensuring it is always greater than or equal to 0
+Refactor processor.ml to include functions for finding nearest canonical blocks above and below a given height.
+Add permissions for editing state, sending, receiving, setting delegate, setting permissions, setting verification key, setting zkapp URI, editing sequence state, setting token symbol, incrementing nonce, and setting voting for in initialize state test.
+Make type t private in Stable.V2 module
+Add valid_while field with Ignore value to deploy_account_update_body in big_circuit.ml
+Add timestamp when adding a card to cube in util.js
+fix an issue with the test setup in cubefn.test.js
+fix filterTemp initialization in BrowsePackagesPage
+improve PropTypes shape for draft_formats in CubePlaytestPage
+Handle single export type button click event and export the table with the specified type.
+fix conversion bugs in bootstrap-table-filter-control.js
+fix bug with filter strict search behavior for select filter control
+fix filter column initialization bug
+update launch.json userDataDir path to match project structure
+Allow multiple include paths in webpack configuration\n- Added logic to include multiple paths based on environment and configuration settings.
+Handle appPackageJson in webpack config for preventing conflicts
+update webpack config to include browser and module fields in workspacesMainFields array
+set globalObject to 'this' in webpack config
+change directory to workspace root for file path resolution
+set lang attribute to "en" in html tag
+update cookie options based on environment variables
+refactor authorization header handling in API utils.
+fix isVetTecApproved default value
+fix card reveal animation and overflow issue
+set SEPAL environment variable to true in init_post script
+Set locale to en_US.UTF-8 in environment variables
+Refactor BuildVRT calls to include VRTNodata parameter
+fix login handle to update current user stream
+Fix the hazeScore calculation when surface reflectance is enabled in the mosaic definition
+update haze tolerance and surface reflectance in backend module
+Adjust the layout height in dates module CSS
+set auto select scene count in mosaic recipe body
+set disk size to 64GB in Vagrantfile
+fix color styling for chromeless buttons in look module
+Update log level for org.openforis logger to DEBUG
+Set VRT_SHARED_SOURCE config option to 0 before building VRT in BuildVrt task.
+Set logging level to WARNING for googleapiclient in get_service function.
+Update Segment class constructor to include defaultDate parameter as optional.
+fix default arguments in Segment class constructor
+Refactor package installation commands in init_image.sh
+Set default encoding option to 'utf8' in terminal$ function
+add cache control header to response for better caching
+remove quotes from var
+Set PROJ_LIB environment variable in init_post.sh script
+Set default padding value for fitBounds function in map component
+set initial search box value to prop value on component mount
+set sameSite to false
+fix: add ShmSize configuration to DockerInstanceProvisioner
+update kernel creation logic to include label information
+Update minZoom default value to 0
+Update minZoom value to allow for closer zooming on the preview map.
+Enable showing tracebacks in VoilaConfiguration
+set z-index dirty flag based on pulse fields\nCode diff type: feature
+update dependency vega-typings to version 0.6.2 For compatibility and improved functionality, updated vega-typings to the latest version.
+use the new getAppFolderName implementation in apple.js
+update engine for androidtv and firetv to engine-rn-tvos
+add super admin level to account setup
+update circle ci config to set revision and image tag based on branch or tag.
+set default host value to '0.0.0.0' and add alias 'H' for host parameter
+fix the cache path issue in Program.cs for better file management
+rearrange TokenGrant struct initialization parameters.
+Update Neat breakpoints to use em units for better responsiveness.
+improve table layout in Highlight component
+Update color picker default value for Azure 02 to ADD8EB
+improve focus styles for accordion buttons, update color scheme
+fix an issue with positioning style in Trackdirty component for checkbox and colorpicker inputs
+Fix event propagation and prevent default behavior in Modal component
+add option to disable specific dates in month view calendar
+Update test case for tabs not returning overflowed tabs at 300px.
+adjust font size in expandable area title for better readability
+update totalWidths logic in Datagrid for modal view support
+fix getFileName function to correctly extract filename from URL
+remove unnecessary script tag
+Remove unnecessary code for clearing selected rows in lookup mode
+skip resizing tests in application menu puppeteer spec
+Remove unnecessary version specification for Chrome in webdriver:update command.
+improve cell editing styles and outline in datagrid component
+update datagrid column formatters and editors in datagrid-validation.func-spec
+update visual regression test for cards component
+update width of line chart to improve visualization and display of data
+update grunt dependencies versions
+update demo script in package.json to remove build command and add separate demo:prod script
+update include paths in tsconfig to include all files in project
+Set DEBUG to true for `start` script in package.json
+increase font size of annotations to improve visibility
+fix typo in common.js for rtcConfig URL.
+fix mouseDown check logic in Stage component
+replace div with Box component in LibraryItem component
+remove setOpacity and getOpacity from blocks.js
+replace styled template string with css helper in FeaturesLayout.js
+remove unnecessary environment variable setting quotes The environment variable setting quotes are not needed for the buildkite pipeline upload command.
+Set lint target size to Medium for optional steps
+Update hardcoded file path in coda_automation.ml to relative path
+improve error logging in ledger and genesis proof download
+remove unused variable declaration
+remove metrics-port from seed daemon command
+update data directory path to absolute path
+Refactor BlockTime conversion functions in zkapp_precondition.ml to use composition for better readability.
+update description for persisted transition frontier to load
+fix replayer test script to continue on error.
+Update soft_slots value to 4 in with_timeout function to reduce timeout duration.
+Remove prover_to_json function and its dependency on plonk_wasm
+Add boxed attribute to various types in kimchi_types.ml file
+Revert changelog.md 1563 due to regression 1565
+fix label sorting order bug
+update variable declaration to explicitly specify data type.
+Update event link styles in Home component.
+update image URLs to use INSPIRE_API_URL variable
+handle null revisionDate and creationDate in DatasetHeader
+Change wrapper element from <p> to <div> in Markdown component
+improve dropdown positioning for better alignment with content
+fix media session stop logic and variable naming
+refactor theme list population in UI settings
+Add replacement for $HOST in custom actions code
+update npm install command in travis config
+update Long constructor link to use Long.js library instead of Google Closure Long.
+Set alternate month color to default color in Date Picker
+Update font-color-highcontrast and circlepager-hover-border-color to use color variables instead of hardcoded values (#674)
+remove redundant variable assignment [skip ci]
+Update example state HTML for better clarity and consistency
+improve hyperlink and modal button primary color, fixes
+update pie chart id and type in example-index.html widget.
+refactor enable method to use closest instead of parent for better specificity
+update Set initialization in heatmap-spec.js\n\nThe Set initialization was updated to use new Set() instead of d3.set() for better compatibility.
+remove redundant code for finding readme.nodejs.md files
+refactor serialization logic for required and nullable properties
+remove css and sass handling from wmrMiddleware\nCode diff type: remove
+update error handling in Peer class to call _destroy method instead of _onError
+Refactor _maybeReady function to use findCandidatePair function instead of setInterval
+add test for multistream track event handling
+use new backdrop in default project
+add example to remove vowels from a string in JavaScript
+update SSL client certificate URL match pattern to use SDK constant
+refactor CLI options parsing for better readability and maintainability.
+update nyc to version 11.3.0 for code coverage analysis.
+update cli-table2 to cli-table3 in dependencies
+update Table dependency to cli-table3 in CLI reporter
+improve the `isValidNumber` function in `syntax/index.js` for better number validation
+Update video source in Hero component
+update website link to codaprotocol.com
+use git submodule for package syncing in pin-external-packages script
+update BASE_BRANCH_NAME variable to use BUILDKITE_PULL_REQUEST_BASE_BRANCH
+update public_inputs and size initialization to failwith "TODO" for now
+Refactor txn_state_view to use dummy_state_view in Ledger.apply_transaction
+update header with commit date field for snark keys management
+Refactor helm.tf to merge default values for archive nodes rancher/rancher#12345
+Refactor verification key handling in genesis ledger helper.
+Improve the README regarding handling foreign types in OCaml bindings. Fixes.
+fix broken links in ocaml-rs README.md file
+Improve eval function documentation in Plonk_constraint_system module
+Refactor eval function in Plonk_constraint module to handle gates other than Basic
+Refactor pickles rule creation and compilation logic
+update raise_js_error function to use Js_error module
+refactor pickles.ml to use recursive function for step_data generation
+Throw an error when no domains are given in Pseudo.Domain.shifts
+fix Update card legality check in setCubeType function
+update package installation method from bower to yarn
+fix webRoot path in launch.json file
+update ReactComponent type to FunctionComponent for better typing accuracy
+Refactor updater script for improved readability and efficiency.
+Fix an issue with the updater script where the flag for multiple backups was not working correctly. Also, update the merge function to handle user preferences more efficiently.
+update logoSource regex to replace all whitespace characters for compatibility
+replace Section component with Content component in history page for better structure and styling
+Update alignment and margin for link button container in leadership circle page
+Update image caption in media content page
+Fix the backup script to correctly append the S3 backup bucket name. This ensures the correct bucket is used for backups.
+refactor delValueByKey to delValueByTemplate for removing files and directories
+update componentDidUpdate to redirect to /process when location is /\ncode diff type: update
+rename `Surface reflectance` to `SR`
+replace GB formatting method with fileSize for consistency
+improve tabs container and tab styling
+allow users to set decimal precision for slider values
+use suffix instead of unit for dollarsPerHour and dollarsPerMonth functions
+update variable names and refactor async action handling in SceneAreas component
+add searchable text for band selection options
+Improve DatePickerPanel. Update year options to include additional years for selection. Fix overScroll property.
+remove Label component from RecipeSection and update Combo label prop
+Refactor Enabled component to use React.createRef() for better performance and readability
+fix rx import in operators.py
+fix drag button rendering issue
+improve module configuration in sepal.sh script
+replace fromPromise w/ promise$ in ee extensions utils.js refs: The fromPromise function is being replaced with the promise$ function for consistency.
+Replace parse with new URL in /modules/gateway/docker/src/main.js refs: The parse function is being replaced with the new URL constructor for better URL parsing and handling.
+replace form buttons with button select for type selection in visParamsPanel
+Update ws package version to 8.6.0 and add xmlhttprequest package
+Remove creation of letsencrypt AWS user and policy in provision.yml.
+fix the sort type in VgCollectTransform and VgStackTransform to Compare
+refactor _runGradleApp function to accept device object instead of appFolder, signingConfig, and device parameters\nCode diff type: refactor
+fix regex pattern to correctly replace package.json path separators
+add app version to project configuration options
+fix path resolution issue in resolve.js file
+improve auto-coop matching process with sleep before clicking start button
+Refactor route handling logic to use history.replaceState instead of setting window.location.hash directly
+update progress bar color and text style
+fix friend request status handling in user dialog view
+fix dependency status badge to show peer dependencies instead.
+Refactor button size mixins for consistency
+improve carousel image alignment in documentation
+Update IRC server information in introduction.md in Bootstrap documentation
+fix: Update text truncation content to be more descriptive
+improve dropdown styles in examples page
+update MoneyFormatInput component import and grid item layout in BudgetFields

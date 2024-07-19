@@ -202,7 +202,7 @@ if __name__ == '__main__':
     # Assuming sys.argv[1] is path to reference sentences file (e.g., labels.txt)
     # and sys.argv[2] is path to generated sentences file (e.g., generated_sentences.txt)
     reference_file_path = "../data/angular_filtered/subsets/generation/test_ref.txt"
-    generated_file_path = "../data/angular_filtered/subsets/generation/test_gpt35_golden_classified_rag.txt"
+    generated_file_path = "../data/angular_filtered/subsets/generation/test_race_v1.txt"
 
     with open(reference_file_path, "r", encoding='UTF-8') as ref_file, open(generated_file_path, "r", encoding='UTF-8') as gen_file:
         reference_sentences = [line.strip() for line in ref_file.readlines()]

@@ -1,0 +1,1995 @@
+Move emotion to peerDependencies
+chore: re-enable rollup
+chore: fix devDependencies
+chore: add prepublish script
+chore: update vue to 0.4.2
+Add Mixpanel token to now.json
+chore: update chakra-ui vue
+chore: update build script
+Update jupyterlab to 7.7.2
+chore: remove -a from conventional-changelog
+Remove unused globals from rollup config
+Add react-transition-group
+Update travis config and deploy script
+chore(release): 5.1.0
+fix: remove compile.sh after chmod
+Remove package copy
+Fix regex for versioned go modules
+fix: add missing \ to docker-compose commands
+Remove app parameter from test_node_app
+build: use python3 for g++
+build: add python3 to gyp build
+chore: use branch name for PR
+fix: remove base ref from create-pull-request
+Update alpine to 3.15
+Add freefont-ttf to node docker image
+Add -t flag to buildx build
+build: add dockerfile to buildx
+Update xgo compiler to 1.19.5
+chore: move all dependencies to devDependencies
+Add excludeCandelaNM option to webpack.js
+Fix webpack exclude
+Update UpSet to fix build
+build: remove build:docs from docs build
+chore: remove d3 dependency
+fix: add onset as dependency
+Update package ignore list
+Update d3 to 3.5.17
+add webpack to examples
+update build config
+chore: add npm cache
+chore: update setup-node action
+chore: run eslint in CI
+ci: add env vars
+Rename release workflow
+chore: update workflow names
+chore: update release workflow
+chore: update changeset config
+chore: add bootstrap step
+chore: add title to release workflow
+Run tests and lint in parallel
+Run tests on external PRs
+Remove yarn cache
+Run tests on master
+Upgrade MySQL to 5.7.32
+Add DOCKER_BUILD_DEPRECATED env var
+chore: add browser-tools to circleci
+chore: update docker to 2.1.4
+Update docker images for postgres and mysql
+Remove MINIO_STORAGE env var
+build: add condition-circle
+Add npm install to build
+Remove unnecessary node_modules/candela
+chore: add debug to semantic-release
+chore: update circle.yml
+Remove sudo from lerna install
+chore: use bash instead of sh
+Remove examples build from diff.
+Fix build:coverage script
+Add build:bundle to build:examples
+Add prod build step to build:bundle
+ci: use gittar cache
+ci: add cli test
+Update node versions in travis
+Add lint and deploy steps
+Add prebuild and unit test jobs
+fix build:ci
+chore: use npm instead of yarn
+chore: log commit message
+chore: add branch to verifyCommit regex
+chore: add unit test workflow
+test: once
+chore: add typecheck to CI
+Fix NodeTool inputs
+chore: add --no-ci to postinstall script
+ci: add libgconf-2-4 to travis
+Remove NPM install step
+Fix typo in ERC1155 README
+Fix import path for ERC1155Holder
+Add design principles
+Fix typo in legacyWatch docs
+Add nodemon watch error section
+Update README.md\nUpdate the local installation instructions.
+Update FAQ for macOS
+move sponsor to license
+Update FAQ for Linux
+move sponsor to top
+Update FAQ and fix some typos
+docs: update commit message format link
+Update nodejs workaround
+remove codesponsor link
+Fix code blocks in docs
+fix mixmax logo
+Update sample-nodemon.md
+Fix typos in README.md
+Add some more FAQs
+Update README.md\nUpdated the diff README.md
+Fix typo in faq.md
+Add FAQ entry for clear console on restart
+Add FAQ entry about .env file
+Add docs for graceful reloading down your script
+Update FAQ with Windows clear event
+Update design principles
+Update diff --git README.md
+Update diff --git README.md
+Add Kasyno, Netticasino, and Gaussianiecasino
+Update README.md\nFixing formatting
+Fix nodemon config example
+Add yarn to npm install instructions
+Fix typo in faq.md
+Update faq.md\nFix typo
+Add FAQ entry for watching all file types
+add code block to sample-nodemon.md
+Fix typo in bug report template
+Update diff to reflect recent million projects
+Update docs for unix globbing
+Add support for glob patterns in nodemon config
+add link to logo
+Add workaround for when --inspect flag is passed and the old process doesn't finish before starting
+Add alias section to package.json
+Add packages table
+docs: add description to packages
+Add comments for provideTheme
+docs: add icon parser
+docs: add list, tabs, textarea, and menu components
+Update README.md\nUpdate README.md
+docs: fix link to open issues
+add missing dependencies to docs
+Add comment to $colorMode
+fix blockquote style
+Add Button component
+Add alert docs
+docs: add docs for CAccordion
+docs: add Gridsome Starter to the list of starters
+Update alertdialog.mdx\nModal -> CModal
+Add box docs
+Add tooltip docs
+docs: update alertdialog docs
+docs: update closebutton docs
+add tag docs
+Add Spinner docs
+Add Stat component docs
+Add switch component
+Add stack component
+SimpleGrid docs
+Add select docs
+slider docs
+Add textarea docs
+Update tabs.mdx\nTab -> CTab
+docs: update getting started docs
+docs: fix typo in accessibility.mdx
+Add footer links to docs
+chore: update chakra-ui vue
+Add Chakra UI React link
+Fix typo in Hero.vue
+docs(stack): add documentation for stacking HTML elements
+chore: add github to chakra ui
+chore: update emotion to 0.1.0
+fix: missing comma in code block
+docs: add vuepress components
+Add role group to CButtonGroup
+fix: layout layout
+Add theme config docs
+docs: add breakpoints docs
+docs: fix target
+add nginx proxy example
+fix: update example readme
+Add link to typescript example project
+Add options section to docs
+add code block to now.json
+Fix typo in customization docs
+fix: remove extra dash from npm start command
+Add deprecation notice for modifyWebpackConfig
+Fix link to .babelrc file
+Add Razzle 4.0 docs
+Update README.md\nFixes
+Add Spectrum badge
+Add alias paths docs
+Add dependencies section to getting started page
+docs: add yarn start to debugging instructions
+add razzle config
+Add dependencies to deployment options
+Fix azure deployment options
+Update plesk deployment options
+Add deploy and bootstrap
+Update AWS deployment options docs
+Add new examples to contributing
+docs: remove backticks from examples/basic template
+Fix broken link in contributing guide
+Add note about static export
+chore: add workflow for working on examples
+docs: add info about NODE_ENV
+docs: add postcss to getting started
+Add link to common problems
+Add link to examples
+docs: update upgrade guide
+docs: add a note about css externalization
+Add link to resolutions in package.json
+docs: remove outdated comment
+docs: remove yarn resolutions link
+docs: update buildType docs
+Fix typescript example links
+Add tags to single page applications docs
+Add link to Razzle 3 docs
+docs: add razzle verbose info
+docs: add transpilation of external modules
+fix: fix eslint error
+Update sass options
+fix: add notNodeExternalResMatch to webpackOptions
+Update winget docs
+git: update docs
+Fix typo in DropdownExampleOpenOnFocus.js
+Add link to using proptypes section
+add Popup.js
+docs: update semantic ui react link
+fix typo in Grid.js
+chore: release 0.66.0
+docs: remove deploy:docs step from docs
+Add Brewhousesolutions to the list of products
+docs: update links to semantic-ui.com
+Add lifebot.fr to products
+Add link to semantic-ui-react-todos example
+docs(Usage): add minified CSS file
+Fix typo in diff
+Add link to Edge Developer Experience team's numerous internal apps
+Add react-semantic.ui-starter to README
+Fix typo in Introduction.js
+fix(docs): remove attached prop from example
+Update rating to 5
+Fix icon search input focus
+fix(docs): fix typo in item example
+fix table sortable example
+Add home link to Introduction
+fix: fix param signature
+Add Sublimefund to the list of products
+Icon Search: Add header and message
+Fix code example width
+fix(docs): redirect to https
+Add appfollow.io to list of products
+docs: fix broken links
+Add overlay menu to StickyLayout
+Add according.to.localsourc.es to the list of products built
+docs: update badges
+Fix dropdown example
+Fix dropdown example remote
+Update README.md\nUpdate the list of products built by Semantic UI React
+fix(docs): fix broken example
+docs: change "good first contribution" to "good first issue"
+Update ButtonExampleGroupLabeledIcon.js\nFix typo
+fixes form shorthand example
+Fix React React build
+Fix typo in Accordion example form
+docs: update meteor links
+Add Forecastcycles to the list of projects
+docs(Usage): remove npm install from usage
+fix(docs): fix typo in AdvertisementExampleBannerTop
+Update README.md\nUpdate SUIcrux example
+Add bandwidth-hero to the list of projects
+Update Header examples description
+Add BailFacile to the list of products
+Fix icon name
+Add moneytracker.cc to the list of products
+Add tax.cryptact.com to list of products
+Fix pagination example
+docs: fix table example pagination
+fix: fix default export
+Update diff --git
+Fix typo in responsive example
+fix(docs): adjust minHeight for carbon ad
+Update diff --git
+Update List/ContentVariations/index.js
+Fix List/Variations title
+docs(release): add release section
+Update README.md\nFix typos and add accessibility section
+Fix modal example
+docs: fix typo in group variations example
+Fix import order in docs
+docs: update semantic-ui-react version
+Fix animated button example
+Fix responsive props
+docs(Icon): fix icon group example
+Update IconExampleLoadingGroup.js\nFix loading icon name
+Update IconExampleFitted.js\nUpdated the example
+fix: fix component example
+fix: update circleci badge
+docs: add example for gender
+docs(Grid): fix typo in description
+chore: update cdnjs.cloudflare.com to https
+Fixing formatting in README.md
+Add SearchExampleCategory and SearchExampleStandard
+docs: update semantic-ui css link
+Add a warning about form styles in TextArea example
+Fix layout for fixed menu
+fix: fix prettier plugins for browser
+fix: formatCode function
+Fix checkbox onClick event
+fix(docs): remove unnecessary div
+docs: update responsive example
+chore: remove breaking-label from changelog generator
+Update ModalDescription.js\nUpdated ModalDescription.js
+Fix Dropdown example floating
+Fix dropdown example
+Fix componentDoc diff
+Update ComponentProps diff
+Fix typo in dropdown example
+Fix tabindex in migration layout
+docs: fix typo in create-react-app
+fix: embed example url
+docs(Theming): update craco-less
+fix(docs): fix menu example
+Update contributing docs
+Fix typo in visibility example
+Fix typo in icon description
+Remove development section from README
+Update LabelExampleImageColored.js\nFix typos
+docs(Table): update sortable example
+Update prop description
+Update Search example to use hooks
+Update Search example
+Update Placeholder.js\nFix typo
+Add link to visual testing section
+fix(docs): fix table example
+chore: release v2.0.2
+Fix link to AutoControlledComponent
+add alt tag to logo
+docs: fix typo in textarea example
+Update confirm addon docs
+docs: fix typos and grammar
+Add --global-var to README
+Update global variable docs
+Add timeout-script option
+Add support for envVar and globalVar
+Add JSON to data source file
+Update README-dev.md
+Add basic at rules
+docs: fix typo in csp.md
+Fix Label component
+Update comment in diff
+Remove version note from docs
+docs: update flow.org links
+docs: fix build:staging script
+Add tip about title prop
+Remove empty-pattern plugin
+docs: fix remove-duplicate-extensions example
+docs: update lint docs
+fix: remove debugger import
+docs: add missing import
+Add __args template value example
+docs: add __a to putout script
+docs: fix typos in putout script
+Fix typo in the book of ast diff
+docs: fix exit()
+docs: add eslint export
+Add putout-processor-typos to the list of packages
+docs: move await import to the bottom
+docs: fix typo in diff
+docs: add backticks to `rest API`s
+Add note about magic properties
+Add link to MDN docs for x-on
+Fix typo in breadcrumbs docs
+Add CoreUI-Free-Bootstrap-Admin-Template to the list of projects using React
+Fix typo in Layout.js
+fix: linting errors in diff
+Fix table prop types
+Fix alert dismiss example
+Fix typo in ButtonDropdownPage.js
+Add CDN support
+Add note about external CDN
+Fix prism code
+Add props to docs
+Add dropdown item propTypes
+Update react-popper to 0.7.4
+Add closeAll prop to Modal
+Add key to carousel item
+Fix prop type in ProgressPage
+Update README.md\nUpdate the example app.js link
+Add InputGroupText to examples
+Update bootstrap css import instructions
+Update Reactstrap to 5.0.0
+add comment for size prop
+Fix dropdown example
+Update README.md\nUpdate reactstrap and bootstrap versions
+Add UncontrolledCollapse example
+Fix propTypes.array.isRequired
+Fix link to create-react-app instructions
+Add Form propTypes
+Add note about transition props
+Update README.md\nRemove version from npm install instructions
+Add listTag prop to Breadcrumb example
+Fix typo in ModalsPage.js
+fix: input props
+Fix typo in alert fade docs
+Update ButtonsPage.js\nAdd new props to Button.
+Add fade prop to AlertsPage
+Add min and max props to InputGroupAddon
+Sort nav items
+fix: fix dropdowns page maxHeight
+Update InputGroupOverview.js\nAdded InputGroupText to InputGroupAddon
+Update ModalsPage.js\nAdded returnFocusAfterClose propType
+Add reactstrap-scrollspy to the list of projects using reactstrap
+Fix card image path
+Update Collapse.js\nRenamed props
+fix dropdown toggle onClick
+Update InputGroupOverview.js\nAdded InputGroupText to InputGroupAddon
+Fix docs deploy
+Update FormGrid.js\nAdded <option> to select examples
+fix: fix dropdowns page maxHeight
+Remove default delays
+Update README.md\nUpdate npm install instructions
+fix dropdown toggle
+Add defaultOpen prop to UncontrolledCollapse docs
+add className propType
+docs: update inline checkbox example
+Remove dismiss prop from Alert example
+Add CSSModule story
+Add quick setup instructions
+Add Firestore settings docs
+docs(firestore): add note about settings in universal mode
+Update auth persistence
+docs: add warning about session persistence
+docs: add note about firebase
+chore: add algolia config
+Add login delay to docs
+docs(docs): fix typo in disclaimer
+docs: fix typos in options/README.md
+docs: add idToken to ssr tutorial
+docs(settings): update warning about runInNewContext
+docs(messaging): add messaging options
+Update experimental alert
+docs(module): remove disclaimer
+chore: add algolia
+Add note about server-side authentication
+Add alert about namespaces
+docs(firebase): add docs for polyfills
+docs: add note about remote-config defaultConfig
+chore(release): 7.0.0
+Add comments to .gitignore
+Add note about postfixing issue number
+Fix parent-name
+Update Algolia credentials
+Update Algolia credentials
+fix: restartable mode
+Emit message event when forking
+fix: remove dist dir
+feat: add yarn option to create-wmr
+fix: process-global-plugin
+fix: allow await outside function
+Remove console.log from onRefresh
+add note to tooltip
+Fix tooltip data
+add hasArrow to abort tooltip
+Fix enter keydown
+Add popover events
+Slider: add customized story
+Fix storybook config
+Sort storybook by id
+add innerHTML to asFragment
+add closeOnEsc prop to drawer
+Add drawer story
+feat: add waitMs
+docs: add alertdialog docs
+Remove data-chakra-component from cavatar
+docs: add docs for CBox
+Add documentation to CBreadcrumb components
+fix: remove empty line
+docs: add CCheckbox docs
+fix: change mounted to created
+Update CBox styles
+docs: update links in diff
+Add docs for Editable components
+add docs for CInputElement
+docs: add CInputGroup docs
+add as prop to CMenuItem
+chore: add cross-env to storybook
+add srcset to imageProps
+Add color mode and theme providers
+fix: add PORT_DEV env var
+fix: add chunkIds to webpack webpack webpack webpack webpack webpack webpack webpack webpack webpack webpack webpack
+fix: use contenthash instead of hash
+feat: add assets-manifest.json
+feat(test): add yalc setup stage with example
+Update single-page-applications.md
+docs: update static export docs
+Add tsx to eslint rule
+Remove react version detection
+Add RAIZZLE_APP_PATH env var
+fix: watchIgnorePaths
+Support for not released plugins
+feat: add css and js output
+Pass context to notNodeExternalResMatch
+fix: add terser plugin to dev mode
+Add debug options and config
+feat: add supportsStaticESM option
+Add option to disable null-loader
+Add env var to disable non-interactive
+Fix CI build
+fix: inherit stdio when verbose
+Fix webpack config for dev
+add headings to svelte
+add cheatsheet
+Add twitter link to window check
+add show all/show less buttons
+add autoCapitalize to input props
+Add autoCorrect to htmlInputProps
+Export commonjs as a generic component
+Use Ref component for portal trigger
+Add symbol to as prop type
+fix(TextArea): add StrictTextAreaProps to typescript
+Add --global-var option
+fix: logo link
+Fix recipe search
+add test for empty state
+Fix pg pool creation
+Exclude public keys from metrics
+Fix ties in topN array
+Fix printf usage
+Fix typescript errors
+Use nullish operator
+Fix mina sdk
+Update mina-signer readme
+Lowercase network
+Add check for network
+add public_key derivation
+fix(default-unit): add text-decoration-thickness to defaultUnits
+add new pack button
+Add to_set to header.js
+fix dump_closure
+Move BiwaScheme to its own file
+build: use rollup for biwascheme
+Add banner to rollup config
+Fix browser.js
+Fix some bugs in the browser
+add form to BiwaError
+add mapList method to Pair
+add forEach alias
+add left div
+Add keyboard shortcuts to dump moves
+add _get method to Pair
+update icons for table
+fix: export all types
+Add test sitemap
+Add sitemap_test.xml to precommit script
+Add stepNumber and totalSteps props to CurrentStep
+Remove snapshot tests
+Add github icon
+Add in-kind partner type
+Update Sponsors section
+Update donate.js\nUpdate donate.js
+Add tab scope access to tab component
+Fix unobservedData
+Modal toggle prop
+feat: add deprecated util
+fix: modal toggle
+disable side effects
+add ref and focus methods to Input
+Form: use class component
+Fix linting errors and add tests
+Focus the modal when opening
+add innerRef prop to Badge
+add innerRef prop to CardBody
+add outOfBoundaries prop to popper
+feat: add firestore.settings
+fix: add idToken to ssrAuth
+fix(analytics): only initialize Analytics if browser supports it
+Add missing arc marks to typings
+Fix caption format for temporal scale types
+Update RangeConfig types to use Color[]
+Add missing View methods
+Fix View type
+Add missing properties to SceneItem
+[Tizen] Add secure profile config
+feat(rnv): add autoComplete support
+fix: xcode exclude archs
+feat: add react-native-carplay
+feat(sdk-lightning): add target option
+feat(sdk-lightning): add system injects
+feat(sdk-lightning): add tizen build
+feat(rn-electron): add platform to electron config
+feat(rnv): add xcodebuildArgs to param keys
+fix: -arch / -sdk params are not compatible with -destination
+Add support for integer in plist parser
+Glo component
+move methods to top
+add update and destroy methods
+Add x/y scale options to ScatterPlot
+Add x/y axis options to ScatterPlot
+Inject npm token into environment.
+fix: remove SSR build timeout
+fix: strip babel-loader prefix from webpack error messages
+Fix preact-compat alias
+Add VR status
+fix: add more regex to isJWT
+fix: display name validation
+Add he to locale list
+add support for Vietnamese
+Add az-AZ to locales
+fix: add missing '@' to symbol regex
+add japanese locale
+add korean language support
+feat: add rollbar proxy support
+chore: disable wrapGlobalEventHandlers by default
+Add start script
+chore: re-enable babili-webpack-plugin
+chore: add build scripts
+fix: use url-loader instead of file-loader
+feat: add env vars for base api and port
+fix: server.js
+add morgan middleware
+fix: auth-related stuff
+Add proxy for api requests
+Move webpack-plugin-webpack-alias to dev
+Add Raven and GA to .eslintrc.json
+added jwt token generation
+refactor: use isomorphic-fetch
+fix: server diff
+add logging to route auth addon
+fix: deprecate banner plugin
+Add name to dev script
+Add GA_ID and GA_PUBLIC_DSN to the build
+chore: disable whyDidYouUpdate
+Enable ModuleConcatenationPlugin
+fix: remove client folder
+Set bundle analyzer mode to static
+Fix webpack config for images
+add offline cache
+Fix isomorphic webpack plugin
+Use routes from root
+fix: add routes prop to router wrapper
+Add .sass to resolve extensions
+fix: lazy-components in browser
+Add webpack alias for dev and test
+Add jsx-a11y to eslint config
+chore: update webpack config
+Remove webpack shell plugin
+Update webpack config for dev and test
+add test for LOCATION_CHANGE
+refactor server.js
+Add tests for auth action
+update webpack dev config
+fix: use client dist path
+Fix webpack-hot-fullstack-middleware
+refactor: refactored xhr_wrapper
+chore: add flow to babel
+Add flowtype to eslint config
+feat(app): use react-a11y
+flow Users
+flow RoutingWrapper
+flowify RouteAuth
+flow: add RouteItem type
+Add server setup
+feat: add middleware and api
+chore: remove unused dependencies, add pug-loader
+flowify normalizeArrayOfItems
+flowify GlobalState
+Add i18n alias
+Add webpack-assets and favicons-stats aliases
+feat: add favicons assets
+Add favicons to client build
+Remove deprecated webpack plugins
+flowify Root
+fix: use react-intl
+add date to header
+feat: add ssr translations
+Add styles and images to .babelrc
+add locals alias
+Add mocking for jest
+Add test for Header component
+Add test for Footer component
+add Sidebar snapshot test
+refactor: lazy load routes
+add userId to GET_POSTS action
+test: update RouteAuth tests
+add translation to ssr
+fix: set lang to en
+add translation to ssr
+fix: logo src
+add lang param to /
+Add ssl alias
+fix: i18n
+Pass language to login
+fix: root component
+Use BASE_API env var
+Add missing dependencies to diff
+Add https and http port
+fix: use lazy chunk name for lazy components
+feat: add i18n
+Add useragent middleware
+add getInfoFromJWT
+fix: window resize event handler
+fix: add fetch to xhr_wrapper
+fix: header position
+remove token from auth reducer
+fix: window resize
+use serealize for ssr
+flowify i18n
+Add i18nConfigObject type
+chore: update .babelrc
+chore: flowify client
+fix: i18n config
+add react-ga
+add language dropdown
+add ANALYZE_BUNDLE env var
+fix: ssr server
+add template to html component
+Add http and https server
+chore: enable polyfill
+fix: ssr server
+fix: remove App from HtmlComponent
+remove language dropdown
+feat: add language to jwt token
+Update diff to use Dashboard.Text
+feat: add react-headroom
+Update diff to include more data
+fix: add list.css
+fix: ssr server
+fix(i18n): re-update locals if they were changed in development
+Use own SSL certs in production
+Update types for link
+Remove unused base styles
+add notes to media template
+refactor: add new routes
+Rename entities reducer
+Remove posts loading
+Dashboard: use Header component
+Update links.json\nAdd noir to the list of links.
+Use enzyme-adapter-react-16
+refactor Header to functional component
+fix: RouteAuth tests
+Remove store2 from LocalStorageCookiesSvc
+Add nock to auth action tests
+Add tests for links actions
+add finally action and beforePending
+chore: update arequestcontextal
+feat: add lazy routes
+Add sentry middleware
+fix: lazy load dashboard and login
+remove lazy from RoutingWrapper
+refactor: use async component
+Add form-data to diff
+fix: add getRoutes to default export
+fix: routing wrapper
+Add count to links reducer
+fix: header and footer height
+add sidebar and app routes
+Fix loading data
+feat: add react-async-component
+add body styles
+feat: add async bootstrapper
+fix: use stats in ssr
+Fix ssr stats generation
+fix: getLinks
+fix: change base api url
+fix: API prefix
+add getLayoutMobileStatuses selector
+refactor: use asyncBootstrap for Links
+Pass meta to login success action
+fix: rename sidebars
+fix: header mobile status
+refactor: use router routes
+feat: add fetch wrapper
+fix: fix server-side data fetching
+Add exact and strict to meta
+feat: add helmet to ssr
+Update 404 page
+Copy public folder to root
+fix: keep focusing inside the popup by `tab` key
+fix(menu): update activeIndex on items change
+chore: update jest config
+add useResizeEvent util
+test: add test for unmounting component
+Add release script
+test: use fake timers
+feat: add event args to emitters
+fix once handler
+remove emit from useEmitter
+feat: add backtop component
+refactor: extract global options setup
+fix: useMsgbox return $
+fix: export ElIcon as an interface
+feat: add ElButtonGroup
+test(switch): add click test
+feat: table heads
+add href prop to link component
+add plain prop to button
+add tests for button props
+fix: import button component
+fix table dark color
+Move hr-margin-y to top of variables
+fix: grid row-columns
+Fix assert-starts-at-zero
+Add min-contrast-ratio to color-contrast
+Update dark theme color
+Add breakpoint-before and breakpoint-next
+Add border utilities
+Add option to generate CSS variables
+Update _variables.scss
+fix font-size variable
+Add new font-weight utilities
+fix: border-color
+Add contrast-ratio-correction function
+Add support for generating only variables
+fix(form-validation): fix form validation state selector
+add CHECKOUT_MERCHANT to paymentTypeParser
+add keybinds to schedule
+fix tree item slot
+fix: toast role alert
+fix: add leading modifier to resize directive
+Update standard token docs
+Fix infura provider
+Make roles private
+fix: typo in test
+Update .soliumrc.json
+Add Algolianet to S3 connect-src
+Fixes for project version
+Fix project version routes
+Update search placeholder
+fix: show search input when no query
+Remove capitalize from lvl0
+Fix link to Ember.js codebase
+fix: datagrid multiselect test
+Fix tabbable searchfield close button
+align large searchfield search icon
+Remove TLS_SECRET from env
+fix: legend toggle event handler
+move d3compat to top level
+fix: electron.js engine is happening
+Set blocking on help output
+fix: exit process when config parse fails
+fix: remove unnecessary quotes
+fix: remove dot from extension
+add signal option to help
+Update update-notifier to 2.3.0
+update help and examples
+chore(release): fix npm token
+fix: only run ipc on node v4
+fix: avoid forking if node argument being passed
+fix: fix node forking
+fix: check if script exists before using it
+fix: fix windows path resolution
+fix: add stdin option to monitor
+fix: update-notifier
+fix: don't fork inspect
+fix: swallow stdin error
+fix: don't re-parse the same config file
+chore: add exit code to postinstall script
+Ignore permission errors in watch
+fix: add error message when nodemon is not running
+fix: windows compat
+refactor: use es6 var/const
+fix(watch): fix watch
+fix: add default args to options if not set
+fix: fix diff
+fix: restartable option
+fix: check for empty argument
+fix: don't fork if there's a node exec arg
+fix(monitor): pass signal to exit event
+fix: watch dir(s)
+Change log level from detail to info
+wait for old subprocesses to finish before killing
+Add funding to package.json
+skip CI on CI
+Only set blocking on tty
+Fix windows-kill path
+fix: handle Windows 10 and below
+fix: fix os release
+fix: use `/d /s /c` for windows compatibility\nFixes
+Handle 'SIGUSR2' and 'SIGUSR1' signal under Windows
+fix: use path delimiter instead of colon
+Use parse from
+fix: use single sirv
+fix: types.d.ts
+Fix prerender script import
+fix: resolve file url for https
+Add publicPath option to prerender
+fix: fix public path plugin
+fix: fix css import for https
+fix: use `toImport` to avoid JSON.stringify
+Remove --minify option
+fix: loadFixture name
+fix: hoist transitive imports for https
+fix: use JSX namespace for attributes
+Add peerDependencies for preact-iso
+fix: add missing exports to preact-iso
+fix: create-wmr
+fix: add error message when creating a file with the same name as the directory
+fix: tsconfig.json
+fix(create-wmr): fix typescript include
+fix: add type to package.json
+fix(wmr): ignore .d.ts files
+Move public and out options to build and start
+fix: fix undefined pkg
+fix: add .mjs to extensions
+fix: debug flag
+fix: write status code
+Remove SW from WMR if it is active
+Fix whitespace replacement in string literal
+fix(wmr): ignore script tags
+fix(wmr): ensure output dir exists before writing to it
+feat(wmr): add fetch()
+fix(wmr): fix test
+Update Dockerfile.gh\nUpdate git user and email
+Remove unused import in diff
+Fix refresh url
+Change default port to 80
+Fix controls height
+Fix refresh interval
+Move hierarchy config to defaultProps
+update index to use CRVIZ_SEARCH_REF
+disable import button if selected file is selected
+Fixing text size and trimming
+Adjust animation to be more accurate
+Fix import option
+Fixing the bug that caused the annotation to not be hidden
+Add animation delay
+fix: snyk-protect
+Fix end uuid
+Remove viewBox attribute
+Show comparison selector only if there are more than 2 datasets
+Fix ring menu color
+fix: controls reducer test
+Fix tooltip text
+remove tooltip builder
+add hovered note id
+Fix circular buttons
+Fix lint errors in diff
+Update Badge test
+Remove minification
+Filter tags from slot
+Fix Popover trigger
+Filter tags from ButtonGroup slot
+Fix menu option tag
+Fix Stack tag
+Fix breadcrumb tag
+Fix AvatarGroup slot count
+Fix InputGroup cloning
+Add tests to .eslintrc.js
+Fix Switch story
+Add color mode observer to Toast story
+Fix storybook config
+Add decorator to Progress
+fix: clean children before setting focusable values
+Remove defaultChecked from Radio
+fix: update theme provider import
+Remove event listener when modal is open
+Remove onCancel from EditableInput
+Fix EditableInput onChange event
+Fix aria-disabled attribute name
+Add switch component
+Fix scroll behavior
+fix: add li to theme
+fix: CAvatar alt attribute
+docs: update tooltip docs
+chore: update free-solid-svg-icons
+fix: remove extra comma
+Add aria-describedby to tooltip
+Add fallback src story
+Fix typo in Stat docs
+Add CStatHelperText to props
+docs(switch): fix children type
+docs: add Slots section to switch docs
+Remove slot section from text docs
+docs: update Tabs docs
+Update tabs events docs
+fix: arrow not working
+fix: fix color mode provider import
+fix: add computedId to CPopover
+Fix typo in CCollapse story
+Update collapse.mdx\nAdd missing period
+fix mixpanel token
+Update ColorPalette.js\nUpdate ColorPalette.js
+Remove default value for inputId
+chore: update vue-ui
+fix: fix baseProps import
+add chakra-ui-core to lint script
+Remove only from test
+Fix select page
+Update icon.mdx\nFix icon color
+Add CListItem and CList mixins
+fix: fix code block import
+fix(nuxt): fix icon pack
+Add mergeModifiers function
+update CBox story
+Add unstyled to button props validator
+Add default value to CMenuOptionGroup
+fix: fix diff
+add event example to CTextarea
+parse fontAwesome icon
+Add prefix to icon pack
+fix: add missing on prop to CInputGroup
+refactor: use object instead of array
+fix: style and icon
+docs: fix circular progress page
+add openMenu to CMenu
+Fix error overlay middleware
+fix: use IS_WEB for emitFile
+fix: add error message and stack to response
+Ignore engines in yarn install
+Ignore engines in yarn install
+Add repository to package.json
+fix: fix typo in public path
+Update mini-css-extract-plugin
+fix: remove status from nodeLoaderTests
+fix: only load locals
+fix: logger path
+Update razzle-plugin-typescript README
+Fix sass path in examples
+Fix setupTestsFile
+Fix search styles
+Use PUBLIC_PATH instead of %PUBLIC_URL%
+Add a unique cache identifier for the dev-utils and babel-preset-razzle versions
+fix: remove unnecessary Promise.resolve
+Remove debug logging from spa test
+fix: update razzle package
+Add babel runtime option to diff
+Fix copyPublicFolder
+Fix with-vendor-bundle example
+Fix copy plugin
+Fix copy plugin
+Remove branch variable
+Fix razzle bin path
+chore: increase network timeout
+Remove node 8.x from matrix
+fix: setPorts should return promise
+fix: disable start server verbose
+Fix test output
+Fix loader name check
+Add jest-message-util
+Remove jest version check
+Fix serverless build type
+Fix dev utils package name
+fix: use default values for hasModern
+fix: static export js check
+fix: static export js check
+fix: let config
+fix: let config
+fix: add use block to babel-loader
+Fix copy plugin
+Fix copy plugin for windows
+docs: update static-export.mdx
+chore: update razzle to latest
+Fix basic example
+fix: relative path for public build
+fix: move razzle-start-server-webpack-plugin to dev dependencies
+fix: use razzleOptions.verbose
+Support for not released plugins without options
+fix: typo in webpackOptions.fileLoaderExclude
+fix: remove error handler
+Fix app directory resolution
+Add verbose option to compile
+fix: add sass as dev dependency
+Fix externalize path
+fix: https credentials
+feat: add https credentials to webpack config
+Don't quiet server watcher
+fix: use modifyOptions to modify options
+fix: setupEnvironment before merge
+fix: set publicPath to clientPublicPath
+Add cross-env to devDependencies
+fix: add localIdentName to webpack config
+fix: remove extra comma
+fix: remove pluginOptions from babelOptions
+fix: add empty array to presets
+Fix webpack 5 build
+fix: forceRuntimeEnvVars
+fix: ignore plugins with trailing slash
+fix: kill worker process after exit
+Close clientDevServer on SIGINT and SIGTERM
+fix: postcss plugin
+fix: remove unnecessary arrow function
+Remove console.log from createConfigAsync
+fix: catch errors in loadExample
+chore: update webpackbar to v5
+chore: update webpack and webpackbar versions
+Update tsconfig.json for with-typeorm-graphql
+Add typescript-metadata to with-typeorm-graphql example
+fix: inject option
+Remove supportsStaticESM from razzle-babel-loader
+Fix webpack context
+fix: fix --inspect-brk and --inspect
+fix: fix typescript preset
+fix: better error message when plugin not found
+Remove unused dependencies and dependencies
+fix: add missing params to module.exports
+fix: check for scoped plugins
+Fix printErrors arguments
+Add CssMinimizerPlugin
+Remove sourceMapContents option
+Add --watch option to build script
+Fix formatWebpackMessages require
+Remove unused dependencies from create-razzle-app
+Remove unused dependencies and plugins
+fix: add dot to copy dir
+chore: pin commander to 5.0.0
+Add -W to yarn add
+fix: add verbose option to installWithMessageFactory
+fix: no-verify-access for lerna publish
+Add html-webpack-plugin
+Only print error messages if verbose is set
+Fix debug config
+fix: use appAssetsManifestPath
+fix: disableWebpackbar
+fix: don't include .local files in test environment
+fix: require
+Update loadable/babel-plugin to 5.13.2
+fix: ensure the config.optimization key exists
+fix: make sure the config.optimization key exists
+fix: assets manifest path
+Fix import of React Router
+fix: use correct env var
+fix: install with message factory
+fix: import StaticRouter from react-router-dom
+Use switch instead of Routes
+fix: use exact prop for Route
+add context replacement plugin for node
+Remove prestart:prod script
+fix: svelte component
+fix: add ampersand to query params
+fix: remove amp; from query params
+Fix headings in diff
+Make dimmer optional
+Search: add input prop
+Fix typo in Modal typings
+chore: update babel config
+Add item prop to Dropdown
+fix(Button): tabIndex is optional
+fix Icon type
+fix: setTimeout
+fix: make table header sort prop optional
+add floated prop to Button
+fix(Editor): use handledProps instead of propTypes
+Fix Radio typings
+fix: fix propTypes
+Add link prop to Card
+add multiple to input props
+Search: make input and input optional
+fix: portal mount
+removes label prop from required prop
+Fix Dropdown typings
+Fix menu example active prop
+fix: prevent auto controlled prop undefined
+Fix eslint error in resetJSX
+fix menu example
+fix(scrollToAnchor): support scrollY and pageYOffset
+Don't remove blur on head up
+add minLength to htmlInputProps
+prevent default when no result selected
+Fix inverted prop type
+fix dropdown sizer display
+Update README.md\nFix typo
+fix Input type
+fix children prop type
+fix: update Button.d.ts
+Fix Progress.d.ts
+Fix Statistic inverted prop type
+fix: remove trailing comma
+remove loading prop from TabPane
+chore: remove gh-pages path from docs build
+Fix TextArea typings
+fix(image): remove href prop from wrapped prop
+fix: remove scroll listener on unmount
+fix propTypes.oneOfType
+chore: remove release.sh
+chore: add changelog generation
+fix infinite loop when options is undefined
+Fix AccordionAccordion typings
+fix: responsive width on browser
+Fix overflow in TextArea
+fix: modal props
+Fix prop-types path
+add eventPool to eventStack.unsub
+fix: responsive state
+Fix propTypes for AccordionTitle.index
+Update onTitleClick type definition
+fix: component props docs
+Fix responsive typings
+Fix pusher click
+add accept to htmlInputAttrs
+fix createShorthand error message
+fix dimmer style
+Use Set instead of includes
+fix: script tag regex
+Fix iOS version encoding
+refactor: use _open instead of _createWs
+Add error message for old WebGL versions
+fix bounding box transform
+fix toEdges
+fix(web): worker recreation is slow
+remove circular progress
+fix: base64url
+fix(model): Fix errors not being updated when model is created
+fix: delete icon
+fix: delete icon
+fix: fix sticky data not set
+fix: swipe-cell close when offset is 0
+fix: fix toolbar
+fix diff for dropdown
+fix: script variable
+fix: log message
+fix: premove before bundleProd
+chore: use latest version of preact and preact-iso
+fix(wmr): remove output folder when mounted with Docker and the like
+fix(wmr): prerender script tag
+Fix controls reducer test
+remove unused code and comments
+Fix d3-viz export
+Fix tooltip notes
+fix: Badge test
+New: AlertDialog
+Fix tooltip anchor
+Remove inheritAttrs from CButton
+refactor: use createStyledAttrsMixin
+Add functional props to CStat
+Remove logo from contributors page
+fix: remove spread operator
+add contributions by
+add $lib alias
+fix: fix js sheet
+fix: add bio fallback
+fix: use page.url.toString()
+chore: add postdeploy:docs script
+Remove unused blocks variable
+Remove unnecessary let in types.re
+fix stack index
+fix index_set
+rename continuation to capture_continuation
+Always 1. (lambda (cc) ...)
+Add comment to clarify the stack push
+truncate function
+fix release_initializer.js
+Use document.querySelector instead of jQuery
+move some macro expansion to the top
+fix(templates): remove semver.coerce
+Fix progress indicator
+fix: fix places
+fix: remove nextTick
+Fix carousel activeIndex
+refactor: use Object.keys
+fix: use esm export syntax
+fix: remove unused variable in main.js
+fix: update firebase import
+Fix baseline calculation
+Move defaultFont to top level
+fix: eslint errors in vega-force
+Fix label diff
+Fix Voronoi.js diff
+lint wordcloud
+Fix date creation in diff
+Fix linting errors in projections.js
+Fix eslint errors in vega-format
+Fix linting errors in vega-event-selector
+Fix sceneEqual
+Fix base url slash
+Remove community cli from renative.engine.json
+nodeRadius -> size
+add threshold to similarity graph
+Remove the top-level div when creating a new graph
+Fix similarity graph
+merge selection
+Use d3-selection instead of d3.select
+fix d3.scale.linear()
+fix: tree heatmap example
+add options to SentenTree
+Remove empty element from SentenTree
+add type string to senten tree
+fix: fix tree heatmap
+Refactor diff to use new component structure
+Fix build path for examples
+Fix box plot diff
+Remove unused createBabelConfig
+Fix https server
+Only show spinner if install is set
+fix proxy-loader options
+Use mkdtempSync instead of mkdirSync
+fix: assertString
+fix: isIP
+update webpack config and add alias
+Fix webpack dev server
+fix: SSR not working
+refactor: auth middleware
+fix: use browser history
+add comments and summarize props
+fix: use SSR for browser
+fix: add i18n to webpack config
+Use RoutingWrapper in Root
+fix: routing import
+refactor: move routing to addons
+fix: use routes instead of appRouting
+remove offline plugin
+Remove drop_console from prod build
+Remove SENTRY_PUBLIC_DSN from webpack.base.js
+feat: add webpack config for server and client
+fix: route auth import
+fix: fix xhr_wrapper
+fix: remove duplication
+Add auto-dll plugin
+Remove modules from jest.config.json
+fix: xhr_wrapper
+Fix middleware init
+refactor: Login component
+refactor: UsersComponent to functional component
+fix: mobile status
+fix lazy load
+Remove unnecessary checks for save and production
+Remove tilda resolve
+docs: update sponsor
+feat: add link component
+fix: remove unused props from diff
+refactor: tag component
+feat(input): add suffix icon
+Rename Carousel to ElCarousel
+refactor: use ref instead of data
+fix: broadcast component
+add off event
+fix: linting error
+fix: emit event on component type
+test(component): add test for template
+feat: add toRefs to header component
+test(popconfirm): fix tests
+refactor: useEmitter
+refactor: use emitter wrapper
+feat: collapse
+fix: remove unused import
+rename Pagination to ElPagination
+rename avatar to elAvatar
+feat: update badge package
+rename TabPane to ElTabPane
+fix: import path
+feat(tooltip): rename Tooltip to ElTooltip
+rename card package
+fix: useResizeEvent import path
+fix(cascader): fix resize-event import
+fix(infinite-scroll): fix import path
+fix(diff): fix date-util import
+feat: add uploadRef
+fix: use global config size
+fix: Message.spec.js
+fix: remove indexOf
+fix: size and type validator
+chore: format tag
+fix: avatar style
+fix(button): fix button component
+fix: style prop
+fix: generate css file for all components
+fix: inputExceed value check
+fix(input): fix input size class
+fix: import progress component
+fix: import path
+Add sidebar manipulation
+fix: avatar border-radius
+fix: header divider
+Fix icon position
+Remove border-bottom-color from tables
+Update CSS Variables Shortcodes
+fix: fix button variant order
+Update sidebar and header variables
+Fix avatar margin
+add close event for sidebar
+fix: header min-height
+Renamed sidebarInterface
+fix: table color and border color variables
+Fix alert background variable name
+Disable RTL by default
+Remove unused styles from progress
+Remove theme prefix
+move selectMenuItem to _selectMenuItem
+remove sidebar hide class
+Remove dark and light color schemes
+fix: sidebar hide
+Update _variables.scss
+Add file input docs
+fix sidebar config
+Add scrollbar styles
+revert rtl:raw
+Remove unnecessary queueCallback
+fix: sidebar margin
+Remove border-top
+fix: change data key for focustrap
+fix: dismiss trigger
+Handle `details` element as its content may falsie appear visible when it is closed
+fix rtl mixin
+add variable-prefix to offcanvas variables
+fix: remove ui type from diff
+fix: progress component
+fix: pagination redirect event
+fix: fix uploader remove button
+fix: remove unused vars from outside directive
+add formData to rule validator
+fix: rule validator
+fix(veui): fix $unknown prop
+fix: use format instead of bytes
+fix: debounce search
+add useRouter method
+fix: remove focusClass prop from Autocomplete
+fix: fix numberinput icon map
+fix: remove v-if from fieldset
+refactor: move validation message to slot
+fix: span component
+test: fix anchor test
+fix table expandable
+Add tests for NumberInput value prop
+fix: close arrow left
+fix: remove media preview dialog
+table: fix shadow offset
+fix: fix linting errors
+fix: autoupload
+fix: eslint error
+fix: drag content in dialog
+fix: updateMeasurer
+fix: update demo
+fix: increase default pagination size
+fix: typo in function name
+fix: fix linting errors
+fix: increase wait time for drawer test
+fix: load-data -> load
+add example code option
+Add overrideSignInUserAgent setting
+Fix double3 vector handling in armv8
+add newline to JS stack trace
+Improve error handling for refresh request
+remove reconnect event
+fix: use lodash values instead of Object.values
+fix: browser filter
+fixing some linting errors
+fixing color.js
+fix meta.js
+fix clone function
+fix(diff): fix linting errors
+remove commented code and fix diff
+fix: replaceIncludes
+fix(replaceIncludes): fix typo
+fix: remove webBlob from convertToBlob
+refactor: rename serializer helpers
+refactor(io): rename parse* to deserialize*
+fix: use buffer instead of string for file source
+fix: stlb serialization progress
+fix: remove unused params
+fab hexagon colors
+Remove vars import
+update inline-left-nav colors
+Fix color and fill for change icon
+Fixing ring menu
+Add dark theme for visual label
+Fix visualizer animation
+Fix _onInterval
+add hover styles to posts
+fix table of contents overflow
+fix: svelte page layout
+add object-cover class to avatar
+Update embed types
+docs: fix typo in form shorthand example description
+Fix typo in diff comment
+Fix search input padding
+Remove old comment and fix diff
+Badge component -> tag
+fix: require firebase before firebase
+fix(firebase): typo in performance service description
+chore: lint firebase-auth-sw
+fix: add missing semicolon
+fix tree heatmap
+fix: linting
+fix treeheatmap test
+move tap-spec to devDependencies
+fix: treeheatmap example
+fix: linting error
+added diff to __init__
+Fix box plot diff
+chore: format .esdoc.json
+docs: add comments to webpack config files
+Remove some notes from webpack.base.js
+Update diff --git
+fix login error
+fix reentrancy guard test
+Remove Firefox from ci
+commented quit test
+chore(release): only publish token for master branch
+chore(ci): fix travis config
+chore(release): fix travis branch check
+add test for dotfolder
+remove only from describe
+fix mac only fork test
+test(wmr): add script type to prerender test
+Fix controls reducer test
+fix(test): fix rtcConfig url
+Add Webkit bug to skip tests on Safari and iOS
+chore: add warning about public endpoint
+add test for RTCPeerConstructor error
+skip test on Edge
+Fix test script
+Remove composition api from Breadcrumb test
+Add test for alert role
+Add test for truncated avatars
+Add test for breadcrumb aria-attributes
+Add input inside drawer
+Fix alert dialog role
+Add $colorMode injection test
+Remove jest mock
+Remove jest mock
+Remove jest mock
+Remove jest mock
+Remove jest mock
+Remove unused mocks and fix linting errors
+fix: remove unused mocks
+Remove toast mock
+fix: remove unused mocks
+Fix CStat test
+Remove defaultProviders from CTag
+Remove defaultProviders from CIcon test
+Remove defaultProviders from CStat test
+fix: remove emotion from nuxt.config
+add tests for aspect ratio box
+refactor: use screen.getByTestId
+Fix tests for CBreadcrumb
+Update CButton tests
+Remove test for children
+Remove data-testid from CAvatar tests
+Add emotion styles
+add shift+tab test
+Remove test for children
+Fix CBox test
+fix: fix checkbox group tests
+Fix CCircularProgress tests
+Fix tests for CCloseButton
+Fix CCode test
+fix: use screen.getByTestId
+refactor: use screen.getByTestId
+Fix CFlex test
+Fix CIconButton test
+fix: CButtonGroup tests
+Fix CDivider test
+fix: use screen.getByTestId
+refactor: use screen.getByTestId
+Fix CProgress tests
+Fix CPPseudoBox tests
+fix: CRadio tests
+fix: use screen.getByTestId
+Fix CStack tests
+Fix CStat test
+Fix CTag test
+Fix CText tests
+Add default avatar test
+Add a new stack component
+Add tests for development build
+Update AutoControlledComponent-test.js
+Add order check to hasValidTypings test
+Fix dropdown test
+fix: checkbox tests
+Add test for multitude of responses
+Add test for collection URLs
+Add test for collection URL validation
+feat(cli): add --global-var option
+Add test for global variable overrides passed with --global-var
+Add test for --global-var
+Fix loader_development
+fix js-new test
+add jquery.js to dev mode
+fix test for node_functions
+Add github button to social login button
+test(putout): add test for replace:jsx:attribute
+fix: rename test
+Add tests for autoPlay prop
+add tests for setGlobalCssModule
+test: add test for unknown direction
+Add tests for children prop
+Add returnFocusAfterClose prop to Modal
+Remove console.log from test
+test: add strict mode test
+Fix bind-external test
+Fix events mixin test
+fix: dynamic linechart example
+update webpack config
+Move devtool to output
+Add image tests to description
+Fix image:raw script
+fix lineup test
+fix default export test
+Update BarChart test
+chore: fix test script
+fix(treeheatmap): update svg styles
+Add test for .js files
+add test for stacked and animation
+Fix histogram test
+Add concurrency to unit tests
+Increase build timeout
+Fix timeout handling in tests
+Add luhn number validator
+fix notifier test
+Add no-use-before-define rule
+fix(preprocessors): fix test preprocessing
+fix: fix test failures due to missing server object
+feat(angular): add tests for angular 2
+test: add test for window.onerror
+Fix webpack test case for Chrome stable version down to 62
+chore: update rollbar config
+feat: add telemetry events for xhr and fetch calls
+add test for regex match
+Add tests for ignoredMessages literal match
+Fix webpack test case for Chrome 62
+fix: config tests
+fix: fix node version deprecation warning
+fix date-picker default value test
+fix date-picker test
+test: add more input-number tests
+fix date picker test
+Add test for highlighting first item
+fix repeatClick test
+chore: add test files to jest config
+add off event
+test(image): add slots tests
+fix: message component
+test: update ImageViewer tests
+test: update Image tests
+test: add Image tests
+test(image): remove unneeded tests
+fix vue-jest link
+test: update showClose test
+add access:public facet filter
+Use https for all links
+Remove io.js section
+chore: update node versions
+fix: linting errors
+fix: update signal codes
+chore(semantic-release): fix npmrc file
+fix: add missing newline
+Change default daysClosedIn to false
+Set daysClosedIn to 100
+Increase stale days
+Update stale.yml\nFix typo
+update to pstree.remy 1.1.2
+Add not-stale to exempt labels
+Update FUNDING.yml\nFixes
+fix: remove stderr from stdio
+chore: update node version in travis
+chore: update semantic-release
+chore: update stale.yml
+Update stale.yml\nUpdate exempt labels
+chore: bump node version to 14
+Add static contributors
+website: add new links
+Update casinos info
+Fix server.js import order
+chore: update sirv to v1
+docs: fix middleware push
+add default config function
+minify default
+fix: linting
+Remove toJSON parameter from toImport
+fix: use npm instead of node_modules for cache path
+fix: fix error handling
+fix: only sleep when client
+chore: remove only from test
+fix(wmr): remove console.log
+chore: remove fixtures from diff
+fix: ignore old data in browser list
+Add link to CRviz compare
+Add docker build to travis
+Update bug_report.md
+Fixing headings
+Fix DatasetSelector test
+Add link to Cyber reboot logo
+Add selected datum to the diff
+Add dark theme for tag
+Update README.md\nMove theme provider to todo
+add build-vsc script
+Remove Mortezas button from storybook
+Remove console.log from portal
+Fix breadcrumb component
+Add FormHelperText and FormErrorMessage
+Popover: add Avatar and Badge components
+Add Icon to Menu
+Remove commented out code in Radio
+Fix switch test
+Fix close button test
+Add note about components alphabetically
+Remove body-scroll-lock
+Remove vue from diff
+remove vue-template-compiler
+Remove focus radio button from RadioGroup story
+chore: bump vue version
+docs: fix link to issues
+Remove test that was causing the test to fail
+Add custom focus and error border colors to Input story
+add components to diff
+fix: update CAccordion docs
+Remove flexShrink from baseProps
+Update CButton.stories.js
+add name to alert dialog components
+add mdx-vue and mdx-vue-loader
+docs: add docs for CCircularProgress
+fix: add data-chakra-component attribute to CCircularProgress
+Add note about pruning accessiblity
+docs: add CDivider docs
+add data-chakra-component attribute to CDivider
+Remove workbox-sw from docs
+Remove defaultIsChecked from CRadio story
+add vue-lorem-ipsum
+fix: add theme-vue to module mapper
+docs: fix vuesax link
+fix: install before bootstrap
+remove commented out code from router.js
+catch mixpanel init error
+remove console.log from docs
+add FileContributors
+chore: update chakra-ui vue
+chore: remove linting from test script
+fix: import order
+remove test from postinstall
+Add nesting flex in stack story
+chore: remove comment about module-test-utils
+fix: linting errors
+Remove screen from diff
+fix: remove unused imports and remove empty line
+test: enable test for ratio
+Remove domProps
+fix: indent test-library/await-fire-event
+Add xs to size prop validator
+Update flex grow story
+chore: update changelog for 0.6.3
+chore: update vue to 0.6.5
+remove known-css-properties
+chore: update yarn.lock
+Remove fontFamily from CReset
+Remove font extend
+chore: update vue to 0.6.6
+fix: update fontawesome-common-types
+chore: update vue to 0.7.0-next.2
+add vue to nohoist
+chore: use latest version of vue
+chore: publish from changeset
+fix(nuxt): remove default icon
+fix: release script
+Add srcset test
+fix: import order
+chore: add theme to packages
+Remove vue from devDependencies
+fix: add private property in object
+Add support for svg icons
+Add change event to CTextarea story
+test: enable silent
+chore: update publish config
+chore: remove prettier --trailing-comma es5
+chore: remove git add from lint-staged
+Update changeset config
+Update webpack config for diff
+add cSpell.words
+chore: update to latest version of react-router
+fix: layout for svelte
+Update edit link to main
+refactor: move config to global
+Workaround for Tailwind JIT problem
+Remove smartypants dash
+fix: remove async from onMount
+Add more words to spellcheck
+allow serving files from one level up to the project root
+Remove react-constant-elements from diff
+chore: add tsd lint to prerelease script
+Add jsx-a11y rules
+docs: remove readme from docs build
+Update react-handled-props to 0.2.3
+Update faker.js link
+chore: update satisfied to 1.1.0
+chore: add react-test-renderer
+Fix dll output
+Fix dll output
+chore: update public path for docs
+fix umd build
+chore: add tsd:test to prerelease script
+Fix typo in CI job name
+chore: remove -- from yarn scripts
+chore: use puppeteer for headless builds
+fix: build-es env
+chore: remove changelog postdeploy
+chore: add changelog postdeploy script
+Update CarbonAd.js\nUpdate CarbonAd.js
+chore: update node version and remove puppeteer deps
+Fix docs deploy
+fix: clean dist task
+chore: update yarn cache
+chore: remove gulp from postdeploy:docs
+Remove server config
+fix: remove event stack from sidebar
+chore: update changelog generator
+chore: set mochaReporter output to 'minimal'
+fix: use React.createRef for Modal
+fix: focus on button
+chore: rename browser to unpkg
+chore: update index after commit
+move lifecycle to componentDidUpdate
+fix sticky component
+chore: remove changelog generation
+Remove git add from lint-staged
+Fix help message for newman
+fix: use URL instead of url.parse
+chore: remove nan dependency
+Fix typo in jsdoc
+rename partialPath to parsedPath
+Add CARD_TYPES
+Fix sort for types
+Update deployment link
+Fix README link in contributing
+Add progress indicator to profile details
+Remove github button
+chore: add typos to CI
+chore: update changelog for v27.3.0
+putout: exit codes
+chore: release v14.0.1
+fix typos install
+chore: add eslint to putout
+chore: add eslint.config.js to diff
+fix: replace function call
+putout: v27.10.0
+chore: bump engine-processor version
+chore: bump engine-processor version
+chore: bump engine-processor version
+putout: add feature to ignore yarn files
+putout: add .git to ignore
+chore: release engine-processor 6.4.1
+add lerna 6.0.1
+update version to 2.0.0
+chore: update putout to v28.1.0
+chore: release engine-loader 7.1.2
+chore: release engine-processor 6.4.2
+putout: add nano-memoize v2.0.0
+fix: add plugin-apply-is-array and plugin-apply-flat-map
+putout: add changelog entries for v28.16.0
+fix(compiler): remove angular.copy
+Add maintainers section
+fix: dropdown menu test
+chore: update react-prism and react-helmet
+Fix main entry point
+Update README.md\nUpdate react-transition-group and react-dom versions
+Add cross-env to all scripts
+Update license year
+Fix nested modal closeAll prop
+Fix FormInline example
+refactor UncontrolledNavDropdown
+Remove unnecessary space from ButtonGroup example
+Add admin dashboard example app to the list of projects using reactstrap
+Change navbar color
+fix persist prop
+Add DevExtreme React Grid to the list of projects using reactstrap
+Remove onExit from docs
+Update npm install instructions
+Update home page links
+github -> github
+Update docs link to new repo
+Add esnext to package.json
+Update issue template and code
+Remove handleFocusIn and handleFocusOut
+Update ModalCustomTimeout.js
+Add checkboxes to FormFeedback example
+chore: update travis config
+Add npx instructions
+fix clearfix page
+Update layout example
+Add avangate email
+fix: sort components
+chore: update react peer deps
+Bump version to 8.0.0
+Bump version to v8.0.1
+fix: update 404 docs
+Bump version to v8.1.0
+chore: update npm token
+Bump version to v8.3.0
+chore: deploy docs on travis
+Only deploy docs on tag
+Move travis jobs to separate stages
+ci: skip deploying docs
+Add travis tag to docs publish message
+Bump version to v8.5.0
+chore: update peerDependencies
+Fix typos in PR template
+add PIXINVENT theme
+8.10.0 release
+Remove unnecessary stderr output
+Remove tagging from docs publish script
+Add remote to docs
+Add user to docs
+chore: update docs token
+chore: update docs publish
+Remove availity-reactstrap-validation from the list of projects using reactstrap
+fix: workaround for prerelease tags on the first run of release-please
+chore: update release-please workflow
+Version 8.10.1
+Fix PopoverUncontrolled storybook
+chore: release v9.0.0-2
+Add Reactstrap v8 note
+Fix broken link in index.stories.mdx
+fix menuCtrl
+fix: collapse nodeRef
+chore: update jsdom to 19.0.0
+chore: update npm publish
+Update Firebase to 7.11.0
+docs(firebase): fix typo in question template
+chore(release): 6.0.0
+Add missing types for FirebaseModuleConfiguration
+fix: add fire types
+refactor(types): move Firebase types to separate file
+Add missing types for services
+fix(firebase-auth): fix typo
+Fix linting error in diff
+fix(diff): fix broken link
+Fix linting errors in View.js
+add d3 deps
+Fix typo in smooth property description
+Update license year in diff
+chore: move dependencies to devDependencies
+Fix version export
+Ensure apt-get is updated before running tests
+Add nohoist for cli
+fix(rn-electron): fix electron build
+update wdio.conf.js
+Add report commands
+chore: add template to e2e tests
+fix: move drawer button to top of navigation
+chore(rn-electron): remove console.log
+Remove git from buildInputs
+remove glo tag
+Fix webpack path resolution
+Add webpack 2 support.
+Remove resize examples
+version 0.4.0
+Update sw-precache-webpack-plugin
+chore: add chrome path to travis
+Wait for chrome to launch before running tests
+chore: add --stream to lerna test
+Remove unused dev dependencies
+Add publish to npm
+Remove PnP test
+Add dev and prod scripts
+fix: use asset generator instead of url-loader
+Add lint to github actions
+Update to CefSharp 92.0.260
+chore: update html package
+Update CefSharp to 110.0.250
+Fix typo in isCurrency
+Add test for invalid values
+Add new locales
+ci: rename steps
+Update diff --git README.md
+Add gitter badge
+fix: remove briefly describe from PR template
+Add new contributors to the list of contributors
+Add reference to PR template
+fix: add wait() to rollbar.log
+chore: disable performance hints
+Remove i18n from webpack.isomorphic
+Add codesponsor.io link
+remove console.log from UserItem
+Update manifest.json\nRename to Noir
+remove console.log from users reducer
+add comment for status response field in return object
+fix: remove unused imports
+fix: jwt secret
+Remove i18n from webpack config
+test: disable RouteAuth tests
+remove log for now
+add language to LoginDataType
+Add pseudossl import comment
+Add comment to CLIENT_DIST_PATH
+Remove dev:exp script
+Remove language from LoginDataType
+fix: fix linting errors
+Remove comment about scrollbar
+fix: fix flow types
+update theme colors
+fix footer background color
+Remove unused dependencies from diff
+Add preact-compat comment
+Move globals to top of .eslintrc.json
+fix: sidebar props
+fix linting errors and add type to componentWillReceiveProps
+Change user ID to user
+chore(deps): update react to 16.0.0
+Add awral description
+Update diff to reflect new dashboards
+fix: set user language in jwt token
+docs: update links.json
+add lazy to links
+chore: update dependencies, fix
+Add a comment about adding styles to element reducers
+Add comment about APPLY_STYLES
+chore(release): 0.1.1
+docs: update awral docs
+docs: add link to RouteAuth component
+re-enable links lazy
+fix(diff): add comment for IE11 polyfill

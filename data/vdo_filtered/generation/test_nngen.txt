@@ -1,0 +1,1992 @@
+add info about axe integration
+move one function, changed naming to be consistent with use of 'collateral'
+allow fee authority to be updated by owner in ERC20FeeToken
+remove cross contract fee addy lookup
+remove recoverTransferFees tests
+remove use of consumer
+improve SprkCard comments
+add test coverage for utils/throttle
+fix up return values for Index
+improve testAsync()
+improve testAsync()
+fix good or wrong TopXQ
+remove extraneous variables
+remove unused (but dangerous) proxy modifier.
+add jasmine test to lock issue 4876
+replace unwanted `transferFrom` in erc20 gas refund
+rename event parameter.
+revert some changes made to contract
+revert some changes made to contract
+add new loginManager
+add separate sections for backend/frontend
+allow multiple instances of AuthStore
+remove needsrecomputation predicate.
+replace Promises with async functions
+set nomin and havven addresses in HavvenEscrow.
+fix test: Add stub for profiling
+update specs with new results
+remove recoverTransferFees tests
+add instructions to get local device working for iOS;
+handle T_ELLIPSIS in argument lists. Note: partial usage such as 'str_contains($text, ...)' is not (yet) allowed.
+fix the all-caps keywords that changes to words prefixed by #
+add CONTRIBUTING guide for translations
+add 1D noise support to simplex-noise.js
+update information on README about SimpleStorage contract to include pragma
+update the hashtype
+add separate sections for backend/frontend
+add a promise-driven initAsync method Allows the loading of resources (such as web assembly modules) before initializing Crafty.
+update changlog for 1.47.1
+replace transferFrom by safeTransferFrom in ERC20 handler
+replace transferFrom by safeTransferFrom in ERC20 handler
+improve comment in KeyboardShortcut module
+use the correct format for avalanchego release notes
+fix bug: No need for Array.prototype if using rest operator. Thanks to vuxor !
+prepare release candidate 0.9.6-rc.1
+prepare release candidate 0.9.6-rc.1
+move myself to the top of the list
+update circle ci config to use a single job.
+allow bin/publish to accept arguments.
+update account docs
+update readme.me added: contributing, pr process, asd initial conf area
+prepare release candidate 0.9.6-rc.1
+prepare 13.4.0
+prepare release candidate 0.9.6-rc.1
+remove needsrecomputation predicate.
+update the index natspec
+add case sensitive restriction
+add image test to domain_ref_tests.html
+update the to satisfy documentation sligtly
+prepare changelog for 8.4.0 a1
+remove metropolis check from proxy.
+move myself to the top of the list
+set release 2.4 as Best effort
+update Jest Snapshots due to removing a period for the UIs copy in PageProposal
+update CONTRIBUTORS.md.
+replace kindmath with safemath
+fix up description of validating token by referencing full verification document
+improve SprkDictionary
+fix bug on not able to see member avatar on sidebar activity. Thanks to thuanpq !
+update naming + modifiers
+remove metropolis check from proxy.
+update the hashtype
+remove cross contract fee addy lookup
+add emojis to the headers.
+fix the repo suggestion
+remove superfluous havven contract reference in EtherNomin.sol.
+remove vue api
+move one function, changed naming to be consistent with use of 'collateral'
+remove superfluous havven contract reference in EtherNomin.sol.
+replace fury badges with shields.io
+allow CP workflow for any member of E.cash deployers team
+improve pushData docs
+add sample object and missing descriptions
+fix test deployments to new token name
+add skipped test case for
+remove superfluous havven contract reference in EtherNomin.sol.
+set ENV vars for review apps Set review app buildpack to nodejs
+fix a few grammer issues I noticed while reading through the docs
+update heading explanation Added the explanation under the heading "Heading" giving further and the basic details.
+set appName in appBundle when doing rollup
+improve docs table style
+fix an issue with removing rooms
+handle no username case
+revert removal of key property from test;
+update navigation section
+replace React.createClass with a plain function
+improve the scale
+add BAL logo domain to next.config
+add a separeted workflow for security-tests
+fix test output filename
+fix an issue with removing rooms
+update yarn to npm
+ignore VS and Eclipse files
+move flex options to a separate Sector
+use new input for existing input on card grid item
+add possibility to override columns for FormGrid.
+replace SwitchPaintLayer by SelectPaintLayer
+fix more readable font style for empty results message
+add padding in example
+improve the layout and some styles
+improve SelectableItemList proptypes
+improve style and layout of website charts
+fix the changes
+replace SwitchPaintLayer by SelectPaintLayer
+fix a minor linting issue in jobs list.
+add CSS for Ghost Header
+replace Gdex Agreement Modal
+replace React.createClass with a plain function
+add rerender story.
+rename resetPassword in favor of reset-password.
+allow asset explorer to scroll
+improve responsive layout
+remove unused styles, add moz font smoothing
+improve alignment of text fields and button
+add more parcels
+handle lonely group separator in NumericInput
+use the Icon component from Chakra
+fix broken reputation rendering on community list
+allow layout components to display in the form builder under Existing Resource Fields.
+prepare contours communes when starting server
+add CSS for Ghost Header
+prepare test
+add particles config to hero fragment showcase's example code
+add support for code snippets in wysiwyg fields
+set ENV vars for review apps Set review app buildpack to nodejs
+add test for tickmode sync xAxes
+handle subtitles in event banner
+set postpolicy expiration using UTC time.
+set bigger font size for subtext under measurement status label Fixes Fixes
+prepare package.json for release
+improve footer layout on small screens smaller spacing to fit three numbers in line instead of two adjust margin/padding when description is hidden
+handle error at prettier transform.
+add deprecated/unsupported runtimes (still working)
+revert pinAnimationInput changes
+move the gallery improvements (e.g., animation) onto master.
+add occlusionCulling flag
+remove empty class attributes
+fix some responsiveness issues
+add new async diorama load triggering
+improve news feed item formatting
+move some inline css to external css file.
+add bow to treehouse.scn
+allow list completion on lists and headers
+improve the usability of the plot reselection, by having it switch to the other prompt
+remove unused chrome.tabs
+set a fixed height to the labels
+update json sample for crs-12
+replace deprecation log messages
+fix bug with rewriting of nested lists
+handle binary data for functionCall args
+update README with config examples
+fix bug with rewriting of nested lists
+improve breadcrumbs Items can be simple array of strings too Active state of last element is automatically set if not provided
+use native JS to set title
+set bigger font size for subtext under measurement status label Fixes Fixes
+set createReduceOnlyOrder to true
+add game.js toggleMap method
+update changelog for proj
+remove chrome from options page
+fix an issue which was causing HAX to become unresponsive when saving an activity box element with a non-empty tag.
+update changelog for proj
+add deprecated/unsupported runtimes (still working)
+fix a css bug on messagequeque
+remove css liquid tag causing problems with travis build
+set up a new account was removed from accounts dropdown, adjust logic to prevent empty render
+improve bug form (merged fields)
+improve pagebrowser ui
+add test for shift data via parallel connections Add test for shift data via parallel connections
+fix some leakages
+add file count to displayFilesAsHTML
+remove unused chrome.tabs
+remove old isDataZeroForTrafficSources
+improve styling of demo app
+add test case for parser returning string.
+update changelog for proj
+remove initBinds for just one listener. Created initViews method taking the creation of the subview
+remove unreachable code rancher/rancher#8858
+remove firefox options
+add endscreen assets to semantics
+remove empty class attributes
+add SelectionController#selectIndexWithFocusedItem
+improve breadcrumbs Items can be simple array of strings too Active state of last element is automatically set if not provided
+improve image layout on custom-tabs guide
+add yellow chalk warnings if tags or filters get overwritten
+remove yarn from circle
+set first five level amounts
+add image to og info
+add breadcrumbs to the objectives tree page
+fix jest test for viewContext modifications to modules.
+rename server field
+revert this
+prepare README for 3.1.0 release
+update the principal logicalType to account for okta rancher/rancher#30401
+improve debug info in readme
+fix broken guidelines url in PR template
+update upload multiple view
+add test checking that updatemenus are above sliders
+set default hasura url
+remove test for removed selector.
+remove auto name cluster template revision rancher/rancher#21892
+update README with a couple of clarifications about where things live Updating README with a couple of clarifications about where things live
+add failing test for nunjucks nested async paired shortcodes
+improve the UI for Submit Proposal Modal. Fixes:
+fix a couple more engine bugs
+fix a couple more engine bugs
+set dev server to port 3000
+remove branch filters
+improve docs for pc.Scene.
+add test for tickmode sync xAxes
+add more parcels
+add deprecated/unsupported runtimes (still working)
+fix mergedTracks config height problem
+allow blocking of popup hide
+update fit to width to update on initial render
+fix bug in updated responsive layout module
+update fit to width to update on initial render
+improve the scale
+fix the bug that the new content will rewrite the old content
+improve translation of hints by splitting at "." add new function to apiImpl $i18n() as short form of Vue.prototype.$i18n()
+handle line width of zero in SVG
+update button stories in angular
+add mouse story control
+improve string conversion for smart
+improve error messages in smoke test
+remove empty class attributes
+fix $0 contains first arg in bundled electron apps
+set Slide#isActive right before dispatching an event
+handle websocket reconnecting event. Tested-by: webrtctest
+add sub nav to reports page
+update settings from options page
+set pro flag
+set up basic tools for working with workspaces in library
+improve touch behaviour
+update fit to width to update on initial render
+allow loading of gzipped 3d tiles in server.js
+fix bug in updated responsive layout module
+remove game.js map handling
+add setFrame method
+fix bug in updated responsive layout module
+use the complete filename, not just stuff after any dot. Turns out -- of course -- some test in Google3 uses a dot in the filename. RELNOTES: n/a
+set the value of textInput from datagrid cell while double click
+set the value of textInput from datagrid cell while double click
+update changelog for 0.19.1-revision3
+fix bug in updated responsive layout module
+set up basic tools for working with workspaces in library
+improve row component getCell function to fail gracefully if cell has not been created yet
+add test for tickmode sync xAxes
+fix some messed-up css
+improve some race conditions with settings Still doesn't fix GM_addValueChangeListener's race
+add a test to check that move event handlers are not called when dragmode === false
+improve ticket look
+update markup for the evidence tab pane
+use the label field to display addresses for Tripadvisor POI
+remove needsrecomputation predicate.
+add extended example of traversal commands
+move the note about clustering up on the page
+improve ospec change log (ospec v2)
+add missing 'E'
+replace section with a fragment to avoid double section.
+use the right compose function
+improve pane view on mobile
+fix the size of the meshery extension logo
+move the house icon slightly right
+update gradle to 7.2.0
+allow buttomns with large text to overflow
+allow asset explorer to scroll
+improve font size stylings
+add app diorama triggerLoad method
+add new animations skeleton loading in avatars.js
+remove links to node details for now
+set up basic tools for working with workspaces in library
+handle data for new tabs
+add util.js isInIframe method
+fix mergedTracks config height problem
+fix up Purchasing screen with list items occupying the full screen width.
+set up basic tools for working with workspaces in library
+handle null from getElementById('nwExportInputFile')
+set up basic tools for working with workspaces in library
+remove default loadout selection
+fix mergedTracks config height problem
+add setLocale method
+handle null from getElementById('nwExportInputFile')
+update README - wrapped example in render function
+improve badge style and set default font to Arial
+revert Exchange.js)
+add TextView#selectAll + #copySelectionToClipboard
+improve findLis selector
+revert css change
+remove unused chrome.tabs
+set up basic tools for working with workspaces in library
+fix an issue with Tiles selection indication.
+add setFrame method
+fix an issue with Tiles selection indication.
+fix bug with keep state registering phantom fields
+add initial inventory draggable item
+add sub nav to reports page
+set default options to runTaskList
+fix good or wrong TopXQ
+set up basic tools for working with workspaces in library
+add game.js toggleMap method
+handle drawing of all nodes shapes without text
+improve error messages in smoke test
+improve the scale
+replace callbacks with hooks for VPAT extensions
+set the value of textInput from datagrid cell while double click
+add camera isometric mode threshold
+revert solution for inline error
+add setLocale method
+add test for tickmode sync xAxes
+fix the issue ignores the null values when the "share" flag is enable
+add camera isometric mode threshold
+improve the layout and some styles
+add tests the following url: /api/libraries/(?P<slug>)/books/
+use a multi-line textarea for the open text survey question.
+remove queueing from offscreen engine
+use tracker afterFlush to set focus
+fix a typo in lib/utility.js at line 974: isArray -> Array.isArray
+move the gallery improvements (e.g., animation) onto master.
+remove deafult chat message
+fix bug with drag handle of first item, fixes
+improve responsive columns and unload condition
+add mouse story control
+use the getMongoUrl function from configHelper
+add mouse story control
+fix back button routing on iOS
+add world getWorldJson method
+improve the scale
+fix a small bug with Navigation
+add padding to section header ping
+fix a small bug with Navigation
+add setFacePoseValue method
+add release info about bundle v34
+add benchmark link
+improve server selection process
+handle 0-1 landmarks
+remove unneeded helpers.
+add test case for parser returning string.
+set active_tab in tests
+fix an issue with Tiles selection indication.
+fix the example of Linear Radial Axis
+add event dispatch arguments array
+add mouse story control
+move AMP tests into own describe.
+use standard HTML SVG tag if a src isn't provided
+move Financial into Specialized, remove Financial section
+fix bug with mv-mode="edit" that affected todo demo
+fix off-center background artwork
+move AMP tests into own describe.
+improve the scale
+use same loading msg & timestamp funcs as the desktop section
+update authentication test adding needsreauthentication.
+fix test for not refrshing balance
+move AMP tests into own describe.
+improve the scale
+remove unnecessary catch from visitor test
+remove unnecessary catch from visitor test
+remove unnecessary catch from visitor test
+revert removal of key property from test;
+allow reading from stdin in script to create types
+replace gzip-size with size-limit
+remove _viewChanged
+add hovertemplateString test for the number *0*
+fix the closing tag for b-table
+use normal javascript to check if site is loaded
+ignore tasks from codeclimate analysis
+set height 100% html, body, and body-inner
+add className to unslicked wrapper
+move myself to the top of the list
+remove scrollbar defaults
+add bugsnag logo to readme
+add bugsnag logo to readme
+use the Icon component from Chakra
+move myself to the top of the list
+move flex options to a separate Sector
+fix the viewscreen layout on the phoenix layout.
+handle escape on keyup
+fix the viewscreen layout on the phoenix layout.
+update WebSocket Implementation Visit binance.com
+add setLocale method
+allow user overriding SINGLETRACE option
+improve visibility of investigation metadata values in sidebar
+add enableShadows method in util.js
+remove existing event listeners
+move AMP tests into own describe.
+update pubmed article types
+move AMP tests into own describe.
+move AMP tests into own describe.
+fix the loading bug on profileTooltip
+replace jquery in Button component
+replace jquery in Button component
+fix a small bug with Navigation
+add hex2Uint8Array util
+update CHANGES.md as Sean specified
+move AMP tests into own describe.
+remove unnecessary catch from visitor test
+update account creation e2e test
+improve wrapper contract test coverage
+set proper package.json meta
+allow modal to be closed via the open prop being set to false
+fix broken link in CHANGES.md
+remove Analytics activation from GTM setup in E2E.
+improve modal styling
+use a multi-line textarea for the open text survey question.
+improve safeness of isVirtual check
+set voicer on remote player
+improve summary list extreme example Use readable English to better highlight any issues with wrapping
+add version number for frameworks
+remove unnecessary catch from visitor test
+improve the flaky tests more.
+add grunt contrib clean deps
+remove unnecessary catch from visitor test
+fix some messed-up css
+fix test for not refrshing balance
+set timeout to 10000ms.
+fix few more resolutions
+remove translator logging
+move AMP tests into own describe.
+add details mesh remove button
+fix a styling issue with the Odyssey frame
+move the attachment modal callback to a class method
+add control over keyboard shortcut behaviour when input focused
+use alternative calendar icon
+fix Intact interactions export fields
+update fit to width to update on initial render
+remove queueing from offscreen engine
+allow Toast to auto-dismiss
+remove unneeded code (commented out)
+update ui's position once tilt or rotate.
+add future settable data
+set link color in alert
+update stepper test
+improve visibility of investigation metadata values in sidebar
+remove CSS rule now.
+fix bug in updated responsive layout module
+fix bug with keep state registering phantom fields
+fix bug in radio example
+remove existing event listeners
+allow Bribery to take control of kneeling char
+set function
+fix a small bug with Navigation
+fix the problem that the data source component was slow to load massive data
+update plugin reset test
+fix bug with shift+tab keeping focus on the input
+update activation test
+update key from tmbalance
+remove site kit plugin activation from auth client test
+revert sigma change
+add emojis to the headers.
+fix the settings reading values
+update the markdown fieldtype docs to include the new sanitizer options
+set link color to white on hover
+fix a small bug with Navigation
+remove scrollbar defaults
+add changelog v1.2.1
+rename entry point for adsense.
+improve the scale
+revert loop in setCaret to avoid problem with Array.prototype. fixes
+fix test for not refrshing balance
+remove unnecessary HoC invocation
+remove default loadout selection
+add camera offset target support in diorama.js
+improve error message priting
+allow default buffer settings based on response-type.
+improve search of the "delegate" button
+remove unnecessary HoC invocation
+fix broken link in CHANGES.md
+improve coverage for DiscountCodeHook
+remove problematic test for now.
+improve the scale
+improve the scale
+improve reader mode table formatting
+handle escape on keyup
+add skipped test case for
+move Toolbar to the right
+add tests for CreativeExtension
+add setLocale method
+update text to correct syntax
+remove deafult chat message
+move postinstall hook to pretest
+add React custom styles
+improve the scale
+add support for generating an entropy curve based on the input data
+handle template variations in diff ES versions
+fix existing e2e tests. Setup analytics within tests.
+fix cascader disabled hide clear icon
+remove unexpected edited test in editor
+add test for categories/axes label preservation on Plotly.react(gd, ...)
+update launchSettings.json for QnAMaker bot
+improve protection from event catching while inputing data
+add jasmine test to lock issue 5731
+improve kargo unit tests for currency handling
+add Tiny-Browser-Framework
+replace mailto link footer to contact page
+improve read.me example for management API
+fix the script to include dep headers
+handle corner case if missing widget on restore
+add dedupe option to allow pika install with locally installed package without duplicating dependencies in package
+set default 'currentTime' value to null
+set base url Worker.js
+fix bug with build version
+remove cron steps We never tested those.
+allow Quick Inline Embed to pull Premium
+fix a missing dependency that is required in binHelper This issue causes react static to break at startup.
+ignore keybindings if editing text
+handle uncaughtException
+add process.browser to webpack config, so we don't include stuff we don't need
+fix the example of Linear Radial Axis
+add some missing traps
+improve modal styling
+add tests for CreativeExtension
+revert button
+add shape to bottom of header
+use the existing value of the prop for the toolbox
+add test case for parser returning string.
+set nomin and havven addresses in HavvenEscrow.
+allow fee authority to be updated by owner in ERC20FeeToken
+remove needsrecomputation predicate.
+add typings installation.
+fix test - noop currently
+set pauser at LoanTokenSettingsLowerAdmin now onlyOnwer
+fix test - noop currently
+add quest app to shadows.scn
+rename event parameter.
+add noCI flag for hover test i.e. similar to streamtube
+remove unused (but dangerous) proxy modifier.
+replace unwanted `transferFrom` in erc20 gas refund
+update readme with latest launch data
+add instruction to fork the repo first
+update circle ci config to use a single job.
+add test for tickmode sync xAxes
+remove needsrecomputation predicate.
+remove needsrecomputation predicate.
+set CHROMATIC_APP_CODE inside the build config so it can be used by external PRs
+prepare 14.5.0
+prepare 14.5.0
+add bow to treehouse.scn
+update the hashtype
+replace transferFrom by safeTransferFrom in ERC20 handler
+update information on README about SimpleStorage contract to include pragma
+handle template variations in diff ES versions
+prepare 13.4.0
+add endscreen assets to semantics
+remove needsrecomputation predicate.
+update CONTRIBUTORS.md
+set nomin and havven addresses in HavvenEscrow.
+add quest app to shadows.scn
+improve README with contributing section
+add default sort on frontmatter data fixes
+update CONTRIBUTOR.md
+handle template variations in diff ES versions
+prepare release/0.9.7
+remove needsrecomputation predicate.
+update naming + modifiers
+fix bug: No need for Array.prototype if using rest operator. Thanks to vuxor !
+use `cache` from `setup-node`
+improve explanation
+remove unused filter.
+add dangerousForOf
+add truffle networsks
+improve account enhancers logic
+ignore text if == advanced search header selection
+fix the changes
+improve feeling when switching tab
+replace actionsheet in profileEditScreen
+update all wrapped components!
+ignore release unless on master
+fix the viewscreen layout on the phoenix layout.
+fix Container padding between xl and lg viewport
+set up basic tools for working with workspaces in library
+fix back button size on iPad
+handle lonely group separator in NumericInput
+add BAL logo domain to next.config
+improve customGlobalFilter in ember tables: include null values by default
+remove page trackers list reverse(), replace with sort method changes
+use new ColorHtmlBodyColors
+improve the scale
+add CSS for Ghost Product
+update auth route redirects
+revert orderbook
+improve alignment of text fields and button
+fix the backup loading
+fix some messed-up css
+handle Avatar user null scenario
+fix right align Settings input elements
+set the nav to close when a link is clicked in the nav
+remove useless getInitialProps in _app
+move the override to affect both kinds of page titles
+add padding to fitBounds
+handle no data case for rows in topology table
+add selectedPeerId to state.js
+update auth route redirects
+allow access to modal styles
+improve SelectableItemList proptypes
+handle escape on keyup
+replace React.createClass with a plain function
+fix an issue with Form not delivering onChange.
+remove metaversefile useRigManagerInternal api
+set up external modules and submodules to demo
+remove unused chrome.tabs
+remove unused chrome.tabs
+remove unused chrome.tabs
+set bittrex open attribute in parseTicker
+add change "yes" to "delete" in delete account dialog
+remove side nav items border radius
+fix new Page Dashboard All Traffic Storybook story which showed up with no data due to missing API response fixtures.
+use new graphql schema
+replace old class with new one and refactoring
+handle node icon paths for scoped modules Fixes
+allow navigation using spacebar
+add setLocale method
+move back setWrapperSize Fixes
+remove unused chrome.tabs
+fix a bug that prevent updates
+remove unused chrome.tabs
+revert test expectation for email comb
+fix bug in updated responsive layout module
+update link color for nav tabs
+add timestamp to worker command
+remove webpack callback to fix concurrent compilation error, reduce logging
+replace single quotes to double single quotes in Torque SQL query
+fix small <code> font size
+fix an issue which was causing HAX to become unresponsive when saving an activity box element with a non-empty tag.
+fix a bug that prevent updates
+update iframe snippet code
+add import to material icons
+fix existing map data storage
+add fastclick.js
+add new condition to proper detection of touchables screen in chrome +70
+set function
+add date and carousel_id to Instagram file name
+add utf-8 charset to test_dashboard
+update tab appearance when dragging
+add metaversefile getActionsArray method
+allow key shortcuts to link directly to icons - and fix adding Ctrl-U for uploads
+set body height
+fix a bug in departure and slider
+fix the plugin configuration group management to remove configuration items
+set cursor to the end when focus OCR textarea
+remove splitChunks configuration to use defaults.
+add setFrame method
+update config for linux
+ignore null values in ToolbarView#(left|right)
+remove data logging
+use regex to identify url
+handle "item" category
+use MutationObserver to identify when iframe content has loaded
+add mouse story control
+fix a bug that prevent updates
+update changelog for proj
+replace blob download for canvas download
+add DataRequest class
+remove yarn from circle
+remove old custom scene priority hook
+update store version
+remove componentDidCatch
+revert back PR 782
+allow URLHandler to grab code from a URL if '#url' is used after the IDE
+fix the plugin configuration group management to remove configuration items
+improve travis conf
+improve testAsync()
+add twitter meta to head
+fix test reliant on dropbox
+fix comments in related modules Refs: PR-URL:
+add dangerousForOf
+add audience to ASP.NET Core MVC quickstart
+move the call before setup field validation
+allow only one app instance
+replace the deprecated volatile call with es5 getter syntax in order to work
+add enableShadows method in util.js
+set up basic tools for working with workspaces in library
+fix bug in table of bcd table
+use new methods to validate metrics and dimensions.
+improve 'beside cursor' setting
+move out pad.modals.reconnecttimer trailing space
+handle data for new tabs
+fix the parameter order of before/afterEvent
+add alpha test to shader
+remove quest app from shadows.scn
+add homespace link
+set context properly in subscriptions
+remove _getStaticStyles from JS, moved to backend
+add csrf token to program form
+remove section on multiple choices for reactions.
+allow columns encoded in float64 to be rendered as part of continuous value histograms.
+fix a few bugs with the export study button and added a default filename that follows BIDS standards
+use a button as the default element for selects
+remove ununsed/dead code
+add setFrame method
+ignore migration files in danger flow
+remove quest app from shadows.scn
+use new css class in test
+fix a small bug with Navigation
+add csrf token to program form
+replace "parent" with "_this" Replaced "parent" with "_this" for better clarity.
+update fit to width to update on initial render
+improve locks systems
+improve modal styling
+fix up Purchasing screen with list items occupying the full screen width.
+handle lonely group separator in NumericInput
+improve the scale
+handle lonely group separator in NumericInput
+improve inpuPlaceholder's visibility
+remove magic number, using calculated height instead
+add test for tickmode sync xAxes
+set timeout to 10000ms.
+fix an issue where styles were stripped out by production tree shaking in some webpack 5 scenarios
+add setLocale method
+handle lonely group separator in NumericInput
+remove scrollbar defaults
+replace focus listener with Workspace.observeActivePaneItem
+rename company filter to studios
+remove shadow root test (should add new later with attachShadow)
+allow job definitions including the environment key.
+use new static-publish-cli
+move postinstall hook to pretest
+rename object key for type variable highlighting
+set proper package.json meta
+use new VR.js instead of vr-display module
+remove cors (not used)
+improve publish
+improve local testing instructions in readme.md
+fix an issue with selecting target icons.
+improve visibility of investigation metadata values in sidebar
+allow spaces in autocomplete text
+fix test - noop currently
+fix a bug that caused browser crash if filename contains double-byte characters
+update huge story for autocomplete
+fix the `headers` returned by the HTTP plugin should be JSON objects
+remove more ctrl key handling
+update tabs stories
+remove unused QueueReader code Also comment out FifoQueue methods that are no longer used.
+improve the flaky tests more.
+update authentication test adding needsreauthentication.
+replace contents of bug_report.md
+revert startConnect:true
+move myself to the top of the list
+remove disaggregation field
+revert unneeded changes
+improve empty label css
+use the latest stable Chrome in Travis
+remove queueing from offscreen engine
+improve the scale
+fix test for not refrshing balance
+fix ui.Gauge maxValue bug
+remove old BigButton styles
+move AMP tests into own describe.
+remove experimental requirement for
+improve the scale
+add test for slot=after element
+handle "Buzz in progess" Exception
+add mouse story control
+allow modal to be closed via the open prop being set to false
+add a error method for all macros
+improve TreeWalker logic
+revert removal of key property from test;
+improve the scale
+improve layout of first action button in poi panel
+handle openvr path setup EACCES
+update maxPos for the genome
+ignore ADD_TRANSPORT_STATS messages
+use bigger avatar in feed items
+handle case when this.state.transitionEnabled is false
+improve the scale
+handle template variations in diff ES versions
+update plugin reset test
+set dist tag in pre release script
+add mouse story control
+add test for EventFilters.eventIsAfter;
+remove server-side tracking script output/config.
+fix off-center background artwork
+add mouse story control
+improve label position within Datagrid
+rename setConsentToNone to setConsentToOut
+update tabs stories
+remove instructions for building docs
+remove unused import Contracts cleanup
+revert balance checker
+fix up return values for Index
+improve section about truffle and ganache
+update package version requirements
+update the markdown fieldtype docs to include the new sanitizer options
+revert package-lock back to master state
+improve README with contributing section
+fix broken About link.
+add metaversefile api avatar methods
+add benchmark link
+replace window location if possible
+add lint stage to the CI workflow
+update README with config examples
+add a11y to "More"-button.
+allow menu button to have a tooltip (important for menus buttons that just show an icon)
+add sector filter button
+improve ChartLoader
+allow custom bar buttons (fixes
+revert previous test change
+update markup for indicators tab pane
+handle "Buzz in progess" Exception
+remove aurelia api
+rename "tenants" to "websites" for user. clean up ux design a bit
+use new SetupUseSnippetSwitch components in combined UA & GA4 setup flow.
+add mouse story control
+fix bug when changing facets
+replace pipe w/ colon
+add csrf token to program form
+fix the Verify the configuration file name
+fix the display by default of SfIcon
+prepare code for client-side comment ID generation
+remove second variants label
+remove extra overrides
+rename functions to show icons
+handle header search link clicks in JS b/c Safari (closes
+add shown flow and iOS dialog
+remove typedef exports
+improve SprkDropdown comments
+add setFrame method
+improve readability of templates in createDropdown
+fix some messed-up css
+improve doc for releases
+remove legacy globals from jest setup.
+remove npm run dev, focus on npm run prod
+add CONTRIBUTING guide for translations
+revert signatures of onOptionHover() and onItemSelect()
+rename methods for COmposer
+improve documentation for trying out StorefrontUI
+fix new snapshots to fix tests
+fix the example of Linear Radial Axis
+add mouse story control
+revert removal of key property from test;
+move PyLadies chapter website to other repo README Move PyLadies chapter website to other repo README
+allow modal to be closed via the open prop being set to false
+improve the scale
+fix broken Storybook story that had been introduced in the meantime.
+allow layout components to display in the form builder under Existing Resource Fields.
+update the add contact form contructs
+handle "Buzz in progess" Exception
+fix off-center background artwork
+add notes on updating greenlight stack to new dependencies
+fix test for not refrshing balance
+fix false negative evaluation
+remove geo mock script
+remove extraneous code and specified a few settings
+allow custom images
+remove existing event listeners
+improve test-coverage for red-black tree.
+set autoheight on test html
+remove unnecessary catch from visitor test
+move myself to the top of the list
+update CONTRIBUTOR.md
+fix another attempt to get correct semver version in http agent
+fix a small bug with Navigation
+allow card creation from template
+remove console..og
+handle log arrays
+add changelog v1.2.1
+remove fixture.
+improve mailbox docs
+remove fixture.
+fix an issue with removing rooms
+fix new Page Dashboard All Traffic Storybook story which showed up with no data due to missing API response fixtures.
+improve label position within Datagrid
+update Changelog 1.3.4
+fix bug with item inventory hydration
+add changelog v1.2.1
+fix some typos in CHANGES.md
+fix bug: No need for Array.prototype if using rest operator. Thanks to vuxor !
+revert package updates
+update settings container
+update the add contact form contructs
+update markup for the evidence tab pane
+revert label:, title: in config.js
+fix some accidental formatting changes
+update the full list of Patreons
+revert package updates
+revert package updates
+fix bug with keep state registering phantom fields
+update node-gyp version
+ignore files when publishing to npm
+use new graphql schema
+update the add contact form contructs
+improve ospec change log (ospec v2)
+update readme on mathjax v3
+ignore mod temporarily
+fix up the web version of GMLive.js
+add tutorial.js library.
+improve module package PR-URL:
+update leftover values in MetadataSemantic.js
+update changelog for proj
+prepare package.json for release
+update the branch to 2.9.1
+update node-gyp version
+ignore transpiled files
+remove old animations code
+set ENV vars for review apps Set review app buildpack to nodejs
+set timeout to 30 minutes
+update unit test based on the change of savedObjectClient method
+handle theme installation
+update builder and added electron-builder
+fix up comments for mock-browser-utils.js.
+prepare package.json for release
+remove empty parts from api datastore.
+set ENV vars for review apps Set review app buildpack to nodejs
+set min node dev version to 12
+update postversion gulp task to update all dependent workspaces
+prepare package.json for release
+handle theme installation
+add sample object and missing descriptions
+handle theme installation
+add test for tickmode sync xAxes
+prepare package.json for release
+remove unused sleep method
+update readme for hispasat
+move Component Governance
+use new graphql schema
+set env variable CI to false
+replace alert warning with deprecation partial
+add test for tickmode sync xAxes
+use preferred way to set version
+use preferred way to set version
+add info about axe integration
+update big nav link interface to extend sprk link
+update big nav to use dropdown choice interface
+fix the dependency issue in tripslayer example fixed the dependency issue in tripslayer example
+improve the scale
+use the existing value of the prop for the toolbox
+remove unnecessary catch from visitor test
+use the right version number..
+use the newest scratch blocks
+use the newest scratch blocks
+set dev server to port 3000
+improve the scale
+remove quest app from shadows.scn
+replace hyperlink with attachmentview based on condition
+update copyright date in license file
+set gauge default value to max
+remove dead fields.
+update builder and added electron-builder
+add test to lock issue 4716
+add support for code snippets in wysiwyg fields
+set version to 3.4.2 Set version to 3.4.2
+add missing comma in http snippet
+add ngf to the changelog
+fix test refactor
+fix bug loading local ("File") json
+add test for abort while retrying
+add opacity change test
+update depndencies comments
+allow modifying value in arg type.
+fix test refactor
+remove unnecessary calls to ECR
+handle exceptions together
+prepare test
+add node.js v10, v11 and v12 to travis build, removes v6 EOL.
+replace divs by a with href
+improve components.md Removes typos and improves consistency of headings for `components.md`.
+update tests with new default itmeout
+update test according to format change
+update test according to format change
+remove unnecessary change on passed object.
+fix the previous misunderstanding
+add pistol and silsword
+add util.js isInIframe method
+improve readme structure and content fix
+update Banner (again) to reflect Electron 13.1.0
+add developer setup instructions
+update CLI introduction and link to wiki
+update changelog for v1.9
+add test case for parser returning string.
+improve onDeletedHandler
+remove instructions for building docs
+handle theme installation
+add tips for writing selection tests
+add default save value to template of Vehicle Attack (similar to other items which can have a save). Prevents an issue that will come up when migrating to 0.8.
+remove dead fields.
+improve the scale
+add type info to changelog
+improve descriptions.jobs may now handle multiple presql/postsql requests
+set base font-size Set base font so 1rem is 10px
+improve the scale
+improve the scale
+fix the changes
+add quest app to shadows.scn
+allow compilation of v0.23.x on FreeBSD and variants
+add particles config to hero fragment showcase's example code
+add info about Feature Flags
+remove early/obsolete debug routine
+improve resolve JSDoc to support returning multiple nodes
+add and improved file signatures.
+remove useless part of svg
+use the latest stable Chrome in Travis
+use actual legacy script
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+allow es2015 in server rendered components
+add `account` to GDStore
+improve the scale
+improve the scale
+set the default size to 40 on SVGBoxes The null value was causing some weird rendering issues on a few icons
+replace poolSize by max in configuration test
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+add CONTRIBUTING guide for translations
+update readme for local env file
+add hover styles support
+remove instructions for building docs
+add waitForFrame to util.js
+update travis file to use yarn 1.7.0.
+add setup instructions for windows users
+add static asset types
+add weapons to treehouse.scn
+improve nice-scale demo
+remove early/obsolete debug routine
+use the interval from the summary state
+fix the changes
+add default sort on frontmatter data fixes
+remove useless webpack exclude rules
+add endscreen assets to semantics
+improve docker info
+remove quest app from shadows.scn
+improve the scale
+handle non-error
+remove land from street scene
+add test for tickmode sync xAxes
+add more map gen place names
+update version and name
+add test for tickmode sync xAxes
+update dockerfile -- works locally
+add potion to treehouse
+add file-loader to fonts in vue's webpack config
+add potion to treehouse
+improve Google Web Toolkit detection I don't think `__gwt_` actually exists as a variable (leaving it around just to be sure). Adding some JavaScript variables that *do* exist.
+use a square-shaped icon This keeps the width of the instructions bar from changing.
+update Alexa skill template to include Fallback intent, should no longer need to update Alexa skill once initially set up
+fix the all-caps keywords that changes to words prefixed by #
+update travis file to use yarn 1.7.0.
+add deprecated/unsupported runtimes (still working)
+allow job definitions including the environment key.
+improve Wix identification
+remove needsrecomputation predicate.
+remove needsrecomputation predicate.
+improve Contribuer page
+fix bug in parseOrder not loading market symbol correctly Added fetchOpenOrders
+set base font-size Set base font so 1rem is 10px
+set <title> in svg
+update hardware wallet components
+remove references of unused `@wordpress/*` packages from webpack-config.
+set 1-hour clear interval for mongo sessions
+set default hasura url
+remove some unused deps
+add strict false check for payload before send event
+add skipped test case for
+update app menu
+set proper package.json meta
+update readme technical details
+replace deprecated rollup node-resolve option.jsnext with mainfield setting
+fix another attempt to get correct semver version in http agent
+add loot drop to dead mesh lod item
+set icon color inside button
+fix the regression the last commit introduced... Namely, two tests here:
+revert package updates
+replace final with links to repo
+move the functionality to create the static elements of the file dialog into another function
+add drag/pan tests for annotations on gl2d graphs
+remove resolve in top level
+remove redundant synthetic ref update. Fetch already fetches into the synthetic ref.
+remove broken User.jsx dependency import
+fix some preprocessors breaking on `var a := ...`
+remove useless webpack exclude rules
+improve wallpapersafari rules
+remove incorrect failure assertion for oracle change permission
+set host and port parameters back according to develop branch
+add room name to WS connection
+use vm#createVariable
+use comments flag to disable comments in scratch-blocks
+use the existing value of the prop for the toolbox
+use a more public way of set selected category
+use the fixed IDs from default_toolbox.
+use new batched xml loading API
+use the vm editing target to make sure sound reference is up-to-date.
+use the right version number..
+use the `label` field instead of `value` for analytics events
+allow ES6 syntax
+improve documentation for trying out StorefrontUI
+allow bin/publish to accept arguments.
+fix a css bug on messagequeque
+fix the title and desc tags
+use large twitter summary card
+improve dataset cards shadow styles
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+improve the scale
+use a download URL instead of a fake_download
+set Renovate limit to Infinity for initial updates
+add ja translation SFRPG.Units.Speed is above the SFRPG.LocalizationTerminator field now
+improve the scale
+add deprecated/unsupported runtimes (still working)
+remove unused method from pipelineTool
+use a download URL instead of a fake_download
+fix the all-caps keywords that changes to words prefixed by #
+fix the all-caps keywords that changes to words prefixed by #
+ignore undefined socket.remoteAddress similar to fixes
+update the to satisfy documentation sligtly
+remove extraneous code and specified a few settings
+add tokens for string and number
+improve the scale
+improve the scale
+add tokens for string and number
+remove extraneous code and specified a few settings
+add PNG and BMP extractors
+improve the scale
+fix the all-caps keywords that changes to words prefixed by #
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+add comments, changed styling of line graph
+remove extraneous code and specified a few settings
+handle template variations in diff ES versions
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+remove unused method from pipelineTool
+use larger & nicer logo for EGX ETH token
+handle setLedgerTxSigned action in ledger reducer
+update language chooser to align to existing one
+update parameters and payload for updateAysnc
+improve graph flow rendering algorithm
+use a download URL instead of a fake_download
+remove extraneous code and specified a few settings
+update csg tests
+remove extraneous code and specified a few settings
+improve the scale
+improve the scale
+add test for tickmode sync xAxes
+update the mapping with logic to update the delegate rule
+add world getWorldJson method
+set up S3 deployment correctly on the first try
+fix new Page Dashboard All Traffic Storybook story which showed up with no data due to missing API response fixtures.
+allow i18n to be passed as an object
+add uploadToInventory method
+improve kargo unit tests for currency handling
+fix the timing of callback of chrome.window.create() Ref
+allow ID to be passed to pretty select field
+improve the scale
+improve layout of first action button in poi panel
+move the column argument to the correct position
+move more deps based on review feedback
+fix broken reputation rendering on community list
+set AnalyzeBundlePlugin in webpack.config.prod
+use new banner format for rollup-plugin-license
+improve secondwind.
+fix a few minor fixes
+remove arrows
+update document supported lang section
+fix a few minor fixes
+add deprecated/unsupported runtimes (still working)
+fix mergedTracks config height problem
+remove ftu from index.html
+add setFrame method
+add a changelog for v1.8.4
+improve the scale
+add setFrame method
+improve card filtering
+improve the scale
+add google site verification for search console
+update language chooser to align to existing one
+remove alert modal references
+move some variables and removing duplication
+add test for tickmode sync xAxes
+set stripPastedStyles property in draft-js editor
+use a download URL instead of a fake_download
+update layer manager doc
+remove webpack callback to fix concurrent compilation error, reduce logging
+add useDevicePixelRadius toggle to layer-browser
+replace SwitchPaintLayer by SelectPaintLayer
+move a package to the project dependencies
+update svgo version in yarn.lock
+set AnalyzeBundlePlugin in webpack.config.prod
+replace Gdex Agreement Modal
+prepare package.json for release
+use same babelify dependencies and moved them to devDependencies
+improve Imgur gallery support
+fix a typo/bug in the vector3d abs function
+remove getExistingEntities, it doesn't apply anymore.
+update the full list of Patreons
+prepare release/0.9.7
+prepare release/0.9.7
+update changelog for proj
+update changelog for proj
+rename function as moveCursorToEnd
+fix drop date in format teasers
+handle error event
+move myself to the top of the list
+remove recoverTransferFees tests
+remove needsrecomputation predicate.
+rename Lesshint.checkFile() to Lesshint.runOnFile() to avoid confusion with the deprecated name
+remove needsrecomputation predicate.
+update name changes
+update specs with new results
+add test for tickmode sync xAxes
+allow multiple instances of AuthStore
+use `cache` from `setup-node`
+update the docs with information about assemblies
+move the note about clustering up on the page
+remove support for Waterline.Model.extend()'s 2nd argument.
+allow blank issues
+rename getJtiFromToken, add description and docs to public basetoken api
+move the gallery improvements (e.g., animation) onto master.
+add note about benchmarking to determine whether a two-step process for parley() is necessary.
+rename getJtiFromToken, add description and docs to public basetoken api
+remove firefox workaround that is no longer needed
+remove accidental test
+add case sensitive restriction
+allow same version in release script.
+improve coverage for DiscountCodeHook
+improve visit cancellation
+fix off-center background artwork
+set up basic tools for working with workspaces in library
+allow nonlocalhost connection
+add rendercompleted event in Planet scene
+add save and new to add training quick action
+update markup for indicators tab pane
+update markup for indicators tab pane
+improve the layout and some styles
+remove march 2 warning message, as most links should work + minor tweaks
+add bake.html stats rendering
+remove unnecessary catch from visitor test
+remove unnecessary catch from visitor test
+improve static file serving
+revert previous test change
+move AMP tests into own describe.
+improve static file serving
+update the add contact form contructs
+move AMP tests into own describe.
+move AMP tests into own describe.
+remove Analytics activation from GTM setup in E2E.
+remove unnecessary catch from visitor test
+replace inline span with a block level div.
+fix few mobile sidebar UI issues
+handle EPIPE error
+move AMP tests into own describe.
+improve consumer reconnection test
+update plugin reset test
+improve the scale
+fix some messed-up css
+move myself to the top of the list
+add F grab menu key helper
+fix up the logic to detect when prepend/append/reset events occur on the calendar view
+fix broken global carousel
+improve dropdown functionality when text should overflow
+improve header styles
+add close button to playback rate chooser Bonus fix: Seems this issue has gone unnoticed for quite some time.
+remove existing event listeners
+use free dynos for Heroku review apps
+remove client config input from auth-flow test
+move AMP tests into own describe.
+update KmlDataSource to reflect Sean's suggestions
+update compileStyle in FeatureFilter
+fix some preprocessors breaking on `var a := ...`
+allow job definitions including the environment key.
+use new u parameter for edit.js planet connect
+remove old avatar API from metaversefile api
+set timeout to 20s on CIs.
+improve responsive layouting of quick links
+ignore *.d.ts files
+improve debugger button style
+set light and dark background for drop container in theme
+use new reauthenticateUser command
+rename createPgError to createGenericError
+remove the use of template strings
+set dev server to port 3000
+fix Storybook IE 11
+handle "item" category
+fix up description of validating token by referencing full verification document
+add skipped test case for
+move handleConfigRequest inside handleRequest
+fix the previous misunderstanding
+add a correct description for the `ts-config-path` option
+allow creation of bodies during pause
+improve the scale
+handle home/end key and the ctrl variants
+remove cron steps We never tested those.
+remove cron steps We never tested those.
+add test for tickmode sync xAxes
+remove tickmode sync from minor ticks
+improve the scale
+add pistol and silsword
+add truffle instructions to README.md
+remove extraneous code and specified a few settings
+remove extraneous code and specified a few settings
+handle AJAX errors better
+add deprecated/unsupported runtimes (still working)
+update Contribution md file Updates branch naming convention from Jira to GitHub issue number
+improve auth interface
+use new input for existing input on card grid item
+rename handleResponse to show what it's doing
+rename a private variable
+add `addFile` method docs to the Url plugin
+add push/pop for scene previewer render settings
+allow blocking of popup hide
+replace Gdex Agreement Modal
+remove symbol handling in Value() that doesn't work
+improve README with contributing section
+add setFrame method
+revert some minor change
+add pistol to shadows.scn
+improve reliability of port hint. * fixing things for people with the username `cwd` closes * combine awk into a single command and add escaping
+ignore the yarn cache directory
+handle constants and numbers
+add dev env for CI build
+improve SprkDivider comments
+add test for focus() on <Input />
+allow asset explorer to scroll
+add default apps to default scene
+set up basic tools for working with workspaces in library
+improve the output of the dot reporter
+use the correct step it-171
+handle setFlowLimitation and clearFlowLimitation actions in reducer
+fix person top scaling on mobile / tablet
+improve AddPodcastModal
+allow select value to be set in callback
+allow asset explorer to scroll
+improve font size stylings
+set a cleaner form for event creation
+remove PageSpeed_Insights::setup_client Matches base class now
+handle escape on keyup
+add BackAndroid handling for AppNavigator (the tab screen)
+fix person top scaling on mobile / tablet
+update bot rocket
+replace Update Asset Confirm Modal
+add test for tickmode sync xAxes
+add instance support in dual contouring binding
+use better approach for calculating uniqueErrors.
+allow spaces in quoted meta values
+update unit test based on the change of savedObjectClient method
+add instance support in dual contouring binding
+add instance support in dual contouring binding
+improve message listener robustness
+set up getter before wrapping getter function for logging
+add possibility to override columns for FormGrid.
+add default save value to template of Vehicle Attack (similar to other items which can have a save). Prevents an issue that will come up when migrating to 0.8.
+remove unused modular instance
+replace drag help by modal image
+add initial bundle loading support
+add support for drag-dropping urls, links or images from webpages to Uppy via Url plugin
+remove waitForModules action and control.
+fix this context in argument generator
+add selectIsActive selector.
+add setLocale method
+replace Update Asset Confirm Modal
+rename modal to popover in ReportActionItemRow
+replace Gdex Agreement Modal
+improve scrollbar, fixes
+ignore ADD_TRANSPORT_STATS messages
+improve design of credit card screen.
+use more variables in desktop.scss
+ignore clicks on premium elements
+replace palette.type with .mode
+allow bin/publish to accept arguments.
+ignore all non-js extensions in babel-register
+update DataSearch - fix autoSuggest prop
+replace Update Asset Confirm Modal
+remove experimental requirement for
+remove old BigButton styles
+add default apps to default scene
+remove queueing from offscreen engine
+replace Update Asset Confirm Modal
+rename "behavior" to "purpose" in comments.
+add default save value to template of Vehicle Attack (similar to other items which can have a save). Prevents an issue that will come up when migrating to 0.8.
+update org ce
+revert css change
+fix media control bar wrong margin after switching to MV
+update readme.me added: contributing, pr process, asd initial conf area
+allow a type to be set on elements like Input that use FormElementMixin. Fixes
+fix mergedTracks config height problem
+add a `removePlugin` method.
+update the Notes file to show changes made to the stories.
+remove trailing comma which caused an error in `cook`.
+add drag/pan tests for annotations on gl2d graphs
+replace reject with throw For
+use a Set for find_els_at_point Significantly improves performance (~400ms on reddit)
+update noUnknownFields()
+handle errors and zero data correctly in AdSense top pages table on module page.
+fix a few issues with uppy/core types, Fixes
+improve LCP a bit on items pages
+replace hyperlink with attachmentview based on condition
+add React custom styles
+add initial templates integration
+fix test directory without ending slash
+add test for shift data via parallel connections Add test for shift data via parallel connections
+add test for shift data via parallel connections Add test for shift data via parallel connections
+remove more ctrl key handling
+use new graphql schema
+add shown flow and iOS dialog
+use an actual button
+add a basic console history, which can be accessed with the up and down arrows Removed jQuery from the console page, use Vanilla JS instead
+use distinct count to avoid groupBy
+add mouse story control
+fix bug:event params compiler faild bug of qq
+add particles config to hero fragment showcase's example code
+replace drag help by modal image
+use next line text block because syntax highlighting doesn't work for sameline
+set link color in alert
+improve Padding for Stakeholders Form
+set userAgent for dapps
+add sub nav to level 1 page
+ignore release unless on master
+allow ESLint to make the code less readable
+add setLocale method
+improve GrowiZipImportForm
+improve interactive focus handling
+revert PR from solid/fix-menu-selector
+remove unnecessary players update code
+remove unused chrome.tabs
+handle lonely group separator in NumericInput
+improve coverage further
+remove Analytics activation from GTM setup in E2E.
+rename setConsentToNone to setConsentToOut
+fix bug in falling back to en locale correctly
+add a basic console history, which can be accessed with the up and down arrows Removed jQuery from the console page, use Vanilla JS instead
+replace developer error with check in bingMapsGeocoderService
+add skipped test case for
+replace `tmp` package with Node.js internal in test helper
+allow layout components to display in the form builder under Existing Resource Fields.
+add blackColor to Text component; Use types for color prop in Text component;
+improve the scale
+add swagger doc title, set version to dummy value
+add bow to treehouse.scn
+remove unnecessary checks for dom rects
+fix the all-caps keywords that changes to words prefixed by #
+add NPM lint script
+improve error handling in the cached io read logic
+add test to lock issue 4716
+ignore the yarn cache directory
+handle error at prettier transform.
+ignore assets/js/googlesitekit-* properly in jest config.
+ignore assets/js/googlesitekit-* properly in jest config.
+ignore assets/js/googlesitekit-* properly in jest config.
+ignore assets/js/googlesitekit-* properly in jest config.
+ignore assets/js/googlesitekit-* properly in jest config.
+fix test/stories folder may import from devDependencies
+ignore assets/js/googlesitekit-* properly in jest config.
+ignore assets/js/googlesitekit-* properly in jest config.
+ignore files when publishing to npm
+add default env to template
+add test story for tracking bug
+fix bug with build version
+fix bug when using decodeHTML on empty content
+remove unused sleep method
+add setFrame method
+handle info value
+remove data logging
+improve breadcrumbs Items can be simple array of strings too Active state of last element is automatically set if not provided
+fix broken About link.
+add mouse story control
+allow layout components to display in the form builder under Existing Resource Fields.
+fix an issue with Tiles selection indication.
+add default apps to default scene
+fix good or wrong TopXQ
+improve check for Event support (fix
+add core onEvent handler to attach to all events
+fix globalRedirect updates window.location.hash Another attempt at getting globalRedirect right. Look at for discussion (and and and
+handle null responses from storage
+handle projectId as prop Update project-loader to look for project id as prop (i.e. from www), and fall back to hash.
+fix the all-caps keywords that changes to words prefixed by #
+add new animations skeleton loading in avatars.js
+fix broken Storybook story that had been introduced in the meantime.
+add sample object and missing descriptions
+improve the scale
+remove extraneous code and specified a few settings
+add bit reversal
+update specs with new results
+fix the all-caps keywords that changes to words prefixed by #
+improve the scale
+add bit reversal
+improve the scale
+improve the scale
+replace Gdex Agreement Modal
+remove JQuery uses from database addon
+fix a race condition in fastclient where multiple callbacks are spawn causing it to not be in sync
+fix up flow errors;
+fix an issue with set config
+improve error handling for ui api request errors
+replace Notification in Header
+handle case that image details is undefined but dimensions are provided
+use default log driver
+fix broken Storybook story that had been introduced in the meantime.
+move the prefetch call when the module is connected.
+improve the scale
+replace deprecation log messages
+add rendercompleted event in Planet scene
+remove ELEVENTY_EXPERIMENTAL requirement for `addExtension` in 1.0
+rename handleResponse to show what it's doing
+improve auth interface
+remove waitForModules action and control.
+add option to submit on lookup dropdown enter
+add world getWorldJson method
+handle client errors if user inputs invalid card
+update parameters and payload for updateAysnc
+add setLocale method
+handle "item" category
+allow user overriding SINGLETRACE option
+remove queueing from offscreen engine
+add an API-G test sample
+remove ELEVENTY_EXPERIMENTAL requirement for `addExtension` in 1.0
+improve twitpic rule
+remove redundant TZ rename The official name is now "Europe/Kyiv", so we don't need to rename it just for the UI anymore. fastmail-commit:
+add test for shift data via parallel connections Add test for shift data via parallel connections
+fix a small nit in ping function
+use new methods to validate metrics and dimensions.
+allow item links to ids
+improve check for Event support (fix
+improve select dropdown performance during pdf generation.
+fix some issues with Search. Fixes GitHub issue
+move a regex to a constant This will speed up things a little as the regex can be precompiled. I don't think this matters much tbh, but it's good practice.
+remove unimplemented trace types
+rename the class and the todo comment
+allow layout components to display in the form builder under Existing Resource Fields.
+remove cron steps We never tested those.
+move a regex to a constant This will speed up things a little as the regex can be precompiled. I don't think this matters much tbh, but it's good practice.
+improve protection from event catching while inputing data
+fix the changes
+use new Site Kit hooks for rendering tags. configure_events() -> compile_events().
+add pad to uniformtext_icicle mock
+set function
+add RichTextView insert remote image feature
+improve the output of the dot reporter
+add new animations skeleton loading in avatars.js
+set nomin and havven addresses in HavvenEscrow.
+remove needsrecomputation predicate.
+remove getChainId() function and replaced by direct call with block.chainId
+set public path for fonts properly - closes
+add setFrame method
+improve layer preview handling
+update changelog for proj
+update fit to width to update on initial render
+fix drop date in format teasers
+add setFrame method
+remove default loadout selection
+remove Analytics activation from GTM setup in E2E.
+move AMP tests into own describe.
+remove the test that checks for CTA not visible.
+remove Analytics activation from GTM setup in E2E.
+handle native stuff a bit differently
+replace Google font loading with stylesheet.
+set error state in componentDidCatch to get access to info.componentStack.
+rename md5 property in default sb3 project to md5ext to reflect it's actual contents.
+rename camera upload option in action menu.
+rename cacheAsset to better reflect what it does
+rename lightBlue to sky
+handle sync errors and extract getTilesFromImage from getTile function
+fix Avoid keeping type-ctor in object It can be conflict.
+add deprecated/unsupported runtimes (still working)
+update language chooser to align to existing one
+add performance type
+fix the all-caps keywords that changes to words prefixed by #
+add new animations skeleton loading in avatars.js
+update csg tests
+improve performance for movement pan setting
+move language scans before OS scan as language data is downloaded first
+improve the scale
+add quest app to shadows.scn
+set cookie secure attribute to true.
+fix the all-caps keywords that changes to words prefixed by #
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+add quest app to shadows.scn
+add test for tickmode sync xAxes
+remove username and email from events spec
+fix some typos in user_stat table definition
+fix the all-caps keywords that changes to words prefixed by #
+allow multiple plugins to provide global options
+replace invalid card type dom message with a console warning.
+fix bug with filter being reset on first filter click after search
+revert view port width
+set preselection value to fix issue where the old date was staying selected on clicking Today button
+set function
+update test script to remove duplicate command
+remove redundant trackEvent call.
+improve the scale
+remove unused styles from navigation;
+allow job definitions including the environment key.
+revert npm tag
+remove title from README page
+move top links out of page sections Fix React render warnings by removing whitespace and other nodes which are not rendered by React from page section elements.
+allow multiple output files in an app export Allow multiple output files in an app export
+update parameters and payload for updateAysnc
+add default save value to template of Vehicle Attack (similar to other items which can have a save). Prevents an issue that will come up when migrating to 0.8.
+add support for code snippets in wysiwyg fields
+add facets for Award search results According to note 33 on the ticket. Redmine
+update test parameter for replication factor
+allow some options to set empty values.
+update readme.me added: contributing, pr process, asd initial conf area
+update README with config examples
+add more parcels
+fix broken link to markdown options doc Fixed broken link to markdown options doc
+add overview info, also removed duplicate removed section
+allow homepage visitors to select code
+add pistol and silsword
+fix test refactor
+allow job definitions including the environment key.
+add rerender story.
+set engine to 6.11.1 or higher
+remove unused urlize
+add peekers to replace the stepper solution
+remove extraneous code and specified a few settings
+move Adored Ornaments
+improve handling of oAuth errors
+improve LCP a bit on items pages
+revert package.json update
+remove <p> DOM from header of demos/generator/typed
+use new graphql schema
+fix bug in label
+set docs rtl inside package json
+allow swapping to unlocked wallets via auths
+allow layout components to display in the form builder under Existing Resource Fields.
+allow links in DropdownItem
+replace SwitchPaintLayer by SelectPaintLayer
+remove empty class attributes
+remove empty class attributes
+fix a wrong conditional
+improve sizing of new tab background
+allow items to be closed/locked
+allow buttomns with large text to overflow
+fix a bug that cannot process pending requests when the queue is empty but it still remains in pending state
+fix a bug that prevent updates
+remove unused chrome.tabs
+improve point selection in 2d map
+fix the inconsistent return types in `PDFViewerApplication._parseHashParameters` While not really relevant to the previous patches, this fixes a small inconsistency in the code.
+update Hover effect of social media Icons
+fix mergedTracks config height problem
+improve reporting of errors at top level oc cmd
+allow value property to be set before items have been loaded.
+improve auto-removal of highlights
+ignore files with imdone_ignore: true front matter
+move all api requests into componentDidMount
+rename the class and the todo comment
+revert css change
+fix broken external links in chemical probes widget
+move postinstall hook to pretest
+improve header styles
+fix the space issue
+remove DEBUG in Production and Staging envs
+fix good or wrong TopXQ
+add `ReduxDevTools` to bundle
+remove references of unused `@wordpress/*` packages from webpack-config.
+improve the scale
+remove references of unused `@wordpress/*` packages from webpack-config.
+allow custom GUI construction This way one can still get the benefits of the GUI container but have a custom collection of components within it.
+allow configuration of S3 branches to release
+allow #fullscreen and #player links in modal.
+allow http url in import modal
+allow new sprite to propagate before selecting costume tab
+allow more mime types to be processed. Firefox and Safari both process mp3s as having audio/mpeg, and a variety of different audio/wav* possibilities.
+replace unnecessary Fragment with parens.
+add email validation
+improve CalloutBanner render
+add facets for Award search results According to note 33 on the ticket. Redmine
+fix good or wrong TopXQ
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+add bit reversal
+add quest app to shadows.scn
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+use a for loop instead of a higher-order function This saves about 4% of parse time when benchmarked against
+add new animations skeleton loading in avatars.js
+add `account` to GDStore
+update language chooser to align to existing one
+improve the scale
+move alternative JAR signature
+handle setAccountFound in reducer
+fix the all-caps keywords that changes to words prefixed by #
+remove useless jasmine helpers
+add missing mousedown
+allow any type of object to be used for a FormError
+remove some currently broken code in connectivity vis
+fix the red wedding so that only lords/ladies in play can be targeted
+add esc key to close mint window
+add scene preview default metaverse module to street.scn
+add world getWorldJson method
+use custom encoder if it is sent in option object
+add new functions
+update neon-js npm dependency link to point to CoZ repo
+set Uglify output to ASCII only to fix unicode encodings - fixes
+remove componentDidCatch
+replace deprecation log messages
+set the value of textInput from datagrid cell while double click
+update prism code theme
+add map button to hero search bar
+add quest app to shadows.scn
+use imageUrlCached
+remove unnecessary graphql query.
+allow closing of prompts with Escape Fixes
+improve props spreading
+remove createClass usage in CustomArrows example
+update SprkAward to elementType
+add possibility to override columns for FormGrid.
+add possibility to override columns for FormGrid.
+update openjdk version in docker image to jdk 11 Need to update the base container from ubuntu:bionic to ubuntu:cosmic. The open jdk in ubuntu-bionic is in fact a jdk 10.
+update parameters and payload for updateAysnc
+improve the code for getting the policy ID for Guides call
+remove redundant style resetting
+improve the scale
+remove symbol handling in Value() that doesn't work
+use default log driver
+allow width on dashboard to accept a string for 100%
+set threshold default to 0.9
+fix broken Storybook story that had been introduced in the meantime.
+fix isProfileStored
+update docs with fork handling
+set lastActivity when a tab is switched away from
+add swagger doc title, set version to dummy value
+allow i18n to be passed as an object
+fix better value validation
+allow width on dashboard to accept a string for 100%
+replace hyperlink with attachmentview based on condition
+fix the dates when inserting to redis
+remove ELEVENTY_EXPERIMENTAL requirement for `addExtension` in 1.0
+fix bug in updated responsive layout module
+improve the library config with a scrolling file explorer
+remove waitForModules action and control.
+use HeaderWithCloseButton
+remove KeyboardNavigation from default controls
+move `lists` utility nearer to the top, so other utilities (padding, margin, etc.) would override;
+improve style and text
+set console agent to run in host network to fetch instance metadata correctly
+improve getFullPath
+handle hideLedgerModal action in reducer
+add world getWorldJson method
+add useJSON6Internal metaversefile method
+update README with config examples
+handle empty template tags in bin components
+fix a bug that prevent updates
+replace es6 map by plain JS object since its usages are treated like an object
+add file count to displayFilesAsHTML
+remove unused chrome.tabs
+improve arrow navigation for menus with optrgroups (still WIP)
+set no-cache header explicitly, fixes
+allow multiple data-background
+allow key shortcuts to link directly to icons - and fix adding Ctrl-U for uploads
+set base font-size Set base font so 1rem is 10px
+allow cert deletion
+fix a bug that prevent updates
+improve findLis selector
+rename maybeToggleIndex to maybeToggleParticipant
+add React custom styles
+update gradle version to 6.1 closes 11141
+update gradle version to 6.1 closes 11141
+replace ping with player ID on sidebar closes
+fix bug in updated responsive layout module
+ignore clearimage on undefined image
+handle hexadecimal literals in seeker to avoid detecting identifiers inside them
+move duplicate
+set the page before hiding the progress bar
+add match address bar to navbar
+set up spectrum as a web app
+add container class visualization page
+improve breadcrumbs Items can be simple array of strings too Active state of last element is automatically set if not provided
+remove action call cleanup
+remove disaggregation field
+update the principal logicalType to account for okta rancher/rancher#30401
+add new serverside wsrtc binding
+set yarn to the path
+remove useless jasmine helpers
+remove increase-memory-limit plugin in favour of NODE_OPTIONS environment variable.
+set lastActivity when a tab is switched away from
+set proper package.json meta
+update cursor position after focused
+fix off-center background artwork
+improve the scale
+replace path separator on windows.
+revert package updates
+rename db cache table to more general name
+ignore special case around records for now.
+add quest app to shadows.scn
+fix existing map data storage
+set selected category on adding extension
+set x and y icons to aria hidden
+set up S3 deployment correctly on the first try
+set smoke url automatically
+update README with config examples
+replace istanbull with nyc for coverage-related npm-scripts
+fix another attempt to get correct semver version in http agent
+rename "dist" to "release"
+improve the scale
+add nodejs steps
+set ETHEREUM_ENABLED in travis
+remove extraneous code and specified a few settings
+add infinifruit to treehouse
+remove dead fields.
+move some variables and removing duplication
+update README with config examples
+use a button as the default element for selects
+improve blockHandler logic
+add quest app to shadows.scn
+replace 'blank project' with somethign that at least compiles
+ignore additional directories
+allow job definitions including the environment key.
+prepare test
+add header pickup handling
+add proptypes shape
+replace Gdex Agreement Modal
+use new graphql schema
+fix broken dashboard with expired session token
+allow user overriding SINGLETRACE option
+set Chrome userDataDir to be under .vscode folder
+fix broken Storybook story that had been introduced in the meantime.
+set AnalyzeBundlePlugin in webpack.config.prod
+remove invalid export
+improve vendor chunk names in development
+improve vendor chunk names in development
+add next <Html> component to _document
+add enableShadows method in util.js
+use a more permissive token when interacting with Stream personalisation
+set Uglify output to ASCII only to fix unicode encodings - fixes
+update WarriorPoet.
+replace JAVA_HOME_DIRS with JAVA_HOME
+fix the docker container locale issue
+fix the all-caps keywords that changes to words prefixed by #
+update payload for update_endpoint_test_statement
+remove unused/useless function sortItemsBeforeIds
+remove splitChunks configuration to use defaults.
+remove componentDidCatch
+update all wrapped components!
+set webpack publicpath
+fix a css bug on messagequeque
+allow list completion on lists and headers
+fix the all-caps keywords that changes to words prefixed by #
+remove unused filter.
+remove useless function redefinitions.
+remove useless function redefinitions.
+update openjdk version in docker image to jdk 11 Need to update the base container from ubuntu:bionic to ubuntu:cosmic. The open jdk in ubuntu-bionic is in fact a jdk 10.
+move `lists` utility nearer to the top, so other utilities (padding, margin, etc.) would override;
+add binary support for binary integration
+set python via npm config on linux
+update travis file to fix parse error there is still an error
+add padding to fitBounds
+use a new updating strategy.
+fix a hiden jitsi logo mistake
+add more DNS request types
+improve static file serving
+replace hyperlink with attachmentview based on condition
+allow user overriding SINGLETRACE option
+allow ES6 syntax
+add alpha test to shader
+handle theme installation
+add mob character hit support
+set ENV vars for review apps Set review app buildpack to nodejs
+update docs with fork handling
+update circle ci config to use a single job.
+allow user overriding SINGLETRACE option
+add quest app to shadows.scn
+remove unused (but dangerous) proxy modifier.
+improve responsiveness of gas price row on confirm screen.
+fix person top scaling on mobile / tablet
+replace hoveron flaglist with dropdown
+handle default focus styles on buttons
+improve tooltip offset in <Histogram />
+allow modal to be closed via the open prop being set to false
+fix some documentation copy/pasta
+update tabs stories
+set font size in form inputs to be something more legible.
+add future settable data
+improve readability of the models dropdown
+remove unused exports from math-editor
+fix new category not being selected when dragging flyout
+add card renderer flipY support
+move postinstall hook to pretest
+fix up Purchasing screen with list items occupying the full screen width.
+handle missing compendiums better
+update account creation e2e test
+remove print error if in webworker
+add grunt contrib clean deps
+fix an issue where styles were stripped out by production tree shaking in some webpack 5 scenarios
+allow ES6 syntax
+rename src to lib in start script
+improve PostSingleContent render
+handle incorrect zip file content gracefully
+revert changes to see if bugs go away
+revert div to Box
+revert changes to sensing of
+use the workspace layout for the sidebar
+allow es2015 in server rendered components
+add quest app to shadows.scn
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+allow mixed string quotes if it reduces escaped values.
+update docs with fork handling
+move server start log to `app.listen` callback
+set ENV vars for review apps Set review app buildpack to nodejs
+remove unused method from pipelineTool
+improve the scale
+remove dependency for Utils.js from NetBIOS.js
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+add simplex noise to camera manager
+update snapshot with correct animation details;
+prepare release candidate 0.9.6-rc.1
+fix an issue with dark background Box
+replace unwanted `transferFrom` in erc20 gas refund
+remove old BigButton styles
+fix the title and desc tags
+add speech button in SceneMenu.jsx
+allow HTML to output without escaping in markdown render. (Option to markdown-it)
+fix modal load bug projectselector's dropdown
+remove unused chrome.tabs
+fix false negative evaluation
+remove unreachable code rancher/rancher#8858
+update travis config to work better with yarn
+remove GSI library.
+fix Fixed colors per
+fix Fixed colors per
+replace rem to px to prevent blocks "jumping" when user goes throw menu
+update markup for indicators tab pane
+update primary hover color
+add test checking that updatemenus are above sliders
+use nextSibling to ensure we disabled the right input
+add test case for point / text node removal on blank data
+add new serverside wsrtc binding
+remove conditions based on report being undefined.
+improve static file serving
+remove unnecessary passing of params around
+remove server-side tracking script output/config.
+add test for shift data via parallel connections Add test for shift data via parallel connections
+replace white rectangle bitmap with empty svg for default backdrop. Resolves
+add test for tickmode sync xAxes
+add swagger doc title, set version to dummy value
+update readme with activity user step
+fix the JSDoc version
+revert back ganache-cli ver
+use new VR.js instead of vr-display module
+improve safeness of isVirtual check
+allow embeds to go fullscreen
+add case sensitive restriction
+update buildspec.yml to download submodules after cloning
+add quest app to shadows.scn
+rename decoder#readSignedVarInt32 to varInt and readSignedVarInt64 to varLong
+replace 'blank project' with somethign that at least compiles
+update heading explanation Added the explanation under the heading "Heading" giving further and the basic details.
+add test for tickmode sync xAxes
+remove extraneous code and specified a few settings
+fix the repo suggestion
+add emojis to main headers.
+add note about benchmarking to determine whether a two-step process for parley() is necessary.
+fix the all-caps keywords that changes to words prefixed by #
+fix broken Storybook story that had been introduced in the meantime.
+update esm file name in webpack build script
+remove extraneous code and specified a few settings
+add more map gen place names
+add enableShadows method in util.js
+add weapons to treehouse.scn
+set Chrome userDataDir to be under .vscode folder
+improve types, fix typo Summary: I made `DraftBlockRenderConfig` exact, which exposed a bug in `OCDevUIMarkdownRenderer.react` (a typo). Fixed it.
+fix the all-caps keywords that changes to words prefixed by #
+improve support for frames
+add more parcels
+add CSS for Ghost ButtonCard
+allow buttomns with large text to overflow
+improve readability of predicate generators docs
+replace line ending from CRLF to LF
+fix open directory from webui
+replace Notification in Header
+add support for code snippets in wysiwyg fields
+add infobox hints
+allow asset explorer to scroll
+remove JSX from lib/controllers
+replace bitwise AND with logical AND
+update cursor position after focused
+improve filter select to search filter input
+improve date format on reports select
+replace unconnected views with SimpleCircularOrLinear
+update all wrapped components!
+remove unused filter.
+rename div as main Change <div> with class="layout__columns" to <main>. Revert previous <main> back to <div>. Issue
+update circle ci config to use a single job.
+replace i18n with tpl refs: The i18n package is deprecated. It is being replaced with the tpl package.
+remove unneeded shim
+add geojson source
+handle theme installation
+improve warpvnd two-poles example, align post on grid
+improve types for cli
+remove queueing from offscreen engine
+update builder and added electron-builder
+remove unused filter.
+replace path separator on windows.
+rename lightBlue to sky
+handle multiple clashing routes
+fix bug:event params compiler faild bug of qq
+remove extraneous code and specified a few settings
+add dependency badges to README
+set btn-border-radius*
+add tips for writing selection tests
+rename Twitter Bootstrap to Bootstrap
+improve Padding for Stakeholders Form
+update Number of Calculators
+improve responsiveness of PriceCard section

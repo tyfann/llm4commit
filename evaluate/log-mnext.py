@@ -518,7 +518,7 @@ if __name__ == '__main__':
     # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_gpt35_zeroshot.json', 'msg', 'chatgpt_zeroshot')
     # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_gpt35_rag.json', 'msg', 'chatgpt_rag')
     # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_race.json', 'msg', 'race')
-    calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_gpt35_golden_classified_rag.json', 'msg', 'chatgpt_rag')
+    calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_race_v1.json', 'msg', 'race')
     # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_gpt35_cot.json', 'msg', 'chatgpt_cot')
     # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_nngen.json', 'msg', 'nngen')
 
