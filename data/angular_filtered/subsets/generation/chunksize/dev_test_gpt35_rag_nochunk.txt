@@ -1,0 +1,501 @@
+chore(package): remove d3 dependency
+chore: updates d3 to version 3.5.17
+build(deps): bump @chakra-ui/vue from 0.4.1 to 0.4.2\nBumps [@chakra-ui/vue](https://github.com/chakra-ui/chakra-ui-vue) from 0.4.1 to 0.4.2.\n[Release notes](https://github.com/chakra-ui/chakra-ui-vue/releases)\n[Changelog](https://github.com/chakra-ui/chakra-ui-vue/blob/master/CHANGELOG.md)\n[Commits](chakra-ui/chakra-ui-vue@v0.4.1...v0.4.2)\nupdated-dependencies:\ndependency-name: @chakra-ui/vue\ndependency-type: direct
+chore(deps): update husky version to ^4.2.5
+refactor(webpack): improve handling of loaders exclusion logic\n\nThis commit refactors the logic for excluding base paths from having existing loaders applied to them in webpack configuration. It now properly appends the Candela include paths to the `exclude` property of each loader, ensuring correct exclusion behavior. This enhancement improves the readability and maintainability of the webpack configuration.
+refactor: updated Dockerfile path in build command
+chore: update version of @chakra-ui/vue to 0.5.3
+chore: update Dockerfile build image to go-1.19.5 [CDS 1490]
+chore: update fonts in Dockerfile
+refactor: update Dockerfile messages to improve readability
+build: update build process to include examples and run tests
+scripts: update merge regex in verifyCommit script
+chore: update build and test scripts to use bash instead of sh for cross-platform compatibility
+refactor(azurepipeline): updated Node.js installation and test script in azure pipeline
+chore: update Lerna installation and publishing command in circle.yml
+chore(build): update build:ci script to use webpack instead of webpack-dev-server
+ci(gh-actions): update yarn cache handling and node setup logic
+chore: update docker configuration in CircleCI config file
+chore: update workflow name to Release and trigger on push event
+dependencies: Update Lerna installation command in circle.yml
+chore: update release workflow with bootstrap step and remove redundant linting step
+ci: add environment variables for Sauce Labs testing
+style: improve code formatting in DropdownExampleRemote component
+docs: Add instructions for using preact/compat with WMR
+style: Add missing semicolon to ButtonOutlineSource declaration
+feat: adding size prop for specifying modal size, corresponding to Bootstrap's modal sizes
+docs: add new Gridsome project Chakra UI demo
+chore(docs): Updated template values\nChanged the template values to be more descriptive and consistent with the naming convention.
+docs: fix link to mixmax in sponsor section, fixed
+fix: update component name in alertdialog documentation
+fix(textareausageexamples): typo correction in autoHeight message
+docs(razzle-plugin-typescript): update link to typescript example project in README
+docs: add Chakra component usage instructions to README
+docs(content): add Algolia search configuration
+refactor: update CDN links to use HTTPS protocol
+docs: add instructions for Nuxt and Firebase installation
+docs(website): update common issues and debugging section in getting-started.mdx
+docs: Add link to Razzle 3 docs for users not ready for Razzle 4.0 [ci skip]
+style: update icon name in IconExampleIconGroup component
+fix(docs): update import path for Bootstrap CSS in src/index.js file
+docs(changelog): update and tidy latest release with implemented enhancements and fixed bugs
+docs: add example of using namespaces for store actions/mutations\nfix
+docs: update the changelog generation process
+docs: update modal description to contain one or more paragraphs
+fix(docs): update image path in CardGroups example
+docs: fix typo in faq.md file
+fix: update PropTypes in ProgressPage component for striped prop
+docs(responsive): Update ResponsiveExampleMaxWidth component to show content for display width and lower
+docs: Add Netflix's Edge Developer Experience team's internal apps link to helpful links section
+refactor(collapse): update collapse functionality to use isOpen instead of collapse variable
+docs: update design principles in README to use "fewer" instead of "less" flags and features
+chore: Correct grammar in accessibility documentation
+docs: update lint function parameter name in README
+docs: add sponsor badge to README.md
+docs: update Firebase module disclaimer for clarity
+docs(readme): add link to react-semantic.ui-starter project in example projects section
+chore: update contributing.md with new commands and workflow instructions
+docs: update nodemon configuration ignore patterns in README.md
+docs: added explanation on nodemon file watching and how to trigger change on .env file
+docs(firebase): update options guide with messaging collectionEnabled configuration
+docs(getting-started): update debugging instructions with inspect-brk option
+docs: add link to typescript example project in README
+docs: Add new example project link to README.md
+chore: update delay configuration in nodemonConfig
+feat: Add UncontrolledCollapseExample to CollapsePage component in documentation\n\nAdded an UncontrolledCollapseExample component to the CollapsePage component in the documentation. This component demonstrates how to use the UncontrolledCollapseExampleSource code snippet to implement collapsible elements without controlled behavior.
+feat: add server-side rendering support for AWS deployment option
+docs: Add new product link to README.md
+refactor(MenuExampleHeaderVertical): updated handleItemClick function signature
+feat(components): add accordion icon to toggle expand/collapse state
+docs: update README with information on using npx nodemon for local installation
+feat(theme): alternative way to provide theme using render function
+feat(docs): added local persistence to auth service configuration
+chore(table): update proptypes for Table component
+feat(Label): Update names in LabelExampleImageColored component
+chore: update description for 'Stretched' Grid variation to mention height instead of width
+docs: Add documentation for stacking HTML elements using CStack component
+style(docs): update DropdownToggle component in ButtonDropdownPage to use split style instead of caret
+docs(readme): add CoreUI-Free-Bootstrap-Admin-Template to organizations and projects list
+docs: fix typo in README regarding legacyWatch option
+chore: update console.info message with link to common problems in razzlejs.org
+packages: add Chakra UI React link to Navbar
+style(docs): fix typo in Layout.js\nFixed a typo in the comment for .col-auto to correctly say "variable width content" instead of "variabe width content"
+feat(spinner): add SEO component to spinner documentation\n\nAdded SEO component to the spinner documentation to improve search engine optimization and provide a brief description of the spinner functionality. Updated the import statement for the CSpinner component and included usage examples with different colors, sizes, and customization options. Also, listed the available props with their types, default values, and descriptions for better understanding and usage.
+chore: add parseFAIcons function to parse all Font Awesome Icons in icons.js
+docs(readme): add information on setting up CSS\n[skip ci]
+docs: fix typo in link text
+chore: updated installation instructions for Chakra UI and added Vue CLI plugin setup instructions
+style(website): adjust layout in default.vue for better responsiveness
+docs: update analytics and remoteConfig initialization docs
+refactor: fix import casing in routes.js file
+fix(docs): add explanation for defaultOpen prop in UncontrolledCollapse component
+docs: update webpackOptions comment in customization.md
+chore(docs): Update prop declaration in Form.Group example to 'widths="equal"' for consistency
+fix: corrected icon name in ModalExampleScrollingContent to 'chevron right'
+chore(README): Update badges to shield.io format and add CDN information
+style(checkbox): update InlineCheckboxes.js to use unique IDs for inputs and labels
+build: update LESS support installation instructions\nUpdate installation instructions for LESS support in Create React App using @craco/craco and @semantic-ui-react/craco-less plugins. Remove unnecessary packages and update configuration setup.
+chore: update the version of @chakra-ui/vue to 0.5.4
+docs: change section title from 'Types' to 'Variations' in ListVariations component
+docs(input-group): update Input component with min and max attributes for amount input
+doc: update nodemon.json ext configuration to include comma-separated values
+feat(docs): add documentation for the Stack component in Chakra UI Vue\n\nAdded detailed documentation for the Stack component in Chakra UI Vue, including information on importing, usage examples for stacking items vertically and horizontally, reversing display order, available props, and slots. This documentation will help users understand how to effectively use the Stack component in their Vue projects.
+refactor(sheets): [Winget] Update package upgrade instructions and add new features
+docs: remove codesponsor link from README.md
+chore(Layout): update text container instructions
+feat(IconSearch): focus on whole input container instead of just input element
+refactor(content): sort items by name before mapping over them in the sidebar
+fix(docs): correct spelling mistake in fade disable message
+chore(docs): update script sources in index.ejs\nUse unminified versions of PropTypes, React, and ReactDOM based on environment.\nUpdate CDN sources for React and ReactDOM scripts.
+style(docs): update layout and add information about icon set in IconSearch
+chore(docs): update Commands section in CONTRIBUTING.md, add new commands and descriptions
+feat: adding closeAll state and toggleAll method to handle closing all modals at once
+style(ui): update NotFound page content and styling
+refactor(CEditable): refactor component, clean up functions and add data-chakra-component attribute to elements
+fix: handle keydown event in MenuOptionGroup for Enter and Space keys
+refactor(Links): convert getLinks to async function and update lifecycle methods
+razzle: set nullNodeCss option to false in webpackOptions and update css-loader loader configuration
+refactor: remove unused import and clean up code in Sidebar component
+feat: add condition to filter results based on height in Postgres query
+refactor: convert functional component to class component in Form.js, add constructor, getRef, and submit methods
+feat: add count property to links reducer state\n\nExplanation: In this code diff, a new property "count" is added to the links reducer state to keep track of the number of entities in the state. This change enhances the functionality of the reducer by providing additional information about the state.
+feat(ssrAuth): Add idToken to user object in SSR mode
+refactor(routing): Update lazy loading logic for route components.
+refactor(chakra-ui-core): update typescript definitions for ChakraIcons and add color mode and theme providers
+build: add preact-compat alias only if compat is not 'preact-compat'
+feat: add debug logging for webpack options and config\n* Add debug logging for webpack options and config in createConfigAsync.js\n* Utilize util.inspect to print webpack options and config for better debugging experience.
+refactor: update JWT regex pattern
+refactor(server/ssr): Remove unnecessary imports and add div container for the app content
+chore(git): update `.gitignore` and ignore `coverage.json` directory
+test: update footer test
+packages(dropdown): added jest-dom and updated test setup with jest timers
+refactor: Refactor Pair class methods to use a generic getter function for nested properties
+chore: update processGlobalPlugin to include browser flag and stringify env
+fix(Webpack): update OptimizeCssAssetsPlugin options and remove deprecated plugin usage
+chore: improve CLI global variable parsing and readability
+feat: add lang property to req.user in auth middleware
+refactor(auth): remove token property from auth reducer and update initial state logic
+chore(plugins): Update react-native-carplay version to 2.0.0 and add CarPlay integration for iOS in the pluginTemplates/renative.plugins.json file.
+feat(core-header): integrate react-intl for internationalization in Header component
+build: Manually resolve Babel env plugins for development and test environments
+feat(routing): add conditional import based on environment\nAdd conditional import logic to load lazy components based on the environment (browser or server).\nref: #1234
+fix(schedule): update ref attribute in Schedule component to include 'hour-' prefix and add keyboard navigation for focus movement
+style(CAvatar): refactor CAvatar component structure and attributes
+style(css): Update SocialLoginGroup button styles for Github login\n
+fix: update file-loader and url-loader options to use contenthash instead of hash
+feat(scss): add support for generating CSS variables in utilities
+chore(server): Update links.json descriptions for clarity and consistency
+refactor: add conditional check for toggle function in handleEscape and handleClick events in Modal component
+feat: Added external script for site optimization
+feat: add Drawer component to UI stories with open and close functionality
+refactor(webpack): improve error handling and display in build scripts
+docs: add JWT token generation logic and error handling
+refactor(server-ssr): optimize i18n data retrieval and user agent logging in SSR endpoint
+feat(server/ssr): implement lazy loading for routes in SSR bundle
+refactor(creset): change mounted to created lifecycle hook, update styleConfig usage
+feat: Add webpack-assets and favicons-assets aliases to baseWebpackConfig
+feat(partners): added partner types to partner objects\nref: #1234
+refactor: update PopperContent component to include outOfBoundaries prop in div attributes
+fix: handle edge case in dump_closure function
+refactor: update babel-loader config to include supportsStaticESM option
+refactor: improve handling of stdin input and restart functionality
+docs: update single-page-applications.md
+feat(switch): add test case for handleClick event with disabled false and isChecked true
+feat: add color, size, position, and edge manipulation methods to Glo component
+refactor: simplify Dashboard component rendering logic
+build(webpack): added i18n alias for internationalization in webpack config
+feat: add useragent middleware for detecting user agent information
+feat(grid): add conditional loop for row columns in grid mixins
+build(rollup): update banner in rollup config
+chore: update default values for ALGOLIA_APP_ID and ALGOLIA_API_KEY in environment.js
+style(variables): updated table dark color to white for better contrast
+feat: add functionality to exclude specific public keys from metrics calculation
+refactor(vega-typings): refactor View class constructor\n\nThis change refactors the constructor of the View class in vega-typings/types/runtime/index.d.ts to accept a single parameter runtime of type Runtime and an optional parameter opt of type ViewOptions. This simplifies the constructor signature and improves code readability.
+style(global): update global styles for body and pushable elements
+feat(frontend/leaderboard): Add logging for index and metric in Points component\n\nAdded logging to display the index and metric values in the Points component of the leaderboard frontend. This will help in debugging and understanding the data flow within the component.
+docs(website): minor grammar fixes and clarifications in the static export page
+refactor: Refactor server-side rendering logic to use functional components and hooks
+style: adjust logo and footer links in App.vue
+chore(jest): update moduleNameMapper in jest config
+feat: add react helmet and styled-components\nAdd react helmet for managing document head\nRefactor code to use styled-components StyleSheetManager efficiently
+refactor: Update imports and initialization in index.jsx file, remove unused code and optimize initial state handling
+style: refactor code for consistency and readability
+refactor: update script tags in repl.html to use ES6 modules
+chore: update eslint config with additional plugins and rule changes
+feat(ssr): Implement async bootstrapping for server-side rendering\nImplemented async bootstrapping using react-async-bootstrapper to ensure\nproper rendering of components on the server side. Also added AsyncComponentProvider\nand createAsyncContext for handling asynchronous components.\nCloses #issue_number
+refactor: remove store2 usage and update comments in LocalStorageCookiesSvc index file
+feat: added href property to Link component and updated link behavior based on disabled status
+build: add .sass extension to resolve in webpack base configuration
+refactor(tests): update Favorites spec to include tests for empty state
+fix(frontend/mina-signer): handle network case insensitively in MinaSigner constructor
+style: update secondary color in variables.scss and adjust font weights
+feat(kiwi-core): add event emitters for popover actions
+feat: added autoCapitalize to the list of htmlInputPropNames in Input/Input.js
+refactor(styles): improve comments and remove unnecessary code in utils file
+chore: update build process to remove output directory before building
+feat(component): add $el property to saferEval data object
+fix: modal toggle function now accepts event parameter
+feat(popup-manager): add event listeners for handling ESC key and focusing inside popup
+refactor(requestWrapper): Add error handling for different HTTP status codes and improve response parsing
+feat(i18n): update Dashboard.Text translation [CDS 1234]
+feat: Add RollbarProxy request handling in transport module
+feat(sponsors-section): update UI layout and structure
+fix: correct import path for Button component in index file
+chore: update stdio setting based on verbose option in install script
+fix(validator): Update locale list for isAlpha and isAlphanumeric functions in README.md
+refactor(search): make onBlur, onFocus, onMouseDown, onResultSelect, onSearchChange optional in SearchProps
+refactor: improve update notifier logic in nodemon script
+ci: remove TLS_SECRET from environment variables
+chore: fix typo in type ModalProps definition
+feat: parse and extract major version from os release in run script
+refactor(server): Remove error handling from server listen method
+fix: handle error when checking directory status in create-wmr script
+refactor: remove unnecessary comments and console.log statements in rollup config file
+feat: add exact prop to Route component in App.js file
+refactor(avatar-group): filter out non-tag slot nodes in render function
+refactor(server): extract cssLinksFromAssets and jsScriptTagsFromAssets functions for better code organization
+feat: Add support for checking node version and displaying warning message
+chore(Style): update text.mdx - Removed unnecessary slot section
+fix(monitor): update path for windows-kill executable to prevent error on Windows
+docs: update Tabs Events table with correct event name and description
+build(razzle): using TerserPlugin and CssMinimizerPlugin for js and css minimizer respectively
+style: fix typo in comment for Standard ERC20 token implementation
+docs(website): minor grammar and formatting fixes to the static-export page in the website section
+refactor(utils): add mathSign function and use it in scrollToAnchor function
+fix(app): Disable 'Ok' button when no file is selected
+fix: hide and don't run query if there's no search query in search input component
+refactor: update icon prefix parameter in createIcon function and remove pack parameter from parsePackIcons function
+fix: add condition to handle absolute publicPath in import statements
+refactor: improve support for not released plugins without options
+fix: update webpack configuration for webpack 5 compatibility
+fix(EditableInput): Change behavior to submit on blur instead of canceling. Fix event handling logic.
+feat: check for multiple file extensions when determining if static export file exists
+tests: update loaderFinder status for postcss-loader and resolve-url-loader
+fix(razzle-plugin-scss): Update "mini-css-extract-plugin" to version 0.9.0
+src(Responsive): update ResponsiveOnUpdateData width type to number, update ResponsiveWidthShorthand minWidth and maxWidth types to number or string
+docs(cli): update help.txt with new options and examples
+refactor(dataset-slider): simplify logic for setting endUuid in DatasetSlider\nrefactor
+refactor(monitor): refactor lib/monitor/watch.js to ES2015 syntax and improve error handling
+refactor(Responsive): Initialize state width based on browser presence
+chore: add --no-verify-access flag to lerna publish command
+refactor: remove unnecessary code and comments in TooltipControls component
+refactor(types): update Mapping type definition\nI'm going to modify the type definition for Mapping in the types.d.ts file.
+refactor: improve extension handling logic in exec function
+chore(chakra-ui-docs): update switch component documentation with slots information
+fix(chakra-ui-core): update defaultValue prop to accept Array type in CMenuOptionGroup
+feat: add publicPath configuration for client in createConfigAsync module
+build(razzle): add optimization key to config if it doesn't exist
+feat: add condition to check if config options include script path
+chore(deps): update jest-message-util to v26.3.0\nUpdate Jest Message Util to the latest version for improved functionality.\nSee
+style(d3-viz): remove viewBox attribute and add tooltip and legend elements for visualization
+refactor: filter out non-element nodes in Stack component children
+fix(wmr): fix output directory creation logic in normalizeOptions() function
+refactor(monitor): improve process termination handling on Windows
+style(security): update content security policy for connect-src in environment config
+feat: add ability to restart nodemon with specific key input\n\n- Added functionality to allow nodemon to restart when the user types a specific key sequence.\n- Implemented logic to listen for user input and restart nodemon if the input matches the specified key sequence.\n- Updated the code to handle special key inputs like ctrl+c, ctrl+d, and ctrl+l for better user experience.
+docs: update ButtonProps interface to allow boolean value for animated prop
+fix(docs): update docs:build script in package.json to correct command.
+fix: add global flag to yarn add command in install script
+fix: Update condition to check for loaderName in rule.loader and rule.use loaders
+chore(package.json): update scripts to use cross-env for environment variables
+feat: Add window event listener for scroll event in Popup component
+refactor: update Dockerfile with improved git configuration and package installation
+refactor: fix typo in TokenDestructible.test.js
+fix(TextArea): fix type declaration for TextArea component
+fix: handle error when directory already exists during creation
+docs(number): add Box component to Progress stories\nFixes: Added Box component to Progress stories to improve layout and styling.
+fix(lib): fix encoding issue in og-image-url-build.js
+chore: updated tsconfig.json for create-wmr package
+fix: add condition to check if argument length is greater than 0 before checking for space
+refactor: Remove unnecessary Jest version check and simplify Jest config setup in createJestConfig file
+feat(preact-iso): update router.d.ts to use JSX namespace for IntrinsicAttributes
+refactor(Razzle): update CopyPlugin configuration in createConfigAsync
+feat: added 'multiple' to the list of htmlInputPropNames in Input.js
+style(examples/server): refactor scripts generation logic to handle different types of assets and improve readability
+cli: update build command options for better clarity and consistency
+refactor: remove unused import QueryParseError from epic.test.js
+chore: Update css-loader configuration for server-side rendering
+style(javascript): Update heading level for checking `window` and clarify optional chaining usage
+feat: add appAssetsManifestPath to webpack options in createConfigAsync module
+fix: Change inverted prop type to boolean in Statistic componentPropTypes
+docs(razzle): fix typo in PUBLIC_PATH description
+feat(preact-iso): update exports in index.d.ts
+style: reorder file extensions in EXTENSIONS array to prioritize TypeScript files
+style: update textarea height dynamically based on content.scrollHeight
+fix: Update event handler in HtmlLegend class to use config._d3compat.eventHandler for compatibility with d3 versions
+feat: add publicPath option to prerender function
+chore(babel-preset-razzle): update dependencies and remove unused plugin
+fix: Correct typo in route names for project-version classes, modules, and namespaces. Update paramsFor to paramsFor for consistency.
+refactor: update Tooltip component to use <p> tags instead of <h4> tags for better semantic structure
+style(tooltipcontrols): refactor save and remove note buttons
+docs(form/FormField): update required prop docs
+refactor: extend RadioProps from CheckboxProps in index.d.ts
+chore(babel-plugin-proposal-decorators): Remove version 7.12.12 and update to the latest version
+refactor: Remove default value for inputId in CNumberInput
+refactor(dataset): update message for selecting datasets\n\n- Changed the message displayed when selecting datasets to now prompt the user to select at least 2 datasets instead of just asking them to select datasets. This provides clearer guidance on the required action.
+build(config): update compiler_public_path in config file
+fix(monitor): use path.delimiter instead of hardcoding ':' in PATH variable
+chore: update import path for CColorModeProvider in Canvas.vue
+fix: update setDimmerNodeStyle method in Modal component to use current ref instead of accessing dimmerRef.current directly
+refactor(lib): optimize isISO31661Alpha3 function with Set data structure\nref:
+feat: added error handling in createContext function and updated setup function to handle WebGL version compatibility
+fix(swipe-cell): prevent closing other items with non-zero offset during swipe操作
+refactor(model): initialize errors property only when needed
+build(package.json): Update postdeploy script for docs changelog generation and update [ci skip] message
+refactor: update error message to specify the last non-external script export
+style: updated border-radius styling in Avatar component (#2407)
+feat(Dialog): Implement drag functionality for Dialog component
+refactor: updated NumberInput icons to use arrow functions
+style: :lipstick: customize scrollbar styles for different browsers
+refactor: update context parameter name in validate method and add contextData cloning for type module usage
+refactor(emitter): replace string literals with constants
+refactor(Visualization): improve code readability and add comments for data sending functionality
+fix: fix error handling in requestWrapper function
+refactor: Refactored the font baseline calculation logic in the offset function for better readability and consistency. (text.js)
+refactor: improve promise handling in replaceIncludes function
+feat(emitter): add off method to useEmitter\n\nAdded an `off` method to the `useEmitter` function in order to remove event listeners. The `off` method allows for unsubscribing from specific event listeners or removing all event listeners associated with the component instance. This enhancement provides more flexibility and control over event handling within the component.
+style: update input types to stay LTR for RTL styling
+refactor(server): convert index.js to use ES6 syntax and improve error handling
+style: update radio-button style logic to only apply when isChecked is true
+refactor: optimize error message handling in Uploader component
+refactor(CProgress):\nupdate CProgressLabel and CProgressTrack to functional components\nadd mixins to CProgressIndicator\ninheritAttrs set to false in CProgress\nupdate props and attrs in CProgressIndicator\nupdate props and attrs in CProgress\nadd attrs spread in CProgressIndicator and CProgress\nupdate props in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd attrs spread in CProgress\nupdate props and attrs in CProgress\nadd
+refactor: add options method to SentenTree class for data configuration
+fix(button): update size and type validators\n\n- Updated size validator to include an empty string as a valid value\n- Updated type validator to use an array.includes method for better readability and maintainability
+feat: add Dumper import and event listener for user program execution
+feat(author): add user details to author component
+style: update text in index.tpl to reflect API-first nature of Tipe.io
+refactor: update compiler.js to use a variable for the arity of the argument in call/cc logic
+refactor: remove redundant UI type values in AlertBox component configuration
+test(use): add test case for component instance with template and innerHTML
+style(tooltip): update tooltip control styling and add note functionality
+refactor: remove unused import and update webpack plugins configuration
+style(variables): updated sidebar width and transition for responsiveness
+style(table): commented out border-bottom-color for better readability
+refactor(tag): adds script setup syntax, updates computed properties, and event handling logic
+refactor(veui): Rename loadData prop to load\n- Renamed the prop `loadData` to `load` in the Cascader component to improve clarity and consistency.\n- Updated the method `loadAndSaveData` to use the new `load` prop and handle the data loading process accordingly.
+refactor: Remove redundant assignment in parseBlocks function
+feat: Add functionality to empty the top-level div before constructing the SVG element in SimilarityGraph component
+refactor(CInputGroup): simplify event listener handling in CInputGroup component
+refactor(src): update conditional statement in src/use/emitter
+refactor: improve requestWrapper function logic and error handling
+refactor: Remove focusClass prop from Autocomplete component
+refactor: useGlobalOptions for globalConfig in Button.vue
+style(fab): update colors in fab component\nRemoved unnecessary 'vars' import in fab.scss file and updated colors for hexagon and plus icon in the fab component.
+fix: correct conditional check for installing dev dependencies in create command
+refactor(pagination): rename Pagination component to ElPagination and update installation method
+refactor(input): update import statement and add watch for modelValue in useTextarea and useInput functions
+refactor(chakra-ui-core): refactor CStat components to be functional components
+chore: Update Link component to use useRouter instead of checking for $router and native
+refactor(SentenTree): remove all elements before rendering to prevent duplication
+style: update CSS variable generation logic and remove theme prefix usage
+lib: refactor processor.js file structure. Update variable names and improve code readability.
+refactor: FilterPanel | Simplify debounceSearch function and use arrow function for search method
+chore: refactor color conversion functions in color.js
+refactor(uploader): update trigger slot usage in Uploader.vue
+refactor: update import statement for RouteAuth in routing index file
+style(progress): adjust margin and font size in progress group icon and text
+feat: added lazy loading for Dashboard component and updated condition for checking browser environment in getHistory function
+refactor(vega-scenegraph): remove unnecessary condition in sceneEqual function
+feat(root): Update Root component to support server-side rendering\nUpdated Root component to conditionally use ConnectedRouter for client-side rendering and StaticRouter for server-side rendering. Added SSR prop to pass server-side rendering context. Closes #issue_number.
+refactor: Removed unused code and commented out code in Sidebar class
+refactor: remove unnecessary import of 'vars' in tooltips.scss
+refactor(sidebar): refactor event handling in Sidebar class
+fix: fix comparison operator in group.js for CAG instances
+style(icon): updated icon styles and class names
+chore: update webpack base config for server-side rendering restrictions
+fix(firebase-import): fix require -> import in module.js
+refactor(all): add missing semicolon to components assignment in index.js
+refactor(firebase-auth-sw): Improve code formatting\nRefactor the firebase-auth-sw.js file to improve code formatting and consistency. Fix missing semicolons, remove unnecessary comments, and ensure proper indentation for better readability and maintainability.
+feat(author): update author component styles and links\n\n- Updated the styling of the author component to include rounded corners and object cover for the image\n- Adjusted the layout of the author component links for better alignment and spacing
+refactor(embed): updated onClick event type and added children prop
+build(webpack): update compress option to remove console.log in production
+refactor: add load method to Component class in __init__.py
+test: Fix server variable scope in universalBrowser.test.js
+test: add jest of number avatar showing count of truncated avatars in AvatarGroup
+test: Update unit test for js interface to use typeof operator instead of _.isFunction() for better clarity
+refactor: Update data method in DynamicLineChart class
+test(CButtonGroup): update renderComponent function and use screen instead of getByText
+test(trickle): update tests for Safari and iOS reliability issues
+test(Autocomplete): add test to highlight first item in autocomplete suggestions
+chore: Update render function in CStat test file to use screen utility from test-utils
+chore(CTag): update tests to use screen utility for better accessibility
+test(META): add role=alert test for Alert component
+refactor: Update test to use screen instead of getByText for clarity
+test: Add tests for --global-var option in CLI parser
+test(collapse): add test for strict mode compatibility
+test: fix incorrect import path for repeatClick directive
+chore: update description for Candela unit/coverage/image tests in package.json
+refactor(CStack): update test-utils to include screen utility for testing
+test(CButton): remove unnecessary mock in CButton test file
+chore(CStack): update CSS classes in CStack.test.js.snap to match new design requirements
+test: update webpack test for Travis Chrome version 62 and above
+test(Dropdown): updated test case for Dropdown component to include search functionality
+fix(test): update URL in common test file
+test(browser.rollbar): test direct call to onerror and send message
+test:unit: Update lerna run command with concurrency option
+feat: added validation for Luhn numbers in validators\nCloses #<issue_number>
+fix(CIconButton): Update test to use screen utility for better readability and consistency
+test(chakra-ui-core): add shift+tab focus navigation test in CAccordion.test.js
+fix(prerender): Add script tag to prerendered HTML output
+chore(travis): update npm login logic in travis configuration
+test(CBadge): renderComponent function test and remove unnecessary mock
+test: adds test cases for ignoredMessages in messageIsIgnored function
+test(chakra-ui-core): remove unnecessary mock in CEditable test
+build: Update webpack config for tests entry and module loaders
+refactor: Remove unnecessary import and update renderComponent function in CStat test file
+build(test): updates test script to run in browser and node environments
+feat(controls): Add position property to controls reducer.
+src(tests): remove console.log statement
+feat: add references section to PR template
+refactor: optimize lazy loading logic with IS_CLIENT check
+monitor: update stdio configuration for child process fork operation
+refactor(HTML): update asset handling in webpack config
+chore: update comments in components.js to remind maintainers to list components alphabetically
+feat(docs): add avangate email to the footer
+chore(cdivider): add data-chakra-component attribute and A11y documentation link
+feat: add @babel/plugin-proposal-private-property-in-object plugin with loose option
+chore(pyCandela): update version to 0.4.0 in setup.py
+build: update changelog configuration with GitHub repository information
+chore(a11y): Updated modal transition timeouts
+ci: add docker build commands to .travis.yml
+build: switch to puppeteer for headless browser testing, add necessary flags
+test(Switch): Update switch test to use spy function for event handling.
+chore: update build and deploy scripts in package.json
+chore(npm): update version to 6.0.0 and description in package.json
+fix(SearchInput): add facet filters to search object
+docs: update ISSUE_TEMPLATE.md with import method clarification
+fix: Add comment for status response field in return object in xhr_wrapper.js
+style(button): fix missing border-radius and flex-grow style props in Button component
+feat(oliver): set daysClosedIn to 100
+utils(Sort): add CARD_TYPES array and update color arrays
+feat(chakra-ui-core): add CCircularProgressLabel component for progress indication
+style: add space between clearfix class and parent element text in ClearfixPage
+chore(github): update comments in `PULL_REQUEST_TEMPLATE.md`
+feat(svelte): configure Vite server to allow serving files from one level up in Svelte config
+chore(collapse-page): update event callbacks in CollapsePage component
+feat: Release v27.10.0\n- Disable typescript/remove-unused-types rule for *.md files
+fix: update function name in replace method
+refactor(actions): Update Awral usage recommendation and add note about checking sources
+chore(dependencies): update sirv to version 1.0.0
+chore: update yarn lock file for fontawesome packages
+feat(dataset-controls): update DatasetSelector test to use value instead of name in event object
+docs: update Awral documentation with link to GitHub repository
+fix(docs): fix typo in image.md file
+chore: update release script to use yarn for changeset publishing
+docs: update link to open issues for contributing in README
+feat: update website index with new images and links
+chore(repo): update lint:fix script to remove unnecessary double dash
+fix: Replace deprecated url.parse with new URL constructor in lib/util.js
+ci(travis): update travis deploy stage to trigger only on tag presence
+chore: add template flag to e2e scripts for hello-world platforms
+fix: update toImport function signature in optimize-graph-plugin
+refactor(UncontrolledNavDropdown): refactor to use UncontrolledDropdown with nav prop
+feat(website): upgrade @chakra-ui/vue to ^0.7.0-next.2
+chore(format): update prettier configuration\nUpdate prettier configuration to remove the trailing comma es5 option. Use prettier to format\nfiles in the specified packages.
+chore: remove yarn test from postinstall script
+test(CloseButton): Refactor renderComponent function to remove unnecessary template prop usage
+refactor: update signal constants to use object notation
+style: updated dark theme styles for tag component
+refactor: update build scripts to use webpack for frontend and server builds
+chore(package): update enzyme to version 2.8.2\nCloses
+refactor(vega-view): Refactor binding logic in View.js to use arrow functions and object destructuring for improved readability. Fixes #1234
+docs(lib/examples): update form layout and styling in FormInline component
+chore: update node_js versions and stages in .travis.yml
+build: remove unnecessary aliases for preact in webpack base config
+test(CAspectRatioBox): update styles test case to use const instead of let
+chore: update node versions in .travis.yml to include 8 and 7, remove older versions and iojs references
+refactor: update background color in StyledFooter style
+refactor(sw.js): Remove unnecessary workbox configurations and precaching\n\nExplanation: The commit message indicates that unnecessary workbox configurations and precaching have been removed from the sw.js file. This is a refactoring task to clean up the code and improve its readability.
+refactor: update tailwindcss config export method
+build(dev-deps): update devDependencies in cli package.json
+fix: remove defaultIsChecked prop from CRadio component in story
+chore: update project TODO list in README.md
+style(react): remove unnecessary {' '} in ButtonGroup component in Example class
+feat(CCircularProgress): added data attribute for accessibility and consistency with other components
+docs(Home): update link to example App.js
+docs: add ezkemboi and tux-tn to collaborators
+feat(putout): add @putout/plugin-apply-maybe, improve @putout/plugin-regexp functionality, and report after transform in @putout/plugin-regexp: remove-useless-group
+ci: update yarn commands in workflow file
+test: remove unnecessary import in CButtonGroup test
+chore(release): update engine-processor version to 6.2.0
+chore: update release workflow to include npm publishing step
+build: update dependencies installation in CI workflow
+refactor(RoutingWrapper): update import statement for RouteItem type from 'routing' to 'types'
+build: update coverage ignore patterns in nycrc.json
+feat(divider): add CDivider component for creating horizontal or vertical dividing rule between sibling elements
+docs: Update Mixpanel initialization in analytics plugin to use environment variable
+refactor: Update text content in Dashboard component in English localization file
+chore(travis): update Node.js version to 14 and remove support for older versions
+feat(Components): enable Editable and Stat components in components list
+refactor: change options.onFirebaseHosting to options.loadFromFirebaseHosting in firebase-auth-sw.js
+style: improve code readability in rulesToMonitor function
+feat(chakra-ui-nuxt): update icons configuration in module options
+fix(test): import getElementStyles from correct path
+build: disable webpack performance hints in karma config
+docs: update error message in README for non-string inputs
+chore(deps): lock jsdom version to ^19.0.0
+refactor: remove server configuration from config file
+chore(deps): updates @chakra-ui/vue dependency to ^0.7.0-next.2
+refactor(theme): update primary color values to new shades
+fix(app): Remove vue-template-compiler and upgrade vue-loader to v15.7.1
+chore(CarbonAd): update CarbonAd script source URL
