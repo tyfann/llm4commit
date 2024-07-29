@@ -70,7 +70,7 @@ ci: build the "all" bundle so it can be published
 ci: build production versions of libraries for publishing
 ci: Cache repos fetched by gittar
 ci: Reduce runs
-ci(.travis.yml): run on node 8/9, fix "script"\nci(.travis.yml): run on node 8/9, fix "script"
+ci(.travis.yml): run on node 8/9, fix "script"
 ci: add deploy test and lint
 ci: spread jobs
 ci: fix ci bug
@@ -228,8 +228,8 @@ docs(README): fix release instructions'
 docs(README): add brewhousesolutions.com
 docs(readme): remove temporary doc warning
 docs(readme): restore lifebot.fr built with entry
-docs(readme): add Examples & Tutorials\ndocs(readme): add Examples & Tutorials
-docs(Usage): add instructions for semantic-ui-css\ndocs(Usage): add instructions for semantic-ui-css
+docs(readme): add Examples & Tutorials
+docs(Usage): add instructions for semantic-ui-css
 docs(Container): Fix a typo
 docs(readme): Add Netflix EDX as a user
 docs(README): add React-Semantic.UI-Starter
@@ -248,7 +248,7 @@ docs(index): redirect to https
 docs(readme): add appfollow  to built with
 docs(README): fix circleci badge href
 docs(Layouts): make StickyLayout fully functional
-docs(readme): add according.to.localsourc.es\ndocs(readme): add according.to.localsourc.es
+docs(readme): add according.to.localsourc.es
 docs(README): replace gemnasium with david-dm [ci skip]
 docs(Dropdown): fix searchQuery example
 docs(Dropdown): fix DropdownRemoteExample
@@ -264,35 +264,35 @@ docs(README): add ForecastCycles to built-with list
 docs(Usage): switch from NPM to yarn
 docs(Advertisement): fix AdvertisementExampleBannerTop example\nmodified the Ad's `test` prop
 docs(readme): update link and desc of `react-semantic.ui-starter`\n`react-semantic.ui-starter` was updated and renamed to [`suicrux`](https://github.com/Metnew/suicrux).
-docs(readme): add Bandwidth Hero to built with\ndocs(readme): add Bandwidth Hero to built with
+docs(readme): add Bandwidth Hero to built with
 docs(Header): fix typo in component example description
 docs(README.md): add bailfacile.fr to list of websites using Semantic UI React\nAdd website using Semantic UI React to list
 docs(Step): fix display of an icon in StepExampleEvenlyDivided
 docs(README): Add moneytracker.cc to built with list
-docs(README): add Cryptact to the built with list\ndocs(README): add Cryptact to the built with list
+docs(README): add Cryptact to the built with list
 docs(Pagination): add missing prop in PaginationExampleOptions\n* docs(PaginationExampleOptions): props missing\nAdd the missing 'siblingRange' props of Pagination\n* Update PaginationExampleOptions.js
 docs(TableExamplePagination): order icon names per docs\nAccording to `chevron left` and `chevron right` should be used.
-docs(ComponentExample): fix code editor body regex\ndocs(ComponentExample): fix code editor body regex
-docs(Layouts): fix typo in StickyLayout\ndocs(Layouts): fix typo in StickyLayout
-docs(Responsive): fix spelling\ndocs(Responsive): fix spelling
+docs(ComponentExample): fix code editor body regex
+docs(Layouts): fix typo in StickyLayout
+docs(Responsive): fix spelling
 docs(ads): prevent height jitter
-docs(layouts): fix typo in GridLayout\ndocs(layouts): fix typo in GridLayout
+docs(layouts): fix typo in GridLayout
 docs(List): fix typo
 docs(List): fix duplicate Types sections
 docs(readme): simplify and focus content
 docs(readme): add accessible, simplify built with
 docs(ModalExampleScrollingContent): your description\nTo conform with typescript definition files
-docs(Form): fix group variations typo\ndocs(Form): fix group variations typo
+docs(Form): fix group variations typo
 docs(routes): fix layout component imports
 docs(Usage): fix version of SUIR
-docs(Button): update ButtonExampleAnimated to match SemanticICONS type\ndocs(Button): update ButtonExampleAnimated to match SemanticICONS type
-docs(Layouts): fix size variables in HomepageLayout\ndocs(Layouts): fix size variables in HomepageLayout
+docs(Button): update ButtonExampleAnimated to match SemanticICONS type
+docs(Layouts): fix size variables in HomepageLayout
 docs(IconExampleIconGroup): fix circle outline
 docs(IconExampleLoadingGroup): fix sun icon
 docs(IconExampleFitted): better demonstrate fitted
 docs(ComponentExample): fix children display
 docs(README): fix CircleCI image
-docs(Form): add an example of accessible Form.Select\ndocs(Form): add an example of accessible Form.Select
+docs(Form): add an example of accessible Form.Select
 docs(Grid): fix typo in GridExampleStretched example description\nThe description of the `stretched` property of a grid row mentioned 'width', but should have mentioned 'height'.
 docs(Document): use only https sources
 docs(README): fix link to CSS Usage page
@@ -306,7 +306,7 @@ docs(Props): fix "Props" checkbox
 docs(Placeholder): remove extra HTML and classes
 docs(Responsive): update ResponsiveExampleMaxWidth.js (added two words to clarify)\nAdded "and lower" to the 2569px width example, because that's what it does and the wording was confusing on first sight.
 docs(github_changelog_generator): update script
-docs(Modal): fix Modal.Description description\ndocs(Modal): fix Modal.Description description
+docs(Modal): fix Modal.Description description
 docs(Dropdown): fix floating example in FF
 docs(Dropdown): remove deprecated lifecycle method from DropdownExampleRemote\n* docs(Dropdown): Remove deprecated lifecycle method.\nCommit includes automatic formatting changes by lint.\n* Update DropdownExampleRemote.js\n* Update DropdownExampleRemote.js
 docs(ComponentDoc): replace deprecated lifecycle methods\n* docs(ComponentDoc): replace deprecated lifecycle methods\nReplace componentWillReceiveProps by getDerivedStateFromProps.\n* Update ComponentDoc.js
@@ -384,11 +384,11 @@ docs(Carousel): fix unique key warning and remove trailing spaces\nCloses
 docs(Progress): typo stripped -> striped
 docs(README): Updated example App.js Gist
 docs(InputGroup): fix InputGroup page is broken
-docs(install): Use the minified version of Bootstrap CSS\ndocs(install): Use the minified version of Bootstrap CSS
+docs(install): Use the minified version of Bootstrap CSS
 docs(Readme): Update Readme with latest stable Reactstrap versions.
 docs(Modal): added verbiage on size prop
 docs(*): change toggle from using this.setState to use prevState
-docs(Readme): Update dependency versions\ndocs(Readme): Update dependency versions
+docs(Readme): Update dependency versions
 docs(UncontrolledCollapse): include example
 docs(Carousel): fix typo in prop types configuration
 docs(readme): update link to create-react-app guide
@@ -509,7 +509,7 @@ feat: :sparkles: extract headings from page
 feat: :sparkles: add Fathom tracking
 feat: :memo: credit Nicky for contribution
 feat(docs): restore enum expansion on docs page
-feat(Input): add `autoCapitalize` to html input props\nfeat(Input): add `autoCapitalize` to html input props
+feat(Input): add `autoCapitalize` to html input props
 feat(Input): add autoCorrect to Input props
 feat(typescript): Export generics types
 feat(Portal): use Ref for handling trigger refs
@@ -652,125 +652,125 @@ feat(xhr_wrapper): rewrite xhr_wrapper, add more comments\nrewrite xhr_wrapper, 
 feat(.babelrc): add "flow" preset\nadd "flow" preset
 feat(.eslintrc.json): add flow plugin for eslnit\nadd flow plugin for eslnit
 feat(src/client): add react-a11y, fix export of main configuration scripts(configureRoot, configureA\nadd react-a11y, fix export of main configuration scripts(configureRoot, configureApp)
-feat(containers/Users): use componentDidMount, add flow types\nfeat(containers/Users): use componentDidMount, add flow types
+feat(containers/Users): use componentDidMount, add flow types
 feat(components/RoutingWrapper): add flow types
-feat(components/RouteAuth): use functional component, add flow types\nfeat(components/RouteAuth): use functional component, add flow types
-feat(routing): add RouteItem type\nfeat(routing): add RouteItem type
-feat(server): add server entry file\nfeat(server): add server entry file
+feat(components/RouteAuth): use functional component, add flow types
+feat(routing): add RouteItem type
+feat(server): add server entry file
 feat(src/server): add `server.js` which mounts middlewares, ssr, api\nfeat(src/server): add `server.js` which returns function that decorate\nserver with global middlewares, ssr, API
 feat(package.json): install new deps, remove unused\nfeat(package.json): new deps, remove unused\nInstalled: pug, pug-loader, optimize-js-plugin, query-string\nRemoved: decorators-legacy, concurrently, esdoc, glob, flow-runtime
-feat(utils/normalize): add flow\nfeat(utils/normalize): add flow
+feat(utils/normalize): add flow
 feat(reducers): create GlobalState type\nfeat(reducers): create GlobalState type using types of reducers
-feat(webpack.isomorphic): add i18n folder to aliases\nfeat(webpack.isomorphic): add i18n folder to aliases
+feat(webpack.isomorphic): add i18n folder to aliases
 feat(server/webpack.base): add 'webpack-assets' and 'favicons-assets' to aliases\nfeat(server/webpack.base): add 'webpack-assets' and 'favicons-assets'\nto aliases
 feat(server/ssr): rewrite ssr, add HTML component, use stats instead of hadrcoded html\nfeat(server/ssr): rewrite ssr, add HTML component, use stats instead of\nhadrcoded html
 feat(client/webpack.base): use favicons and assets plugin in base mode
-feat(client/prod): remove favicons/preload/babili/sri/html plugins\nfeat(client/prod): remove favicons/preload/babili/sri/html plugins
+feat(client/prod): remove favicons/preload/babili/sri/html plugins
 feat(parts/Root): add getWindowInnerWidth, RouteItem type\nfeat(parts/Root): add getWindowInnerWidth, RouteItem type\nadd i18nextProvider (commented)
-feat(parts/Root): add IntlProvider\nfeat(parts/Root): add IntlProvider
-feat(Header): add FormattedMessage\nfeat(Header): add FormattedMessage
-feat(ssr): add translations for ssr\nfeat(ssr): add translations for ssr
-feat(.babelrc): add styles and images alias in test env\nfeat(.babelrc): add styles and images alias in test env
-feat(webpack_config/server): add locals dir to alias\nfeat(webpack_config/server): add locals dir to alias
-feat(jest_config): add mocks and disable coverage of styles\nfeat(jest_config): add mocks and disable coverage of styles
-feat(Header): add basic test\nfeat(Header): add basic test
-feat(Footer): add basic test\nfeat(Footer): add basic test
-feat(Sidebar): add basic test\nfeat(Sidebar): add basic test
-feat(routing): make all containers lazy, simplify code\nfeat(routing): make all containers lazy, simplify code
+feat(parts/Root): add IntlProvider
+feat(Header): add FormattedMessage
+feat(ssr): add translations for ssr
+feat(.babelrc): add styles and images alias in test env
+feat(webpack_config/server): add locals dir to alias
+feat(jest_config): add mocks and disable coverage of styles
+feat(Header): add basic test
+feat(Footer): add basic test
+feat(Sidebar): add basic test
+feat(routing): make all containers lazy, simplify code
 feat(actions/posts): add userId as param to GET_POSTS
-feat(addons/RouteAuth): add tests for RouteAuth\nfeat(addons/RouteAuth): add tests for RouteAuth
-feat(ssr): add translation from server in SSR\nfeat(ssr): add translation from server in SSR
+feat(addons/RouteAuth): add tests for RouteAuth
+feat(ssr): add translation from server in SSR
 feat(server/middlewares/auth): add default language\nfeat(server/middlewares/auth): add default language for req.user
-feat(server/ssr): add translation in SSR\nfeat(server/ssr): add translation in SSR
-feat(Sidebar): use SidebarLogo based on Logo component\nfeat(Sidebar): use SidebarLogo based on Logo component
-feat(server/api/auth): get lang from req, add lang to jwt\nfeat(server/api/auth): get lang from req, add lang to jwt
+feat(server/ssr): add translation in SSR
+feat(Sidebar): use SidebarLogo based on Logo component
+feat(server/api/auth): get lang from req, add lang to jwt
 feat(webpack_config/server): add ssl alias
-feat(indexHTMLComponent): add i18n stuff\nfeat(indexHTMLComponent): add i18n stuff
-feat(Login): use navigator language as lang in auth request\nfeat(Login): use navigator language as lang in auth request
-feat(configure_root): add i18n as props for Root\nfeat(configure_root): add i18n as props for Root
-feat(server): use process.env.BASE_API instead of /api/v1 for API\nfeat(server): use process.env.BASE_API instead of /api/v1 for API
-feat(package.json): add raven, reselect, nock\nfeat(package.json): add raven, reselect, nock
-feat(server): add both https and http server in dev mode\nfeat(server): add both https and http server in dev mode
+feat(indexHTMLComponent): add i18n stuff
+feat(Login): use navigator language as lang in auth request
+feat(configure_root): add i18n as props for Root
+feat(server): use process.env.BASE_API instead of /api/v1 for API
+feat(package.json): add raven, reselect, nock
+feat(server): add both https and http server in dev mode
 feat(routing): use "lazy" instead of "lazy-once" for lazy loading in browser env\nfeat(routing): use "lazy" instead of "lazy-once" for lazy loading in\nbrowser env
 feat(server/ssr): move i18n stuff to i18n, fix state creation\nfeat(server/ssr): construct state using req.useragent, remove\nlocaleData requiring, remove translations creation
-feat(server): add useragent middleware\nfeat(server): add useragent middleware
+feat(server): add useragent middleware
 feat(LocalStorageCookiesSvc): add `getInfoFromJWT `\nfeat(LocalStorageCookiesSvc): add `getInfoFromJWT ` (jwt decode)
-feat(App): init handleWindowResize on App willMount\nfeat(App): init handleWindowResize on App willMount
-feat(api/utils/xhr_wrapper): move to ponyfill from polyfill\nfeat(api/utils/xhr_wrapper): move to ponyfill from polyfill
+feat(App): init handleWindowResize on App willMount
+feat(api/utils/xhr_wrapper): move to ponyfill from polyfill
 feat(parts/Header/style): remove position:fixed from Header\nfeat(parts/Header/style): remove position:fixed from Header, remove\nuseless comment
-feat(reducers/auth): remove jwt token from state.me.auth\nfeat(reducers/auth): remove jwt token from state.me.auth
-feat(reducers/layout): remove APPLICATION_INIT handling\nfeat(reducers/layout): remove APPLICATION_INIT handling
+feat(reducers/auth): remove jwt token from state.me.auth
+feat(reducers/layout): remove APPLICATION_INIT handling
 feat(ssr/HtmlComponent): use serialize-javascript instead of JSON.stringify\nfeat(ssr/HtmlComponent): use serialize-javascript instead of\nJSON.stringify
 feat(server/i18n): add flow types (i18nConfigObject)\nfeat(server/i18n): add flow types
-feat(types): add i18nConfigObject\nfeat(types): add i18nConfigObject
+feat(types): add i18nConfigObject
 feat(.babelrc): add env preset, remove SUIR from lodash plugin\nfeat(.babelrc): add env preset. remove SUIR from lodash plugin, because\nof tree-shaking (native import modules vs cjs)
-feat(client/index): use direct imports for SUI css, add\nfeat(client/index): use direct imports for SUI css, add
+feat(client/index): use direct imports for SUI css, add
 feat(Root): add more flow typesm fix APP_INIT dispatch\nfix Application_init dispatch (remove innerWidth from payload)\nuse Date.now instead of Math.randow for react-redux <Provider>\nadd i18nConfigObject type
-feat(containers/App): replace custom GA with react-ga\nfeat(containers/App): replace custom GA with react-ga
-feat(components/Header): add react-headroom, add i18n menu\nfeat(components/Header): add react-headroom, add i18n menu
-feat(webpack_config): add ANALYZE_BUNDLE to main config file\nfeat(webpack_config): add ANALYZE_BUNDLE to main config file
+feat(containers/App): replace custom GA with react-ga
+feat(components/Header): add react-headroom, add i18n menu
+feat(webpack_config): add ANALYZE_BUNDLE to main config file
 feat(server/ssr): add rapscallion instead of react-dom/server renderToString\nfeat(server/ssr): add rapscallion instead of react-dom/server\nrenderToString
-feat(server/ssr): use `template` func from rapscallion in HtmlComponen\nfeat(server/ssr): use `template` func from rapscallion in HtmlComponen
-feat(server/index.dev): add both http and https servers in prod\nfeat(server/index.dev): add both http and https servers in prod
-feat(.babelrc): remove es2015 preset, add babel-polyfill: true\nfeat(.babelrc): remove es2015 preset, add babel-polyfill: true
-feat(server/ssr): React 16 streaming\nfeat(server/ssr): React 16 streaming
-feat(server/ssr): React 16 streaming, remove rapscallion\nfeat(server/ssr): React 16 streaming, remove rapscallion
-feat(Header): remove language selection button\nfeat(Header): remove language selection button
-feat(server/middlewares): add i18n stuff to auth middleware\nfeat(server/middlewares): add i18n stuff to auth middleware
-feat(locals): add basic text for dashboard\nfeat(locals): add basic text for dashboard
-feat(webpack_config): use HTTPS/HTTP ports instead of PORT\nfeat(webpack_config): use HTTPS/HTTP ports instead of PORT
-feat(locals): add basic locals\nfeat(locals): add basic locals
-feat(client): remove item.css, add list.css\nfeat(client): remove item.css, add list.css
-feat(server/ssr): move to react 16\nfeat(server/ssr): move to react 16
-feat(server/i18n): watch locals dir for updates in development\nfeat(server/i18n): watch locals dir for updates in development
-feat(server/config): add default ssl\nfeat(server/config): add default ssl
-feat(types): add LinkItem type, remove old types\nfeat(types): add LinkItem type, remove old types
-feat(styles): remove unused styled-components\nfeat(styles): remove unused styled-components
-feat(styles): add more comments in /utils.jsx\nfeat(styles): add more comments in /utils.jsx
-feat(routing): temporarily remove lazy loading\nfeat(routing): temporarily remove lazy loading
-feat(reducers): remove posts, users reducers from `combineReducers`\nfeat(reducers): remove posts, users reducers from `combineReducers`
-feat(Dashboard): remove old redux stuff from Dashboard container\nfeat(Dashboard): remove old redux stuff from Dashboard container
-feat(containers/Dashboard): add i18n for Dashboard component\nfeat(containers/Dashboard): add i18n for Dashboard component
-feat(api/links.json): fix links desc\nfeat(api/links.json): fix links desc
-feat(jest_config): add enzyme adapter configuration\nfeat(jest_config): add enzyme adapter configuration
-feat(components/Header): make Header stateless\nfeat(components/Header): make Header stateless
-feat(components/RouteAuth): add RouteAuth tests\nfeat(components/RouteAuth): add RouteAuth tests
+feat(server/ssr): use `template` func from rapscallion in HtmlComponen
+feat(server/index.dev): add both http and https servers in prod
+feat(.babelrc): remove es2015 preset, add babel-polyfill: true
+feat(server/ssr): React 16 streaming
+feat(server/ssr): React 16 streaming, remove rapscallion
+feat(Header): remove language selection button
+feat(server/middlewares): add i18n stuff to auth middleware
+feat(locals): add basic text for dashboard
+feat(webpack_config): use HTTPS/HTTP ports instead of PORT
+feat(locals): add basic locals
+feat(client): remove item.css, add list.css
+feat(server/ssr): move to react 16
+feat(server/i18n): watch locals dir for updates in development
+feat(server/config): add default ssl
+feat(types): add LinkItem type, remove old types
+feat(styles): remove unused styled-components
+feat(styles): add more comments in /utils.jsx
+feat(routing): temporarily remove lazy loading
+feat(reducers): remove posts, users reducers from `combineReducers`
+feat(Dashboard): remove old redux stuff from Dashboard container
+feat(containers/Dashboard): add i18n for Dashboard component
+feat(api/links.json): fix links desc
+feat(jest_config): add enzyme adapter configuration
+feat(components/Header): make Header stateless
+feat(components/RouteAuth): add RouteAuth tests
 feat(api/LocalStorateCookiesSvc): remove store2, add comments\nfeat(api/LocalStorateCookiesSvc): remove store2 from core functions and\ncomment import of store2, add comments
-feat(actons/auth): add nock in tests\nfeat(actons/auth): add nock in tests
-feat(actons/auth): add nock in tests, fix tests\nfeat(actons/auth): add nock in tests, fix tests
-feat(actons/utils): disable "FINALLY", "BEFORE_PENDING" in awral\nfeat(actons/utils): disable "FINALLY", "BEFORE_PENDING" in awral
+feat(actons/auth): add nock in tests
+feat(actons/auth): add nock in tests, fix tests
+feat(actons/utils): disable "FINALLY", "BEFORE_PENDING" in awral
 feat(package.json): install\ninstall
 feat(server/ssr): add Lazy loading with SSR\nfeat(server/ssr): add lazy loading with SSR
 feat(server): add Raven, disable x-powered-by
-feat(routing): make all routes lazy\nfeat(routing): make all routes lazy
-feat(addons/RoutingWrapper): remove mentions about `lazy`\nfeat(addons/RoutingWrapper): remove mentions about `lazy`
-feat(routing): add `asyncComponent` from `react-async-component`\nfeat(routing): add `asyncComponent` from `react-async-component`
-feat(package): install form-data\nfeat(package): install form-data
-feat(app): use `getRoutes()` instead of `routes`\nfeat(app): use `getRoutes()` instead of `routes`
-feat(RoutingWrapper): use `getRouterRoutes()` instead of routes\nfeat(RoutingWrapper): use `getRouterRoutes()` instead of routes
-feat(reducers/links): add count property\nfeat(reducers/links): add count property
-feat(App): add `max-height: 100% - 72px` for MainLayout\nfeat(App): add `max-height: 100% - 72px` for MainLayout
-feat(routing): add asyncComponent, routingFnCreator,\nfeat(routing): add asyncComponent, routingFnCreator,
-feat(Links): add isLinksLoaded, get links only if links aren't loaded\nfeat(Links): add isLinksLoaded, get links only if links aren't loaded
-feat(client): add async-component and async-bootstrapper\nfeat(client): add async-component and async-bootstrapper
-feat(styles): duplicate some styles to make SSR result nicer\nfeat(styles): duplicate some styles to make SSR result nicer
-feat(server/ssr): add async-component, async-bootstrapper\nfeat(server/ssr): add async-component, async-bootstrapper
-feat(server): resolve assets and faviconsAssets async using `getStats()`\nfeat(server): resolve assets and faviconsAssets async using `getStats()`
-feat(server/ssr): wait for stats file before reading it using chokidar\nfeat(server/ssr): wait for stats file before reading it using chokidar
-feat(containers): add data fetching in Links\nfeat(containers): add data fetching in Links
-feat(webpack_config): default BASE_API is not relative\nfeat(webpack_config): default BASE_API is not relative
-feat(server): use API_PREFIX env var for api prefix\nfeat(server): use API_PREFIX env var for api prefix
-feat(selectors): fix getAuthState, add getLayoutMobileStatuses selector\nfeat(selectors): fix getAuthState, add getLayoutMobileStatuses selector
-feat(containers): simplify Links container, add data fetching\nfeat(containers): simplify Links container, add data fetching
-feat(actions): pass `meta` to LOGIN_AUTH_SUCCESS\nfeat(actions): pass `meta` to LOGIN_AUTH_SUCCESS
-feat(actions): layout - OPEN/CLOSE_SIDEBAR -> TOGGLE_SIDEBAR\nfeat(actions): layout - OPEN/CLOSE_SIDEBAR -> TOGGLE_SIDEBAR
-feat(components): in header add getLayoutMobileStatuses\nfeat(components): in header add getLayoutMobileStatuses
-feat(ssr): renderToString instead of renderToStream\nfeat(ssr): renderToString instead of renderToStream
-feat(api-utils): make xhr wrapper less complex\nfeat(api-utils): make xhr wrapper less complex
-feat(root): dispatch APP_INIT and render <Root> only once\nfeat(root): dispatch APP_INIT and render <Root> only once
-feat(routing): add `exact` and `strict` in `getMetaRoutes` selector\nfeat(routing): add `exact` and `strict` in `getMetaRoutes` selector
+feat(routing): make all routes lazy
+feat(addons/RoutingWrapper): remove mentions about `lazy`
+feat(routing): add `asyncComponent` from `react-async-component`
+feat(package): install form-data
+feat(app): use `getRoutes()` instead of `routes`
+feat(RoutingWrapper): use `getRouterRoutes()` instead of routes
+feat(reducers/links): add count property
+feat(App): add `max-height: 100% - 72px` for MainLayout
+feat(routing): add asyncComponent, routingFnCreator,
+feat(Links): add isLinksLoaded, get links only if links aren't loaded
+feat(client): add async-component and async-bootstrapper
+feat(styles): duplicate some styles to make SSR result nicer
+feat(server/ssr): add async-component, async-bootstrapper
+feat(server): resolve assets and faviconsAssets async using `getStats()`
+feat(server/ssr): wait for stats file before reading it using chokidar
+feat(containers): add data fetching in Links
+feat(webpack_config): default BASE_API is not relative
+feat(server): use API_PREFIX env var for api prefix
+feat(selectors): fix getAuthState, add getLayoutMobileStatuses selector
+feat(containers): simplify Links container, add data fetching
+feat(actions): pass `meta` to LOGIN_AUTH_SUCCESS
+feat(actions): layout - OPEN/CLOSE_SIDEBAR -> TOGGLE_SIDEBAR
+feat(components): in header add getLayoutMobileStatuses
+feat(ssr): renderToString instead of renderToStream
+feat(api-utils): make xhr wrapper less complex
+feat(root): dispatch APP_INIT and render <Root> only once
+feat(routing): add `exact` and `strict` in `getMetaRoutes` selector
 feat(ssr): render Helmet on server
-feat(404-page): update NotFound container\nfeat(404-page): update NotFound container
+feat(404-page): update NotFound container
 feat(webpack): add copy-webpack-plugin
 feat: keep focusing inside the popup by `tab` key
 feat(Menu): rerender activeIndex when menus changed, fixed
@@ -1127,27 +1127,27 @@ fix: :bug: and amp
 fix: :bug: no amp
 fix: heading level
 fix(typings): make dimmer in ImageProps optional
-fix(Search): Search input can be made fluid\nfix(Search): Search input can be made fluid
+fix(Search): Search input can be made fluid
 fix(typings): fix Modal mountnode -> mountNode
 fix(ComponentExample): use explicit babel presets
 fix(typings): add item prop to the DropdownProps\nfixes
 fix(Button): fix `tabIndex` in typings
 fix(Icon): Incorrect definition in typings
 fix(docs): fix usage of arrow function
-fix(typings): make TableHeaderCell `sorted` optional\nfix(typings): make TableHeaderCell `sorted` optional
+fix(typings): make TableHeaderCell `sorted` optional
 fix(Button): add `floated` to typings of ButtonGroup
 fix(Editor): use handledProps instead of propTypes
-fix(typings): inherit Radio props from Checkbox\nfix(typings): inherit Radio props from Checkbox
+fix(typings): inherit Radio props from Checkbox
 fix(Popup): fix in propTypes\nFixes
 fix(Card): add link prop to typings
 fix(Input): add multiple to propNames
 fix(typings): Make optional props of Search, optional in the typing definition.
-fix(Portal): make compatible with React Fiber\nfix(Portal): make compatible with React Fiber
+fix(Portal): make compatible with React Fiber
 fix(formfield): relax label propType validator\nFixes
 fix(Dropdown): simplify typings validation for renderLabel
 fix(MenuExampleNameProp): fix activeItem logic
 fix(acc): fix default prop dev warning
-fix(ComponentExample): typo "loose" to "lose"\nfix(ComponentExample): typo "loose" to "lose"
+fix(ComponentExample): typo "loose" to "lose"
 fix(MenuExampleText): activeItem logic
 fix(docs): fix compatibility with IE
 fix(Dropdown): fix compatibility with IE
@@ -1159,7 +1159,7 @@ fix(readme): fix grammar
 fix(Input): add typings update
 fix(Tab): fix children propType
 fix(Button): fix animated prop type definition
-fix(Progress): fix wrong inverted type\nfix(Progress): fix wrong inverted type
+fix(Progress): fix wrong inverted type
 fix(Statistic): fix wrong inverted type
 fix(Step): fixed typo in Step.Group className\nfixed typo of invalid comma for the generated class unstackable
 fix(TabPane): remove extra loading prop
@@ -1178,7 +1178,7 @@ fix(Modal): fix state update after close
 fix(docs): add missing period to script URL\nFixes issue
 fix(Portal): fix usage of eventPool
 fix(Responsive): use setState() safely
-fix(AccordionTitle): allow strings in index PropType\nfix(AccordionTitle): allow strings in index PropType
+fix(AccordionTitle): allow strings in index PropType
 fix(Accordion): update signature of `onTitleClick` in typings
 fix(docs): fix return agrument in ComponentPropsComponents
 fix(Responsive): fix types in typings
@@ -1305,10 +1305,10 @@ refactor(webpack_config/server): add output library target, add config name, fix
 refactor(jest): remove moduleNameMapper property from config\nrefactor(jest): remove moduleNameMapper property from config, because\nwe already use module-resolver
 refactor(xhr_wrapper): use Object.assign instead of {...Object} syntax\nrefactor(xhr_wrapper): use Object.assign instead of {...Object} syntax,\nreturn catched error from fetch()
 refactor(server/middleware): use `app` arg instead of `this`
-refactor(Login): rewrite container using func components\nrefactor(Login): rewrite container using func components
-refactor(Users): use func component instead of PureComponent\nrefactor(Users): use func component instead of PureComponent
-refactor(reducers/layout): one-line UI_WINDOW_RESIZE\nrefactor(reducers/layout): one-line UI_WINDOW_RESIZE
-refactor(LazyLoad): move component loading outside of willMount\nrefactor(LazyLoad): move component loading outside of willMount
+refactor(Login): rewrite container using func components
+refactor(Users): use func component instead of PureComponent
+refactor(reducers/layout): one-line UI_WINDOW_RESIZE
+refactor(LazyLoad): move component loading outside of willMount
 refactor: remove dead code & simplify\nThis refactoring exposes that the `autosave` and `production` settings\nin Cordova's config are actually always ignored.
 refactor(create): do not expand ~ to $HOME anymore\nExpanding ~ is a shell feature and should not be done by us.
 refactor(index): headless cms -> api-first cms
@@ -1476,8 +1476,8 @@ style(vega): remove trailing comma
 style(.esdoc.json): format file
 style(webpack_config): resolve eslint issues
 style(webpack_config/server): fix indent
-style(webpack_config/server): formatting\nstyle(webpack_config/server): formatting
-style(actions/auth): formatting\nstyle(actions/auth): formatting
+style(webpack_config/server): formatting
+style(actions/auth): formatting
 test: fix the mocks path in ReentrancyGuard test
 test(ci): removes firefox from list of tested browsers\nThis should fix the Heroku CI test pipeline which does not\nsupport the firefox test launcher out of the box.
 test: skip a test
@@ -1571,7 +1571,7 @@ test(utils): add missing tests
 test(DropdownMenu): add missing test
 test(InputGroupAddon): add missing tests
 test(modal): add tests for focus management
-test(PopperContent): remove debug statement\ntest(PopperContent): remove debug statement
+test(PopperContent): remove debug statement
 test: Add a test for strict mode with `Collapse`
 test: Update bind external web test.
 test(unit): make VisComponent events tests more robust
@@ -1786,7 +1786,7 @@ chore(gulp): fix dist:clean task
 chore(circle): cycle cache keys
 chore(package): fix postdeploy:docs script
 chore(config): remove unused options
-chore(Sidebar): use EventStack component\nchore(Sidebar): use EventStack component
+chore(Sidebar): use EventStack component
 chore(changelog): update generator version
 chore(tests): make reporter more silent
 chore(Modal): use createRef() API internally
@@ -1953,43 +1953,43 @@ chore: add note about providing a reference in PR template\ncloses
 chore: Add wait type def
 chore: don't show perf warnings for test scripts
 chore(webpack_config): add some comments to webpack.isomorphic.js\nadd some comments to webpack.isomorphic.js
-chore: add codesponsor badge\nchore: add codesponsor badge
-chore(UserItem): remove console.log's\nchore(UserItem): remove console.log's
-chore(manifest.json): fix project's name\nchore(manifest.json): fix project's name
-chore(reducers/users): remove console.log\nchore(reducers/users): remove console.log
-chore(xhr_wrapper): add comment\nchore(xhr_wrapper): add comment
-chore(configure_app): eslint fixes\nchore(configure_app): eslint fixes
-chore(middlewares/auth): use absolute import\nchore(middlewares/auth): use absolute import
-chore(webpack_config/config): remove i18n from webpack config\nchore(webpack_config/config): remove i18n from webpack config
-chore(RouteAuth): comment tests\nchore(RouteAuth): comment tests
+chore: add codesponsor badge
+chore(UserItem): remove console.log's
+chore(manifest.json): fix project's name
+chore(reducers/users): remove console.log
+chore(xhr_wrapper): add comment
+chore(configure_app): eslint fixes
+chore(middlewares/auth): use absolute import
+chore(webpack_config/config): remove i18n from webpack config
+chore(RouteAuth): comment tests
 chore(xhr_wrapper): comment console.logs
-chore(api/AuthSvc): add language as optional field\nchore(api/AuthSvc): add language as optional field
-chore(server): add useful comment about "pseudossl"\nchore(server): add useful comment about "pseudossl"
-chore(webpack_config): add comment for CLIENT_DIST_PATH\nchore(webpack_config): add comment for CLIENT_DIST_PATH
-chore(package.json): remove dev:exp command\nchore(package.json): remove dev:exp command
-chore(api/AuthSvc): remove language from loginData flow type\nchore(api/AuthSvc): remove language from loginData flow type
-chore(RoutingWrapper): remove stage-0 syntax, fix types import path\nchore(RoutingWrapper): remove stage-0 syntax, fix types import path
-chore(styles/global): remove useless comment\nchore(styles/global): remove useless comment
-chore(types): use React$Node instead of Node\nchore(types): use React$Node instead of Node
-chore(styles/theme): random color theme\nchore(styles/theme): random color theme
-chore(Footer): use light color for footer\nchore(Footer): use light color for footer
-chore(package.json): remove unused optional deps\nchore(package.json): remove unused optional deps
-chore(webpack_config): add comment about Preact\nchore(webpack_config): add comment about Preact
-chore(.eslintrc): formatting\nchore(.eslintrc): formatting
-chore(Sidebar): some comments\nchore(Sidebar): some comments
-chore(App): add flow types\nchore(App): add flow types
-chore(UserItemComponent): fix text\nchore(UserItemComponent): fix text
-chore(package.json): update deps, install react 16\nchore(package.json): update deps, install react 16
-chore(actions/utils): add comment about Awral\nchore(actions/utils): add comment about Awral
-chore(locals): fix locals\nchore(locals): fix locals
-chore(src/server): reset token if token is invalid\nchore(src/server): reset token if token is invalid
-chore(src/server/api): fix links.json file\nchore(src/server/api): fix links.json file
+chore(api/AuthSvc): add language as optional field
+chore(server): add useful comment about "pseudossl"
+chore(webpack_config): add comment for CLIENT_DIST_PATH
+chore(package.json): remove dev:exp command
+chore(api/AuthSvc): remove language from loginData flow type
+chore(RoutingWrapper): remove stage-0 syntax, fix types import path
+chore(styles/global): remove useless comment
+chore(types): use React$Node instead of Node
+chore(styles/theme): random color theme
+chore(Footer): use light color for footer
+chore(package.json): remove unused optional deps
+chore(webpack_config): add comment about Preact
+chore(.eslintrc): formatting
+chore(Sidebar): some comments
+chore(App): add flow types
+chore(UserItemComponent): fix text
+chore(package.json): update deps, install react 16
+chore(actions/utils): add comment about Awral
+chore(locals): fix locals
+chore(src/server): reset token if token is invalid
+chore(src/server/api): fix links.json file
 chore(src/common/routing): remove lazy-loading\nchore(src/common/routing): remove lazy-loading [REGRESSION]
-chore(package.json): update vresions\nchore(package.json): update vresions
-chore(actions/layout): add commented ADD_STYLES_TO_ELEMENT action\nchore(actions/layout): add commented ADD_STYLES_TO_ELEMENT action
-chore(reducers/layout): add APPLY_STYLES handler\nchore(reducers/layout): add APPLY_STYLES handler
-chore(CHANGELOG): remove 0.1.1 version\nchore(CHANGELOG): remove 0.1.1 version
-chore(actions/utils): update comment on Awral\nchore(actions/utils): update comment on Awral
-chore(components/RoutingWrapper): add more comments\nchore(components/RoutingWrapper): add more comments
-chore: make Links route lazy\nchore: make Links route lazy
-chore(client): add comment\nchore(client): add comment
+chore(package.json): update vresions
+chore(actions/layout): add commented ADD_STYLES_TO_ELEMENT action
+chore(reducers/layout): add APPLY_STYLES handler
+chore(CHANGELOG): remove 0.1.1 version
+chore(actions/utils): update comment on Awral
+chore(components/RoutingWrapper): add more comments
+chore: make Links route lazy
+chore(client): add comment

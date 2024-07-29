@@ -390,7 +390,7 @@
         "chatgpt_rag": "docs(icons): update IconExampleIconGroup with new features"
     },
     {
-        "msg": "docs(install): Use the minified version of Bootstrap CSS\ndocs(install): Use the minified version of Bootstrap CSS",
+        "msg": "docs(install): Use the minified version of Bootstrap CSS",
         "diff": "diff --git a/docs/lib/Home/index.js b/docs/lib/Home/index.js @@ -72,7 +72,7 @@ npm install --save reactstrap@next react react-dom`}\n</pre>\n<p>Import Bootstrap CSS in the <code>src/index.js</code> file:</p>\n<pre>\n- <PrismCode className=\"language-bash\">import 'bootstrap/dist/css/bootstrap.css';</PrismCode>\n+ <PrismCode className=\"language-bash\">import 'bootstrap/dist/css/bootstrap.min.css';</PrismCode>\n</pre>\n<p>Import required reactstrap components within <code>src/App.js</code> file or your custom component files:</p>\n<pre>\n",
         "date": "12.03.2018 01:36:35",
         "repo": "reactstrap/reactstrap",
@@ -430,7 +430,7 @@
         "chatgpt_rag": "docs: update release process documentation in README"
     },
     {
-        "msg": "docs(Modal): fix Modal.Description description\ndocs(Modal): fix Modal.Description description",
+        "msg": "docs(Modal): fix Modal.Description description",
         "diff": "diff --git a/src/modules/Modal/ModalDescription.js b/src/modules/Modal/ModalDescription.js @@ -5,7 +5,7 @@ import React from 'react'\nimport { childrenUtils, customPropTypes, getElementType, getUnhandledProps } from '../../lib'\n/**\n- * A modal can have a header.\n+ * A modal can contain a description with one or more paragraphs.\n*/\nfunction ModalDescription(props) {\nconst { children, className, content } = props\n",
         "date": "22.02.2019 11:33:11",
         "repo": "semantic-org/semantic-ui-react",
@@ -620,7 +620,7 @@
         "chatgpt_rag": "docs: add link to typescript example project in README"
     },
     {
-        "msg": "docs(readme): add Bandwidth Hero to built with\ndocs(readme): add Bandwidth Hero to built with",
+        "msg": "docs(readme): add Bandwidth Hero to built with",
         "diff": "diff --git a/README.md b/README.md @@ -69,6 +69,7 @@ These great products are built on Semantic UI React. Add yours [here][22].\n- https://build.games\n- https://platform.forecastcycles.com\n- https://www.findlectures.com\n+- https://github.com/ayastreb/bandwidth-hero\n## Example Projects\n",
         "date": "05.11.2017 08:37:58",
         "repo": "semantic-org/semantic-ui-react",
@@ -920,7 +920,7 @@
         "chatgpt_rag": "docs: update webpackOptions comment in customization.md"
     },
     {
-        "msg": "docs(Form): fix group variations typo\ndocs(Form): fix group variations typo",
+        "msg": "docs(Form): fix group variations typo",
         "diff": "diff --git a/docs/app/Examples/collections/Form/GroupVariations/index.js b/docs/app/Examples/collections/Form/GroupVariations/index.js @@ -12,7 +12,7 @@ const FormGroupVariationsExamples = () => (\nexamplePath='collections/Form/GroupVariations/FormExampleEvenlyDividedGroup'\n>\n<Message info>\n- When using the <code>widths='even'</code> prop declaration on a <code>Form.Group</code>,\n+ When using the <code>widths='equal'</code> prop declaration on a <code>Form.Group</code>,\nall child <code>Form.Dropdown</code>, <code>Form.Input</code>, <code>Form.Select</code>\ncomponents must be rendered with a <code>fluid</code> prop to work correctly.\n</Message>\n",
         "date": "24.05.2018 15:35:27",
         "repo": "semantic-org/semantic-ui-react",
@@ -1040,7 +1040,7 @@
         "chatgpt_rag": "docs: remove codesponsor link from README.md"
     },
     {
-        "msg": "docs(layouts): fix typo in GridLayout\ndocs(layouts): fix typo in GridLayout",
+        "msg": "docs(layouts): fix typo in GridLayout",
         "diff": "diff --git a/docs/app/Layouts/GridLayout.js b/docs/app/Layouts/GridLayout.js @@ -82,7 +82,7 @@ const GridLayout = () => (\n<Header as='h3'>Text Container</Header>\n<p>\nSometimes you just need to put a single column of centered text on a page. A <code>text container</code> is\n- a special type of container optimized for a single flowing column of text, like this instructions on this page.\n+ a special type of container optimized for a single flowing column of text, like these instructions on this page.\n</p>\n<p>Text containers <b>do not need to use grids</b> and help simplify basic page layouts.</p>\n",
         "date": "01.04.2018 19:39:50",
         "repo": "semantic-org/semantic-ui-react",
@@ -1120,7 +1120,7 @@
         "chatgpt_rag": "feat: add functionality to close all modals when \"All Done\" button is clicked in nested modal"
     },
     {
-        "msg": "feat(404-page): update NotFound container\nfeat(404-page): update NotFound container",
+        "msg": "feat(404-page): update NotFound container",
         "diff": "diff --git a/src/common/containers/NotFound/index.jsx b/src/common/containers/NotFound/index.jsx @@ -8,10 +8,10 @@ const NotFound = () => {\nreturn (\n<NotFoundLayout>\n<Header as=\"h2\" icon textAlign=\"center\">\n- <Icon name=\"users\" circular />\n- <Header.Content>404</Header.Content>\n+ <Icon name=\"warning sign\" circular />\n+ <Header.Content>Thank you Mario!</Header.Content>\n<Header.Subheader>\n- <Link to=\"/\">Dashboard lives here</Link>\n+ <Link to=\"/\">But our princess is in another castle.</Link>\n</Header.Subheader>\n</Header>\n</NotFoundLayout>\n",
         "date": "19.02.2018 18:50:28",
         "repo": "metnew/suicrux",
@@ -1150,7 +1150,7 @@
         "chatgpt_rag": "refactor: add keydown event handling for MenuOptionGroup items"
     },
     {
-        "msg": "feat(containers): add data fetching in Links\nfeat(containers): add data fetching in Links",
+        "msg": "feat(containers): add data fetching in Links",
         "diff": "diff --git a/src/common/containers/Links/index.jsx b/src/common/containers/Links/index.jsx @@ -20,15 +20,19 @@ type Props = {\nclass Links extends Component {\nprops: Props\n- componentDidMount () {\n- const {isLinksLoaded} = this.props\n+ async asyncBootstrap () {\n+ const {isLinksLoaded, getLinks} = this.props\nif (!isLinksLoaded) {\n- this.getLinks()\n+ await getLinks()\n}\n+ return true\n}\n- getLinks () {\n- this.props.getLinks()\n+ componentDidMount () {\n+ const {isLinksLoaded, getLinks} = this.props\n+ if (!isLinksLoaded) {\n+ getLinks()\n+ }\n}\nrender () {\n@@ -57,8 +61,8 @@ function mapStateToProps (state: GlobalState) {\n}\nconst mapDispatchToProps = dispatch => ({\n- getLinks () {\n- dispatch(GET_LINKS())\n+ async getLinks () {\n+ return dispatch(GET_LINKS())\n}\n})\n",
         "date": "03.12.2017 07:11:52",
         "repo": "metnew/suicrux",
@@ -1170,7 +1170,7 @@
         "chatgpt_rag": "packages: set nullNodeCss option in webpack config to false and use css-loader instead of null-loader"
     },
     {
-        "msg": "feat(Sidebar): use SidebarLogo based on Logo component\nfeat(Sidebar): use SidebarLogo based on Logo component",
+        "msg": "feat(Sidebar): use SidebarLogo based on Logo component",
         "diff": "diff --git a/src/common/components/parts/Sidebar/index.jsx b/src/common/components/parts/Sidebar/index.jsx import React, {Component} from 'react'\nimport {Menu, Icon} from 'semantic-ui-react'\nimport {NavLink} from 'react-router-dom'\n+import Logo from 'components/elements/Logo'\nimport {\nStyledSidebar,\nSidebarLogo,\n@@ -10,9 +11,7 @@ import {\nSidebarLogoutItem\n} from './style'\nimport {Spacer} from 'styles/base'\n-\nimport type {RouteItem} from 'types'\n-// require('./index.scss')\ntype Props = {\nopen: boolean,\n@@ -71,12 +70,11 @@ export default class SidebarComponent extends Component {\n// ? require('images/logo.png')\n// : require('images/logo.png').preSrc\n//\n- const logoImg = require('images/logo.png')\nreturn (\n<StyledSidebar {...sidebarProps}>\n<SidebarLogoContainer href=\"https://github.com/Metnew/react-semantic.ui-starter\">\n- <SidebarLogo src={logoImg} alt=\"logo\" shape=\"circular\" centered />\n+ <SidebarLogo alt=\"logo\" shape=\"circular\" centered />\n</SidebarLogoContainer>\n{routes}\n<Spacer />\n",
         "date": "10.09.2017 18:49:29",
         "repo": "metnew/suicrux",
@@ -1200,7 +1200,7 @@
         "chatgpt_rag": "refactor: convert functional Form component to class component with constructor and methods for getRef and submit"
     },
     {
-        "msg": "feat(reducers/links): add count property\nfeat(reducers/links): add count property",
+        "msg": "feat(reducers/links): add count property",
         "diff": "diff --git a/src/common/reducers/links/index.js b/src/common/reducers/links/index.js @@ -23,7 +23,8 @@ export const initialState: State = {\nentities: [],\nerrors: {},\nisLoading: false,\n- isLoaded: false\n+ isLoaded: false,\n+ count: 0\n}\nexport function links (state: State = initialState, action: Action): State {\n@@ -38,11 +39,13 @@ export function links (state: State = initialState, action: Action): State {\n}\ncase GET_LINKS_SUCCESS: {\nconst entities = action.payload\n+ const count = entities.length\nreturn {\n...state,\nisLoaded: true,\nisLoading: false,\n- entities\n+ entities,\n+ count\n}\n}\ncase GET_LINKS_FAIL: {\n@@ -51,7 +54,9 @@ export function links (state: State = initialState, action: Action): State {\n...state,\nerrors,\nisLoaded: true,\n- isLoading: false\n+ isLoading: false,\n+ entities: [],\n+ count: 0\n}\n}\ndefault:\n",
         "date": "03.11.2017 16:32:11",
         "repo": "metnew/suicrux",
@@ -1220,7 +1220,7 @@
         "chatgpt_rag": "feat(lib): Add idToken to user object in SSR authentication"
     },
     {
-        "msg": "feat(routing): make all containers lazy, simplify code\nfeat(routing): make all containers lazy, simplify code",
+        "msg": "feat(routing): make all containers lazy, simplify code",
         "diff": "diff --git a/src/common/routing/index.jsx b/src/common/routing/index.jsx */\nimport React from 'react'\nimport {Route} from 'react-router-dom'\n-import Dashboard from 'containers/Dashboard'\n-import Login from 'containers/Login'\n-import Users from 'containers/Users'\n-\nimport RouteAuth from 'components/addons/RouteAuth'\nimport {createBrowserHistory, createMemoryHistory} from 'history'\nimport type {RouteItem} from 'types'\n+const getHistory = () => {\n+ if (process.env.BROWSER) {\n+ return createMemoryHistory()\n+ }\n+ return createBrowserHistory()\n+}\n+\nexport const history = getHistory()\n-const loadLazyComponent = (url: string) => {\n- return async (cb: Function) => {\n+const loadLazyComponent = (url: string) => async () => {\n// NOTE: there isn't any duplication here\n// Read Webpack docs about code-splitting for more info.\nif (process.env.BROWSER) {\n@@ -24,26 +26,27 @@ const loadLazyComponent = (url: string) => {\nconst loadComponent = await import(/* webpackMode: \"eager\", webpackChunkName: \"lazy-containers\" */ `containers/${url}/index.jsx`)\nreturn loadComponent\n}\n-}\nexport const routes: Array<RouteItem> = [\n{\npath: '/',\nexact: true,\n+ lazy: true,\nicon: 'newspaper',\nname: 'Dashboard',\nsidebarVisible: true,\ntag: RouteAuth,\n- component: Dashboard\n+ component: loadLazyComponent('Dashboard')\n},\n{\npath: '/users',\nname: 'Users',\nexact: true,\n+ lazy: true,\nicon: 'users',\nsidebarVisible: true,\ntag: RouteAuth,\n- component: Users\n+ component: loadLazyComponent('Users')\n},\n{\nexternal: true,\n@@ -55,8 +58,9 @@ export const routes: Array<RouteItem> = [\n{\npath: '/auth',\nname: 'Auth',\n+ lazy: true,\ntag: Route,\n- component: Login\n+ component: loadLazyComponent('Login')\n},\n{\npath: '/users/:id',\n@@ -67,11 +71,3 @@ export const routes: Array<RouteItem> = [\ncomponent: loadLazyComponent('UserItem')\n}\n]\n-\n-function getHistory () {\n- const basename = ''\n- if (process.env.BROWSER !== true) {\n- return createMemoryHistory()\n- }\n- return createBrowserHistory({basename})\n-}\n",
         "date": "10.09.2017 14:34:54",
         "repo": "metnew/suicrux",
@@ -1270,7 +1270,7 @@
         "chatgpt_rag": "refactor: update JWT regex pattern"
     },
     {
-        "msg": "feat(server/ssr): move to react 16\nfeat(server/ssr): move to react 16",
+        "msg": "feat(server/ssr): move to react 16",
         "diff": "diff --git a/src/server/ssr/index.js b/src/server/ssr/index.js */\nimport React from 'react'\nimport chalk from 'chalk'\n-// import _ from 'lodash'\n-import {renderToNodeStream, renderToStaticNodeStream} from 'react-dom/server'\n+import {renderToNodeStream} from 'react-dom/server'\nimport {ServerStyleSheet, StyleSheetManager} from 'styled-components'\nimport {configureRootComponent, configureApp} from 'common/app'\n-// import {addLocaleData} from 'react-intl'\nimport HtmlComponent from './HtmlComponent'\n// $FlowFixMe\nimport assets from 'webpack-assets'\n@@ -58,9 +56,11 @@ export default async (req: express$Request, res: express$Response) => {\n'Content-Type': 'text/html'\n})\nres.write(beforeAppTag)\n+ res.write(`<div id=\"app\">`)\nstream.pipe(res, {end: false})\nstream.on('end', () => {\n+ res.write('</div>')\nres.write(afterAppTag)\nres.end()\n})\n",
         "date": "30.09.2017 14:22:54",
         "repo": "metnew/suicrux",
@@ -1290,7 +1290,7 @@
         "chatgpt_rag": "chore(git): update `.gitignore` and ignore `coverage.json`, `npm-debug.log`, `.env`, and `build/` directory"
     },
     {
-        "msg": "feat(Footer): add basic test\nfeat(Footer): add basic test",
+        "msg": "feat(Footer): add basic test",
         "diff": "diff --git a/src/common/components/parts/Footer/index.test.jsx b/src/common/components/parts/Footer/index.test.jsx +import React from 'react'\n+import Footer from 'components/parts/Footer'\n+import {shallow} from 'enzyme'\n+import toJson from 'enzyme-to-json'\n+\n+describe('Footer component', () => {\n+ it('same snapshot', () => {\n+ const component = shallow(<Footer />)\n+ expect(toJson(component)).toMatchSnapshot()\n+ })\n+})\n",
         "date": "10.09.2017 13:55:08",
         "repo": "metnew/suicrux",
@@ -1360,7 +1360,7 @@
         "chatgpt_rag": "feat: add lang property to req.user in auth middleware"
     },
     {
-        "msg": "feat(reducers/auth): remove jwt token from state.me.auth\nfeat(reducers/auth): remove jwt token from state.me.auth",
+        "msg": "feat(reducers/auth): remove jwt token from state.me.auth",
         "diff": "diff --git a/src/common/reducers/auth/index.js b/src/common/reducers/auth/index.js // @flow\n-import {\n- isLoggedIn as hasLocalToken,\n- getLocalToken\n-} from 'api/LocalStorageCookiesSvc'\n+import {isLoggedIn as hasLocalToken} from 'api/LocalStorageCookiesSvc'\nimport {\nLOGIN_AUTH_FAIL,\nLOGIN_AUTH_PENDING,\n@@ -23,7 +20,6 @@ export type State = {\nisLoading: boolean,\nisLoaded: boolean,\nisLoggedIn: boolean,\n- token: string | null,\nerrors: Object\n}\n@@ -38,7 +34,6 @@ export const initialState: State = {\nisLoading: false,\nisLoaded: false,\nisLoggedIn: hasLocalToken(),\n- token: getLocalToken(),\nerrors: {}\n}\n@@ -52,7 +47,6 @@ export function auth (state: State = initialState, action: Action): State {\nisLoading: false,\nisLoaded: true,\nisLoggedIn: false,\n- token: null,\nerrors: {}\n}\n}\n@@ -63,18 +57,15 @@ export function auth (state: State = initialState, action: Action): State {\nisLoading: false,\nisLoaded: true,\nisLoggedIn: false,\n- token: null,\nerrors\n}\n}\ncase LOGIN_AUTH_SUCCESS: {\n- const {token} = action.payload\nreturn {\n...state,\nisLoading: false,\nisLoaded: true,\n- isLoggedIn: true,\n- token\n+ isLoggedIn: true\n}\n}\ncase LOGIN_AUTH_PENDING: {\n",
         "date": "17.09.2017 14:55:40",
         "repo": "metnew/suicrux",
@@ -1380,7 +1380,7 @@
         "chatgpt_rag": "feat(plugins): added react-native-carplay plugin to renative.plugins.json"
     },
     {
-        "msg": "feat(Header): add FormattedMessage\nfeat(Header): add FormattedMessage",
+        "msg": "feat(Header): add FormattedMessage",
         "diff": "diff --git a/src/common/components/parts/Header/index.jsx b/src/common/components/parts/Header/index.jsx import React from 'react'\nimport PropTypes from 'prop-types'\nimport {Icon, Popup} from 'semantic-ui-react'\n+import {FormattedMessage, FormattedDate} from 'react-intl'\n+\nimport {isEqual} from 'lodash'\nimport {\nStyledHeader,\n@@ -56,7 +58,16 @@ class Header extends React.Component {\n<Icon name=\"github\" size=\"large\" link fitted />\n</HeaderButton>\n}\n- content={`RSUIS on @Github`}\n+ content={\n+ <FormattedMessage\n+ id=\"Header.Popup.HeaderButton\"\n+ defaultMessage={`Hello {name}, today is {today, date}`}\n+ values={{\n+ name: <b>user</b>,\n+ today: Date.now()\n+ }}\n+ />\n+ }\ninverted\n/>\n</HeaderInner>\n",
         "date": "09.09.2017 18:02:34",
         "repo": "metnew/suicrux",
@@ -1460,7 +1460,7 @@
         "chatgpt_rag": "feat: generate CSS variables for utilities with specified vars map, add option to enable/disable vars generation"
     },
     {
-        "msg": "feat(api/links.json): fix links desc\nfeat(api/links.json): fix links desc",
+        "msg": "feat(api/links.json): fix links desc",
         "diff": "diff --git a/src/server/api/links.json b/src/server/api/links.json \"icon\": \"github\",\n\"header\": \"SSR + Webpack (in development)\",\n\"desc\":\n- \"Step by step guide with working example of hot-reloaded server and client with SSR with Webpack in development.\"\n+ \"Step by step guide with working example of server and client with hot-reloading and SSR with Webpack (in development).\"\n},\n{\n- \"link\": \"https://github.com/Metnew/tiny-universal-example\",\n+ \"link\": \"https://github.com/Metnew/noir\",\n\"icon\": \"bug\",\n- \"header\": \"How to test actions and reducers?\",\n- \"desc\": \"How to test actions and reducers?\"\n+ \"header\": \"Testing\",\n+ \"desc\": \"How to test actions, reducers, components?\"\n},\n{\n\"link\": \"https://github.com/Metnew/noir\",\n\"icon\": \"paint brush\",\n- \"header\": \"Why semantic-ui-react?\"\n+ \"header\": \"Why semantic-ui-react?\",\n+ \"desc\": \"Notes about SUI. Why SUIR is a good (or bad) choise.\"\n},\n{\n\"link\": \"\",\n\"icon\": \"globe\",\n\"header\": \"How i18n works?\",\n- \"desc\": \"i18n configuration and how to customize it in own project\"\n+ \"desc\": \"How i18n is implemented and how to customize it.\"\n},\n{\n\"header\": \"How Webpack is configured?\",\n\"icon\": \"code\",\n\"link\": \"\",\n\"desc\":\n- \"Webpack configuration for server/client in production and development\"\n+ \"Webpack configuration for server/client in production and development.\"\n},\n{\n\"link\": \"\",\n\"icon\": \"terminal\",\n- \"header\": \"npm scripts\",\n- \"desc\": \"npm scripts under the hood and ENV vars\"\n+ \"header\": \"npm scripts and ENV vars\",\n+ \"desc\": \"Docs about every npm script and ENV variable.\"\n},\n{\n\"link\": \"\",\n\"icon\": \"folder\",\n\"header\": \"Folder structure\",\n- \"desc\": \"Why this folder structure and how to adapt it for own project\"\n+ \"desc\": \"Why this folder structure and how to adapt it in own project.\"\n}\n]\n",
         "date": "13.10.2017 16:51:17",
         "repo": "metnew/suicrux",
@@ -1640,7 +1640,7 @@
         "chatgpt_rag": "feat(glo): adds methods for coloring, sizing, distributing, positioning, and styling edges in Glo component"
     },
     {
-        "msg": "feat(Dashboard): remove old redux stuff from Dashboard container\nfeat(Dashboard): remove old redux stuff from Dashboard container",
+        "msg": "feat(Dashboard): remove old redux stuff from Dashboard container",
         "diff": "diff --git a/src/common/containers/Dashboard/index.jsx b/src/common/containers/Dashboard/index.jsx // @flow\nimport React, {Component} from 'react'\nimport {connect} from 'react-redux'\n-import {Loader} from 'semantic-ui-react'\nimport {Helmet} from 'react-helmet'\n-//\nimport DashboardComponent from './components'\n-import {GET_POSTS} from 'actions/posts'\n-import {getEntitiesPostsState} from 'selectors'\n+\nimport type {GlobalState} from 'reducers'\n-type Props = {\n- posts: Object,\n- postsLoaded: boolean,\n- postsLoading: boolean,\n- count: number,\n- getPosts: () => void\n-}\n+type Props = any\nclass Dashboard extends Component {\nprops: Props\n- componentDidMount () {\n- this.props.getPosts()\n- }\n-\nrender () {\n- const {posts, postsLoaded, postsLoading, count} = this.props\nreturn (\n<div>\n<Helmet>\n<title>Noir:Dashboard</title>\n</Helmet>\n- {postsLoaded\n- ? <DashboardComponent\n- {...{posts, postsLoaded, postsLoading, count}}\n- />\n- : <Loader active>Loading...</Loader>}\n+ <DashboardComponent />\n</div>\n)\n}\n}\nfunction mapStateToProps (state: GlobalState) {\n- const postsState = getEntitiesPostsState(state)\n- const postsLoaded = postsState.isLoaded\n- const postsLoading = postsState.isLoading\n- const posts = postsState.entities\n- const {count} = postsState\n- return {\n- posts,\n- postsLoading,\n- postsLoaded,\n- count\n- }\n+ return {}\n}\nfunction mapDispatchToProps (dispatch) {\n- return {\n- getPosts () {\n- dispatch(GET_POSTS())\n- }\n- }\n+ return {}\n}\nexport default connect(mapStateToProps, mapDispatchToProps)(Dashboard)\n",
         "date": "30.09.2017 14:35:18",
         "repo": "metnew/suicrux",
@@ -1650,7 +1650,7 @@
         "chatgpt_rag": "chore: clean unnecessary code out of Dashboard component"
     },
     {
-        "msg": "feat(webpack.isomorphic): add i18n folder to aliases\nfeat(webpack.isomorphic): add i18n folder to aliases",
+        "msg": "feat(webpack.isomorphic): add i18n folder to aliases",
         "diff": "diff --git a/webpack_config/webpack.isomorphic.js b/webpack_config/webpack.isomorphic.js @@ -25,6 +25,7 @@ export default {\n// Aliases that both server and client use\n// Probably, it's a bad example, because here we defined only client's aliases.\nalias: {\n+ i18n: `${srcCommonPath}/i18n/`,\nactions: `${srcCommonPath}/actions/`,\napi: `${srcCommonPath}/api/`,\ncomponents: `${srcCommonPath}/components/`,\n",
         "date": "06.09.2017 12:14:23",
         "repo": "metnew/suicrux",
@@ -1660,7 +1660,7 @@
         "chatgpt_rag": "feat(webpack): added alias for i18n in webpack config for isomorphic setup"
     },
     {
-        "msg": "feat(server): add useragent middleware\nfeat(server): add useragent middleware",
+        "msg": "feat(server): add useragent middleware",
         "diff": "diff --git a/src/server/middlewares/index.js b/src/server/middlewares/index.js @@ -8,6 +8,7 @@ import compression from 'compression'\nimport cookieParser from 'cookie-parser'\nimport bodyParser from 'body-parser'\nimport morgan from 'morgan'\n+import useragent from 'express-useragent'\nimport authMiddleware from './auth'\nexport default (app: express$Application): express$Application => {\n@@ -22,6 +23,7 @@ export default (app: express$Application): express$Application => {\n})\n)\napp.use(bodyParser.json())\n+ app.use(useragent.express())\napp.use(authMiddleware)\nreturn app\n",
         "date": "17.09.2017 14:26:26",
         "repo": "metnew/suicrux",
@@ -1730,7 +1730,7 @@
         "chatgpt_rag": "refactor(vega-typings): simplify View constructor and remove unnecessary options"
     },
     {
-        "msg": "feat(styles): duplicate some styles to make SSR result nicer\nfeat(styles): duplicate some styles to make SSR result nicer",
+        "msg": "feat(styles): duplicate some styles to make SSR result nicer",
         "diff": "diff --git a/src/common/styles/global.jsx b/src/common/styles/global.jsx @@ -5,6 +5,26 @@ injectGlobal`\nbox-sizing: border-box;\n}\n+ body {\n+ margin: 0;\n+ padding: 0;\n+ overflow-x: hidden;\n+ min-width: 320px;\n+ background: white;\n+ font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;\n+ font-size: 14px;\n+ line-height: 1.4285em;\n+ color: rgba(0, 0, 0, 0.87);\n+ }\n+\n+ .pushable {\n+ height: 100%;\n+ overflow-x: hidden;\n+ padding: 0em !important;\n+ -webkit-transform: translate3d(0, 0, 0);\n+ transform: translate3d(0, 0, 0);\n+ }\n+\n${''/* body ::-webkit-scrollbar {\nwidth: 0;\n}\n",
         "date": "03.11.2017 16:38:10",
         "repo": "metnew/suicrux",
@@ -1780,7 +1780,7 @@
         "chatgpt_rag": "src(App): update logo link to home page and style logo link"
     },
     {
-        "msg": "feat(jest_config): add mocks and disable coverage of styles\nfeat(jest_config): add mocks and disable coverage of styles",
+        "msg": "feat(jest_config): add mocks and disable coverage of styles",
         "diff": "diff --git a/jest_config/jest.config.json b/jest_config/jest.config.json \"rootDir\": \"../\",\n\"setupFiles\": [\"<rootDir>/jest_config/setupJest.js\"],\n\"automock\": false,\n- \"moduleNameMapper\": {}\n+ \"moduleNameMapper\": {\n+ \"\\\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$\": \"<rootDir>/jest_config/__mocks__/fileMock.js\",\n+ \"\\\\.(css|less)$\": \"<rootDir>/jest_config/__mocks__/styleMock.js\"\n+ },\n+ \"coveragePathIgnorePatterns\": [\"style.jsx\", \"/styles\"]\n}\n",
         "date": "10.09.2017 00:12:29",
         "repo": "metnew/suicrux",
@@ -1840,7 +1840,7 @@
         "chatgpt_rag": "chore: update eslint config with additional plugins and rules"
     },
     {
-        "msg": "feat(server/ssr): add async-component, async-bootstrapper\nfeat(server/ssr): add async-component, async-bootstrapper",
+        "msg": "feat(server/ssr): add async-component, async-bootstrapper",
         "diff": "diff --git a/src/server/ssr/index.js b/src/server/ssr/index.js */\nimport React from 'react'\nimport chalk from 'chalk'\n+import _ from 'lodash'\nimport {renderToNodeStream} from 'react-dom/server'\nimport {ServerStyleSheet, StyleSheetManager} from 'styled-components'\nimport {configureRootComponent, configureApp} from 'common/app'\n+import asyncBootstrapper from 'react-async-bootstrapper'\n+import {AsyncComponentProvider, createAsyncContext} from 'react-async-component'\nimport HtmlComponent from './HtmlComponent'\n// $FlowFixMe\nimport assets from 'webpack-assets'\n@@ -36,45 +39,48 @@ export default async (req: express$Request, res: express$Response) => {\ni18n,\nSSR: {location, context}\n})\n- const stream = renderToNodeStream(\n+ const asyncContext = createAsyncContext()\n+\n+ const app = (\n+ <AsyncComponentProvider asyncContext={asyncContext}>\n<StyleSheetManager sheet={sheet.instance}>\n{RootComponent}\n</StyleSheetManager>\n+ </AsyncComponentProvider>\n)\n+ // console.log(_.find(routes, a => matchPath(req.url, a)))\n+ const noRequestURLMatch = !!_.find(routes, a => matchPath(req.url, a))\n+\n+ asyncBootstrapper(app).then(() => {\n+ const appStream = renderToNodeStream(app)\nconst css: string = sheet.getStyleTags()\nconst preloadedState: Object = store.getState()\n+\n+ const asyncState = asyncContext.getState()\nconst props = {\ncss,\nassets,\nfaviconsAssets,\n+ asyncState,\ninitialState: preloadedState,\ni18n\n}\n- // FIXME: how to replace `let` and `for`?\n- let lazyRoutes = routes.filter(a => a.lazy)\n- for (var i = 0; i < lazyRoutes.length; i++) {\n- let route = routes[i]\n- if (matchPath(req.url, route)) {\n- route.component = await routes[i].component().default\n- route.lazy = false\n- break\n- }\n- }\n-\nconst {beforeAppTag, afterAppTag} = HtmlComponent(props)\n+ const responseStatusCode = noRequestURLMatch ? 404 : 200\n- res.writeHead(200, {\n+ res.writeHead(responseStatusCode, {\n'Content-Type': 'text/html'\n})\nres.write(beforeAppTag)\nres.write(`<div id=\"app\">`)\n- stream.pipe(res, {end: false})\n+ appStream.pipe(res, {end: false})\n- stream.on('end', () => {\n+ appStream.on('end', () => {\nres.write('</div>')\nres.write(afterAppTag)\nres.end()\n})\n+ })\n}\n",
         "date": "03.11.2017 16:50:33",
         "repo": "metnew/suicrux",
@@ -1920,7 +1920,7 @@
         "chatgpt_rag": "feat(Popover): add event emitters for close, open, and toggle\nAdded event emitters for close, open, and toggle functions in the Popover component to emit 'close', 'open', and 'toggle' events respectively."
     },
     {
-        "msg": "feat(Input): add `autoCapitalize` to html input props\nfeat(Input): add `autoCapitalize` to html input props",
+        "msg": "feat(Input): add `autoCapitalize` to html input props",
         "diff": "diff --git a/src/elements/Input/Input.js b/src/elements/Input/Input.js @@ -22,7 +22,7 @@ export const htmlInputPropNames = [\n'selected', 'defaultValue', 'defaultChecked',\n// LIMITED HTML PROPS\n- 'autoComplete', 'autoFocus', 'checked', 'form', 'max', 'maxLength', 'min',\n+ 'autoCapitalize', 'autoComplete', 'autoFocus', 'checked', 'form', 'max', 'maxLength', 'min',\n'name', 'pattern', 'placeholder', 'readOnly', 'required', 'step', 'type', 'value',\n// Heads Up!\n",
         "date": "13.02.2017 19:27:33",
         "repo": "semantic-org/semantic-ui-react",
@@ -1930,7 +1930,7 @@
         "chatgpt_rag": "fix(Input): update htmlInputPropNames with autoCapitalize"
     },
     {
-        "msg": "feat(styles): add more comments in /utils.jsx\nfeat(styles): add more comments in /utils.jsx",
+        "msg": "feat(styles): add more comments in /utils.jsx",
         "diff": "diff --git a/src/common/styles/utils.jsx b/src/common/styles/utils.jsx @@ -6,6 +6,9 @@ const pxToEm = px => {\n}\nconst iWantToUseEm = true\n+// NOTE: This grid don't match SUI's grid.\n+// NOTE: RSUI has <Responsive> element!\n+// You might don't need media template function for styled-components\nconst sizes = _.mapValues(\n{\nxs: 0, // Extra small screen / phone\n@@ -15,13 +18,13 @@ const sizes = _.mapValues(\nxl: 1200 // Extra large screen / wide desktop\n},\n(value, key) => {\n- // NOTE: Please, read more about `em`, before switching to it\n+ // NOTE: Please, read more about `em` before switching\n// https://stackoverflow.com/questions/22228568/switching-to-em-based-media-queries\nreturn iWantToUseEm ? pxToEm(value) : value + 'px'\n}\n)\n-// FIXME: @Metnew: dirty-hardcode version of media template!\n+// FIXME: @Metnew: this block may be rewritten more elegant (like the code below, from off docs)\nexport const media = {\nxs: (...args) => css`\n@media only screen and (max-width: ${sizes.sm}) {\n@@ -66,6 +69,7 @@ export const media = {\n}\n// NOTE: from official docs, but it looks like a black-voodoo-magic\n+// ####\n// // iterate through the sizes and create a media template\n// export const media = Object.keys(sizes).reduce((accumulator, label, i) => {\n// console.log(accumulator, label)\n",
         "date": "30.09.2017 14:25:05",
         "repo": "metnew/suicrux",
@@ -1980,7 +1980,7 @@
         "chatgpt_rag": "feat(Popup manager): Handle ESC key and focus inside popup\n- Added a function to get the top popup instance\n- Added event listener for `keydown` to handle `esc` key when popup is shown\n- Added event listener for `focusin` to keep focusing inside the popup by `tab` key"
     },
     {
-        "msg": "feat(api-utils): make xhr wrapper less complex\nfeat(api-utils): make xhr wrapper less complex",
+        "msg": "feat(api-utils): make xhr wrapper less complex",
         "diff": "diff --git a/src/common/api/utils/index.js b/src/common/api/utils/index.js -// @flow\n-export {get, post} from './xhr_wrapper'\n+/**\n+ * @flow\n+ * @file Simple fetch wrapper\n+ */\n+import fetch from 'isomorphic-fetch'\n+\n+// USAGE:\n+export const get = requestWrapper('GET')\n+// get('https://www.google.com', options)\n+export const post = requestWrapper('POST')\n+// post('https://www.google.com', data)\n+\n+// Create request wrapper for certain method\n+function requestWrapper (method: 'GET' | 'POST' | 'DELETE' | 'PUT' | 'PATCH') {\n+ // Creates request to `url` with `data`\n+ return async (url: string, data: any = null) => {\n+ const body = data ? {body: JSON.stringify(data)} : {}\n+\n+ const request = {\n+ method,\n+ headers: {},\n+ mode: process.env.NODE_ENV === 'development' ? 'cors' : 'same-origin',\n+ ...body\n+ }\n+\n+ return fetch(url, request)\n+ .then(checkStatus)\n+ .then(parseJSON)\n+ .catch((err: any) => err)\n+ }\n+}\n+\n+async function parseJSON (res: Response): Object {\n+ let json: Object\n+ const {status} = res\n+ // status response field in return object\n+ try {\n+ json = await res.json()\n+ } catch (e) {\n+ if (res.status === 204) {\n+ return {ok: true, data: {}, status}\n+ }\n+ return {ok: false, status}\n+ }\n+ if (!res.ok) {\n+ return {data: json, ok: false, status}\n+ }\n+ return {data: json, ok: true, status}\n+}\n+\n+function checkStatus (response: Response): Response {\n+ const {status} = response\n+ if (status >= 200 && status < 300) {\n+ // Everything is ok\n+ } else if (status >= 300 && status < 400) {\n+ // 300 - Multiple Choices\n+ // 301 - Moved Permanently,\n+ // 302 - Found, Moved Temporarily\n+ // 304 - not modified\n+ // 307 - Temporary Redirect\n+ } else if (status === 400) {\n+ // Probably is a validation error\n+ } else if (status === 403 || status === 401) {\n+ // 401 - Forbidden\n+ // 403 - Unauthorized\n+ } else if (status === 404) {\n+ // Not Found\n+ } else if (status >= 500) {\n+ // Server error\n+ }\n+ return response\n+}\n",
         "date": "18.02.2018 15:58:11",
         "repo": "metnew/suicrux",
@@ -1990,7 +1990,7 @@
         "chatgpt_rag": "refactor: move error handling into new methods in API utils file"
     },
     {
-        "msg": "feat(locals): add basic text for dashboard\nfeat(locals): add basic text for dashboard",
+        "msg": "feat(locals): add basic text for dashboard",
         "diff": "diff --git a/locals/en.json b/locals/en.json {\n- \"Header.Popup.HeaderButton\": \"Hello {name}\"\n+ \"Dashboard.Text\": \"Hello HELLOOOO\"\n}\n",
         "date": "29.09.2017 20:51:38",
         "repo": "metnew/suicrux",
@@ -2910,7 +2910,7 @@
         "chatgpt_rag": "docs(form/FormField): update required prop docs"
     },
     {
-        "msg": "fix(typings): inherit Radio props from Checkbox\nfix(typings): inherit Radio props from Checkbox",
+        "msg": "fix(typings): inherit Radio props from Checkbox",
         "diff": "diff --git a/src/addons/Radio/index.d.ts b/src/addons/Radio/index.d.ts import * as React from 'react';\n+import { CheckboxProps } from '../../modules/Checkbox';\n-interface RadioProps {\n+interface RadioProps extends CheckboxProps {\n[key: string]: any;\n/** Format to emphasize the current selection state. */\n",
         "date": "31.01.2017 11:35:54",
         "repo": "semantic-org/semantic-ui-react",
@@ -3700,7 +3700,7 @@
         "chatgpt_rag": "refactor(embed): update onClick event type in Embed component"
     },
     {
-        "msg": "style(webpack_config/server): formatting\nstyle(webpack_config/server): formatting",
+        "msg": "style(webpack_config/server): formatting",
         "diff": "diff --git a/webpack_config/server/webpack.prod.babel.js b/webpack_config/server/webpack.prod.babel.js @@ -17,7 +17,7 @@ const plugins = [\nsourceMap: true,\ncompress: {\nwarnings: false\n- // This option removes console log in production\n+ // This option removes console.log in production\n// drop_console: true\n},\noutput: {\n",
         "date": "14.08.2017 17:12:48",
         "repo": "metnew/suicrux",
@@ -4070,7 +4070,7 @@
         "chatgpt_rag": "feat(controls): Add position property to controls reducer."
     },
     {
-        "msg": "test(PopperContent): remove debug statement\ntest(PopperContent): remove debug statement",
+        "msg": "test(PopperContent): remove debug statement",
         "diff": "diff --git a/src/__tests__/PopperContent.spec.js b/src/__tests__/PopperContent.spec.js @@ -117,8 +117,6 @@ describe('PopperContent', () => {\nit('should have x-placement of auto by default', () => {\nconst wrapper = mount(<PopperContent target=\"target\" isOpen container=\"inline\">Yo!</PopperContent>);\n- console.log(wrapper.debug());\n-\nexpect(wrapper.find('div[x-placement=\"auto\"]').exists()).toBe(true);\n});\n",
         "date": "18.10.2019 18:40:11",
         "repo": "reactstrap/reactstrap",
@@ -4260,7 +4260,7 @@
         "chatgpt_rag": "docs: update import method in ISSUE_TEMPLATE to include comment for umd version usage"
     },
     {
-        "msg": "chore(xhr_wrapper): add comment\nchore(xhr_wrapper): add comment",
+        "msg": "chore(xhr_wrapper): add comment",
         "diff": "diff --git a/src/common/api/utils/xhr_wrapper.js b/src/common/api/utils/xhr_wrapper.js @@ -53,6 +53,7 @@ const requestWrapper = (\n*/\nasync function parseJSON (res: Response): Object {\nlet json: Object\n+ // status response field in return object\ntry {\njson = await res.json()\n} catch (e) {\n",
         "date": "06.09.2017 12:19:47",
         "repo": "metnew/suicrux",
@@ -4370,7 +4370,7 @@
         "chatgpt_rag": "fix: update function name in replace method"
     },
     {
-        "msg": "chore(actions/utils): update comment on Awral\nchore(actions/utils): update comment on Awral",
+        "msg": "chore(actions/utils): update comment on Awral",
         "diff": "diff --git a/src/common/actions/utils/index.js b/src/common/actions/utils/index.js @@ -14,8 +14,10 @@ const beforeCheck = a => a\nconst afterCheck = a => a.data\n/**\nCreate default Awral\n- Awral is my own tool.\n- It's not well known, but it can make your work with actions even more simpler.\n+ Awral is not recommended for production usage now\n+ But it can make your work with actions even simpler.\n+ NOTE:I strongly recommend you check Awral sources!\n+ Awral is 880B gzipped!\n{@link https://github.com/Metnew/awral}\n*/\nexport const awral = Awral.of({check, beforeCheck, afterCheck})\n",
         "date": "16.10.2017 18:26:41",
         "repo": "metnew/suicrux",
@@ -4410,7 +4410,7 @@
         "chatgpt_rag": "test: ensure DatasetSelector onChangeSpy called with correct dataset value"
     },
     {
-        "msg": "chore(actions/utils): add comment about Awral\nchore(actions/utils): add comment about Awral",
+        "msg": "chore(actions/utils): add comment about Awral",
         "diff": "diff --git a/src/common/actions/utils/index.js b/src/common/actions/utils/index.js @@ -12,5 +12,10 @@ import Awral from 'awral'\nconst check = (result: Object = {ok: false}): boolean => result.ok\nconst beforeCheck = a => a\nconst afterCheck = a => a.data\n-// Create default Awral\n+/**\n+ Create default Awral\n+ Awral is my own tool.\n+ It's not well known, but it can make your work with actions even more simpler.\n+ {@link https://github.com/Metnew/awral}\n+*/\nexport const awral = Awral.of({check, beforeCheck, afterCheck})\n",
         "date": "13.10.2017 16:52:31",
         "repo": "metnew/suicrux",
@@ -4580,7 +4580,7 @@
         "chatgpt_rag": "features(note-selector): Update dark theme styles for tags"
     },
     {
-        "msg": "chore(package.json): remove dev:exp command\nchore(package.json): remove dev:exp command",
+        "msg": "chore(package.json): remove dev:exp command",
         "diff": "diff --git a/package.json b/package.json \"scripts\": {\n\"build\": \"npm run frontend_build && npm run server_build\",\n\"dev\": \"NODE_ENV=development babel-node ./src/server/index.dev\",\n- \"dev:exp\": \"NODE_ENV=development babel-node -- --expose-http2 ./src/server/index.dev\",\n\"server_build\": \"NODE_ENV=production webpack --config webpack_config/server/webpack.prod.babel.js\",\n\"frontend_build\": \"NODE_ENV=production webpack --config webpack_config/client/webpack.prod.babel.js\",\n\"test\": \"NODE_ENV=test jest --config=jest_config/jest.config.json --coverage --forceExit || true\",\n",
         "date": "14.09.2017 01:10:28",
         "repo": "metnew/suicrux",
@@ -4630,7 +4630,7 @@
         "chatgpt_rag": "chore(Root): update Travis CI configuration with stages for linting, testing, and deployment"
     },
     {
-        "msg": "chore(webpack_config): add comment about Preact\nchore(webpack_config): add comment about Preact",
+        "msg": "chore(webpack_config): add comment about Preact",
         "diff": "diff --git a/webpack_config/client/webpack.base.js b/webpack_config/client/webpack.base.js @@ -51,10 +51,11 @@ const baseBuild = {\nresolve: {\nalias: {\n...isomorphicWebpackConfig.resolve.alias\n+ // NOTE: Preact + preact-compat can save you 148Kb parsed or 14kb gzipped\n+ // Preact may breaks your React app, starter by default doesn't aim to support Preact\n// react: 'preact-compat',\n// 'react-dom': 'preact-compat',\n- // 'preact-compat': 'preact-compat/dist/preact-compat',\n- // 'react-redux': 'preact-redux'\n+ // 'preact-compat': 'preact-compat/dist/preact-compat'\n},\nmodules: isomorphicWebpackConfig.resolve.modules,\nextensions: isomorphicWebpackConfig.resolve.extensions.concat([\n",
         "date": "17.09.2017 21:44:12",
         "repo": "metnew/suicrux",
@@ -4660,7 +4660,7 @@
         "chatgpt_rag": "chore: update node versions in .travis.yml to include 8 and 7, remove older versions"
     },
     {
-        "msg": "chore(Footer): use light color for footer\nchore(Footer): use light color for footer",
+        "msg": "chore(Footer): use light color for footer",
         "diff": "diff --git a/src/common/components/parts/Footer/style.jsx b/src/common/components/parts/Footer/style.jsx @@ -5,7 +5,7 @@ export const StyledFooter = styled.footer`\nwidth: 100%;\ndisplay: flex;\nalign-items: center;\n- background-color: ${props => props.theme.primaryColor};\n+ background-color: ${props => props.theme.primaryColorLight};\ncolor: ${props => props.theme.primaryTextColor};\nheight: 90px;\nbox-shadow: inset 0 0 0 0 ${props => props.theme.primaryColorDark},\n",
         "date": "17.09.2017 15:07:40",
         "repo": "metnew/suicrux",
@@ -4820,7 +4820,7 @@
         "chatgpt_rag": "build: update dependencies installation in CI workflow"
     },
     {
-        "msg": "chore(RoutingWrapper): remove stage-0 syntax, fix types import path\nchore(RoutingWrapper): remove stage-0 syntax, fix types import path",
+        "msg": "chore(RoutingWrapper): remove stage-0 syntax, fix types import path",
         "diff": "diff --git a/src/common/components/addons/RoutingWrapper/index.jsx b/src/common/components/addons/RoutingWrapper/index.jsx @@ -5,7 +5,7 @@ import React, {Component} from 'react'\nimport {Switch, Redirect} from 'react-router-dom'\nimport LazyLoad from 'components/addons/LazyLoad'\nimport {getAuthState} from 'selectors'\n-import type {RouteItem} from 'routing'\n+import type {RouteItem} from 'types'\ntype Props = {\nroutes: RouteItem[],\n@@ -52,7 +52,7 @@ export default class RoutingWrapper extends Component {\nconst {path, exact, strict, component, lazy} = a\n// can visitor access this route?\n// this function determinates is user allowed to visit route\n- const canAccess = ::this.authCheck\n+ const canAccess = this.authCheck.bind(this)\n// select only props that we need\nconst b = {path, exact, strict, canAccess}\n",
         "date": "17.09.2017 14:28:32",
         "repo": "metnew/suicrux",
@@ -4860,7 +4860,7 @@
         "chatgpt_rag": "fix: update mixpanel initialization in analytics plugin to use environment variable"
     },
     {
-        "msg": "chore(locals): fix locals\nchore(locals): fix locals",
+        "msg": "chore(locals): fix locals",
         "diff": "diff --git a/locals/en.json b/locals/en.json \"Dashboard.h1\": \"Noir.\",\n\"Dashboard.h2-1\": \"Intro\",\n\"Dashboard.h2-2\": \"How it works?\",\n- \"Dashboard.h3-1\": \"Hello, this is Noir.\",\n- \"Dashboard.h3-2\": \"Hello, this is Noir.\",\n- \"Dashboard.p-1\": \"How it works?\",\n- \"Dashboard.p-2\": \"Hello, this is Noir.\"\n+ \"Dashboard.h3-1\": \"Noir.\",\n+ \"Dashboard.h3-2\": \"Noir.\",\n+ \"Dashboard.p-1\": \"In progress.\",\n+ \"Dashboard.p-2\": \"In progress.\"\n}\n",
         "date": "16.10.2017 17:15:32",
         "repo": "metnew/suicrux",
@@ -4980,7 +4980,7 @@
         "chatgpt_rag": "chore(deps): updates @chakra-ui/vue dependency to ^0.7.0-next.2 and adds it to the nohoist list"
     },
     {
-        "msg": "chore(styles/theme): random color theme\nchore(styles/theme): random color theme",
+        "msg": "chore(styles/theme): random color theme",
         "diff": "diff --git a/src/common/styles/theme.jsx b/src/common/styles/theme.jsx * {@link https://www.materialpalette.com/}\n*/\nexport default {\n- primaryColorDark: '#00796B',\n- primaryColor: '#009688',\n- primaryColorLight: '#B2DFDB',\n+ primaryColorDark: '#0e1319',\n+ primaryColor: '#1b1e2f',\n+ primaryColorLight: '#303747',\nprimaryColorText: '#F7F7F7',\n- accentColor: '#00BCD4',\n+ accentColor: '#e2c7c0',\nprimaryTextColor: '#212121',\nsecondaryTextColor: '#757575',\ndividerColor: '#BDBDBD'\n",
         "date": "17.09.2017 14:50:28",
         "repo": "metnew/suicrux",

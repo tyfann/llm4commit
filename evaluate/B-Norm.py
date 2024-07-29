@@ -173,6 +173,7 @@ def computeMaps(predictions, goldfile):
         else:
             (rid, pred) = (cols[0], cols[1])
         predictionMap[rid] = [splitPuncts(pred.strip().lower())]
+        # predictionMap[rid] = [splitPuncts(pred.strip())]
 
     for row in gf:
         (rid, pred) = row.split('\t')
@@ -180,6 +181,7 @@ def computeMaps(predictions, goldfile):
             if rid not in goldMap:
                 goldMap[rid] = []
             goldMap[rid].append(splitPuncts(pred.strip().lower()))
+            # goldMap[rid].append(splitPuncts(pred.strip()))
 
     return (goldMap, predictionMap)
 
@@ -192,7 +194,7 @@ def bleuFromMaps(m1, m2):
 
     for key in m1:
         if key in m2:
-            bl = bleu(m1[key], m2[key][0])
+            bl = bleu(m1[key], m2[key][0], smooth=1)
             score = [score[i] + bl[i] for i in range(0, len(bl))]
             num += 1
     return [s * 100.0 / num for s in score]
@@ -201,8 +203,8 @@ def bleuFromMaps(m1, m2):
 if __name__ == '__main__':
     # Assuming sys.argv[1] is path to reference sentences file (e.g., labels.txt)
     # and sys.argv[2] is path to generated sentences file (e.g., generated_sentences.txt)
-    reference_file_path = "../data/angular_filtered/subsets/generation/test_ref.txt"
-    generated_file_path = "../data/angular_filtered/subsets/generation/test_race_v1.txt"
+    reference_file_path = "./data/angular_filtered/subsets/generation/test_ref.txt"
+    generated_file_path = "./data/angular_filtered/subsets/generation/test_gpt35_model_classified_rag.txt"
 
     with open(reference_file_path, "r", encoding='UTF-8') as ref_file, open(generated_file_path, "r", encoding='UTF-8') as gen_file:
         reference_sentences = [line.strip() for line in ref_file.readlines()]

@@ -37,11 +37,11 @@ docs: added requirements to README
 docs: document externals and css imports
 docs: link to razzle 3 docs
 docs(IconExampleIconGroup): fix circle outline
-docs(install): Use the minified version of Bootstrap CSS\ndocs(install): Use the minified version of Bootstrap CSS
+docs(install): Use the minified version of Bootstrap CSS
 docs(changelog): manually correct unreleased
 docs(auth-init): added namespace info to vuex actions/mutations
 docs(README): fix release instructions'
-docs(Modal): fix Modal.Description description\ndocs(Modal): fix Modal.Description description
+docs(Modal): fix Modal.Description description
 docs(Cards): fix broken link
 docs: Fix typo in faq.md\n[skip ci]
 docs(Progress): typo stripped -> striped
@@ -60,7 +60,7 @@ docs: how to watch .env files\n[skip ci]
 docs(messaging): added messaing object example for collectionEnabled
 docs: no -- needed here
 docs(plugin-typescript): add link to example
-docs(readme): add Bandwidth Hero to built with\ndocs(readme): add Bandwidth Hero to built with
+docs(readme): add Bandwidth Hero to built with
 docs: delay option as number instead of string, in readme\n[skip ci]
 docs(UncontrolledCollapse): include example
 docs: better config modification
@@ -90,7 +90,7 @@ docs(options): analytics and remote config description\nAnalytics and Remote Con
 docs(routes): fix layout component imports
 docs(Collapse): Document the defaultOpen prop\nAdds a sentence to describe the defaultOpen prop.
 docs: was used
-docs(Form): fix group variations typo\ndocs(Form): fix group variations typo
+docs(Form): fix group variations typo
 docs(ModalExampleScrollingContent): your description\nTo conform with typescript definition files
 docs(readme): add badges for CDN, NPM, and license + CDN info.
 docs: update radio/checkbox examples to follow docs\n<input> and <label> should be siblings\n<input> should before after <label>
@@ -102,7 +102,7 @@ docs: use consistent ext example\n[skip ci]\nRef
 docs(stack.mdx): documentation for the Stack component
 docs: :memo: more winget stuff
 docs: Reposition Code Sponsor\nBy having the sponsor embed code at the bottom, it ends up being more effective to help fund the project.
-docs(layouts): fix typo in GridLayout\ndocs(layouts): fix typo in GridLayout
+docs(layouts): fix typo in GridLayout
 docs(Icon): fix selector for input
 docs: sort components alphabetically
 docs(typo): Fix misspelling in documentation (Alerts)
@@ -110,33 +110,33 @@ docs(index): don't use prod libs in dev
 docs(Icon): add FontAwesome attribution
 docs: update contributing
 docs(Modal): fix nested modal closing\nCloses
-feat(404-page): update NotFound container\nfeat(404-page): update NotFound container
+feat(404-page): update NotFound container
 feat(editbale): add editable props
 feat(menu): option event handling
-feat(containers): add data fetching in Links\nfeat(containers): add data fetching in Links
+feat(containers): add data fetching in Links
 feat(razzle): allow toggling usage of null loader for node target
-feat(Sidebar): use SidebarLogo based on Logo component\nfeat(Sidebar): use SidebarLogo based on Logo component
+feat(Sidebar): use SidebarLogo based on Logo component
 feat: query blocks with a height greater than 335
 feat(Form): add submit to component\nThis makes it easier to use submit as if the component was a raw form (via 'standard' )
-feat(reducers/links): add count property\nfeat(reducers/links): add count property
+feat(reducers/links): add count property
 feat(auth): add idToken to user's payload\nfeat
-feat(routing): make all containers lazy, simplify code\nfeat(routing): make all containers lazy, simplify code
+feat(routing): make all containers lazy, simplify code
 feat(types): add type exports for color mode & theme providers
 feat: alias compat for preact X
 feat(razzle): add config debug flags
 feat(isJWT): signature is not required
-feat(server/ssr): move to react 16\nfeat(server/ssr): move to react 16
+feat(server/ssr): move to react 16
 feat: more comprehensive gitignore
-feat(Footer): add basic test\nfeat(Footer): add basic test
+feat(Footer): add basic test
 feat: use jest fake timer
 feat: Add optional argument to cxxr
 feat: add `process.browser` for compatibility
 feat(webpac_config/client/prod): remove comments from css files
 feat(cli): Added CLI support for the --global-var option :tada:
 feat(server/middlewares/auth): add default language\nfeat(server/middlewares/auth): add default language for req.user
-feat(reducers/auth): remove jwt token from state.me.auth\nfeat(reducers/auth): remove jwt token from state.me.auth
+feat(reducers/auth): remove jwt token from state.me.auth
 feat(CarPlay): Add CarPlay plugin to the list of possible plugins
-feat(Header): add FormattedMessage\nfeat(Header): add FormattedMessage
+feat(Header): add FormattedMessage
 feat(.babelrc): add babel-plugin-webpack-alias in test and development\nadd babel-plugin-webpack-alias in test and development
 feat(src/common/routing/index.jsx): use  /* webpackMode: "eager" for server-side code
 feat: add keyboard navigation for Schedule
@@ -144,7 +144,7 @@ feat(avatar): docs
 feat: added css for github button
 feat: use contenthash instead of chunkhash and hash
 feat: CSS Variables support
-feat(api/links.json): fix links desc\nfeat(api/links.json): fix links desc
+feat(api/links.json): fix links desc
 feat(Modal): Make toggle prop optional\n* Make toggle prop optional on Modal\nre\n* Check toggle prop for null
 feat: :sparkles: add Fathom tracking
 feat(drawer): add stories for Drawer component
@@ -162,27 +162,27 @@ feat: support ctrl+l to clear\nAnd refactor the stdin handling
 feat: update Single Page Applications section
 feat(Switch): test
 feat(Glo): add Glo component
-feat(Dashboard): remove old redux stuff from Dashboard container\nfeat(Dashboard): remove old redux stuff from Dashboard container
-feat(webpack.isomorphic): add i18n folder to aliases\nfeat(webpack.isomorphic): add i18n folder to aliases
-feat(server): add useragent middleware\nfeat(server): add useragent middleware
+feat(Dashboard): remove old redux stuff from Dashboard container
+feat(webpack.isomorphic): add i18n folder to aliases
+feat(server): add useragent middleware
 feat: checks for `$grid-row-columns`
 feat: Add banner
 feat(config): Change to temporary credentials
 feat: keep contrast on `.table-dark`\nIn case we set `$body-bg` to a dark color, we have to keep table contrast relevant.
 feat: Can filter based on public key
 feat: declare ViewOptions in vega-typings
-feat(styles): duplicate some styles to make SSR result nicer\nfeat(styles): duplicate some styles to make SSR result nicer
+feat(styles): duplicate some styles to make SSR result nicer
 feat: Added ties to top N points
 feat: add examples to static export
 feat(server/ssr): rewrite ssr, add HTML component, use stats instead of hadrcoded html\nfeat(server/ssr): rewrite ssr, add HTML component, use stats instead of\nhadrcoded html
 feat: logo and header link to home page
-feat(jest_config): add mocks and disable coverage of styles\nfeat(jest_config): add mocks and disable coverage of styles
+feat(jest_config): add mocks and disable coverage of styles
 feat(ssr): render Helmet on server
 feat(src/client): add react-a11y, fix export of main configuration scripts(configureRoot, configureA\nadd react-a11y, fix export of main configuration scripts(configureRoot, configureApp)
 feat: add nullish coalescing for validUntil and simplify function objects
 feat: Esmfy repl.html
 feat(.eslintrc): add react-a11y plugin for eslint\nadd react-a11y plugin for eslint
-feat(server/ssr): add async-component, async-bootstrapper\nfeat(server/ssr): add async-component, async-bootstrapper
+feat(server/ssr): add async-component, async-bootstrapper
 feat(api/LocalStorateCookiesSvc): remove store2, add comments\nfeat(api/LocalStorateCookiesSvc): remove store2 from core functions and\ncomment import of store2, add comments
 feat: support link component set href attribute
 feat(webpack_config/client/webpack.base.js): add more style extension to resolve
@@ -190,14 +190,14 @@ feat: added new empty favorites test
 feat: normalize network input to allow mixed-case input
 feat: add font weight medium and semibold;\nrefactor: update colors;\nfix: change null to unset to properly generate CSS Variables;
 feat(popover): events emission on  by Popover component
-feat(Input): add `autoCapitalize` to html input props\nfeat(Input): add `autoCapitalize` to html input props
-feat(styles): add more comments in /utils.jsx\nfeat(styles): add more comments in /utils.jsx
+feat(Input): add `autoCapitalize` to html input props
+feat(styles): add more comments in /utils.jsx
 feat: Clean output prior to production build
 feat: expose $el while evaluating data expression
 feat(Modal): pass event object to toggle prop
 feat: keep focusing inside the popup by `tab` key
-feat(api-utils): make xhr wrapper less complex\nfeat(api-utils): make xhr wrapper less complex
-feat(locals): add basic text for dashboard\nfeat(locals): add basic text for dashboard
+feat(api-utils): make xhr wrapper less complex
+feat(locals): add basic text for dashboard
 feat: if RollbarProxy is defined, use the proxy to send all Rollbar events
 feat: finally updating sponsor section to separate sponsors
 feat(button): import components path modify
@@ -289,7 +289,7 @@ fix(project-version): Fixes version change, keeping the correct class on the URL
 fix(tooltip): overlap between d3 sliding dataset and notetip
 fix: clickable area for saving/deleting icon
 fix(formfield): relax label propType validator\nFixes
-fix(typings): inherit Radio props from Checkbox\nfix(typings): inherit Radio props from Checkbox
+fix(typings): inherit Radio props from Checkbox
 fix(babel-preset-razzle): remove experimental babel features
 fix(cnumberinput): fix number-input ids created at build time
 fix(Time series): only show comparison when there are 2 or more datasets
@@ -368,7 +368,7 @@ style(all): add missing semicolon
 style: removed semicolons
 style: :lipstick: author styles
 style(Embed): update typings and propTypes usage
-style(webpack_config/server): formatting\nstyle(webpack_config/server): formatting
+style(webpack_config/server): formatting
 style(pycandela): fix flake8 issues
 test: comply with strict mode
 test(avatar-group): add check for max items
@@ -405,7 +405,7 @@ test: use a more standard format for webpack config
 test(stat): remove provider
 test: disable flaky node tests
 test(controls.test.js): add position testing to contro
-test(PopperContent): remove debug statement\ntest(PopperContent): remove debug statement
+test(PopperContent): remove debug statement
 chore: add note about providing a reference in PR template\ncloses
 chore(demo): skip unnecessary sleep(1500) during prerendering
 chore: undo change to spawn code
@@ -424,7 +424,7 @@ chore(package): remove changelog deploy scripts
 chore(release): 6.0.0
 chore(search-input): Only show public methods
 chore(issueTemplate): update demo link
-chore(xhr_wrapper): add comment\nchore(xhr_wrapper): add comment
+chore(xhr_wrapper): add comment
 chore: bump package version
 chore: update oliver\n[skip ci]
 chore: Add CARD_TYPES constant for Type sorts
@@ -435,11 +435,11 @@ chore: :wrench: update fs allow
 chore(docs): Remove reference to `onExit` for CollapsePage\nShould have been written as `onExited` as `onExit` is not an event.
 chore: package: v27.10.0
 chore: -> __c -> __f
-chore(actions/utils): update comment on Awral\nchore(actions/utils): update comment on Awral
+chore(actions/utils): update comment on Awral
 chore: bump `sirv` version
 chore: point installs to yarn registry
 chore(testing): example of testing with supplied args
-chore(actions/utils): add comment about Awral\nchore(actions/utils): add comment about Awral
+chore(actions/utils): add comment about Awral
 chore: fix typo in image mark docs
 chore: publish command
 chore: update link
@@ -456,15 +456,15 @@ chore: remove test from postinstall script
 chore(tests): remove unnecessary template
 chore: fix linting issues
 chore: add dark theme ability
-chore(package.json): remove dev:exp command\nchore(package.json): remove dev:exp command
+chore(package.json): remove dev:exp command
 chore(package): add react-test-renderer
 chore: Code clean up in View.
 chore(docs): update inline form spacing\nCloses
 chore: improve travis build?
-chore(webpack_config): add comment about Preact\nchore(webpack_config): add comment about Preact
+chore(webpack_config): add comment about Preact
 chore: fix lint errs
 chore: update test envs
-chore(Footer): use light color for footer\nchore(Footer): use light color for footer
+chore(Footer): use light color for footer
 chore: docs service worker update
 chore: :wrench: update tailwind config
 chore: Removes duplicated dev deps in CLI
@@ -480,11 +480,11 @@ chore: remove unused screen
 chore: package: v6.2.0
 chore: auto publish
 chore: Update CI workflow.
-chore(RoutingWrapper): remove stage-0 syntax, fix types import path\nchore(RoutingWrapper): remove stage-0 syntax, fix types import path
+chore(RoutingWrapper): remove stage-0 syntax, fix types import path
 chore: package: v1.3.0
 chore(divider): review divider
 chore: error handling for routr guards
-chore(locals): fix locals\nchore(locals): fix locals
+chore(locals): fix locals
 chore: change test targets\nNo longer testing in node@8 as of\nAdding node@14 and dropping non-LTS targets (odd versions).
 chore: updated components list
 chore(firebase-auth-sw): fixed regression introduced in last commit for firebase-auth-sw
@@ -496,6 +496,6 @@ chore(docs): rephrase sentence for grammatical correctness\nChange Text from "Pa
 chore: downgrade jsdom to v19 to support node 12
 chore(config): remove unused options
 chore: add chakra to deps
-chore(styles/theme): random color theme\nchore(styles/theme): random color theme
+chore(styles/theme): random color theme
 chore: remove vue-template-computer from devDeps
 chore(carbonads): update script src
