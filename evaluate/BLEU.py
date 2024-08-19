@@ -7,16 +7,16 @@ def get_bleu_moses(ref_path, gen_path):
 
     bleu = evaluate.load("bleu")
     # tolowercase
-    # gen_sentence_lst = [sentence.lower() for sentence in gen_sentence_lst]
-    # ref_sentence_lst = [sentence.lower() for sentence in ref_sentence_lst]
+    gen_sentence_lst = [sentence.lower() for sentence in gen_sentence_lst]
+    ref_sentence_lst = [sentence.lower() for sentence in ref_sentence_lst]
     predictions = gen_sentence_lst
     references = ref_sentence_lst
-    results = bleu.compute(predictions=predictions, references=references, smooth=False)
+    results = bleu.compute(predictions=predictions, references=references, smooth=True)
     return results['bleu'] * 100
 
 if __name__ == '__main__':
     ref_path = "./data/angular_filtered/subsets/generation/chunksize/dev_test_ref.txt"
-    gen_path = "./data/angular_filtered/subsets/generation/embedding/dev_test_gpt35_rag_miniLM.txt"
+    gen_path = "./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_500chunk.txt"
 
     if os.path.exists(ref_path) and os.path.exists(gen_path):
         print(get_bleu_moses(ref_path, gen_path))

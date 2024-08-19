@@ -15,6 +15,7 @@ from collections import defaultdict
 import math
 import re
 import json
+import os
 
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import wordnet
@@ -23,6 +24,7 @@ from nltk.translate import meteor_score
 from nltk import word_tokenize
 from typing import Callable, Iterable, List, Tuple
 
+from nltk.translate import meteor_score
 # from nltk.translate.meteor_score import _match_enums, _enum_stem_match, _enum_wordnetsyn_match, _enum_align_words, _count_chunks, exact_match, _generate_enums
 
 from nltk.stem.porter import PorterStemmer
@@ -46,11 +48,11 @@ def _generate_enums(hypothesis, reference, preprocess=str.lower):
     :return: enumerated words list
     :rtype: list of 2D tuples, list of 2D tuples
     """
-    hypothesis_list = list(enumerate(preprocess(hypothesis).split()))
-    reference_list = list(enumerate(preprocess(reference).split()))
+    # hypothesis_list = list(enumerate(preprocess(hypothesis).split()))
+    # reference_list = list(enumerate(preprocess(reference).split()))
 
-    # hypothesis_list = list(enumerate(word_tokenize(preprocess(hypothesis))))
-    # reference_list = list(enumerate(word_tokenize(preprocess(reference))))
+    hypothesis_list = list(enumerate(word_tokenize(preprocess(hypothesis))))
+    reference_list = list(enumerate(word_tokenize(preprocess(reference))))
 
     return hypothesis_list, reference_list
 
@@ -420,6 +422,61 @@ def single_meteor_score(
     return (1 - penalty) * fmean
 
 
+def cal_fmean(
+    reference,
+    hypothesis,
+    preprocess=str.lower,
+    stemmer=PorterStemmer(),
+    wordnet=wordnet,
+    alpha=0.85,
+    beta=2.35,
+    gamma=0.45,
+    w_1=1,
+    w_2=0.8,
+    w_3=0.6
+):
+    enum_hypothesis, enum_reference = _generate_enums(
+        hypothesis, reference, preprocess=preprocess
+    )
+    translation_length = len(enum_hypothesis)
+    reference_length = len(enum_reference)
+    exact_m,_,_ = exact_match(hypothesis, reference)
+    stem_m,_,_ = _enum_stem_match(enum_hypothesis, enum_reference, stemmer=PorterStemmer())
+    syn_m,_,_ = _enum_wordnetsyn_match(enum_hypothesis, enum_reference, wordnet=wordnet)
+
+    exact_count = len(exact_m)
+    stem_count = len((set(stem_m).difference(exact_m)))
+    syn_count = len((set(syn_m).difference(stem_m)))
+    try:
+        precision = float(w_1*exact_count + w_2*stem_count + w_3*syn_count) / translation_length
+        recall = float(w_1*exact_count + w_2*stem_count + w_3*syn_count) / reference_length
+        fmean = (precision * recall) / (alpha * precision + (1 - alpha) * recall)
+    except ZeroDivisionError:
+        return 0.0
+    return fmean
+
+def cal_penalty( reference,
+    hypothesis,
+    preprocess=str.lower,
+    stemmer=PorterStemmer(),
+    wordnet=wordnet,
+    alpha=0.85,
+    beta=2.35,
+    gamma=0.45):
+    enum_hypothesis, enum_reference = _generate_enums(
+        hypothesis, reference, preprocess=preprocess
+    )
+    matches, _, _ = _enum_allign_words(
+        enum_hypothesis, enum_reference, stemmer=stemmer)
+
+    matches_count = len(matches)
+    try:
+        chunk_count = float(_count_chunks(matches))
+        frag_frac = chunk_count / matches_count
+    except ZeroDivisionError:
+        return 0.0
+    penalty = gamma * frag_frac ** beta
+    return penalty
 
 def meteorn_score(
     references,
@@ -499,6 +556,54 @@ def meteorn_score(
         ]
     )
 
+def cal_avg_penalty(ref_path, gen_path):
+    preds = open(gen_path, encoding='UTF-8').read().split("\n")
+    refs = open(ref_path, encoding='UTF-8').read().split("\n")
+    punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+
+    for i in range(len(refs)):
+        for ele in refs[i]:
+            if ele in punc:
+                refs[i] = refs[i].replace(ele, " ")
+                refs[i] = re.sub(r'\s+', ' ', refs[i]).strip()
+
+    for i in range(len(refs)):
+        if preds[i] == None:
+            print(i)
+        for ele in preds[i]:
+            if ele in punc:
+                preds[i] = preds[i].replace(ele, " ")
+                preds[i] = re.sub(r'\s+', ' ', preds[i]).strip()
+
+    penalty_lst = []
+    for ref, gen in zip(refs, preds):
+        penalty_lst.append(cal_penalty(ref, gen))
+    return sum(penalty_lst) / len(penalty_lst)
+
+def cal_avg_fmean(ref_path, gen_path):
+    preds = open(gen_path, encoding='UTF-8').read().split("\n")
+    refs = open(ref_path, encoding='UTF-8').read().split("\n")
+    punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+
+    for i in range(len(refs)):
+        for ele in refs[i]:
+            if ele in punc:
+                refs[i] = refs[i].replace(ele, " ")
+                refs[i] = re.sub(r'\s+', ' ', refs[i]).strip()
+
+    for i in range(len(refs)):
+        if preds[i] == None:
+            print(i)
+        for ele in preds[i]:
+            if ele in punc:
+                preds[i] = preds[i].replace(ele, " ")
+                preds[i] = re.sub(r'\s+', ' ', preds[i]).strip()
+
+    fmean_lst = []
+    for ref, gen in zip(refs, preds):
+        fmean_lst.append(cal_fmean(ref, gen))
+    return sum(fmean_lst) / len(fmean_lst)
+
 
 def calculate_log_MNEXT(file_path, ref_name, pred_name):
     refs = []
@@ -538,6 +643,14 @@ def calculate_log_MNEXT(file_path, ref_name, pred_name):
     print(f'{file_path}/{pred_name}: {log_MNEXT_score}')
 
 if __name__ == '__main__':
+    ref_path = "./data/vdo_filtered/generation/test_ref.txt"
+    gen_path = "./data/vdo_filtered/generation/test_gpt35_rag.txt"
+
+    if os.path.exists(ref_path) and os.path.exists(gen_path):
+        print(cal_avg_penalty(ref_path, gen_path))
+    else:
+        print("File not exits")
+
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_gpt35_zeroshot.json', 'msg', 'chatgpt_zeroshot')
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_gpt35_rag.json', 'msg', 'chatgpt_rag')
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_race.json', 'msg', 'race')
@@ -546,13 +659,13 @@ if __name__ == '__main__':
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_gpt35_golden_classified_rag.json', 'msg', 'chatgpt_rag')
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_nngen.json', 'msg', 'nngen')
 
-    calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_nochunk.json', 'msg', 'chatgpt_rag')
-    calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_500chunk.json', 'msg', 'chatgpt_rag')
-    calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_1000chunk.json', 'msg', 'chatgpt_rag')
-    calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_2500chunk.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_nochunk.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_500chunk.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_1000chunk.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_2500chunk.json', 'msg', 'chatgpt_rag')
 
-    calculate_log_MNEXT('./data/angular_filtered/subsets/generation/embedding/dev_test_gpt35_rag_mxbai.json', 'msg', 'chatgpt_rag')
-    calculate_log_MNEXT('./data/angular_filtered/subsets/generation/embedding/dev_test_gpt35_rag_miniLM.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/embedding/dev_test_gpt35_rag_mxbai.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/embedding/dev_test_gpt35_rag_miniLM.json', 'msg', 'chatgpt_rag')
 
     # calculate_log_MNEXT('./data/vdo_filtered/generation/test_race.json', 'msg', 'race')
     # calculate_log_MNEXT('./data/vdo_filtered/generation/test_gpt35_zeroshot.json', 'msg', 'chatgpt_zeroshot')

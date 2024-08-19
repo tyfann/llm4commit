@@ -13,8 +13,8 @@ def get_meteor(ref_path, gen_path):
     return results['meteor'] * 100
 
 if __name__ == '__main__':
-    ref_path = "./data/angular_filtered/subsets/generation/chunksize/dev_test_ref.txt"
-    gen_path = "./data/angular_filtered/subsets/generation/embedding/dev_test_gpt35_rag_miniLM.txt"
+    ref_path = "./data/vdo_filtered/generation/test_ref.txt"
+    gen_path = "./data/vdo_filtered/generation/test_gpt35_rag.txt"
 
     if os.path.exists(ref_path) and os.path.exists(gen_path):
         print(get_meteor(ref_path, gen_path))
