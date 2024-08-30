@@ -643,32 +643,33 @@ def calculate_log_MNEXT(file_path, ref_name, pred_name):
     print(f'{file_path}/{pred_name}: {log_MNEXT_score}')
 
 if __name__ == '__main__':
-    ref_path = "./data/vdo_filtered/generation/test_ref.txt"
-    gen_path = "./data/vdo_filtered/generation/test_gpt35_rag.txt"
-
-    if os.path.exists(ref_path) and os.path.exists(gen_path):
-        print(cal_avg_penalty(ref_path, gen_path))
-    else:
-        print("File not exits")
+    # ref_path = "../data/angular_filtered/subsets/generation/test_ref.txt"
+    # gen_path = "../data/angular_filtered/subsets/generation/test_gpt35_model_classified_rag_1000chunk.txt"
+    #
+    # if os.path.exists(ref_path) and os.path.exists(gen_path):
+    #     print(round(cal_avg_penalty(ref_path, gen_path), 3))
+    # else:
+    #     print("File not exits")
 
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_gpt35_zeroshot.json', 'msg', 'chatgpt_zeroshot')
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_gpt35_rag.json', 'msg', 'chatgpt_rag')
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_race.json', 'msg', 'race')
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_race_v1.json', 'msg', 'race')
-    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_gpt35_model_classified_rag.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_gpt35_model_classified_rag_1000chunk.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/test_gpt35_golden_classified_rag_1000chunk.json', 'msg', 'chatgpt_rag')
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_gpt35_golden_classified_rag.json', 'msg', 'chatgpt_rag')
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/test_nngen.json', 'msg', 'nngen')
 
     # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_nochunk.json', 'msg', 'chatgpt_rag')
-    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_500chunk.json', 'msg', 'chatgpt_rag')
-    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_1000chunk.json', 'msg', 'chatgpt_rag')
-    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/chunksize/dev_test_gpt35_rag_2500chunk.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/chunksize/test_gpt35_rag_500chunk.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/chunksize/test_gpt35_rag_1000chunk.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/chunksize/test_gpt35_rag_2500chunk.json', 'msg', 'chatgpt_rag')
 
-    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/embedding/dev_test_gpt35_rag_mxbai.json', 'msg', 'chatgpt_rag')
-    # calculate_log_MNEXT('./data/angular_filtered/subsets/generation/embedding/dev_test_gpt35_rag_miniLM.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/embedding/test_gpt35_rag_mxbai.json', 'msg', 'chatgpt_rag')
+    # calculate_log_MNEXT('../data/angular_filtered/subsets/generation/embedding/test_gpt35_rag_miniLM.json', 'msg', 'chatgpt_rag')
 
     # calculate_log_MNEXT('./data/vdo_filtered/generation/test_race.json', 'msg', 'race')
     # calculate_log_MNEXT('./data/vdo_filtered/generation/test_gpt35_zeroshot.json', 'msg', 'chatgpt_zeroshot')
     # calculate_log_MNEXT('./data/vdo_filtered/generation/test_gpt35_rag.json', 'msg', 'chatgpt_rag')
-    # calculate_log_MNEXT('./data/vdo_filtered/generation/test_gpt35_model_classified_rag.json', 'msg', 'chatgpt_rag')
+    calculate_log_MNEXT('../data/vdo_filtered/generation/test_gpt35_golden_classified_rag.json', 'msg', 'chatgpt_rag')
     # calculate_log_MNEXT('../data/vdo_filtered/generation/test_nngen.json', 'msg', 'nngen')

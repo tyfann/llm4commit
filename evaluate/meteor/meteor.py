@@ -16,16 +16,15 @@ if evaluate.config.PY_VERSION < version.parse("3.8"):
 else:
     import importlib.metadata as importlib_metadata
 
-
 NLTK_VERSION = version.parse(importlib_metadata.version("nltk"))
 if NLTK_VERSION >= version.Version("3.6.4"):
     from nltk import word_tokenize
 
 
 def _generate_enums(
-    hypothesis: Iterable[str],
-    reference: Iterable[str],
-    preprocess: Callable[[str], str] = str.lower,
+        hypothesis: Iterable[str],
+        reference: Iterable[str],
+        preprocess: Callable[[str], str] = str.lower,
 ) -> Tuple[List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     Takes in pre-tokenized inputs for hypothesis and reference and returns
@@ -52,7 +51,7 @@ def _generate_enums(
 
 
 def exact_match(
-    hypothesis: Iterable[str], reference: Iterable[str]
+        hypothesis: Iterable[str], reference: Iterable[str]
 ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     matches exact words in hypothesis and reference
@@ -69,8 +68,8 @@ def exact_match(
 
 
 def _match_enums(
-    enum_hypothesis_list: List[Tuple[int, str]],
-    enum_reference_list: List[Tuple[int, str]],
+        enum_hypothesis_list: List[Tuple[int, str]],
+        enum_reference_list: List[Tuple[int, str]],
 ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     matches exact words in hypothesis and reference and returns
@@ -96,9 +95,9 @@ def _match_enums(
 
 
 def _enum_stem_match(
-    enum_hypothesis_list: List[Tuple[int, str]],
-    enum_reference_list: List[Tuple[int, str]],
-    stemmer: StemmerI = PorterStemmer(),
+        enum_hypothesis_list: List[Tuple[int, str]],
+        enum_reference_list: List[Tuple[int, str]],
+        stemmer: StemmerI = PorterStemmer(),
 ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     Stems each word and matches them in hypothesis and reference
@@ -124,9 +123,9 @@ def _enum_stem_match(
 
 
 def stem_match(
-    hypothesis: Iterable[str],
-    reference: Iterable[str],
-    stemmer: StemmerI = PorterStemmer(),
+        hypothesis: Iterable[str],
+        reference: Iterable[str],
+        stemmer: StemmerI = PorterStemmer(),
 ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     Stems each word and matches them in hypothesis and reference
@@ -143,9 +142,9 @@ def stem_match(
 
 
 def _enum_wordnetsyn_match(
-    enum_hypothesis_list: List[Tuple[int, str]],
-    enum_reference_list: List[Tuple[int, str]],
-    wordnet: WordNetCorpusReader = wordnet,
+        enum_hypothesis_list: List[Tuple[int, str]],
+        enum_reference_list: List[Tuple[int, str]],
+        wordnet: WordNetCorpusReader = wordnet,
 ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     Matches each word in reference to a word in hypothesis
@@ -180,9 +179,9 @@ def _enum_wordnetsyn_match(
 
 
 def wordnetsyn_match(
-    hypothesis: Iterable[str],
-    reference: Iterable[str],
-    wordnet: WordNetCorpusReader = wordnet,
+        hypothesis: Iterable[str],
+        reference: Iterable[str],
+        wordnet: WordNetCorpusReader = wordnet,
 ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     Matches each word in reference to a word in hypothesis if any synonym
@@ -200,10 +199,10 @@ def wordnetsyn_match(
 
 
 def _enum_align_words(
-    enum_hypothesis_list: List[Tuple[int, str]],
-    enum_reference_list: List[Tuple[int, str]],
-    stemmer: StemmerI = PorterStemmer(),
-    wordnet: WordNetCorpusReader = wordnet,
+        enum_hypothesis_list: List[Tuple[int, str]],
+        enum_reference_list: List[Tuple[int, str]],
+        stemmer: StemmerI = PorterStemmer(),
+        wordnet: WordNetCorpusReader = wordnet,
 ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     Aligns/matches words in the hypothesis to reference by sequentially
@@ -241,10 +240,10 @@ def _enum_align_words(
 
 
 def align_words(
-    hypothesis: Iterable[str],
-    reference: Iterable[str],
-    stemmer: StemmerI = PorterStemmer(),
-    wordnet: WordNetCorpusReader = wordnet,
+        hypothesis: Iterable[str],
+        reference: Iterable[str],
+        stemmer: StemmerI = PorterStemmer(),
+        wordnet: WordNetCorpusReader = wordnet,
 ) -> Tuple[List[Tuple[int, int]], List[Tuple[int, str]], List[Tuple[int, str]]]:
     """
     Aligns/matches words in the hypothesis to reference by sequentially
@@ -277,7 +276,7 @@ def _count_chunks(matches: List[Tuple[int, int]]) -> int:
     chunks = 1
     while i < len(matches) - 1:
         if (matches[i + 1][0] == matches[i][0] + 1) and (
-            matches[i + 1][1] == matches[i][1] + 1
+                matches[i + 1][1] == matches[i][1] + 1
         ):
             i += 1
             continue
@@ -287,14 +286,14 @@ def _count_chunks(matches: List[Tuple[int, int]]) -> int:
 
 
 def single_meteor_score(
-    reference: Iterable[str],
-    hypothesis: Iterable[str],
-    preprocess: Callable[[str], str] = str.lower,
-    stemmer: StemmerI = PorterStemmer(),
-    wordnet: WordNetCorpusReader = wordnet,
-    alpha: float = 0.9,
-    beta: float = 3.0,
-    gamma: float = 0.5,
+        reference: Iterable[str],
+        hypothesis: Iterable[str],
+        preprocess: Callable[[str], str] = str.lower,
+        stemmer: StemmerI = PorterStemmer(),
+        wordnet: WordNetCorpusReader = wordnet,
+        alpha: float = 0.9,
+        beta: float = 3.0,
+        gamma: float = 0.5,
 ) -> float:
     """
     Calculates METEOR score for single hypothesis and reference as per
@@ -347,16 +346,17 @@ def single_meteor_score(
         frag_frac = chunk_count / matches_count
     except ZeroDivisionError:
         return 0.0
-    penalty = gamma * frag_frac**beta
+    penalty = gamma * frag_frac ** beta
     return (1 - penalty) * fmean
 
+
 def cal_penalty(reference: Iterable[str],
-    hypothesis: Iterable[str],
-    preprocess: Callable[[str], str] = str.lower,
-    stemmer: StemmerI = PorterStemmer(),
-    wordnet: WordNetCorpusReader = wordnet,
-    beta: float = 3.0,
-    gamma: float = 0.5):
+                hypothesis: Iterable[str],
+                preprocess: Callable[[str], str] = str.lower,
+                stemmer: StemmerI = PorterStemmer(),
+                wordnet: WordNetCorpusReader = wordnet,
+                beta: float = 3.0,
+                gamma: float = 0.5):
     enum_hypothesis, enum_reference = _generate_enums(
         hypothesis, reference, preprocess=preprocess
     )
@@ -369,18 +369,19 @@ def cal_penalty(reference: Iterable[str],
         frag_frac = chunk_count / matches_count
     except ZeroDivisionError:
         return 0.0
-    penalty = gamma * frag_frac**beta
+    penalty = gamma * frag_frac ** beta
 
     return penalty
 
+
 def cal_fmean(reference: Iterable[str],
-    hypothesis: Iterable[str],
-    preprocess: Callable[[str], str] = str.lower,
-    stemmer: StemmerI = PorterStemmer(),
-    wordnet: WordNetCorpusReader = wordnet,
-    alpha: float = 0.9,
-    beta: float = 3.0,
-    gamma: float = 0.5):
+              hypothesis: Iterable[str],
+              preprocess: Callable[[str], str] = str.lower,
+              stemmer: StemmerI = PorterStemmer(),
+              wordnet: WordNetCorpusReader = wordnet,
+              alpha: float = 0.9,
+              beta: float = 3.0,
+              gamma: float = 0.5):
     enum_hypothesis, enum_reference = _generate_enums(
         hypothesis, reference, preprocess=preprocess
     )
@@ -398,15 +399,16 @@ def cal_fmean(reference: Iterable[str],
         return 0.0
     return fmean
 
+
 def meteor_score(
-    references: Iterable[Iterable[str]],
-    hypothesis: Iterable[str],
-    preprocess: Callable[[str], str] = str.lower,
-    stemmer: StemmerI = PorterStemmer(),
-    wordnet: WordNetCorpusReader = wordnet,
-    alpha: float = 0.9,
-    beta: float = 3.0,
-    gamma: float = 0.5,
+        references: Iterable[Iterable[str]],
+        hypothesis: Iterable[str],
+        preprocess: Callable[[str], str] = str.lower,
+        stemmer: StemmerI = PorterStemmer(),
+        wordnet: WordNetCorpusReader = wordnet,
+        alpha: float = 0.9,
+        beta: float = 3.0,
+        gamma: float = 0.5,
 ) -> float:
     """
     Calculates METEOR score for hypothesis with multiple references as
@@ -491,6 +493,7 @@ def compute(predictions, references, alpha=0.9, beta=3, gamma=0.5):
 
     return {"meteor": np.mean(scores)}
 
+
 def cal_avg_penalty(ref_path, gen_path):
     gen_sentence_lst = open(gen_path, encoding='UTF-8').read().split("\n")
     ref_sentence_lst = open(ref_path, encoding='UTF-8').read().split("\n")
@@ -498,6 +501,7 @@ def cal_avg_penalty(ref_path, gen_path):
     for ref, gen in zip(ref_sentence_lst, gen_sentence_lst):
         penalty_lst.append(cal_penalty(word_tokenize(ref), word_tokenize(gen)))
     return sum(penalty_lst) / len(penalty_lst)
+
 
 def cal_avg_fmean(ref_path, gen_path):
     gen_sentence_lst = open(gen_path, encoding='UTF-8').read().split("\n")
@@ -518,12 +522,11 @@ def get_meteor(ref_path, gen_path):
     return results['meteor'] * 100
 
 
-
 if __name__ == '__main__':
-    ref_path = "./data/vdo_filtered/generation/test_ref.txt"
-    gen_path = "./data/vdo_filtered/generation/test_gpt35_rag.txt"
+    ref_path = "../../data/vdo_filtered/generation/test_ref.txt"
+    gen_path = "../../data/vdo_filtered/generation/test_gpt35_golden_classified_rag.txt"
 
     if os.path.exists(ref_path) and os.path.exists(gen_path):
-        print(cal_avg_fmean(ref_path, gen_path))
+        print(round(get_meteor(ref_path, gen_path), 2))
     else:
         print("File not exits")
